@@ -25,6 +25,7 @@
   }
   
   .search {
+    width: 23vw;
     height: 35px;
     padding-left: 25px;
     background-size: 20px;
@@ -46,6 +47,17 @@
         display: none;
     }
     
+    
+}
+@media screen and (max-width: 593px) {
+    .burger{
+       position: absolute;
+       display: flex;
+       justify-content: right;
+    }
+    .search {
+      display: none;
+    }
     
 }
   
