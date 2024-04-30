@@ -10,8 +10,7 @@ const Navbar = () => {
     setState(state + 1);
   };
   return (
-  
-      <div >
+  <div className="navbar">
         <Row style={{color:"white"}}>
           <Col>
         <img
@@ -33,9 +32,8 @@ const Navbar = () => {
             <i class="fa-solid fa-bars"></i>
           </Col>
         </Row>
-        
       </div>
-  
+     
   );
 };
 
