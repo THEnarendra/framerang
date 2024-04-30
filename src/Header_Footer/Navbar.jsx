@@ -14,6 +14,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   }
   
+  
   return (
   <div >
         <Row className="navbar">
