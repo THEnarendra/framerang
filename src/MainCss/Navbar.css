@@ -4,29 +4,34 @@
   }
 
   .navbar{
-    background: rgba(251, 32, 32, 0.12);
+    color: black;
+    /* background: rgba(222 16 16 / 20%); */
+    background: rgb(221,220,220);
+    background: linear-gradient(90deg, rgba(221,220,220,1) 83%, rgba(248,145,145,1) 100%);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    margin: 1% 2%;
+    margin: 1% 3%;
+    font-size: 19px;
+    font-weight: 500;
+    /* text-align: center ; */
+    font-family: cursive;
   }
   
   .image {
     width: 60px;
     height: 60px;
-    margin-left: 40px;
   }
   
   .search {
-    width: 450px;
     height: 35px;
     padding-left: 25px;
-    background: url(https://cdn-icons-png.flaticon.com/128/11741/11741045.png) no-repeat left;
     background-size: 20px;
-    color: white;
-    background-color: rgb(43, 39, 39);
-    border: none;
+    color: rgb(0, 0, 0);
+    background: transparent;
+    border: 1px solid black;
     border-radius: 3%;
+    border-radius: 8px;
   }
   
