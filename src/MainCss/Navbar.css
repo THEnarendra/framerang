@@ -35,11 +35,34 @@
     border-radius: 3%;
     border-radius: 8px;
   }
+  .navMenu{
+    cursor: pointer;
+  }
+  .frameDrop{
+    position: absolute;
+    background-color: white;
+    padding:  1.5%;
+    border: 0.1px solid black;
+    margin: 1%;
+    margin-left: -15px;
+    background: linear-gradient(90deg, rgba(221,220,220,1) 50%, rgba(248,145,145,1) 100%);
+    border-radius: 20px;
+    width: 8%;
+  }
 
 @media screen and (max-width: 991px) {
     .navMenu{
         display: none;
+        margin: 10%;
     }
+    .burger{
+        position: absolute;
+        display: flex;
+        justify-content: right;
+        top: 0;
+        margin-top: 26px;
+        right: 15px;
+     }
 }
 
 @media screen and (min-width: 991px) {
@@ -50,11 +73,7 @@
     
 }
 @media screen and (max-width: 593px) {
-    .burger{
-       position: absolute;
-       display: flex;
-       justify-content: right;
-    }
+    
     .search {
       display: none;
     }

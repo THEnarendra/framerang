@@ -5,10 +5,15 @@ import "../MainCss/Navbar.css"
 
 
 const Navbar = () => {
-  const [state, setState] = useState(0);
-  const Click = () => {
-    setState(state + 1);
-  };
+  const [isOpen, setIsOpen] = useState(true);
+
+  const [frame, setFrame] = useState(false);
+  const [poster, setPoster] = useState(false);
+
+  const toggle=()=>{
+    setIsOpen(!isOpen);
+  }
+  
   return (
   <div >
         <Row className="navbar">
@@ -22,15 +27,36 @@ const Navbar = () => {
           <Col lg={3} md={8} sm={8}>
             <input className="search" type="search" placeholder="Search Anime" />
           </Col>
-          <Col className="navMenu" lg={1} md={12}>Home</Col>
-          <Col className="navMenu" lg={1} md={12}>Frames</Col>
-          <Col className="navMenu" lg={1} md={12}>Posters</Col>
-          <Col className="navMenu" lg={1} md={12}>Track</Col>
-          <Col className="navMenu" lg={2} md={12}>
+          <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>Home</Col>
+          <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>
+            <div onClick={()=>setFrame(!frame)} >
+            Frames <i class="fa-solid fa-angle-down"></i>
+            </div>
+          {frame && (
+            <div className="frameDrop">
+            <p>Anime</p>
+            <p>Marvel</p>
+            </div>
+          ) }
+          
+          </Col>
+          <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>
+          <div onClick={()=>setPoster(!poster)} >
+            Posters <i class="fa-solid fa-angle-down"></i>
+            </div>
+          {poster && (
+            <div className="frameDrop">
+            <p>Anime</p>
+            <p>Marvel</p>
+            </div>
+          ) }
+          </Col>
+          <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>Track</Col>
+          <Col className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
             <i class=" fa-solid fa-bell"></i>
             <i class="px-4 fa-solid fa-user"></i>
           </Col>
-          <Col className="burger"><i class=" fa-solid fa-bars"></i></Col>
+          <Col  className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
         </Row>
       </div>
      
