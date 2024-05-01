@@ -20,7 +20,6 @@ export const Home = () => {
 
             <Row>
                 <Col><Home_Swiper/></Col>
-                <Col>Lund</Col>
             </Row>
             
 
