@@ -41,7 +41,6 @@ const Navbar = () => {
           )}
 
 
-
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setPoster(!poster)} >
