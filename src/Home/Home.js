@@ -2,6 +2,7 @@ import React from 'react'
 import Home_carousel from './Home_carousel'
 import { Col, Row } from 'react-bootstrap'
 import "../MainCss/main.css"
+import { Home_Swiper } from './Home_Swiper'
 export const Home = () => {
     return (
         <div style={{marginTop:"5%"}}>
@@ -16,6 +17,7 @@ export const Home = () => {
 
                 </Col>
             </Row>
+            <Home_Swiper/>
 
         </div>
     )
