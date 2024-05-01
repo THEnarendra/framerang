@@ -46,7 +46,6 @@
 }
 
 .frameDrop {
-  
   color: white;
   position: absolute;
   padding: 1%;
@@ -60,6 +59,7 @@ backdrop-filter: blur(7.6px);
 -webkit-backdrop-filter: blur(7.6px);
 border: 1px solid rgba(203, 194, 194, 0.42);
   width: 8%;
+  z-index: 999;
 }
 
 @media screen and (max-width: 991px) {

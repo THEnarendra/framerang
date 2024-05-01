@@ -1,14 +1,11 @@
 .swiper-slide1 {
-
     object-fit: cover;
     flex-shrink: 10;
-   
     transition-property: transform;
-   
     /* background: rgb(21, 33, 78); */
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.4px);
+    backdrop-filter: blur(5.4px);
     -webkit-backdrop-filter: blur(10.4px);
   }
   .swiper-slide1 img{

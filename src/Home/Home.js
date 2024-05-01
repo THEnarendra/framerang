@@ -17,7 +17,12 @@ export const Home = () => {
 
                 </Col>
             </Row>
-            <Home_Swiper/>
+
+            <Row>
+                <Col><Home_Swiper/></Col>
+                <Col>Lund</Col>
+            </Row>
+            
 
         </div>
     )
