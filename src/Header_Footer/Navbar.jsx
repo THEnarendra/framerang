@@ -47,9 +47,10 @@ const Navbar = () => {
             Posters <i class="fa-solid fa-angle-down"></i>
           </div>
           {poster && (
-            <div className="frameDrop">
+            <div className="frameDrop" >
               <p>Anime</p>
               <p>Marvel</p>
+            
             </div>
           )}
         </Col>
