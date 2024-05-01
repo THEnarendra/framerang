@@ -28,8 +28,8 @@ const Navbar = () => {
         <Col lg={3} md={8} sm={8}>
           <input className="search" type="search" placeholder="Search Anime" />
         </Col>
-        <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>Home</Col>
-        <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>
+        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Home</Col>
+        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setFrame(!frame)} >
             Frames <i class="fa-solid fa-angle-down"></i>
           </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
           )}
 
         </Col>
-        <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>
+        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setPoster(!poster)} >
             Posters <i class="fa-solid fa-angle-down"></i>
           </div>
@@ -52,12 +52,12 @@ const Navbar = () => {
             </div>
           )}
         </Col>
-        <Col className={isOpen ? "navMenu" : "m-2"} lg={1} md={12}>Contact</Col>
-        <Col className={isOpen ? "navMenu " : "m-2"} lg={1} md={12}>Track</Col>
+        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Contact</Col>
+        <Col className={isOpen ? "navMenu " : "m-2 navItems"} lg={1} md={12}>Track</Col>
         <Col className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
-          <i class=" fa-solid fa-bell"></i>
-          <i class="px-4 fa-solid fa-user"></i>
-          <i class="fa-solid fa-cart-shopping"></i>
+          <i style={{cursor:"pointer"}} class=" fa-solid fa-bell"></i>
+          <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-user"></i>
+          <i style={{cursor:"pointer"}} class="fa-solid fa-cart-shopping"></i>
         </Col>
         <Col className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
       </Row>

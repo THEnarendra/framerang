@@ -40,10 +40,13 @@
 
 .navMenu {
   cursor: pointer;
-
+}
+.navItems {
+  cursor: pointer;
 }
 
 .frameDrop {
+  
   color: white;
   position: absolute;
   padding: 1%;
@@ -87,6 +90,14 @@ border: 1px solid rgba(203, 194, 194, 0.42);
 
   .search {
     display: none;
+  }
+  .frameDrop {
+    color: white;
+    position: relative;
+    width: 25%;
+    background: none;
+    border: none;
+    padding: 12px;
   }
 
 }
