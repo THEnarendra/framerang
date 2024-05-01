@@ -92,7 +92,7 @@ export default function Home_carousel() {
       >
         {arr1.map((data)=>(
         <SwiperSlide className='swiper-slide1'>
-          <div className='text-white' style={{textAlign:"center",padding:"15%"}}>
+          <div className='text-white' >
           <img  src={data.img} />
             
           </div>

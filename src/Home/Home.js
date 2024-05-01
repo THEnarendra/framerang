@@ -5,7 +5,7 @@ import "../MainCss/main.css"
 import { Home_Swiper } from './Home_Swiper'
 export const Home = () => {
     return (
-        <div style={{marginTop:"5%"}}>
+        <div style={{marginTop:"7%"}}>
             <Row>
                 <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />

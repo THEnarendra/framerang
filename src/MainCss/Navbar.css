@@ -4,6 +4,7 @@
 }
 
 .navbar {
+  z-index: 999;
   color: white;
   border-radius: 20px;
  /* From https://css.glass */
