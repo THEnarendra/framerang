@@ -2,7 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Header_Footer/Navbar';
 import About from './About/About';
+<<<<<<< HEAD
 import Footer from './Header_Footer/Footer';
+=======
+import { Home } from './Home/Home';
+>>>>>>> 938e8b2ba38edc2d30ead1e3941a0a7527fc86d8
 
 function App() {
   return (
@@ -11,7 +15,7 @@ function App() {
       <Navbar/>
       
       <Routes>
-        <Route path='/About' element={<About/>}/>
+        <Route path='/' element={<Home/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
