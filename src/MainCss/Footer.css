@@ -3,6 +3,7 @@
 body {
     
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
     .footer {
         z-index: 1;
         --footer-background:rgb(219, 14, 14);

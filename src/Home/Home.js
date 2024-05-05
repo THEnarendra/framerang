@@ -19,7 +19,12 @@ export const Home = () => {
             </Row>
 
             <Row>
-                <Col><Home_Swiper/></Col>
+                <Col style={{ display: "flex", justifyContent:"center", alignItems:"center"}}><Home_Swiper/></Col>
+                <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
+                    <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
+                    <h5 style={{ color: "rgba(255,255,255,0.6)" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
+                <button className='bt1'>Our Posters</button>
+                </Col>
             </Row>
             
 

@@ -13,6 +13,8 @@ import '../MainCss/swiper.css'
 
 
 export const Home_Swiper = () => {
+
+  const images=[ap1,ap2,ap3,ap4,ap5,ap6,ap7,ap8,ap9]
   return (
     <Swiper 
     effect={'cards'}
@@ -21,9 +23,14 @@ export const Home_Swiper = () => {
     autoplay={{ delay: 10, disableOnInteraction: false }} // Autoplay configuration
     className="yourSwiper"
     >
-      <SwiperSlide>
-        <img style={{height:"40vh"}} src={ap1} alt="" />
+
+      {images.map((img)=>(
+        <SwiperSlide>
+          <img src={img} className='swiperImg' alt="" />
         </SwiperSlide>
+        ))}
+
+      {/* <SwiperSlide><img style={{height:"40vh"}} src={ap1} alt="" /></SwiperSlide>
       <SwiperSlide><img style={{height:"40vh"}} src={ap2} alt="" /></SwiperSlide>
       <SwiperSlide><img style={{height:"40vh"}} src={ap3} alt="" /></SwiperSlide>
       <SwiperSlide><img style={{height:"40vh"}} src={ap4} alt="" /></SwiperSlide>
@@ -31,7 +38,7 @@ export const Home_Swiper = () => {
       <SwiperSlide><img style={{height:"40vh"}} src={ap6} alt="" /></SwiperSlide>
       <SwiperSlide><img style={{height:"40vh"}} src={ap7} alt="" /></SwiperSlide>
       <SwiperSlide><img style={{height:"40vh"}} src={ap8} alt="" /></SwiperSlide>
-      <SwiperSlide><img style={{height:"40vh"}} src={ap9} alt="" /></SwiperSlide>
+      <SwiperSlide><img style={{height:"40vh"}} src={ap9} alt="" /></SwiperSlide> */}
     </Swiper>
   );
 };

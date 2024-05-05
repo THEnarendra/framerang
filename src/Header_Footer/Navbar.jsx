@@ -60,6 +60,7 @@ const Navbar = () => {
           <i style={{cursor:"pointer"}} class=" fa-solid fa-bell"></i>
           <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-user"></i>
           <i style={{cursor:"pointer"}} class="fa-solid fa-cart-shopping"></i>
+          <i style={{cursor:"pointer"}} class="ps-5 fa-solid fa-moon"></i>
         </Col>
         <Col className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
       </Row>
