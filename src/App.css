@@ -1,8 +1,16 @@
-* {
-    margin: 0;
+/* * {
     padding: 0;
   }
+body{
+   background-color: black;
+} */
 
-.App{
-    background-color: black;
+.darkTheme{
+  background-color: black;
+  color: white;
+}
+
+.lightTheme{
+  background-color: white;
+  color: black;
 }

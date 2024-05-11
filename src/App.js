@@ -8,9 +8,8 @@ import { useState } from 'react';
 
 function App() {
 
-  const [theme, setTheme] = useState("dark");
   return (
-    <div className={theme==="dark"? "App" :" App_lite"}>
+    <div>
       <BrowserRouter>
       <Navbar/>
       

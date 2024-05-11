@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import "../MainCss/Navbar.css"
 
 
 const Navbar = () => {
+  const [theme, setTheme] = useState("darkTheme");
+  useEffect(() => {
+   document.body.className=theme;
+  }, [theme]);
+
   const [isOpen, setIsOpen] = useState(true);
 
   const [frame, setFrame] = useState(false);
   const [poster, setPoster] = useState(false);
 
+  
+
   const toggle = () => {
     setIsOpen(!isOpen);
+  }
+
+  const ToggleTheme = () =>{
+    if(theme==="darkTheme"){
+      setTheme("lightTheme");
+    }
+    else{setTheme("darkTheme")}
+    
   }
 
 
   return (
     <div >
-      <Row className="navbar">
+      <Row style={{marginTop:"1%"}} className="navbar">
         <Col lg={1} md={3} sm={2}>
           <img
             className="image"
@@ -60,7 +75,7 @@ const Navbar = () => {
           <i style={{cursor:"pointer"}} class=" fa-solid fa-bell"></i>
           <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-user"></i>
           <i style={{cursor:"pointer"}} class="fa-solid fa-cart-shopping"></i>
-          <i style={{cursor:"pointer"}} class="ps-5 fa-solid fa-moon"></i>
+          <i style={{cursor:"pointer"}} class="ps-5 fa-solid fa-moon" onClick={ToggleTheme}></i>
         </Col>
         <Col className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
       </Row>
