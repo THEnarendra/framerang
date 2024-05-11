@@ -1,11 +1,12 @@
 .yourSwiper{
     height: 70vh;
-    width: 40vw;
+    width: 26vw;
     margin-left: 22%;
 }
 
 .swiperImg{
     height: 70vh;
-    width: 25vw;
+    width: 26vw;
     object-fit: cover;
+    
 }

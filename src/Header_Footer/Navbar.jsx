@@ -4,11 +4,8 @@ import { Row, Col } from "react-bootstrap";
 import "../MainCss/Navbar.css"
 
 
-const Navbar = () => {
-  const [theme, setTheme] = useState("darkTheme");
-  useEffect(() => {
-   document.body.className=theme;
-  }, [theme]);
+const Navbar = ({theme,setTheme}) => {
+
 
   const [isOpen, setIsOpen] = useState(true);
 

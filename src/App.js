@@ -4,17 +4,21 @@ import Navbar from './Header_Footer/Navbar';
 import About from './About/About';
 import Footer from './Header_Footer/Footer';
 import { Home } from './Home/Home';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [theme, setTheme] = useState("darkTheme");
+  useEffect(() => {
+   document.body.className=theme;
+  }, [theme]);
 
   return (
     <div>
       <BrowserRouter>
-      <Navbar/>
+      <Navbar theme={theme} setTheme={setTheme}/>
       
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
