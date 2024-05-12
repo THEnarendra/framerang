@@ -19,22 +19,36 @@
     color: white;
     border-radius: 5px;
     margin-top: 2%;
+
 }
 
 .logo_wheel {
-    width: 50px;
+    /* width: 100px; */
     position: absolute;
     top: 1370px;
-    animation: moveAndRotate 5s linear infinite; /* Adjust animation duration and timing function */
+    z-index: -999;
+    animation: moveAndRotate 5s linear infinite; 
   }
   
   @keyframes moveAndRotate {
-    0% {
-      transform: translateX(0) rotate(0deg); /* Start from left with no rotation */
-    }
+    /* 0% {
+      transform: translateX(0) rotate(0deg); 
+    } */
+    0%   {top:0%;}
+    10%  {top: 58%;}
+    20%  {top:0%;}
+    30%  {top: 58%;}
+    40%  {top:0%;}
+    50%  {top:58%;}
+    60%  {top:0%;}
+    70%  {top:58%;}
+    80%  {top:0%;}
+    90%  {top:58%;}
     100% {
-      transform: translateX(calc(100vw - 50px)) rotate(360deg); /* Move to right edge of the viewport while rotating 360 degrees */
+      transform: translateX(calc(100vw - 0px)) rotate(360deg); 
     }
+    
+   
   }
   
   
