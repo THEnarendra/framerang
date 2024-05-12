@@ -6,6 +6,7 @@ import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
 import home_video from '../images/home_video.webm';
 import logo from '../images/2.png';
+import Product_Slider from './Product_Slider';
 
 export const Home = ({ theme, setTheme }) => {
     const lightTheme = "lightTheme";
@@ -44,15 +45,16 @@ export const Home = ({ theme, setTheme }) => {
             </Row>
 
             <div style={{
+                position:"relative",
                 padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
                 borderRadius: "30px", margin: "2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
             }}>
                 <h1 className='firsth1'>Customize your pictures into Posters</h1><br />
                 <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
                 <button className='bt2'>Customize your Posters</button>
+            <img style={{width:"50px", position:"absolute",left:"0", top:"85%", zIndex:"999"}} src={logo} alt="" className='logo_wheel' />
                 
             </div>
-            <img style={{width:"50px", position:"absolute", top:"1370px"}} src={logo} alt="" className='logo_wheel' />
 
             <Row>
                 <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper /></Col>
@@ -61,6 +63,10 @@ export const Home = ({ theme, setTheme }) => {
                     <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
                     <button className='bt1'>Our Posters</button>
                 </Col>
+            </Row>
+
+            <Row>
+                <Product_Slider/>
             </Row>
 
         </div>
