@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar theme={theme} setTheme={setTheme}/>
+      <div style={{position:"absolute", width:"100vw"}}><Navbar theme={theme} setTheme={setTheme}/></div>
       
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
