@@ -1,5 +1,5 @@
 .firsth1{
-    font-size: 70px;
+    font-size: 60px;
 }
 .bt1{
     width: fit-content;
@@ -9,4 +9,14 @@
     color: white;
     border-radius: 5px;
     margin-top: 5%;
+}
+
+.bt2{
+    width: fit-content;
+    padding: 1% 2% 1% 2%;
+    background-color: rgb(219, 14, 14);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2%;
 }
