@@ -45,8 +45,12 @@ export const Home = ({ theme, setTheme }) => {
             </Row>
 
             <div style={{
+<<<<<<< HEAD
                 position:"relative",
                 padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
+=======
+                padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",position:"relative",
+>>>>>>> 7aec393839df8a31502b6e0c407ac6b556bfd922
                 borderRadius: "30px", margin: "2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
             }}>
                 <h1 className='firsth1'>Customize your pictures into Posters</h1><br />
@@ -54,6 +58,7 @@ export const Home = ({ theme, setTheme }) => {
                 <button className='bt2'>Customize your Posters</button>
             <img style={{width:"50px", position:"absolute",left:"0", top:"85%", zIndex:"999"}} src={logo} alt="" className='logo_wheel' />
                 
+            <img style={{width:"8%", position:"absolute", top:"85%",left:"0"}} src={logo} alt="" className='logo_wheel' />
             </div>
 
             <Row>
