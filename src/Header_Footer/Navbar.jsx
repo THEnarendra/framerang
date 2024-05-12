@@ -37,10 +37,11 @@ const Navbar = ({theme,setTheme}) => {
             alt=""
           />
         </Col>
+        
         <Col lg={3} md={8} sm={8}>
           <input className="search" type="search" placeholder="Search Anime" />
         </Col>
-        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Home</Col>
+        <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>Home</Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setFrame(!frame)} >
             Frames <i class="fa-solid fa-angle-down"></i>
@@ -67,11 +68,11 @@ const Navbar = ({theme,setTheme}) => {
           )}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Contact</Col>
-        <Col className={isOpen ? "navMenu " : "m-2 navItems"} lg={1} md={12}>Track</Col>
+        <Col className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
         <Col className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
           <i style={{cursor:"pointer"}} class=" fa-solid fa-bell"></i>
-          <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-user"></i>
-          <i style={{cursor:"pointer"}} class="fa-solid fa-cart-shopping"></i>
+          {/* <i style={{cursor:"pointer"}} class=" fa-solid fa-user"></i> */}
+          <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-cart-shopping"></i>
           <i style={{cursor:"pointer"}} class="ps-5 fa-solid fa-moon" onClick={ToggleTheme}></i>
         </Col>
         <Col className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
