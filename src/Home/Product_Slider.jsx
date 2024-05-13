@@ -4,8 +4,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from '../images/anime-posters/animeposters'
+import ProductCard from './Product Card/ProductCard';
+import '../MainCss/ProductCard.css'
 
 const Product_Slider = () => {
+
+  const img=[ap1,ap2, ap3, ap4, ap5, ap6,ap7]
 
     const settings = {
         dots: true,
@@ -15,26 +19,22 @@ const Product_Slider = () => {
         slidesToScroll: 4,
       };
   return (
-    <div style={{margin:"5%"}}>
+    <div style={{margin:"5%",}}>
        <Slider {...settings}>
-      <div>
-        <img src={ap1} alt="Image 1" />
-      </div>
-      <div>
-        <img src={ap1} alt="Image 2" />
-      </div>
-      <div>
-        <img src={ap1} alt="Image 3" />
-      </div>
-      <div>
-        <img src={ap1} alt="Image 3" />
-      </div>
-      <div>
-        <img src={ap1} alt="Image 3" />
-      </div>
-      <div>
-        <img src={ap1} alt="Image 3" />
-      </div>
+
+      {img.map((img)=>(
+        <div class="nft">
+          <div class='main'>
+   <img style={{width:"200px"}} src={img} alt="" />
+   <p className='description'>Hello guys this is posters collection</p>
+   <h2 className='creator'>Anime Frames</h2>
+   <button className='bt1'>Add to Cart</button>
+   
+  </div>
+  </div>
+        ))}
+  
+  
     </Slider>
     </div>
   )
