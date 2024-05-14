@@ -7,11 +7,17 @@ import { Home_Swiper } from './Home_Swiper';
 import home_video from '../images/home_video.webm';
 import logo from '../images/2.png';
 import Product_Slider from './Product_Slider';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 export const Home = ({ theme, setTheme }) => {
     const lightTheme = "lightTheme";
 
     useEffect(() => {
+
+        AOS.init();
+        AOS.refresh();
+
         const video = document.getElementById('homeVideo');
         if (video) {
             video.play().catch(error => {
@@ -36,7 +42,7 @@ export const Home = ({ theme, setTheme }) => {
             <Row>
                 <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
-                    <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
+                    <h5  style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
                     <button className='bt1'>Our Posters</button>
                 </Col>
                 <Col lg={6}>
@@ -65,7 +71,9 @@ export const Home = ({ theme, setTheme }) => {
                 </Col>
             </Row>
 
-            <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",marginTop:"5%"}}>
+            <div
+            data-aos="fade-up" data-aos-duration="5000"
+             style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",marginTop:"5%"}}>
                 <h1>Our Best Selling Posters & Frames</h1>
             
                 <Product_Slider/>
