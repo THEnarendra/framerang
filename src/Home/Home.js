@@ -47,11 +47,7 @@ export const Home = ({ theme, setTheme }) => {
             <div style={{
                 position:"relative",
                 padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
-                padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",position:"relative",
-
-                position:"relative",
-                padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
-                borderRadius: "30px", margin: "2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+                borderRadius: "30px", margin: "5% 2% 5% 2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
             }}>
                 <h1 className='firsth1'>Customize your pictures into Posters</h1><br />
                 <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
@@ -69,9 +65,11 @@ export const Home = ({ theme, setTheme }) => {
                 </Col>
             </Row>
 
-            <Row>
+            <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",marginTop:"5%"}}>
+                <h1>Our Best Selling Posters & Frames</h1>
+            
                 <Product_Slider/>
-            </Row>
+            </div>
 
         </div>
     );
