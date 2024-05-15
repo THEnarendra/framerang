@@ -88,7 +88,7 @@ const Product_Slider = () => {
   // </div>
   // </div>
 
-  <div>
+  <div >
     <ProductCard img={img}/>
   </div>
         ))}

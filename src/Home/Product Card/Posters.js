@@ -74,7 +74,7 @@ export const Posters = ({theme}) => {
   };
 
   return (
-    <div>
+    
       
  <div style={{
                 marginTop:"72px",
@@ -85,20 +85,20 @@ export const Posters = ({theme}) => {
       <img src={ap10} alt="" className='logo_wheel12' />
       <img src={ap10} alt="" className='logo_wheel12' />
       </Slider>
-</div>
 
 {/* <h1 className='ms-5 display-4'>Anime Posters</h1> */}
 
-<Row>
+<Row >
 {img.map((img)=>(
-  <Col>
+  <Col lg={3} md={4} sm={12}>
 <ProductCard img={img}/>
  </Col>
 ))}
 </Row>
 
+</div>
 
 
-    </div>
+    
   )
 }
