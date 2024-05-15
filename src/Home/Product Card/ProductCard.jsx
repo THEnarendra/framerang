@@ -6,8 +6,8 @@ const ProductCard = () => {
     <div class="nft">
     <div class='main'>
 <img src={img} alt="" />
-<h2 className='creator'>Luffy One Piec</h2>
-<p><span style={{textDecoration:"line-through"}}>Rs.50</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.100</p>
+<h3 className='creator'>Luffy One Piece || Matte Finish Poster </h3>( 10*5 inches ) <br/> Single pcs 
+<p><span style={{textDecoration:"line-through",color:"gray"}}>Rs.50</span>&nbsp;&nbsp;&nbsp;<span style={{fontSize:"22px"}}>Rs.100</span> </p>
 <button className='bt1'>Add to Cart</button>
 
 </div>
