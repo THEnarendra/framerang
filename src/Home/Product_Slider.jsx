@@ -19,7 +19,7 @@ const Product_Slider = () => {
     slidesToScroll: 1,
     autoplay: true, // Add autoplay
     speed: 2000,
-    autoplaySpeed: 1200, // Adjust autoplay speed (optional)
+    autoplaySpeed: 2000, // Adjust autoplay speed (optional)
     arrows: false, // Hide arrows
   };
   

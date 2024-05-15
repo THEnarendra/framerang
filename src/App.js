@@ -5,6 +5,7 @@ import About from './About/About';
 import Footer from './Header_Footer/Footer';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
+import { Posters } from './Home/Product Card/Posters';
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -15,12 +16,13 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <div style={{position:"absolute", width:"100vw"}}><Navbar theme={theme} setTheme={setTheme}/></div>
+      <div style={{position:"absolute", width:"100vw",top:0}}><Navbar theme={theme} setTheme={setTheme}/></div>
       
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme}/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
       </BrowserRouter>
     </div>
   );

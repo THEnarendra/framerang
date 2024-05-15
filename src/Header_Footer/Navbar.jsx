@@ -31,24 +31,32 @@ const Navbar = ({theme,setTheme}) => {
     <div >
       <Row style={{marginTop:"1%"}} className="navbar">
         <Col lg={1} md={3} sm={2}>
+          <Link to="/">
           <img
             className="image"
             src="https://framerang.com/cdn/shop/files/ll_copy.png?v=1712908551&width=135"
             alt=""
           />
+          </Link>
         </Col>
         
         <Col lg={3} md={8} sm={8}>
           <input className="search" type="search" placeholder="Search Anime" />
         </Col>
-        <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>Home</Col>
+        <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>
+          <Link style={{ color: theme==="darkTheme" ? "white" : "black" }}
+ className="link" to="/">Home
+          </Link>
+          </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setFrame(!frame)} >
             Frames <i class="fa-solid fa-angle-down"></i>
           </div>
           {frame && (
             <div className="frameDrop">
+              <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/animeposters">
               <p>Anime</p>
+              </Link>
               <p>Marvel</p>
             </div>
           )}
