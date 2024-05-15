@@ -29,6 +29,7 @@
   top: 1370px;
   z-index: -999;
   animation: moveAndRotate 5s linear infinite;
+  
 }
 
 @keyframes moveAndRotate {
@@ -92,4 +93,6 @@
   width: 100%;
   height: 40vh;
   object-fit: cover;
+  border-radius:20px;
+  box-shadow: inset 10px 10px 10px #101010
 }
