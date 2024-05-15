@@ -1,13 +1,14 @@
 import React from 'react'
 import img from '../../images/anime-character-listening-music.jpg'
 
-const ProductCard = () => {
+const ProductCard = ({img}) => {
   return (
     <div class="nft">
     <div class='main'>
-<img src={img} alt="" />
-<h3 className='creator'>Luffy One Piece || Matte Finish Poster </h3>( 10*5 inches ) <br/> Single pcs 
-<p><span style={{textDecoration:"line-through",color:"gray"}}>Rs.50</span>&nbsp;&nbsp;&nbsp;<span style={{fontSize:"22px"}}>Rs.100</span> </p>
+<img src={img.img} alt="" />
+<h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br/> Single pcs 
+<p><span style={{textDecoration:"line-through",color:"gray"}}>Rs.{img.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{fontSize:"22px"}}>Rs.{img.price}</span> </p>
+{/* <i class="fas fa-star" style={{color: "#FFD43B"}}></i> */}
 <button className='bt1'>Add to Cart</button>
 
 </div>

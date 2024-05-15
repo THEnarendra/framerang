@@ -10,7 +10,57 @@ import { Controller } from 'swiper/modules';
 
 const Product_Slider = () => {
 
-  const img=[ap1,ap2, ap3, ap4, ap5, ap6,ap7]
+  const img=[
+    {
+      img:ap1,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap2,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap3,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap4,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap5,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap6,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap7,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+]
 
   const settings = {
     dots: false,
@@ -28,14 +78,18 @@ const Product_Slider = () => {
        <Slider {...settings}>
 
       {img.map((img)=>(
-        <div class="nft">
-          <div class='main'>
-   <img src={img} alt="" />
-   <p className='description'>Hello guys this is posters collection</p>
-   <h2 className='creator'>Anime Frames</h2>
-   <button className='bt1'>Add to Cart</button>
+  //       <div class="nft">
+  //         <div class='main'>
+  //  <img src={img} alt="" />
+  //  <p className='description'>Hello guys this is posters collection</p>
+  //  <h2 className='creator'>Anime Frames</h2>
+  //  <button className='bt1'>Add to Cart</button>
    
-  </div>
+  // </div>
+  // </div>
+
+  <div>
+    <ProductCard img={img}/>
   </div>
         ))}
   

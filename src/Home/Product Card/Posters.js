@@ -4,8 +4,63 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from './ProductCard';
+import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from '../../images/anime-posters/animeposters'
+import { Col, Row } from 'react-bootstrap';
+
 
 export const Posters = ({theme}) => {
+
+  const img=[
+    {
+      img:ap1,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap2,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap3,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap4,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap5,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap6,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+    {
+      img:ap7,
+      price:50,
+      oldPrice:100,
+      description:"this is our frame",
+      productName:"Luffy Frame || Set of 3"
+  },
+]
 
   const settings = {
     dots: true,
@@ -34,8 +89,15 @@ export const Posters = ({theme}) => {
 
 {/* <h1 className='ms-5 display-4'>Anime Posters</h1> */}
 
+<Row>
+{img.map((img)=>(
+  <Col>
+<ProductCard img={img}/>
+ </Col>
+))}
+</Row>
 
-<ProductCard/>
+
 
     </div>
   )
