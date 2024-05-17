@@ -16,15 +16,14 @@ const [showPopup, setShowPopup] = useState(false);
 <img src={img.img} alt="" />
 <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br/> Single pcs 
 <p><span style={{textDecoration:"line-through",color:"gray"}}>Rs.{img.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{fontSize:"22px"}}>Rs.{img.price}</span> </p>
-{/* <i className="fas fa-star" style={{color: "#FFD43B"}}></i> */}
 <button className='bt1' onClick={Pop}>Choose Options</button>
 
 </div>
 </div>
 {showPopup===true&&
-<div style={{width:"100vw",display:"flex",justifyContent:"center",textAlign:"center"}}>
+<div>
 
-  (<Popup/>)
+  <Popup showPopup={showPopup} setShowPopup={setShowPopup}/>
 </div>
   }
 </>

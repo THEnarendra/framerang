@@ -2,10 +2,12 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import img from '../images/black-white-illustration-man-with-short-hair-black-white-face.jpg'
 
-const Popup = () => {
+const Popup = ({setShowPopup,showPopup}) => {
   return (
     <div className="modal-popup">
-      <Row className='row1' >
+      <Row style={{position:"relative"}}  className='row1' >
+      <span onClick={()=> setShowPopup(!showPopup)} style={{position:"absolute",right:"-77vw",top:"5%",cursor:"pointer"}}>❌</span>
+
         <Col lg={6}>
           <img className='img12'  src={img} alt="" />
         </Col>
