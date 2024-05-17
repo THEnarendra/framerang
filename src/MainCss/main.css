@@ -112,17 +112,23 @@
 }
 .row1{
   border-radius: 20px;
-  background-color: rgb(17, 17, 110);
+  background-color:black;
   /* width: fit-content; */
   height: fit-content;
   padding: 3% 3% 3% 3%;
-  width: 90%;
-
+  width: 80%;
+text-align: left;
 }
 .img12{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-
+.bt3{
+border-radius: 30px;
+padding: 1% 2% 1% 2%;
+background-color: transparent;
+color: white;
+border: 0.5px solid white;
+/* margin-left: 2%; */
+}
