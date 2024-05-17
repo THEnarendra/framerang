@@ -23,7 +23,7 @@ const [showPopup, setShowPopup] = useState(false);
 {showPopup===true&&
 <div>
 
-  <Popup showPopup={showPopup} setShowPopup={setShowPopup}/>
+  <Popup togglePopup={Pop}/>
 </div>
   }
 </>
