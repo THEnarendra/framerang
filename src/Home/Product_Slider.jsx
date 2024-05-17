@@ -78,8 +78,8 @@ const Product_Slider = () => {
        <Slider {...settings}>
 
       {img.map((img)=>(
-  //       <div class="nft">
-  //         <div class='main'>
+  //       <div className="nft">
+  //         <div className='main'>
   //  <img src={img} alt="" />
   //  <p className='description'>Hello guys this is posters collection</p>
   //  <h2 className='creator'>Anime Frames</h2>

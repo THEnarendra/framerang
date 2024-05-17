@@ -96,3 +96,25 @@
   border-radius:20px;
   box-shadow: inset 10px 10px 10px #101010
 }
+body.blurred :not(#modal-popu){
+  filter: blur(2px);    
+}
+#modal-popu{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 11%;
+  top: 0;
+  z-index: 999;
+  
+  filter: blur(0px);
+
+  .row1{
+    background-color: rgb(17, 17, 110);
+    width: 80vw !important;
+    padding: 5% 5% 5% 5%;
+  }
+}
+/* ProductCard.css */
+
+

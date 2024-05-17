@@ -4,8 +4,8 @@ import img from '../images/black-white-illustration-man-with-short-hair-black-wh
 
 const Popup = () => {
   return (
-    <div class="modal-dialog modal-dialog-scrollable" style={{position:"absolute", zIndex:999, width:"100vw"}}                                         >
-      <Row>
+    <div className="modal-popup" id='modal-popu'                                          >
+      <Row className='row1' style={{width:"100vw"}}>
         <Col lg={6}>
     <img src={img} alt="" />
         </Col>

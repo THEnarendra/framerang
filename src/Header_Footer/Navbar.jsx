@@ -50,7 +50,7 @@ const Navbar = ({theme,setTheme}) => {
           </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setFrame(!frame)} >
-            Frames <i class="fa-solid fa-angle-down"></i>
+            Frames <i className="fa-solid fa-angle-down"></i>
           </div>
           {frame && (
             <div className="frameDrop">
@@ -65,7 +65,7 @@ const Navbar = ({theme,setTheme}) => {
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <div onClick={() => setPoster(!poster)} >
-            Posters <i class="fa-solid fa-angle-down"></i>
+            Posters <i className="fa-solid fa-angle-down"></i>
           </div>
           {poster && (
             <div className="frameDrop" >
@@ -78,12 +78,12 @@ const Navbar = ({theme,setTheme}) => {
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Contact</Col>
         <Col className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
         <Col className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
-          <i style={{cursor:"pointer"}} class=" fa-solid fa-bell"></i>
-          {/* <i style={{cursor:"pointer"}} class=" fa-solid fa-user"></i> */}
-          <i style={{cursor:"pointer"}} class="px-4 fa-solid fa-cart-shopping"></i>
-          <i style={{cursor:"pointer"}} class="ps-5 fa-solid fa-moon" onClick={ToggleTheme}></i>
+          <i style={{cursor:"pointer"}} className=" fa-solid fa-bell"></i>
+          {/* <i style={{cursor:"pointer"}} className=" fa-solid fa-user"></i> */}
+          <i style={{cursor:"pointer"}} className="px-4 fa-solid fa-cart-shopping"></i>
+          <i style={{cursor:"pointer"}} className="ps-5 fa-solid fa-moon" onClick={ToggleTheme}></i>
         </Col>
-        <Col className="burger"><i onClick={toggle} class=" fa-solid fa-bars"></i></Col>
+        <Col className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
       </Row>
     </div>
 

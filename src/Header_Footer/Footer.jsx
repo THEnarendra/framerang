@@ -95,38 +95,38 @@ export default Bubble;
 //           </Col>
 //           <Col>
 //             <div className="form-group row">
-//               <div class="col-sm-10 m-1">
+//               <div className="col-sm-10 m-1">
 //                 <input
 //                   type="email"
-//                   class="form-control form-control-sm"
+//                   className="form-control form-control-sm"
 //                   id="colFormLabelSm"
 //                   placeholder="Name"
 //                 />
 //               </div>
 //             </div>
 //             <div className="form-group row">
-//               <div class="col-sm-10 m-1">
+//               <div className="col-sm-10 m-1">
 //                 <input
 //                   type="email"
-//                   class="form-control form-control-sm"
+//                   className="form-control form-control-sm"
 //                   id="colFormLabelSm"
 //                   placeholder="E-Mail"
 //                 />
 //               </div>
 //             </div>
 //             <div className="form-group row">
-//               <div class="col-sm-10 m-1">
+//               <div className="col-sm-10 m-1">
 //                 <textarea
 //                   type="email"
-//                   class="form-control form-control-sm"
+//                   className="form-control form-control-sm"
 //                   id="colFormLabelSm"
 //                   placeholder="Message"
 //                 />
 //               </div>
 //               <button className="fbtn">SUBMIT</button>
 //               <div>Follow Us &nbsp;
-//               <i class="fa fa-instagram m-1 "></i> &nbsp;
-//               <i class="&nbsp fa fa-facebook-f"></i>
+//               <i className="fa fa-instagram m-1 "></i> &nbsp;
+//               <i className="&nbsp fa fa-facebook-f"></i>
 
 //               </div>
               
