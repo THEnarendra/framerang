@@ -1,11 +1,9 @@
 .nft{
     user-select:none;
-    width: 95%;
-    margin: 3rem auto;
+    width: 98%;
+    margin: 1rem auto;
     border: 1px solid #ffffff22;
-    /* background-color: #282c34; */
     background: rgb(88 41 158 / 22%);
-    /* box-shadow: 0 7px 20px 5px #00000088; */
     border-radius: .7rem;
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
@@ -15,10 +13,7 @@
     .main{
       display: flex;
       flex-direction: column;
-      /* width: 90%;/ */
       padding: 2rem 1rem 2rem 1rem;
-      /* padding-top: 3rem; */
-      /* padding-bottom: 3rem; */
       display: flex;
       justify-content: center;
       align-items: center;

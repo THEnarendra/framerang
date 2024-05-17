@@ -88,7 +88,7 @@ export const Posters = ({theme}) => {
 
 {/* <h1 className='ms-5 display-4'>Anime Posters</h1> */}
 
-<Row >
+<Row style={{margin:"3% 5% 3% 5%"}}>
 {img.map((img)=>(
   <Col lg={3} md={4} sm={12}>
 <ProductCard img={img}/>
