@@ -6,4 +6,9 @@
     height:80vh;
     border-radius: 15px;
     color: black;
+   
+label{
+    font-size: 18px;
+    color: rgb(88, 86, 86)
+}
 }
