@@ -11,7 +11,7 @@ const Popup = ({togglePopup,id, img}) => {
       {img1.filter((e) => e.id === id).map((data) => (
 
       <Row style={{position:"relative"}}  className='row1' >
-      <span onClick={togglePopup} style={{position:"absolute",right:"-77vw",top:"5%",cursor:"pointer"}}>❌</span>
+      <span onClick={togglePopup} style={{position:"absolute",right:"-65vw",top:"5%",cursor:"pointer"}}>❌</span>
 
         <Col lg={6}>
           <img className='img12'  src={data.img} alt="" />
@@ -26,8 +26,10 @@ const Popup = ({togglePopup,id, img}) => {
         <span style={{ textDecoration: "line-through", color: "gray" }}>Rs. {data.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs. {data.price}</span><br />
           <p>Size</p>
           <button className='bt3'>A3</button>
-          <button className='bt3 ms-2'>A4</button><br /><br /><br />
+          <button className='bt3 ms-2'>A4</button><br /><br />
           <button className='bt4'>ADD TO CART</button>
+          <br /><br/>
+          {/* <a style={{marginLeft:"60%"}} href="">more information >></a> */}
           {/* <button className='bt4 ms-3'>Buy now</button> */}
         </Col>
       </Row>

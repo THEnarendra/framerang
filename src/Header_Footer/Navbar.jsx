@@ -12,8 +12,6 @@ const Navbar = ({theme,setTheme}) => {
   const [frame, setFrame] = useState(false);
   const [poster, setPoster] = useState(false);
 
-  
-
   const toggle = () => {
     setIsOpen(!isOpen);
   }
@@ -57,7 +55,9 @@ const Navbar = ({theme,setTheme}) => {
               <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/animeposters">
               <p>Anime</p>
               </Link>
+              <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/marvelposters">
               <p>Marvel</p>
+              </Link>
             </div>
           )}
 
@@ -69,13 +69,18 @@ const Navbar = ({theme,setTheme}) => {
           </div>
           {poster && (
             <div className="frameDrop" >
+              <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/animeframes">
               <p>Anime</p>
+              </Link>
+              <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/marvelframes">
               <p>Marvel</p>
-            
+              </Link>
             </div>
           )}
         </Col>
-        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>Contact</Col>
+        <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
+          <Link style={{ color: theme==="darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>
+          </Col>
         <Col className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
         <Col className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
           <i style={{cursor:"pointer"}} className=" fa-solid fa-bell"></i>

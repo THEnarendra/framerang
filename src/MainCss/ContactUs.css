@@ -1,0 +1,9 @@
+.row{
+    margin: 8% 5%;
+}
+.col2{
+    background:white;
+    height:80vh;
+    border-radius: 15px;
+    color: black;
+}
