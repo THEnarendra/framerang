@@ -147,7 +147,7 @@ const img2=[
         <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
         <Route path='/cart' element={<Cart theme={theme} setTheme={setTheme}/>}/>
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
       </BrowserRouter>
     </div>
   );

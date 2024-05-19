@@ -3,10 +3,10 @@ import "../MainCss/Footer.css";
 
 const Bubble = () => {
   const bubbleElements = [];
-  for (let i = 0; i < 128; i++) {
+  for (let i = 0; i < 90; i++) {
     const size = `${2 + Math.random() * 4}rem`;
-    const distance = `${6 + Math.random() * 4}rem`;
-    const position = `${-5 + Math.random() * 110}%`;
+    const distance = `${6 + Math.random() * 1}rem`;
+    const position = `${-5 + Math.random() * 95}%`;
     const time = `${2 + Math.random() * 2}s`;
     const delay = `${-1 * (2 + Math.random() * 2)}s`;
 
@@ -24,49 +24,17 @@ const Bubble = () => {
   }
 
   return (
-    <div className="main">
+    <div className="main" >
       <div className="footer">
         <div className="bubbles">
           {bubbleElements}
         </div>
         <div className="content">
-          <div>
-            <div>
-              <b>Eldew</b>
-              <a href="">Secuce</a>
-              <a href="">Drupand</a>
-              <a href="">Oceash</a>
-              <a href="">Ugefe</a>
-              <a href="">Babed</a>
-            </div>
-            <div>
-              <b>Spotha</b>
-              <a href="">Miskasa</a>
-              <a href="">Agithe</a>
-              <a href="">Scesha</a>
-              <a href="">Lulle</a>
-            </div>
-            <div>
-              <b>Chashakib</b>
-              <a href="">Chogauw</a>
-              <a href="">Phachuled</a>
-              <a href="">Tiebeft</a>
-              <a href="">Ocid</a>
-              <a href="">Izom</a>
-              <a href="">Ort</a>
-            </div>
-            <div>
-              <b>Athod</b>
-              <a href="">Pamuz</a>
-              <a href="">Vapert</a>
-              <a href="">Neesk</a>
-              <a href="">Omemanen</a>
-            </div>
-          </div>
-          <div>
+          
+          {/* <div>
             <a href="https://codepen.io/z-" target="_blank" className="image" style={{ backgroundImage: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg")' }}></a>
             <p>©2019 Not Really</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
