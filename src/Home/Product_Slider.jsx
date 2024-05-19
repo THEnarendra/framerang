@@ -12,6 +12,7 @@ const Product_Slider = () => {
 
   const img=[
     {
+      id:1,
       img:ap1,
       price:50,
       oldPrice:100,
@@ -19,6 +20,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:2,
       img:ap2,
       price:50,
       oldPrice:100,
@@ -26,6 +28,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:3,
       img:ap3,
       price:50,
       oldPrice:100,
@@ -33,6 +36,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:4,
       img:ap4,
       price:50,
       oldPrice:100,
@@ -40,6 +44,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:5,
       img:ap5,
       price:50,
       oldPrice:100,
@@ -47,6 +52,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:6,
       img:ap6,
       price:50,
       oldPrice:100,
@@ -54,6 +60,7 @@ const Product_Slider = () => {
       productName:"Luffy Frame || Set of 3"
   },
     {
+      id:7,
       img:ap7,
       price:50,
       oldPrice:100,
@@ -78,15 +85,6 @@ const Product_Slider = () => {
        <Slider {...settings}>
 
       {img.map((img)=>(
-  //       <div className="nft">
-  //         <div className='main'>
-  //  <img src={img} alt="" />
-  //  <p className='description'>Hello guys this is posters collection</p>
-  //  <h2 className='creator'>Anime Frames</h2>
-  //  <button className='bt1'>Add to Cart</button>
-   
-  // </div>
-  // </div>
 
   <div >
     <ProductCard img={img}/>

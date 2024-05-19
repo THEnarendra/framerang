@@ -9,6 +9,7 @@ const [id, setId]= useState()
 const [showPopup, setShowPopup] = useState(false);
   const Pop=()=>{
     setShowPopup(!showPopup);
+   
   }
 
   return (

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Posters } from './Home/Product Card/Posters';
 import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from './images/anime-posters/animeposters'
 import ContactUs from './Home/ContactUs';
+import { Cart } from './Home/Cart';
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -144,6 +145,7 @@ const img2=[
         <Route path='/animeframes' element={<Posters theme={theme} setTheme={setTheme} img={img2}/>}/>
         <Route path='/marvelframes' element={<Posters theme={theme} setTheme={setTheme} img={img2}/>}/>
         <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/cart' element={<Cart theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       {/* <Footer/> */}
       </BrowserRouter>
