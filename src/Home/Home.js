@@ -32,7 +32,7 @@ export const Home = ({ theme, setTheme }) => {
     return (
         <div >
             <div style={{ display:"flex", justifyContent:"center"}}>
-            <video style={{objectFit:"cover", width:"100vw", height:"80vh"}} id="homeVideo" autoPlay loop muted>
+            <video style={{objectFit:"cover", width:"100vw", height:"90vh"}} id="homeVideo" autoPlay loop muted>
                 <source src={home_video} type="video/webm" />
                 Your browser does not support the video tag.
             </video>
@@ -40,17 +40,21 @@ export const Home = ({ theme, setTheme }) => {
            
 
             <Row>
-                <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
+                <Col data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
                     <h5  style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
                     <button className='bt1'>Our Posters</button>
                 </Col>
-                <Col lg={6}>
+                <Col data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" lg={6}>
                     <Home_carousel />
                 </Col>
             </Row>
 
-            <div style={{
+            <div data-aos="zoom-in-down" data-aos-duration="100000" style={{
                 position:"relative",
                 padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
                 borderRadius: "30px", margin: "5% 2% 5% 2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
@@ -62,8 +66,9 @@ export const Home = ({ theme, setTheme }) => {
             <img style={{width:"8%", position:"absolute", top:"85%",left:"0"}} src={logo} alt="" className='logo_wheel' />
             </div>
 
-            <Row>
-                <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper /></Col>
+            <Row data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom">
+                <Col  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper /></Col>
                 <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
                     <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>

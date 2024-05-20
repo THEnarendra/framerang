@@ -1,7 +1,20 @@
 import React from 'react';
 import "../MainCss/Footer.css";
-
+import logo from '../images/2.png'
 const Bubble = () => {
+
+  const categories = [
+    'Technology',
+    'Science',
+    'Health',
+    'Travel',
+    'Food',
+    'Education',
+    'Finance',
+ 
+  ];
+
+
   const bubbleElements = [];
   for (let i = 0; i < 90; i++) {
     const size = `${2 + Math.random() * 4}rem`;
@@ -31,10 +44,59 @@ const Bubble = () => {
         </div>
         <div className="content">
           
-          {/* <div>
-            <a href="https://codepen.io/z-" target="_blank" className="image" style={{ backgroundImage: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg")' }}></a>
-            <p>©2019 Not Really</p>
-          </div> */}
+        <div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<a href="index.html">
+              {/* <img src={logo} alt="" class="img-fluid logo-footer"/> */}
+              </a>
+                      <div class="footer-about">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,  </p>
+                      </div>
+
+					</div>
+					<div class="col-md-3">
+						<div class="useful-link">
+							<h2>Useful Links</h2>
+							{/* <img src="./assets/images/about/home_line.png" alt="" class="img-fluid"> */}
+							<div class="use-links">
+								<li><a href="index.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+								<li><a href="about.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+								<li><a href="gallery.html"><i class="fa-solid fa-angles-right"></i> Gallery</a></li>
+								<li><a href="contact.html"><i class="fa-solid fa-angles-right"></i> Contact</a></li>
+							</div>
+						</div>
+
+					</div>
+                    <div class="col-md-3">
+                        <div class="social-links">
+							<h2>Follow Us</h2>
+							{/* <img src={logo} alt=""/> */}
+							<div class="social-icons">
+								<li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+								<li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+								<li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+							</div>
+						</div>
+                    
+
+                    </div>
+					<div class="col-md-3">
+						<div class="address">
+							<h2>Address</h2>
+							{/* <img src={logo} alt="" class="img-fluid"/> */}
+							<div class="address-links">
+								<li class="address1"><i class="fa-solid fa-location-dot"></i> Kolathur ramankulam-
+									Malappuram Dt 
+								   Kerala 679338</li>
+								   <li><a href=""><i class="fa-solid fa-phone"></i> +91 90904500112</a></li>
+								   <li><a href=""><i class="fa-solid fa-envelope"></i> mail@1234567.com</a></li>
+							</div>
+						</div>
+					</div>
+                  
+				</div>
+			</div>
         </div>
       </div>
     </div>
