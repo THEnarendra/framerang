@@ -14,7 +14,7 @@ const Popup = ({togglePopup,id, img}) => {
       <span onClick={togglePopup} style={{position:"absolute",right:"-65vw",top:"5%",cursor:"pointer"}}>❌</span>
 
         <Col lg={6}>
-          <img className='img12'  src={data.img} alt="" />
+          <img className='img12'  src={data.productImage.url} alt="" />
         </Col>
 
         <Col lg={6}>
@@ -23,7 +23,7 @@ const Popup = ({togglePopup,id, img}) => {
           <span>10*5 inches </span><br />
           <span>Single pcs</span>
           <br />
-        <span style={{ textDecoration: "line-through", color: "gray" }}>Rs. {data.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs. {data.price}</span><br />
+        <span style={{ textDecoration: "line-through", color: "gray" }}>Rs. {data.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs. {data.newPrice}</span><br />
           <p>Size</p>
           <button className='bt3'>A3</button>
           <button className='bt3 ms-2'>A4</button><br /><br />

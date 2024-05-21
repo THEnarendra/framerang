@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {ap10,ap11,ap12} from '../../images/anime-posters/animeposters'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
@@ -8,8 +8,6 @@ import { Col, Row } from 'react-bootstrap';
 
 
 export const Posters = ({theme, img}) => {
-
-
 
   const settings = {
     dots: true,
@@ -38,11 +36,14 @@ export const Posters = ({theme, img}) => {
 {/* <h1 className='ms-5 display-4'>Anime Posters</h1> */}
 
 <Row style={{margin:"3% 5% 3% 5%"}}>
-{img.map((img)=>(
+  {img &&(
+
+img.map((img)=>(
   <Col lg={3} md={4} sm={12}>
 <ProductCard img={img}/>
  </Col>
-))}
+))
+  )}
 </Row>
 
 </div>
