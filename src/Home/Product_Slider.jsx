@@ -13,7 +13,7 @@ const Product_Slider = () => {
   const img=[
     {
       id:1,
-      img:ap1,
+      productImage:{url:ap1},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -21,7 +21,7 @@ const Product_Slider = () => {
   },
     {
       id:2,
-      img:ap2,
+      productImage:{url:ap2},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -29,7 +29,7 @@ const Product_Slider = () => {
   },
     {
       id:3,
-      img:ap3,
+      productImage:{url:ap3},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -37,7 +37,7 @@ const Product_Slider = () => {
   },
     {
       id:4,
-      img:ap4,
+      productImage:{url:ap4},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -45,7 +45,7 @@ const Product_Slider = () => {
   },
     {
       id:5,
-      img:ap5,
+      productImage:{url:ap5},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -53,7 +53,7 @@ const Product_Slider = () => {
   },
     {
       id:6,
-      img:ap6,
+      productImage:{url:ap6},
       price:50,
       oldPrice:100,
       description:"this is our frame",
@@ -61,7 +61,7 @@ const Product_Slider = () => {
   },
     {
       id:7,
-      img:ap7,
+      productImage:{url:ap7},
       price:50,
       oldPrice:100,
       description:"this is our frame",

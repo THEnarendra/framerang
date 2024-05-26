@@ -12,6 +12,7 @@ const Navbar = ({ theme, setTheme }) => {
   const [frame, setFrame] = useState(false);
   const [poster, setPoster] = useState(false);
 
+  
   const toggle = () => {
     setIsOpen(!isOpen);
   }
@@ -47,7 +48,7 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
-          <div onClick={() => setFrame(!frame)} >
+          <div onClick={() => (setFrame(!frame),setPoster(false))} >
             Frames <i className="fa-solid fa-angle-down"></i>
           </div>
           {frame && (
@@ -62,7 +63,7 @@ const Navbar = ({ theme, setTheme }) => {
           )}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
-          <div onClick={() => setPoster(!poster)} >
+          <div onClick={() => (setPoster(!poster),setFrame(false))} >
             Posters <i className="fa-solid fa-angle-down"></i>
           </div>
           {poster && (

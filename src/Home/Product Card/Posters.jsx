@@ -19,7 +19,12 @@ export const Posters = ({theme, img}) => {
     autoplaySpeed: 2000, // Adjust autoplay speed (optional)
     arrows: false, // Hide arrows
   };
+const Category=["Marvel Poster","Custome poster","Anime Poster",
+"Sports Posters",
+"Music Posters",
+"Art Posters",
 
+]
   return (
     
       
@@ -30,10 +35,20 @@ export const Posters = ({theme, img}) => {
               
               <Slider {...settings}>
       <img src={ap10} alt="" className='logo_wheel12' />
-      <img src={ap10} alt="" className='logo_wheel12' />
+      <img src={ap11} alt="" className='logo_wheel12' />
+      <img src={ap12} alt="" className='logo_wheel12' />
       </Slider>
 
-{/* <h1 className='ms-5 display-4'>Anime Posters</h1> */}
+<h1 className='display-5 mt-5 mb-4'>Different Category</h1>
+<div className='Category_Row'>
+  {Category.map((data)=>(
+
+  <div className='Category '>
+  {data}
+  </div>
+  ))}
+ 
+</div>
 
 <Row style={{margin:"3% 5% 3% 5%"}}>
   {img &&(
