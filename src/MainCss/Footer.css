@@ -4,7 +4,7 @@
     display: grid;
     position: relative;
     grid-area: footer;
-    min-height: 12rem;
+    /* min-height: 12rem; */
     
     .bubbles {
         position: absolute;
@@ -31,7 +31,7 @@
         display: grid;
         grid-template-columns: 1fr auto;
         grid-gap: 4rem;
-        padding: 2rem;
+        /* padding: 2rem; */
         background: var(--footer-background);
 
         a,

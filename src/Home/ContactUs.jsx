@@ -7,7 +7,7 @@ const ContactUs = ({theme,setTheme}) => {
     <>
     <Row className='row'>
 
-        <Col className='col1'>
+        <Col sm={12} lg={6} className='col1'>
         <form class="row g-3">
 
             <h1>Contact Us</h1>
@@ -17,7 +17,7 @@ const ContactUs = ({theme,setTheme}) => {
         </form>
         </Col>
 
-        <Col className='col2'>
+        <Col sm={12} lg={6} className='col2'>
             <form class="row g-3">
             <p>Please allow 1-2 business days to respond to your inquiry.</p>
             <h2>Lets connect</h2>

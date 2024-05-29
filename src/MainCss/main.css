@@ -1,5 +1,5 @@
 .firsth1 {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .bt1 {
@@ -104,20 +104,24 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(77, 77, 77, 0.658);
+  background-color: rgba(32, 31, 31, 0.658);
   z-index: 999;
   filter: blur(0px);
   display: flex;
   justify-content: center !important;
   align-items: center;
+  overflow: scroll;
 }
 
 .row1 {
   border-radius: 20px;
-  background-color: black;
-  /* width: fit-content; */
+  border: 1px solid #ffffff22;
+  background: rgba(30, 30, 31, 0.715);
+  border-radius: .7rem;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   height: fit-content;
-  padding: 5% 3% 5% 3%;
+  padding: 3% 3% 3% 3%;
   width: 70%;
   text-align: left;
 }
@@ -125,7 +129,8 @@
 .img12 {
   object-fit: scale-down;
   width: -webkit-fill-available;
-  height: 45vh;
+  
+  
 }
 
 .bt3 {
@@ -161,3 +166,4 @@
   flex-wrap: wrap;
 
 }
+

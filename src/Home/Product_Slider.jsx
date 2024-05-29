@@ -69,16 +69,40 @@ const Product_Slider = () => {
   },
 ]
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true, // Add autoplay
-    speed: 2000,
-    autoplaySpeed: 2000, // Adjust autoplay speed (optional)
-    arrows: false, // Hide arrows
-  };
+const settings = {
+  dots: false,
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
+  arrows: false,
+  responsive: [
+    {
+      breakpoint: 1024, // At 1024px or less
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 768, // At 768px or less
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480, // At 480px or less
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+};
+
   
   return (
     <div style={{width:"90vw"}}>
