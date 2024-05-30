@@ -10,3 +10,17 @@
     object-fit: cover;
     
 }
+@media screen and (max-width:997px) {
+    .yourSwiper{
+        height: 65vh;
+        width: 55vw;
+        margin-left: 16%;
+    }
+    
+    .swiperImg{
+        height: 60vh;
+        width: 55vw;
+        object-fit: cover;
+        
+    }
+}

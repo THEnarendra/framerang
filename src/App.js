@@ -22,7 +22,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/allProducts')
+    fetch('https://framerang-backend.vercel.app/api/v1/allProducts')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -31,8 +31,8 @@ function App() {
       })
       .then((data) => {
         const fr =data.data
-        const frame = fr.filter((e)=>e.category==="Frame");
-        const poster = fr.filter((e)=>e.category==="Poster")
+        const frame = fr.filter((e)=>e.category==="frame");
+        const poster = fr.filter((e)=>e.category==="poster")
           setData(frame);
         setData1(poster)
         // setLoading(false);

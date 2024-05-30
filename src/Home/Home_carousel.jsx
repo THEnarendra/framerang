@@ -89,6 +89,7 @@ export default function Home_carousel() {
         pagination={true}
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
+        
       >
         {arr1.map((data)=>(
         <SwiperSlide className='swiper-slide1'>

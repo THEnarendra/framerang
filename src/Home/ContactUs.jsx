@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import '../MainCss/ContactUs.css'
-
+import logo from "../images/2.png"
 const ContactUs = ({theme,setTheme}) => {
+const[firstname, setFirstname]=useState("")
+const[lastname, setLastname]=useState()
+const[phone, setPhone]=useState()
+const[email, setEmail]=useState()
+
+
+const Submitform=()=>{
+  if(firstname===undefined){
+    
+      console.log("Please enter First name")
+    
+  }
+}
+const Value=(e)=>{
+  setFirstname(e)
+console.log(firstname);
+
+}
   return (
     <>
     <Row className='row'>
@@ -11,6 +29,7 @@ const ContactUs = ({theme,setTheme}) => {
         <form class="row g-3">
 
             <h1>Contact Us</h1>
+            <img style={{width:"10vw"}} src={logo} alt="" />
             <p>Hey we are framerang providing high quality picture fraems for you and your family your will find very high wqualtiyte </p>
             <span>Headquaters</span>
             <p>Lalchandpura kumawato ki dhani</p>
@@ -18,11 +37,11 @@ const ContactUs = ({theme,setTheme}) => {
         </Col>
 
         <Col sm={12} lg={6} className='col2'>
-            <form class="row g-3">
+            <form class="row ">
             <p>Please allow 1-2 business days to respond to your inquiry.</p>
             <h2>Lets connect</h2>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">First Name</label>
+    <label onChange={(e)=>Value(e.target.Value)} for="inputEmail4" class="form-label">First Name</label>
     <input type="text" class="form-control" id="inputName"/>
   </div>
   <div class="col-md-6">
@@ -42,7 +61,7 @@ const ContactUs = ({theme,setTheme}) => {
     <input type="text" class="form-control" id="inputCity"/>
   </div>
 
-  <div class="col-12">
+  <div class="col-12 mt-4">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck"/>
       <label class="form-check-label" for="gridCheck">
@@ -51,12 +70,13 @@ const ContactUs = ({theme,setTheme}) => {
     </div>
   </div>
   <div class="col-12">
-    <button type="submit" class="bt2">Submit</button>
+    <button onClick={Submitform()} type="button" class="bt2">Submit</button>
   </div>
 </form>
 
         </Col>
     </Row>
+
     </>
   )
 }

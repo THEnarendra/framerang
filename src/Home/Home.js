@@ -49,7 +49,7 @@ export const Home = ({ theme, setTheme }) => {
                 </Col>
                 <Col data-aos="fade-left"
      data-aos-offset="300"
-     data-aos-easing="ease-in-sine" lg={6}>
+     data-aos-easing="ease-in-sine"  lg={6}>
                     <Home_carousel />
                 </Col>
             </Row>
