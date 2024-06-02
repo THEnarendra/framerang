@@ -154,6 +154,7 @@
 }
 
 .Category {
+  cursor: pointer;
   background-color: rgb(219, 14, 14);
   margin: 1%;
   border-radius: 5px;
@@ -166,4 +167,3 @@
   flex-wrap: wrap;
 
 }
-

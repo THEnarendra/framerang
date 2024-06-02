@@ -31,7 +31,7 @@ function App() {
       })
       .then((data) => {
         const fr =data.data
-        const frame = fr.filter((e)=>e.category==="frame");
+        const frame = fr.filter((e)=>e.category==="frame"); 
         const poster = fr.filter((e)=>e.category==="poster")
           setData(frame);
         setData1(poster)
