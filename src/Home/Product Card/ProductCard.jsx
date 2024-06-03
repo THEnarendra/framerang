@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import img from '../../images/anime-character-listening-music.jpg'
 import Popup from '../Popup';
 
 const ProductCard = ({img}) => {

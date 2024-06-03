@@ -48,34 +48,36 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
+          <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/frames">
           <div onClick={() => (setFrame(!frame),setPoster(false))} >
-            Frames <i className="fa-solid fa-angle-down"></i>
+            Frames 
+            {/* <i className="fa-solid fa-angle-down"></i> */}
           </div>
-          {frame && (
+          </Link>
+          {/* {frame && (
             <div className="frameDrop">
-              <Link onClick={()=>setFrame(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/animeposters">
                 <p>Anime</p>
               </Link>
               <Link onClick={()=>setFrame(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/marvelposters">
                 <p>Marvel</p>
-              </Link>
             </div>
-          )}
+          )} */}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
-          <div onClick={() => (setPoster(!poster),setFrame(false))} >
-            Posters <i className="fa-solid fa-angle-down"></i>
+          <Link  style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/posters">
+          <div >
+            Posters 
+            {/* <i className="fa-solid fa-angle-down"></i> */}
           </div>
-          {poster && (
+          </Link>
+          {/* {poster && (
             <div className="frameDrop" >
-              <Link onClick={()=>setPoster(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/animeframes">
                 <p>Anime</p>
               </Link>
               <Link onClick={()=>setPoster(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/marvelframes">
                 <p>Marvel</p>
-              </Link>
             </div>
-          )}
+          )} */}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link onClick={()=>(setPoster(false),setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>

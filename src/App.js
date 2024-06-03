@@ -9,7 +9,7 @@ import { Posters } from './Home/Product Card/Posters';
 import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from './images/anime-posters/animeposters'
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
-
+import {Customize} from './Home/Product Card/Customizeposters'
 function App() {
   const [theme, setTheme] = useState("darkTheme");
   const [data, setData] = useState(null);
@@ -53,12 +53,13 @@ function App() {
       
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/>
-        <Route path='/marvelposters' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
-        <Route path='/animeframes' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/>
-        <Route path='/marvelframes' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
+        {/* <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
+        <Route path='/posters' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
+        {/* <Route path='/animeframes' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
+        <Route path='/frames' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
         <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
         <Route path='/cart' element={<Cart theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/customize' element={<Customize theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

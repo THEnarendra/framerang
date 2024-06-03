@@ -25,7 +25,7 @@ export const Posters = ({ theme, img }) => {
     "Art Posters",
 
   ]
-  const img1 = img.filter((e)=>e.Category==="sports poster")
+
   return ( 
 
 

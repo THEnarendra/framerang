@@ -9,6 +9,7 @@ import logo from '../images/2.png';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom';
 
 export const Home = ({ theme, setTheme }) => {
     const lightTheme = "lightTheme";
@@ -45,7 +46,9 @@ export const Home = ({ theme, setTheme }) => {
      data-aos-easing="ease-in-sine" lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
                     <h5  style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
+                  <Link to="/posters">
                     <button className='bt1'>Our Posters</button>
+                  </Link>
                 </Col>
                 <Col data-aos="fade-left"
      data-aos-offset="300"
@@ -61,7 +64,9 @@ export const Home = ({ theme, setTheme }) => {
             }}>
                 <h1 className='firsth1'>Customize your pictures into Posters</h1><br />
                 <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
-                <button className='bt2'>Customize your Posters</button>
+              <Link to='/customize'>
+               <button className='bt2'>Customize your Posters</button>
+              </Link> 
                 
             <img style={{width:"8%", position:"absolute", top:"85%",left:"0"}} src={logo} alt="" className='logo_wheel' />
             </div>
@@ -72,7 +77,10 @@ export const Home = ({ theme, setTheme }) => {
                 <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
                     <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
-                    <button className='bt1'>Our Posters</button>
+                  <Link to="/frames">
+
+                    <button className='bt1'>Our Frames</button>
+                  </Link>
                 </Col>
             </Row>
 

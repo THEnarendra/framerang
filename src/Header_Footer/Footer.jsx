@@ -1,6 +1,7 @@
 import React from 'react';
 import "../MainCss/Footer.css";
 import logo from '../images/2.png'
+import { Link } from 'react-router-dom';
 const Bubble = () => {
 
   const categories = [
@@ -60,10 +61,11 @@ const Bubble = () => {
 							<h2>Useful Links</h2>
 							{/* <img src="./assets/images/about/home_line.png" alt="" className="img-fluid"> */}
 							<div className="use-links">
-								<li><a href="index.html"><i className="fa-solid fa-angles-right"></i> Home</a></li>
+								<li><a href="/"><i className="fa-solid fa-angles-right"></i> Home</a></li>
 								<li><a href="about.html"><i className="fa-solid fa-angles-right"></i> About Us</a></li>
 								<li><a href="gallery.html"><i className="fa-solid fa-angles-right"></i> Gallery</a></li>
-								<li><a href="contact.html"><i className="fa-solid fa-angles-right"></i> Contact</a></li>
+								<li><a href="/contactUs"><i className="fa-solid fa-angles-right"></i> Contact</a></li>
+                
 							</div>
 						</div>
 
@@ -73,9 +75,9 @@ const Bubble = () => {
 							<h2>Follow Us</h2>
 							{/* <img src={logo} alt=""/> */}
 							<div className="social-icons">
-								<li><a href=""><i className="fa-brands fa-facebook-f"></i> Facebook</a></li>
-								<li><a href=""><i className="fa-brands fa-instagram"></i> Instagram</a></li>
-								<li><a href=""><i className="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+								<li><a href="https://www.facebook.com/people/FrameRang/100083271771990/"><i className="fa-brands fa-facebook-f"></i> Facebook</a></li>
+								<li><a href="https://www.instagram.com/framerang/"><i className="fa-brands fa-instagram"></i> Instagram</a></li>
+								{/* <li><a href=""><i className="fa-brands fa-linkedin-in"></i> Linkedin</a></li> */}
 							</div>
 						</div>
                     
