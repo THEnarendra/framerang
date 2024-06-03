@@ -26,7 +26,7 @@ const Popup = ({ togglePopup, id, img }) => {
           <Col style={{display:"flex",alignItems:"center",flexDirection:"column"}} lg={6}>
             <img className='img12' src={data.productImage.url} alt="" />
             
-            <div>
+            {/* <div>
       <p>Set the quantity</p>
       <div className="quantity-input">
         <button
@@ -48,7 +48,7 @@ const Popup = ({ togglePopup, id, img }) => {
           &#xff0b;
         </button>
       </div>
-    </div>
+    </div> */}
     
           </Col>
 

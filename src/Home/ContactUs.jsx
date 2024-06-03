@@ -72,13 +72,13 @@ const ContactUs = ({ theme, setTheme }) => {
 
   return (
     <>
-      <Row className='row'>
+      <Row style={{marginBottom:150}} className='row '>
 
-        <Col sm={12} lg={6} className='col1'>
+        <Col sm={12} lg={6} className='col1 mt-4'>
           <form class="row g-3">
 
             <h1>Contact Us</h1>
-            <img style={{ width: "10vw" }} src={logo} alt="" />
+            <img style={{ width: "150px" }} src={logo} alt="" />
             <p>Hey we are framerang providing high quality picture fraems for you and your family your will find very high wqualtiyte </p>
             <span>Headquaters</span>
             <p>Lalchandpura kumawato ki dhani</p>

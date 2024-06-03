@@ -41,23 +41,19 @@ export const Home = ({ theme, setTheme }) => {
            
 
             <Row>
-                <Col data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
+                <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
                     <h5  style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity."</h5>
                   <Link to="/posters">
                     <button className='bt1'>Our Posters</button>
                   </Link>
                 </Col>
-                <Col data-aos="fade-left"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine"  lg={6}>
+                <Col  lg={6}>
                     <Home_carousel />
                 </Col>
             </Row>
 
-            <div data-aos="zoom-in-down" data-aos-duration="100000" style={{
+            <div style={{
                 position:"relative",
                 padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
                 borderRadius: "30px", margin: "5% 2% 5% 2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
@@ -71,8 +67,7 @@ export const Home = ({ theme, setTheme }) => {
             <img style={{width:"8%", position:"absolute", top:"85%",left:"0"}} src={logo} alt="" className='logo_wheel' />
             </div>
 
-            <Row data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
+            <Row >
                 <Col  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper /></Col>
                 <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
                     <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art.</h1><br />
@@ -85,7 +80,6 @@ export const Home = ({ theme, setTheme }) => {
             </Row>
 
             <div
-            data-aos="fade-up" data-aos-duration="5000"
              style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center",marginTop:"5%",marginBottom:"5%"}}>
                 <h1>Our Best Selling Posters & Frames</h1>
             
