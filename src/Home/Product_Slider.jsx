@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from '../images/anime-posters/animeposters'
 import ProductCard from './Product Card/ProductCard';
 import '../MainCss/ProductCard.css'
-import { Controller } from 'swiper/modules';
 
 const Product_Slider = () => {
 

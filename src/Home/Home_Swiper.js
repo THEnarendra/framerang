@@ -8,9 +8,8 @@ import {ap1, ap2, ap3, ap4, ap5, ap6, ap7, ap8, ap9} from "../images/anime-poste
 import '../MainCss/swiper.css'
 
 
-export const Home_Swiper = () => {
+export const Home_Swiper = ({img}) => {
 
-  const images=[ap1,ap2,ap3,ap4,ap5,ap6,ap7,ap8,ap9]
   return (
     <Swiper 
     effect={'cards'}
@@ -20,9 +19,9 @@ export const Home_Swiper = () => {
     className="yourSwiper"
     >
 
-      {images.map((img)=>(
+      {img.map((img)=>(
         <SwiperSlide style={{ display:"flex",justifyContent:"center"}}>
-          <img src={img} className='swiperImg' alt="" />
+          <img src={img.url} className='swiperImg' alt="" />
         </SwiperSlide>
         ))}
     </Swiper>

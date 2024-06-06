@@ -17,55 +17,9 @@ import img8 from "../images/separation_z4uh0l.png"
 // import required modules
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 
-export default function Home_carousel() {
+export default function Home_carousel({img}) {
 
-  const arr1=[
-    
-    {
-      "id":5,
-      "img":img2
-
-    },
-    {
-      "id":6,
-      "img":img3
-
-    },
-    {
-      "id":7,
-      "img":img5
-
-    },
   
-    {
-      "id":9,
-      "img":img6
-
-    },
-    
-    {
-      "id":5,
-      "img":img7
-
-    },
-    {
-      "id":6,
-      "img":img8
-
-    },
-    {
-      "id":7,
-      "img":img2
-
-    },
-  
-    {
-      "id":9,
-      "img":img3
-
-    },
-    
-  ]
   
   return (
     <div className='body01'>
@@ -91,10 +45,10 @@ export default function Home_carousel() {
         className="mySwiper"
         
       >
-        {arr1.map((data)=>(
+        {img.map((data)=>(
         <SwiperSlide className='swiper-slide1'>
           <div className='text-white' >
-          <img  src={data.img} />
+          <img  src={data.url} />
             
           </div>
         </SwiperSlide>
