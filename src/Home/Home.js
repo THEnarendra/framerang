@@ -15,9 +15,7 @@ export const Home = ({ theme, setTheme }) => {
   const lightTheme = "lightTheme";
 
   const [details, fetchDetails] = useState([]);
-  const [first, setFirst] = useState()
-  const [second, setSecond] = useState()
-  const [third, setThird] = useState()
+  
 
 
   const getData = () => {
@@ -33,14 +31,6 @@ export const Home = ({ theme, setTheme }) => {
         console.log(data, res);
         fetchDetails(data);
 
-        const data0 = data.filter((e) => e.sectionId == 1);
-        const data1 = data.filter((e) => e.sectionId == 2);
-        const data2 = data.filter((e) => e.sectionId == 3);
-
-        setFirst(data0);
-        setSecond(data1);
-        setThird(data2);
-        console.log("first", first);
       })
       .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
@@ -58,7 +48,6 @@ export const Home = ({ theme, setTheme }) => {
     const video = document.getElementById('homeVideo');
     if (video) {
       video.play().catch(error => {
-        // Autoplay failed, handle error
         console.error('Autoplay failed:', error);
       });
     }

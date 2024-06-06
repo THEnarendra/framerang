@@ -6,7 +6,6 @@ import Footer from './Header_Footer/Footer';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
 import { Posters } from './Home/Product Card/Posters';
-import { ap1,ap2,ap3,ap4,ap5,ap6,ap7} from './images/anime-posters/animeposters'
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
 import {Customize} from './Home/Product Card/Customizeposters'
