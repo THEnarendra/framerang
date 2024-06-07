@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import "../MainCss/Navbar.css"
 import logo from "../images/2.png"
+import { Cart } from "../Home/Cart";
 
-const Navbar = ({ theme, setTheme }) => {
+const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
 
 
   const [isOpen, setIsOpen] = useState(true);
 
   const [frame, setFrame] = useState(false);
   const [poster, setPoster] = useState(false);
+
+ 
 
   
   const toggle = () => {
@@ -87,15 +90,18 @@ const Navbar = ({ theme, setTheme }) => {
           <i style={{ cursor: "pointer" }} className=" fa-solid fa-bell"></i>
           {/* <i style={{cursor:"pointer"}} className=" fa-solid fa-user"></i> */}
 
-          <Link onClick={()=>(setPoster(false),setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link"  to="/cart">
-            <i style={{ cursor: "pointer" }} className="px-4 fa-solid fa-cart-shopping"></i>
-          </Link>
+     
+          <i onClick={()=>( setIsCartOpen(true))} style={{ cursor: "pointer",color: theme === "darkTheme" ? "white" : "black"  }} className="px-4 fa-solid fa-cart-shopping"></i>
+ 
 
           <i style={{ cursor: "pointer" }} className="ps-5 fa-solid fa-moon" onClick={()=>(ToggleTheme(),setPoster(false),setFrame(false))}></i>
         </Col>
         <Col onClick={()=>(setPoster(false),setFrame(false))} className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
+        
       </Row>
+      
     </div>
+   
 
   );
 };

@@ -15,6 +15,7 @@ export const Home = ({ theme, setTheme }) => {
   const lightTheme = "lightTheme";
 
   const [details, fetchDetails] = useState([]);
+
   
 
 

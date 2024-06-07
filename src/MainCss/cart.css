@@ -1,11 +1,14 @@
+
+
 .rightSide{
   color: black;
   background: white;
   width: 450px;
   height: 97vh;
   z-index: 999;
-  position: absolute;
-  right: 0;
+  position: sticky;
+  top: 0;
+  left: 100vw;
   margin: 10px;
   border-radius: 20px;
   padding: 20px;

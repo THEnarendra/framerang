@@ -15,6 +15,9 @@ function App() {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
   const [error, setError] = useState(null);
+
+  const [isCartOpen, setIsCartOpen]= useState(false);
+
   useEffect(() => {
    document.body.className=theme;
   }, [theme]);
@@ -48,8 +51,8 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <div style={{position:"absolute", width:"100vw",top:0}}><Navbar theme={theme} setTheme={setTheme}/></div>
-      
+      <div style={{position:"absolute", width:"100vw",top:0}}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme}/></div>
+      {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen}/>)}
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
         {/* <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
@@ -57,7 +60,6 @@ function App() {
         {/* <Route path='/animeframes' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
         <Route path='/frames' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
         <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/cart' element={<Cart theme={theme} setTheme={setTheme}/>}/>
         <Route path='/customize' element={<Customize theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       <Footer/>

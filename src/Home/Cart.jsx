@@ -209,7 +209,7 @@ import {ap1,ap2} from '../images/anime-posters/animeposters'
 
 import '../MainCss/cart.css'
 
-export const Cart = () => {
+export const Cart = ({setIsCartOpen}) => {
 
   const [items, setItems] = useState([
     {
@@ -274,7 +274,7 @@ export const Cart = () => {
     <div className="rightSide">
       <div className='cart-header'>
       <h2>Your cart</h2>
-      <div style={{fontSize:"25px", fontWeight:700, cursor:"pointer"}}>X</div>
+      <div onClick={()=>setIsCartOpen(false)} style={{fontSize:"25px", fontWeight:700, cursor:"pointer"}}>X</div>
       </div>
       <hr />
 
