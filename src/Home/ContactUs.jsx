@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import '../MainCss/ContactUs.css'
 import logo from "../images/2.png"
@@ -40,6 +40,18 @@ const ContactUs = ({ theme, setTheme }) => {
     "message": query
   }
 
+  useEffect(()=>{
+    if(loading){
+      document.body.style.opacity = '0.5';
+      document.body.style.pointerEvents = 'none';
+    }else{
+
+      document.body.style.opacity = '1';
+      document.body.style.pointerEvents = 'auto';
+
+    }
+
+  },[loading])
 
   const handleSubmit = async (e) => {
     setLoading(true)

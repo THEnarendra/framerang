@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { toast, Toaster } from "react-hot-toast";
 import Loader from "../Loader";
@@ -14,8 +14,19 @@ export const Customize =()=>{
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
   
-  
-  
+    useEffect(()=>{
+      if(loading){
+        document.body.style.opacity = '0.5';
+        document.body.style.pointerEvents = 'none';
+      }else{
+
+        document.body.style.opacity = '1';
+        document.body.style.pointerEvents = 'auto';
+
+      }
+
+    },[loading])
+
     const generatePreview = (files) => {
       const previewUrls = files.map((file) => URL.createObjectURL(file));
       setPreview(previewUrls);
