@@ -53,7 +53,7 @@ function App() {
       <BrowserRouter>
       <div style={{position:"absolute", width:"100vw",top:0}}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme}/></div>
       {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen}/>)}
-      <Routes>
+      <Routes style={{position:"absolute"}}>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
         {/* <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
         <Route path='/posters' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import '../MainCss/ContactUs.css'
 import logo from "../images/2.png"
+import { toast, Toaster } from "react-hot-toast";
+import Loader from './Loader';
 
 const ContactUs = ({ theme, setTheme }) => {
 
@@ -11,6 +13,7 @@ const ContactUs = ({ theme, setTheme }) => {
   const [email, setEmail] = useState("");
   const [query, setQuery] = useState("");
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validation = () => {
     let error = {};
@@ -39,6 +42,7 @@ const ContactUs = ({ theme, setTheme }) => {
 
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     if (validation()) {
       console.log("Form submitted successfully", data);
@@ -52,12 +56,20 @@ const ContactUs = ({ theme, setTheme }) => {
       });
 
       if (!response.ok) {
+    setLoading(false)
+
+      toast.success("Network response was not ok");
+        
         throw new Error('Network response was not ok');
       }
-
-      alert("Form Submit Succesfull")
-
-
+    setEmail("")
+    setFirstname("")
+    setLastname("")
+    setPhone("")
+    setQuery("")
+    setLoading(false)
+    
+      toast.success("Form Submit Succesfull");
     }
   };
 
@@ -72,6 +84,9 @@ const ContactUs = ({ theme, setTheme }) => {
 
   return (
     <>
+   {loading && <div className="overlay"><Loader /></div>}
+
+      <Toaster />
       <Row style={{marginBottom:150}} className='row '>
 
         <Col sm={12} lg={6} className='col1 mt-4'>

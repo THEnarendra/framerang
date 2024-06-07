@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import { toast, Toaster } from "react-hot-toast";
+import Loader from "../Loader";
 
 export const Customize =()=>{
+  
     const [photos, setPhotos] = useState([]);
     const [size, setSize] = useState('');
     const [customText, setCustomText] = useState('');
@@ -9,10 +12,9 @@ export const Customize =()=>{
     const [images, setImages] = useState([]);
     const [preview, setPreview] = useState([]); 
     const [data, setData] = useState();
+    const [loading, setLoading] = useState(false);
   
-    // const handlePhotoUpload = (event) => {
-      
-    // };
+  
   
     const generatePreview = (files) => {
       const previewUrls = files.map((file) => URL.createObjectURL(file));
@@ -48,8 +50,12 @@ export const Customize =()=>{
     // console.log(photos);
 
     const formData = new FormData();
+
     const handleSubmit = async (e) => {
+
+      setLoading(true)
       e.preventDefault();
+console.log(loading);
       formData.append("size", data.size);
       formData.append("customText", data.customText);
       if(logoCover){
@@ -66,31 +72,38 @@ export const Customize =()=>{
           headers: {
             // 'Content-Type': 'application/json',
             "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${localStorage.getItem("token")}` 
+            // Authorization: `Bearer ${localStorage.getItem("token")}` 
           },
           data: formData
         }
         try {
           const response = await axios(config);
-          console.log(response);
-          // if(response.status===200){
-          //   toast.success("Update Successful");
-          // }
-          // else {
-          //   toast.error("Somthing went Wrong! Please try after some time!")
-          // }
+          // console.log(response);
+          if(response.success=true){
+            setLoading(false)
+            toast.success("Customize Product Ordered Successful");
+          }
+          else {
+            setLoading(false)
+            toast.error("Somthing went Wrong! Please try after some time!")
+          }
         }
         catch  (error){
+          setLoading(false)
           console.log(error.message);
         }
     };
   
     return (
         <div style={{marginTop:160,marginBottom:150}} className="container">
+   {loading && <div className="overlay"><Loader /></div>}
+
+      <Toaster />
+
         <h1 className="text-center">Customize Your Poster or Frame</h1>
         <div className="row">
           <div className="col-md-6">
-            <form onSubmit={handleSubmit}>
+            <form >
               <div className="mb-3">
                 <label htmlFor="photos" className="form-label">Upload Photos:</label>
                 <input
@@ -121,7 +134,7 @@ export const Customize =()=>{
                   onChange={handleTextChange}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button onClick={handleSubmit} type="button" className="btn btn-primary">Submit</button>
             </form>
           </div>
           <div className="col-md-6">
