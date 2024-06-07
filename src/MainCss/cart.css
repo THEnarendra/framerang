@@ -1,0 +1,134 @@
+.rightSide{
+  color: black;
+  background: white;
+  width: 450px;
+  height: 97vh;
+  z-index: 999;
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 20px;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+.cart {
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 300px;
+  border-left: 1px solid #ddd;
+}
+
+.cart h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  max-height: 58%;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 1em;
+  height: 2em;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 2%;
+}
+
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* .item-controls button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px;
+  margin: 0 5px;
+} */
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.incDec{
+  border: none;
+  background: none;
+  margin: 1px;
+}
+
+.removeBtn{
+  background: none;
+  border: 1px solid red;
+  font-weight: 400;
+  border-radius: 20px;
+  font-size: 1vw;
+}
+
+.cart-overview{
+  margin-top: 1%;
+  width: 90%;
+  position: absolute;
+  bottom: 4%;
+}
+
+
+@media only screen and (max-width:500px) {
+  .rightSide{
+    color: black;
+    background: white;
+    width: 370px;
+    height: 96vh;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .removeBtn{
+    border: 1px solid red;
+    font-weight: 400;
+    border-radius: 20px;
+    font-size: 3vw;
+  }
+  .cart-items {
+    max-height: 65%;
+    overflow-y: auto;
+  }
+}

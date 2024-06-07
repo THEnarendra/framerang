@@ -1,33 +1,88 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
 export const Customize =()=>{
     const [photos, setPhotos] = useState([]);
     const [size, setSize] = useState('');
     const [customText, setCustomText] = useState('');
-    const [preview, setPreview] = useState([]);
+    const [logoCover, setLogoCover] = useState(null);
+    const [images, setImages] = useState([]);
+    const [preview, setPreview] = useState([]); 
+    const [data, setData] = useState();
   
-    const handlePhotoUpload = (event) => {
-      const files = Array.from(event.target.files);
-      setPhotos(files);
-      generatePreview(files);
-    };
+    // const handlePhotoUpload = (event) => {
+      
+    // };
   
     const generatePreview = (files) => {
       const previewUrls = files.map((file) => URL.createObjectURL(file));
       setPreview(previewUrls);
     };
   
-    const handleSizeChange = (event) => {
-      setSize(event.target.value);
-    };
   
     const handleTextChange = (event) => {
-      setCustomText(event.target.value);
+      setData({...data,[event.target.name] : event.target.value});
+      // setCustomText(event.target.value)
     };
   
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log('Submitted:', { photos, size, customText });
+    const handlePhotoUpload = (e) => {
+      e.preventDefault();
+      const files = Array.from(e.target.files);
+      setPhotos(files);
+      generatePreview(files);
+      
+      if(e.target.files.length < 5){
+      setLogoCover(files);
+      const selectedFIles = [];
+      const targetFiles = e.target.files;
+      const targetFilesObject = [...targetFiles];
+      targetFilesObject.map((file) => {
+        return selectedFIles.push(URL.createObjectURL(file));
+      });
+      }    
+      else{
+        alert("error")
+      }
+    };
+    console.log(logoCover);
+    // console.log(photos);
+
+    const formData = new FormData();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      formData.append("size", data.size);
+      formData.append("customText", data.customText);
+      if(logoCover){
+        logoCover.forEach((image) => {
+          formData.append(`images`, image);
+        });
+      }
+      
+  
+      console.log(formData);
+        const config = {
+          url:`https://framerang-backend.vercel.app/api/v1/customPoster`,
+          method:'post',
+          headers: {
+            // 'Content-Type': 'application/json',
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}` 
+          },
+          data: formData
+        }
+        try {
+          const response = await axios(config);
+          console.log(response);
+          // if(response.status===200){
+          //   toast.success("Update Successful");
+          // }
+          // else {
+          //   toast.error("Somthing went Wrong! Please try after some time!")
+          // }
+        }
+        catch  (error){
+          console.log(error.message);
+        }
     };
   
     return (
@@ -49,11 +104,10 @@ export const Customize =()=>{
               </div>
               <div className="mb-3">
                 <label htmlFor="size" className="form-label">Select Size:</label>
-                <select id="size" className="form-select" value={size} onChange={handleSizeChange}>
+                <select id="size" className="form-select" name="size" onChange={handleTextChange}>
                   <option value="">Select size</option>
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
+                  <option value="A4">A4</option>
+                  <option value="A3">A3</option>
                 </select>
               </div>
               <div className="mb-3">
@@ -62,7 +116,8 @@ export const Customize =()=>{
                   type="text"
                   className="form-control"
                   id="customText"
-                  value={customText}
+                  // value={customText}
+                  name="customText"
                   onChange={handleTextChange}
                 />
               </div>
