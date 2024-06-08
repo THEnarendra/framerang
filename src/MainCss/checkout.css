@@ -83,13 +83,13 @@ input[type="checkbox"] {
     border: 1px solid red;
 }
 
-/* .cart-summary p {
-    margin: 5px 0;
-} */
-
-.cart-summary Row{
-    height: 10px;
+.cart-summary  {
+    display: flex;
+    justify-content: right;
+    margin-right: 10%;
 }
+
+
 .checkout-button {
     width: 100%;
     padding: 10px;

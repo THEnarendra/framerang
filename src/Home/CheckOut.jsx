@@ -5,7 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 
 const CheckOut = () => {
     const [email, setEmail] = useState('');
-    const [contact, setContact]= useState('')
+    const [contact, setContact] = useState('')
     const [delivery, setDelivery] = useState({
         country: 'India', firstName: '', lastName: '', address: '', apartment: '', city: '', state: 'Rajasthan', pinCode: ''
     });
@@ -47,7 +47,7 @@ const CheckOut = () => {
         <div className="checkout-page">
             <div className="leftSide">
                 <h2>Contact Info</h2>
-                <input type="text" placeholder="Email Address" value/>
+                <input type="text" placeholder="Email Address" value />
                 <input type="email" name="emailId" placeholder="Contact Info" value={email} onChange={handleEmailChange} />
                 <h2>Delivery Address</h2>
                 <input type="text" name="country" placeholder="Country/Region" value={delivery.country} readOnly />
@@ -67,7 +67,7 @@ const CheckOut = () => {
                 <p>Enter your shipping address to view available shipping methods.</p>
             </div>
 
-            
+
             <div className="rightSide">
                 <h2>Your cart</h2>
                 <div className="cart-items">
@@ -87,40 +87,52 @@ const CheckOut = () => {
                     <button className='apply-btn' onClick={applyPromoCode}>Apply</button>
                 </div>
                 <div className="cart-summary">
-                    {/* <Row>
-                        <Col> Subtotal: </Col>
-                        <Col> Rs. {cart.reduce((total, item) => total + item.price * item.quantity, 0)}</Col>
-                    </Row>
-                    <Row>
-                        <Col>Discount: </Col>
-                        <Col>Rs. {discount}</Col>
-                    </Row>
-                    <Row>
-                        <Col>Total: </Col>
-                        <Col>Rs. {getTotal()}</Col>
-                    </Row>
-                    <Row>
-                        <Col>Including Rs. </Col>
-                        <Col>{(getTotal() * 0.09).toFixed(2)} in taxes</Col>
-                    </Row> */}
 
-                    <table>
-                        <tr>
-                        <td>Subtotal :</td>
-                        <td>Rs.</td>
-                        </tr>
-                        <tr>
-                        <td>Discount :</td>
-                        <td>Rs.</td>
-                        </tr>
-                        <tr>
-                        <td>Shipping :</td>
-                        <td>Rs.</td>
-                        </tr>
+
+                    <div class="container ms-4">
+                        <table class="table">
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Subtotal</th>
+                                    <td>₹373.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>Shipping</span>
+                                            <button type="button" class="btn btn-link p-0" >
+
+                                            </button>
+                                        </div>
+                                    </th>
+                                    <td>Enter shipping address</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Total
+                                        <p>Including ₹30.80 in taxes</p>
+                                    </th>
+                                    <td>
+
+                                        <strong>₹373.00</strong>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </th>
+                                    <td></td>
+                                </tr>
+                            </tbody>
                         </table>
-                    
-                    
-                    
+                    </div>
+
+
+
                 </div>
                 <button className="checkout-button">Check out</button>
             </div>

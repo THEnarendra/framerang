@@ -4,6 +4,7 @@ import {ap1,ap2} from '../images/anime-posters/animeposters'
 
 import '../MainCss/cart.css'
 import { CartContext } from '../CartContext';
+import { Link } from 'react-router-dom';
 
 export const Cart = ({setIsCartOpen}) => {
   const { cart,setCart, removeFromCart,incrementQuantity,decrementQuantity,getTotal } = useContext(CartContext);
@@ -46,7 +47,9 @@ export const Cart = ({setIsCartOpen}) => {
       <p>Rs. {getTotal()}</p>
     </div>
     <div>Tax included. Shipping and discounts calculated at checkout.</div>
+    <Link to="/checkout">
     <button className="checkout-button">Check out</button>
+    </Link>
   </div>
     </div>
     
