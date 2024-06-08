@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ap1 } from '../images/anime-posters/animeposters';
-import '../MainCss/checkout.css';
+import '../MainCss/checkout.css'
 import { Col, Row } from 'react-bootstrap';
 
 const CheckOut = () => {
@@ -47,7 +47,7 @@ const CheckOut = () => {
         <div className="checkout-page">
             <div className="leftSide">
                 <h2>Contact Info</h2>
-                <input type="text" placeholder="Email Address" />
+                <input type="text" placeholder="Email Address" value/>
                 <input type="email" name="emailId" placeholder="Contact Info" value={email} onChange={handleEmailChange} />
                 <h2>Delivery Address</h2>
                 <input type="text" name="country" placeholder="Country/Region" value={delivery.country} readOnly />
