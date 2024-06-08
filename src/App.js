@@ -9,6 +9,8 @@ import { Posters } from './Home/Product Card/Posters';
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
 import {Customize} from './Home/Product Card/Customizeposters'
+import CheckOut from './Home/CheckOut';
+
 function App() {
   const [theme, setTheme] = useState("darkTheme");
   const [data, setData] = useState(null);
@@ -61,6 +63,7 @@ function App() {
         <Route path='/frames' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
         <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
         <Route path='/customize' element={<Customize theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/checkout' element={<CheckOut theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
