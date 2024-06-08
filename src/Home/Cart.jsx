@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {ap1,ap2} from '../images/anime-posters/animeposters' 
 
 // // Helper function to format currency
@@ -208,67 +208,12 @@ import {ap1,ap2} from '../images/anime-posters/animeposters'
 // }
 
 import '../MainCss/cart.css'
+import { CartContext } from '../CartContext';
 
 export const Cart = ({setIsCartOpen}) => {
+  const { cart,setCart, removeFromCart,incrementQuantity,decrementQuantity,getTotal } = useContext(CartContext);
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: 'Anime Frames Combo Goku, Sasuke (3pcs:- 13*9inch)',
-      price: 399,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      name: 'Anime Frames Combo Goku, Sasuke (3pcs:- 13*9inch)',
-      price: 399,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      name: 'Anime Frames Combo Goku, Sasuke (3pcs:- 13*9inch)',
-      price: 399,
-      quantity: 1,
-    },
-    {
-      id: 1,
-      name: 'Anime Frames Combo Goku, Sasuke (3pcs:- 13*9inch)',
-      price: 399,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: 'Satoru Gojo Frame (13*9 inch)',
-      price: 149,
-      quantity: 1,
-    },
-    {
-      id: 3,
-      name: 'Dhoni || Matte Finish Poster',
-      price: 49,
-      quantity: 1,
-    },
-  ]);
 
-  const incrementQuantity = (id) => {
-    setItems(items.map(item =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    ));
-  };
-
-  const decrementQuantity = (id) => {
-    setItems(items.map(item =>
-      item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
-    ));
-  };
-
-  const removeItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-
-  const getTotal = () => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
 
   return (
     <div className="rightSide">
@@ -279,21 +224,21 @@ export const Cart = ({setIsCartOpen}) => {
       <hr />
 
     <div className="cart-items">
-    {items.map((item) => (
+    {cart.map((item) => (
           <div key={item.id} className="cart-item">
-            <img src={ap1} alt={item.name} />
+            <img src={item.productImage.url} alt="" />
             <div className="item-details">
-              <p>{item.name}</p>
+              <p>{item.productName}</p>
               
               <div className="item-controls">
-              <p>Rs. {item.price}</p>
+              <p>Rs. {item.newPrice}</p>
               <div>
-              <button className='incDec' onClick={() => decrementQuantity(item.id)}>-</button>
+              <button className='incDec' onClick={() => decrementQuantity(item._id)}>-</button>
                 <span>{item.quantity}</span>
-                <button className='incDec' onClick={() => incrementQuantity(item.id)}>+</button>
+                <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
               </div>
                 
-                <button className='removeBtn' onClick={() => removeItem(item.id)}>Remove</button>
+                <button className='removeBtn' onClick={() => removeFromCart(item._id)}>Remove</button>
               </div>
             </div>
           </div>
