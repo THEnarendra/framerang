@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Popup from '../Popup';
 
 const ProductCard = ({img}) => {
 
 const [id, setId]= useState()
+const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 const [showPopup, setShowPopup] = useState(false);
   const Pop=()=>{
@@ -11,6 +12,17 @@ const [showPopup, setShowPopup] = useState(false);
    
   }
   
+  useEffect(() => {
+    if (showPopup) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showPopup]);
 
   return (
 <>

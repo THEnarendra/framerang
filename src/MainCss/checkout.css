@@ -1,29 +1,48 @@
-.checkout-page {
-    display: flex;
-    justify-content: space-between;
-    padding: 150px;
-}
-
-.leftSide {
-    width: 48%;
-}
-
 .rightSide{
     height: auto;
-    position: absolute;
-    right: 0;
-    width: 48%;
-    padding: 2%;
-    margin-top: -2%;
-    padding-bottom: 5%;
-    background: white;
-    color: black;
-    border-radius: 10px;
+    padding: 3%;
+    /* padding-top: 1%; */
+    background: rgba(70, 27, 135, 0.351);
+    border-radius: 10px;  
+}
+
+.over{
+overflow-y:scroll;
+height:83vh;
+}
+
+.checkout-page{
+    overflow: hidden;
+    height: 98vh;
+}
+
+@media screen and (max-width:1282px) {
+    .checkout-page{
+        margin-top: 125px;
+    }
+    /* .cart-items1{
+        height: 25vh;
+    } */
+}
+@media screen and (max-width:770px) {
+    .checkout-page{
+        margin-top: 55px;
+    }
+}
+@media screen and (max-width:992px) {
+    .checkout-page{
+        overflow: auto;
+        height: 100%;
+    }
+    .over{
+        overflow: auto; 
+        height: 100%; 
+    }
     
 }
 
-h2 {
-    margin-bottom: 10px;
+h4 {
+    margin-bottom: 2px;
     margin-top: 5px;
 }
 
@@ -33,7 +52,9 @@ input[type="text"], input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    margin: 2%;
+    margin-top: 2%;
+    background-color: transparent;
+    border: 1px solid rgba(176, 174, 174, 0.632);
 }
 
 input[type="checkbox"] {
@@ -46,22 +67,25 @@ input[type="checkbox"] {
 }
 
 .name-fields input, .location-fields input {
-    width: 48%;
+    width: 47%;
 }
 
-.cart-items {
-    margin-bottom: 20px;
+.cart-items1 {
+    border: 0.1px solid rgba(255, 255, 255, 0.459);
+    margin-bottom: 5px;
+    height: 40vh;
+    overflow-y: scroll;
 }
 
 .cart-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .cart-item img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     margin-right: 10px;
 }
 
@@ -91,7 +115,7 @@ input[type="checkbox"] {
 
 
 .checkout-button {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     background-color: red;
     color: white;

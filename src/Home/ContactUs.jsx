@@ -5,8 +5,8 @@ import logo from "../images/2.png"
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
 
-const ContactUs = ({ theme, setTheme }) => {
-
+const ContactUs = ({ theme, setTheme,setFooter }) => {
+  setFooter(false)
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [phone, setPhone] = useState("");
@@ -174,7 +174,7 @@ const ContactUs = ({ theme, setTheme }) => {
             </div>
 
 
-            <div className="col-12">
+            <div className="col-12 pb-2">
               <button type="submit" className="btn btn-primary">Submit</button>
             </div>
           </form>

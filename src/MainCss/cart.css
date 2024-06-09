@@ -20,7 +20,7 @@
   padding: 2%;
 }
 .cart {
-  padding: 20px;
+  /* padding: 20px; */
   background-color: #f9f9f9;
   width: 300px;
   border-left: 1px solid #ddd;
@@ -47,7 +47,9 @@
   padding: 2%;
 }
 
-
+.decrementQuantity{
+  border: 0.1px solid rgba(0, 0, 0, 0.526);
+}
 .cart-item img {
   width: 80px;
   height: 80px;
@@ -112,25 +114,13 @@
 
 
 @media only screen and (max-width:500px) {
-  .rightSide{
-    color: black;
-    background: white;
-    width: 370px;
-    height: 96vh;
-    z-index: 999;
-    position: absolute;
-    right: 0;
-    margin: 10px;
-    border-radius: 20px;
-    padding: 20px;
-  }
   .removeBtn{
     border: 1px solid red;
     font-weight: 400;
     border-radius: 20px;
     font-size: 3vw;
   }
-  .cart-items {
+  .cart-items1 {
     max-height: 65%;
     overflow-y: auto;
   }

@@ -11,7 +11,8 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 
-export const Home = ({ theme, setTheme }) => {
+export const Home = ({ theme,setFooter }) => {
+  setFooter(true)
   const lightTheme = "lightTheme";
 
   const [details, fetchDetails] = useState([]);

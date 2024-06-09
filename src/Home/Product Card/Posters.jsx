@@ -7,8 +7,8 @@ import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
 
 
-export const Posters = ({ theme, img }) => {
-
+export const Posters = ({ img,setFooter }) => {
+  setFooter(true)
   const settings = {
     dots: true,
     slidesToShow: 1,

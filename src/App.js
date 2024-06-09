@@ -17,6 +17,7 @@ function App() {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
   const [error, setError] = useState(null);
+  const[footer,setFooter]=useState(true)
 
   const [isCartOpen, setIsCartOpen]= useState(false);
 
@@ -55,17 +56,18 @@ function App() {
       <BrowserRouter>
       <div style={{position:"absolute", width:"100vw",top:0}}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme}/></div>
       {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen}/>)}
-      <Routes style={{position:"absolute"}}>
-        <Route path='/' element={<Home theme={theme} setTheme={setTheme}/>}/>
-        {/* <Route path='/animeposters' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
-        <Route path='/posters' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
-        {/* <Route path='/animeframes' element={<Posters theme={theme} setTheme={setTheme} img={data}/>}/> */}
-        <Route path='/frames' element={<Posters theme={theme} setTheme={setTheme} img={data1}/>}/>
-        <Route path='/contactus' element={<ContactUs theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/customize' element={<Customize theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/checkout' element={<CheckOut theme={theme} setTheme={setTheme}/>}/>
+      <Routes>
+        <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/posters' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1}/>}/>
+        <Route path='/frames' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1}/>}/>
+        <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/checkout' element={<CheckOut  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
       </Routes>
+      {footer &&(
+
       <Footer/>
+      )}
       </BrowserRouter>
     </div>
   );

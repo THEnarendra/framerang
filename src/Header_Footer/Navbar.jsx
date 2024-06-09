@@ -5,7 +5,7 @@ import "../MainCss/Navbar.css"
 import logo from "../images/2.png"
 import { Cart } from "../Home/Cart";
 
-const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
+const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
 
 
   const [isOpen, setIsOpen] = useState(true);
@@ -13,9 +13,9 @@ const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
   const [frame, setFrame] = useState(false);
   const [poster, setPoster] = useState(false);
 
- 
 
-  
+
+
   const toggle = () => {
     setIsOpen(!isOpen);
   }
@@ -33,7 +33,7 @@ const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
     <div >
       <Row style={{ marginTop: "1%" }} className="navbar">
         <Col lg={1} md={3} sm={2}>
-          <Link onClick={()=>(setPoster(false),setFrame(false))} to="/">
+          <Link onClick={() => (setPoster(false), setFrame(false))} to="/">
             <img
               className="image"
               src={logo}
@@ -46,16 +46,16 @@ const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
           <input className="search" type="search" placeholder="Search Anime" />
         </Col>
         <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>
-          <Link onClick={()=>(setPoster(false),setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }}
+          <Link onClick={() => (setPoster(false), setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }}
             className="link" to="/">Home
           </Link>
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/frames">
-          <div onClick={() => (setFrame(!frame),setPoster(false))} >
-            Frames 
-            {/* <i className="fa-solid fa-angle-down"></i> */}
-          </div>
+            <div onClick={() => (setFrame(!frame), setPoster(false))} >
+              Frames
+              {/* <i className="fa-solid fa-angle-down"></i> */}
+            </div>
           </Link>
           {/* {frame && (
             <div className="frameDrop">
@@ -67,11 +67,11 @@ const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
           )} */}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
-          <Link  style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/posters">
-          <div >
-            Posters 
-            {/* <i className="fa-solid fa-angle-down"></i> */}
-          </div>
+          <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/posters">
+            <div >
+              Posters
+              {/* <i className="fa-solid fa-angle-down"></i> */}
+            </div>
           </Link>
           {/* {poster && (
             <div className="frameDrop" >
@@ -83,25 +83,23 @@ const Navbar = ({ theme, setTheme , setIsCartOpen }) => {
           )} */}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
-          <Link onClick={()=>(setPoster(false),setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>
+          <Link onClick={() => (setPoster(false), setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>
         </Col>
-        <Col onClick={()=>(setPoster(false),setFrame(false))} className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
-        <Col onClick={()=>(setPoster(false),setFrame(false))} className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
+        <Col onClick={() => (setPoster(false), setFrame(false))} className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
+        <Col onClick={() => (setPoster(false), setFrame(false))} className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
           <i style={{ cursor: "pointer" }} className=" fa-solid fa-bell"></i>
-          {/* <i style={{cursor:"pointer"}} className=" fa-solid fa-user"></i> */}
 
-     
-          <i onClick={()=>( setIsCartOpen(true))} style={{ cursor: "pointer",color: theme === "darkTheme" ? "white" : "black"  }} className="px-4 fa-solid fa-cart-shopping"></i>
- 
+          <i onClick={() => (setIsCartOpen(true))}  className="px-4 fa-solid fa-cart-shopping"></i>
 
-          <i style={{ cursor: "pointer" }} className="ps-5 fa-solid fa-moon" onClick={()=>(ToggleTheme(),setPoster(false),setFrame(false))}></i>
+
+          <i style={{ cursor: "pointer" }} className="ps-2 fa-solid fa-moon" onClick={() => (ToggleTheme(), setPoster(false), setFrame(false))}></i>
         </Col>
-        <Col onClick={()=>(setPoster(false),setFrame(false))} className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
-        
+        <Col onClick={() => (setPoster(false), setFrame(false))} className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
+
       </Row>
-      
+
     </div>
-   
+
 
   );
 };

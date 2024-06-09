@@ -3,7 +3,8 @@ import { ap1 } from '../images/anime-posters/animeposters';
 import '../MainCss/checkout.css'
 import { Col, Row } from 'react-bootstrap';
 
-const CheckOut = () => {
+const CheckOut = ({setFooter,theme, setTheme }) => {
+    setFooter(false)
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('')
     const [delivery, setDelivery] = useState({
@@ -16,6 +17,10 @@ const CheckOut = () => {
         { id: 1, name: 'Anime Frames Combo Goku, Sasuke (3pcs:- 13*9inch)', price: 399, quantity: 1 },
         { id: 2, name: 'Satoru Gojo Frame (13*9 inch)', price: 149, quantity: 1 },
         { id: 3, name: 'Goku DragonBall z Frame (13*9inch)', price: 149, quantity: 1 },
+        { id: 4, name: 'Goku DragonBall z Frame (13*9inch)', price: 149, quantity: 1 },
+        { id: 5, name: 'Goku DragonBall z Frame (13*9inch)', price: 149, quantity: 1 },
+        { id: 6, name: 'Goku DragonBall z Frame (13*9inch)', price: 149, quantity: 1 },
+   
     ];
 
     const handleEmailChange = (e) => {
@@ -45,11 +50,13 @@ const CheckOut = () => {
 
     return (
         <div className="checkout-page">
+            <Row>
+<Col className='over'  sm={12} lg={6}>
             <div className="leftSide">
-                <h2>Contact Info</h2>
+                <h4>Contact Info</h4>
                 <input type="text" placeholder="Email Address" value />
                 <input type="email" name="emailId" placeholder="Contact Info" value={email} onChange={handleEmailChange} />
-                <h2>Delivery Address</h2>
+                <h4 className='mt-3'>Delivery Address</h4>
                 <input type="text" name="country" placeholder="Country/Region" value={delivery.country} readOnly />
                 <div className="name-fields">
                     <input type="text" name="firstName" placeholder="First name" value={delivery.firstName} onChange={handleDeliveryChange} />
@@ -59,38 +66,34 @@ const CheckOut = () => {
                 <input type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)" value={delivery.apartment} onChange={handleDeliveryChange} />
                 <div className="location-fields">
                     <input type="text" name="city" placeholder="City" value={delivery.city} onChange={handleDeliveryChange} />
-                    <input type="text" name="state" placeholder="State" value={delivery.state} onChange={handleDeliveryChange} />
+                    <input className='ms-1 me-1' type="text" name="state" placeholder="State" value={delivery.state} onChange={handleDeliveryChange} />
                     <input type="text" name="pinCode" placeholder="PIN code" value={delivery.pinCode} onChange={handleDeliveryChange} />
                 </div>
                 <input type="checkbox" name="saveInfo" /> Save this information for next time
-                <h2>Shipping method</h2>
+                <h5 className='mt-4'>Shipping method</h5>
                 <p>Enter your shipping address to view available shipping methods.</p>
             </div>
-
-
+</Col>
+<Col sm={12} lg={6}>
             <div className="rightSide">
                 <h2>Your cart</h2>
-                <div className="cart-items">
+                <div className="cart-items1">
                     {cart.map((item) => (
                         <div key={item.id} className="cart-item">
                             <img src={ap1} alt={item.name} />
                             <div className="item-details">
-                                <p>{item.name}</p>
-                                <p>Rs. {item.price}</p>
+                                <span>{item.name}</span>
+                                <span>Rs. {item.price}</span>
                                 <p>Quantity: {item.quantity}</p>
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className="promo-code">
-                    <input type="text" placeholder="Discount code" value={promoCode} onChange={(e) => setPromoCode(e.target.value)} />
-                    <button className='apply-btn' onClick={applyPromoCode}>Apply</button>
-                </div>
-                <div className="cart-summary">
+               
+ 
 
-
-                    <div class="container ms-4">
-                        <table class="table">
+                    <div className="container">
+                        <table style={{ color: theme === "darkTheme" ? "white" : "black" }}  className="table ">
 
                             <tbody>
                                 <tr>
@@ -99,9 +102,9 @@ const CheckOut = () => {
                                 </tr>
                                 <tr>
                                     <th scope="row">
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div className="d-flex justify-content-between align-items-center">
                                             <span>Shipping</span>
-                                            <button type="button" class="btn btn-link p-0" >
+                                            <button type="button" className="btn btn-link p-0" >
 
                                             </button>
                                         </div>
@@ -120,22 +123,19 @@ const CheckOut = () => {
 
                                 </tr>
 
-                                <tr>
-                                    <th scope="row">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        </div>
-                                    </th>
-                                    <td></td>
-                                </tr>
                             </tbody>
                         </table>
-                    </div>
+ 
 
 
 
                 </div>
-                <button className="checkout-button">Check out</button>
+                <button className="checkout-button mb-3">Check out</button>
             </div>
+</Col>
+            </Row>
+
+
         </div>
     );
 };

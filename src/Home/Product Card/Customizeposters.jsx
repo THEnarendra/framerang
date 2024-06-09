@@ -3,8 +3,8 @@ import axios from 'axios'
 import { toast, Toaster } from "react-hot-toast";
 import Loader from "../Loader";
 
-export const Customize =()=>{
-  
+export const Customize =({setFooter})=>{
+  setFooter(false)
     const [photos, setPhotos] = useState([]);
     const [size, setSize] = useState('');
     const [customText, setCustomText] = useState('');
