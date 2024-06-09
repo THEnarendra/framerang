@@ -1,8 +1,7 @@
 .rightSide{
     height: auto;
     padding: 3%;
-    /* padding-top: 1%; */
-    background: rgba(70, 27, 135, 0.351);
+    background: rgb(88 41 158 / 22%);
     border-radius: 10px;  
 }
 
@@ -20,9 +19,7 @@ height:83vh;
     .checkout-page{
         margin-top: 125px;
     }
-    /* .cart-items1{
-        height: 25vh;
-    } */
+  
 }
 @media screen and (max-width:770px) {
     .checkout-page{
