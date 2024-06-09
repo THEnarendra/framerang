@@ -2,7 +2,7 @@
     height: auto;
     padding: 3%;
     background: rgb(88 41 158 / 22%);
-    border-radius: 10px;  
+    border-radius: 10px; 
 }
 
 .over{
@@ -10,10 +10,10 @@ overflow-y:scroll;
 height:83vh;
 }
 
-.checkout-page{
+/* .checkout-page{
     overflow: hidden;
     height: 98vh;
-}
+} */
 
 @media screen and (max-width:1282px) {
     .checkout-page{
@@ -70,7 +70,7 @@ input[type="checkbox"] {
 .cart-items1 {
     border: 0.1px solid rgba(255, 255, 255, 0.459);
     margin-bottom: 5px;
-    height: 40vh;
+    height: 45vh;
     overflow-y: scroll;
 }
 
@@ -136,4 +136,10 @@ input[type="checkbox"] {
     background-color: white;
     color: red;
     border: 1px solid red;
+}
+
+.background-radio{
+    background: rgba(88, 41, 158, .22);
+    padding: 2%;
+    border-radius: 5px;
 }

@@ -48,6 +48,18 @@ const CheckOut = ({setFooter,theme, setTheme }) => {
         }
     };
 
+    const [paymentMethod, setPaymentMethod] = useState('prepaid');
+    const [billingAddress, setBillingAddress] = useState('same');
+  
+    const handlePaymentChange = (event) => {
+      setPaymentMethod(event.target.value);
+    };
+  
+    const handleAddressChange = (event) => {
+      setBillingAddress(event.target.value);
+    };
+    
+
     return (
         <div className="checkout-page">
             <Row>
@@ -72,9 +84,86 @@ const CheckOut = ({setFooter,theme, setTheme }) => {
                 <input type="checkbox" name="saveInfo" /> Save this information for next time
                 <h5 className='mt-4'>Shipping method</h5>
                 <p>Enter your shipping address to view available shipping methods.</p>
-            </div>
+    
+    <div className="container mt-5">
+      <div className="card p-4 " style={{marginLeft:"-5%"}}>
+        <h2>Payment</h2>
+        <p>All transactions are secure and encrypted.</p>
+
+      <div>
+      <div className={`form-check mb-3 ${paymentMethod === 'prepaid' ? 'background-radio' : 'm-2'}`}>
+          <input
+            className="form-check-input ms-1 me-2"
+            type="radio"
+            name="paymentMethod"
+            value="prepaid"
+            checked={paymentMethod === 'prepaid'}
+            onChange={handlePaymentChange}
+            id="prepaid"
+          />
+          <label className="form-check-label d-flex align-items-center " htmlFor="prepaid">
+            <span>prepaid Payment (UPI, Cards, Wallets, NetBanking)</span>
+          </label>
+        </div>
+    <br />
+        <div className={`form-check-label d-flex align-items-center ${paymentMethod === 'cod' ? 'background-radio' : 'm-2'}`}>
+          <input
+            className="form-check-input ms-3 me-2"
+            type="radio"
+            name="paymentMethod"
+            value="cod"
+            checked={paymentMethod === 'cod'}
+            onChange={handlePaymentChange}
+            id="cod"
+          />
+          <label className="form-check-label" htmlFor="cod">
+            Cash on Delivery (COD)
+          </label>
+        </div>
+
+        </div>  
+        
+        
+        <h2>Billing address</h2>
+        
+        <div className="form-check mb-3">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="billingAddress"
+            value="same"
+            checked={billingAddress === 'same'}
+            onChange={handleAddressChange}
+            id="same"
+          />
+          <label className="form-check-label" htmlFor="same">
+            Same as shipping address
+          </label>
+        </div>
+        
+        <div className="form-check mb-3">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="billingAddress"
+            value="different"
+            checked={billingAddress === 'different'}
+            onChange={handleAddressChange}
+            id="different"
+          />
+          <label className="form-check-label" htmlFor="different">
+            Use a different billing address
+          </label>
+        </div>
+        
+        <button type="button" className="btn btn-primary w-100">Pay now</button>
+      </div>
+    </div>
+
+
+    </div>
 </Col>
-<Col sm={12} lg={6}>
+<Col className='over-right' sm={12} lg={6}>
             <div className="rightSide">
                 <h2>Your cart</h2>
                 <div className="cart-items1">
