@@ -1,7 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { ap1, ap2 } from '../images/anime-posters/animeposters'
-
-
 import '../MainCss/cart.css'
 import { CartContext } from '../CartContext';
 import { Link } from 'react-router-dom';
@@ -23,7 +20,6 @@ export const Cart = ({ setIsCartOpen }) => {
             <img src={item.productImage.url} alt="" />
             <div className="item-details">
               <p>{item.productName}</p> 
-
               <div className="item-controls">
                 <p>Rs. {item.newPrice}</p>
                 <div className='decrementQuantity mb-3'>
@@ -31,7 +27,6 @@ export const Cart = ({ setIsCartOpen }) => {
                   <span>{item.quantity}</span>
                   <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
                 </div>
-
                 <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id)}>Remove</button>
               </div>
             </div>
@@ -45,7 +40,7 @@ export const Cart = ({ setIsCartOpen }) => {
           <p>Rs. {getTotal()}</p>
         </div>
         <div className='ms-4'>Tax included. Shipping and discounts calculated at checkout.</div>
-        <Link to="/checkout">
+        <Link to="/checkout" onClick={() => setIsCartOpen(false)} >
           <button className="checkout-button">Check out</button>
         </Link>
       </div>

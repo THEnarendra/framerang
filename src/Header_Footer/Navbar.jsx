@@ -85,10 +85,16 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link onClick={() => (setPoster(false), setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>
         </Col>
-        <Col onClick={() => (setPoster(false), setFrame(false))} className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>Track</Col>
+        <Col onClick={() => (setPoster(false), setFrame(false))} className={isOpen ? "navMenu me-5" : "m-2 navItems"} lg={1} md={12}>
+        <Link style={{ color: theme === "darkTheme" ? "white" : "black" }}  className="link" to="/Track">
+        Track
+        </Link>
+        </Col>
         <Col onClick={() => (setPoster(false), setFrame(false))} className={isOpen ? "navMenu" : "m-2"} lg={2} md={12}>
-          <i style={{ cursor: "pointer" }} className=" fa-solid fa-bell"></i>
+        <Link style={{ color: theme === "darkTheme" ? "white" : "black" }}  className="link" to="/Notification">
 
+          <i style={{ cursor: "pointer" }} className=" fa-solid fa-bell"></i>
+</Link>
           <i onClick={() => (setIsCartOpen(true))}  className="px-4 fa-solid fa-cart-shopping"></i>
 
 

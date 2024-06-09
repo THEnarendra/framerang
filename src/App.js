@@ -10,6 +10,8 @@ import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
 import {Customize} from './Home/Product Card/Customizeposters'
 import CheckOut from './Home/CheckOut';
+import { Track } from './Home/Track';
+import { Notification } from './Home/Notification';
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -54,7 +56,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <div style={{position:"absolute", width:"100vw",top:0}}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme}/></div>
+      <div style={{position:"absolute", width:"100vw",top:0,height:"1vh"}}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme}/></div>
       {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen}/>)}
       <Routes>
         <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
@@ -63,6 +65,8 @@ function App() {
         <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/checkout' element={<CheckOut  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/Track' element={<Track  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/Notification' element={<Notification  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       {footer &&(
 
