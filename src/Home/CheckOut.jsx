@@ -9,12 +9,19 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
 
     setFooter(false)
     const [email, setEmail] = useState('');
-    
+    const [input, setInputs] = useState({});
+
     const [delivery, setDelivery] = useState({
         country: 'India', firstName: '', lastName: '', address: '', apartment: '', city: '', state: 'Rajasthan', pinCode: ''
     });
- 
 
+    const Change = (e) => {
+        e.preventDefault();
+        setInputs({
+          ...input,
+          [e.target.name]: e.target.value,
+        });
+      };
 
 
     const handleEmailChange = (e) => {
@@ -33,22 +40,16 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
     const [paymentMethod, setPaymentMethod] = useState('prepaid');
     const [billingAddress, setBillingAddress] = useState('same');
 
-    const handlePaymentChange = (event) => {
-        setPaymentMethod(event.target.value);
-    };
-
-    const handleAddressChange = (event) => {
-        setBillingAddress(event.target.value);
-    };
+   
     const [formData, setFormData] = useState({
         username: '',
         email: '',
         password: '',
         confirmPassword: '',
     });
- 
+
     const [errors, setErrors] = useState({});
- 
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -56,12 +57,12 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
             [name]: value,
         });
     };
- 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = validateForm(formData);
         setErrors(newErrors);
- 
+
         if (Object.keys(newErrors).length === 0) {
             // Form submission logic here
             console.log('Form submitted successfully!');
@@ -70,33 +71,34 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
              due to validation errors.`);
         }
     };
- 
+
     const validateForm = (data) => {
         const errors = {};
- 
+
         if (!data.username.trim()) {
             errors.username = 'Username is required';
         }
- 
+
         if (!data.email.trim()) {
             errors.email = 'Email is required';
         } else if (!/\S+@\S+\.\S+/.test(data.email)) {
             errors.email = 'Email is invalid';
         }
- 
+
         if (!data.password) {
             errors.password = 'Password is required';
         } else if (data.password.length < 8) {
             errors.password = `Password must be at 
             least 8 characters long`;
         }
- 
+
         if (data.confirmPassword !== data.password) {
             errors.confirmPassword = 'Passwords do not match';
         }
- 
+
         return errors;
     };
+    console.log(input);
 
     return (
         <div className="checkout-page">
@@ -104,23 +106,23 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                 <Col className='over' sm={12} lg={6}>
                     <div className="leftSide">
                         <h4>Contact Info</h4>
-                      
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`} type="number" name="phone" placeholder="Contact Number" onChange={handleEmailChange} />
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="email" name="emailId" placeholder="Email Address"  onChange={handleEmailChange} />
+
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="number" name="phone" placeholder="Contact Number" />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="email" name="emailId" placeholder="Email Address" />
                         <h4 className='mt-3'>Delivery Address</h4>
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="country" placeholder="Country/Region" value={delivery.country} readOnly />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region"  readOnly />
                         <div className="name-fields">
-                            <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="firstName" placeholder="First name" value={delivery.firstName} onChange={handleDeliveryChange} />
-                            <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="lastName" placeholder="Last name" value={delivery.lastName} onChange={handleDeliveryChange} />
+                            <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="firstName" placeholder="First name"  />
+                            <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="lastName" placeholder="Last name"  />
                         </div>
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="address" placeholder="Address" value={delivery.address} onChange={handleDeliveryChange} />
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)" value={delivery.apartment} onChange={handleDeliveryChange} />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="address" placeholder="Address"  onC/>
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)"  />
                         <div className="location-fields">
-                            <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="city" placeholder="City" value={delivery.city} onChange={handleDeliveryChange} />
-                            <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  className='ms-1 me-1' type="text" name="state" placeholder="State" value={delivery.state} onChange={handleDeliveryChange} />
-                            <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="text" name="pinCode" placeholder="PIN code" value={delivery.pinCode} onChange={handleDeliveryChange} />
+                            <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="city" placeholder="City"  />
+                            <input onChange={Change} className={`ms-1 me-1 ${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="state" placeholder="State"  />
+                            <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="pinCode" placeholder="PIN code"  />
                         </div>
-                        <input className={`${theme==="darkTheme" ? "text-white" : "text-black" }`}  type="checkbox" name="saveInfo" /> Save this information for next time
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="checkbox" name="saveInfo" /> Save this information for next time
                         <h5 className='mt-4'>Shipping method</h5>
                         <p>Enter your shipping address to view available shipping methods.</p>
 
@@ -131,13 +133,13 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
 
                                 <div style={{ border: "1px solid gray" }}>
                                     <div style={{ borderBottom: "1px solid gray" }} className={`form-check  p-2 ${paymentMethod === 'prepaid' ? 'background-radio' : ''}`}>
-                                        <input
+                                        <input 
                                             className="form-check-input ms-1 me-2"
                                             type="radio"
                                             name="paymentMethod"
                                             value="prepaid"
                                             checked={paymentMethod === 'prepaid'}
-                                            onChange={handlePaymentChange}
+                                            onChange={(event)=>(Change, setPaymentMethod(event.target.value))}
                                             id="prepaid"
                                         />
                                         <label className="form-check-label d-flex align-items-center " htmlFor="prepaid">
@@ -151,7 +153,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                                             name="paymentMethod"
                                             value="cod"
                                             checked={paymentMethod === 'cod'}
-                                            onChange={handlePaymentChange}
+                                            onChange={(event)=>(Change,setPaymentMethod(event.target.value))}
                                             id="cod"
                                         />
                                         <label className="form-check-label" htmlFor="cod">
@@ -172,7 +174,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                                             name="billingAddress"
                                             value="same"
                                             checked={billingAddress === 'same'}
-                                            onChange={handleAddressChange}
+                                            onChange={(event)=>(Change,setBillingAddress(event.target.value))}
                                             id="same"
                                         />
                                         <label className="form-check-label" htmlFor="same">
@@ -187,7 +189,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                                             name="billingAddress"
                                             value="different"
                                             checked={billingAddress === 'different'}
-                                            onChange={handleAddressChange}
+                                            onChange={(event)=>(Change,setBillingAddress(event.target.value))}
                                             id="different"
                                         />
                                         <label className="form-check-label" htmlFor="different">

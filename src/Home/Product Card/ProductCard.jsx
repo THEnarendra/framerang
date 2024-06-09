@@ -1,56 +1,55 @@
 import React, { useEffect, useState } from 'react'
 import Popup from '../Popup';
 
-const ProductCard = ({img}) => {
+const ProductCard = ({ img }) => {
 
-const [id, setId]= useState()
-const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [id, setId] = useState()
 
-const [showPopup, setShowPopup] = useState(false);
-  const Pop=()=>{
+  const [showPopup, setShowPopup] = useState(false);
+  const Pop = () => {
     setShowPopup(!showPopup);
-   
+
   }
-  
+
   useEffect(() => {
     if (showPopup) {
       document.body.classList.add('modal-open');
     } else {
       document.body.classList.remove('modal-open');
     }
-    
+
     return () => {
       document.body.classList.remove('modal-open');
     };
   }, [showPopup]);
 
   return (
-<>
-      
-    <div className="nft">
-   {img &&(
-    <div className='main'>
+    <>
 
-<img src={img.productImage.url} alt="" />
-<h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br/> Single pcs 
-<p><span style={{textDecoration:"line-through",color:"gray"}}>Rs.{img.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{fontSize:"22px"}}>Rs.{img.newPrice}</span> </p>
-<button className='bt1' onClick={()=>(setId(img.id), Pop())}>Choose Options</button>
+      <div className="nft">
+        {img && (
+          <div className='main'>
 
-</div>
-   )}     
-      
-</div>
+            <img src={img.productImage.url} alt="" />
+            <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br /> Single pcs
+            <p><span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img.newPrice}</span> </p>
+            <button className='bt1' onClick={() => (setId(img.id), Pop())}>Choose Options</button>
+
+          </div>
+        )}
+
+      </div>
 
 
 
-{showPopup===true&&
-<div>
+      {showPopup === true &&
+        <div>
 
-  <Popup img={img} id={id} togglePopup={Pop}/>
-</div>
-  }
+          <Popup img={img} id={id} togglePopup={Pop} />
+        </div>
+      }
 
-</>
+    </>
   );
 }
 

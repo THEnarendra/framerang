@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ap10, ap11, ap12 } from '../../images/anime-posters/animeposters'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
