@@ -1,19 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { ap1 } from '../images/anime-posters/animeposters';
 import '../MainCss/checkout.css'
 import { Col, Row } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
 
 const CheckOut = ({ setFooter, theme, setTheme }) => {
     const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
+    const [errors, setErrors] = useState({});
 
     setFooter(false)
-    const [email, setEmail] = useState('');
     const [input, setInputs] = useState({});
 
-    const [delivery, setDelivery] = useState({
-        country: 'India', firstName: '', lastName: '', address: '', apartment: '', city: '', state: 'Rajasthan', pinCode: ''
-    });
 
     const Change = (e) => {
         e.preventDefault();
@@ -24,51 +20,49 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
       };
 
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-
-
-    const handleDeliveryChange = (e) => {
-        const { name, value } = e.target;
-        setDelivery(prevState => ({ ...prevState, [name]: value }));
-    };
-
-
 
     const [paymentMethod, setPaymentMethod] = useState('prepaid');
     const [billingAddress, setBillingAddress] = useState('same');
 
-   
-    const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+   const idArray = cart.map(user => ({
+    id: user._id,
+    quantity: user.quantity
+  }));
 
-    const [errors, setErrors] = useState({});
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        const newErrors = validateForm(formData);
-        setErrors(newErrors);
-
-        if (Object.keys(newErrors).length === 0) {
-            // Form submission logic here
-            console.log('Form submitted successfully!');
-        } else {
-            console.log(`Form submission failed
-             due to validation errors.`);
+   
+        try {
+          const response = await fetch(`https://framerang-backend.vercel.app/api/v1/checkout`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+             {   "name":input.firstName + input.lastName,
+                "email":input.email,
+                "contactNumber":input.phone,
+                "address":{
+                    // "street":input.,
+                    "city":input.city,
+                    "state":input.state,
+                    "postalCode":input.pinCode,
+                    "country":input.country
+                },
+                "orderItems":idArray,
+                "paymentInfo":{
+                    "shippingPrice":input.shippingPrice,
+                    "totalPrice":getTotal(),
+                }}
+            )
+          });
+    
+          const data = await response.json();
+        //   setResponseData(data);
+        } catch (error) {
+          console.error('Error:', error);
         }
     };
 
@@ -108,14 +102,14 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                         <h4>Contact Info</h4>
 
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="number" name="phone" placeholder="Contact Number" />
-                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="email" name="emailId" placeholder="Email Address" />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="email" name="email" placeholder="Email Address" />
                         <h4 className='mt-3'>Delivery Address</h4>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region"  readOnly />
                         <div className="name-fields">
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="firstName" placeholder="First name"  />
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="lastName" placeholder="Last name"  />
                         </div>
-                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="address" placeholder="Address"  onC/>
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="address" placeholder="Address"  />
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)"  />
                         <div className="location-fields">
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="city" placeholder="City"  />
@@ -198,7 +192,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                                     </div>
                                 </div>
 
-                                <button type="button" className="btn btn-primary w-100">Pay now</button>
+                                <button onClick={handleSubmit} className="btn btn-primary w-100">Pay now</button>
                             </div>
                         </div>
 
