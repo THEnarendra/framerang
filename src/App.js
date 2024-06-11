@@ -12,6 +12,7 @@ import {Customize} from './Home/Product Card/Customizeposters'
 import CheckOut from './Home/CheckOut';
 import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
+import PolicyPage from './Home/PolicyPage';
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -68,6 +69,7 @@ function App() {
         <Route path='/checkout' element={<CheckOut  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/Track' element={<Track  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/Notification' element={<Notification  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/privacyandpolicy' element={<PolicyPage  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       {footer &&(
 
