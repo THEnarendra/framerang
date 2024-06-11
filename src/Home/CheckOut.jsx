@@ -25,7 +25,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
     const [billingAddress, setBillingAddress] = useState('same');
 
    const idArray = cart.map(user => ({
-    id: user._id,
+    product: user._id,
     quantity: user.quantity
   }));
 
@@ -52,9 +52,11 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                     "country":input.country
                 },
                 "orderItems":idArray,
-                "paymentInfo":{
-                    "totalPrice":getTotal(),
-                }}
+                // "paymentInfo":{
+                    
+                // },
+                "totalPrice":getTotal(),
+              }
             )
           });
     

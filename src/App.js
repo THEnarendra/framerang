@@ -19,7 +19,8 @@ function App() {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
   const [error, setError] = useState(null);
-  const[footer,setFooter]=useState(true)
+  const[footer,setFooter]=useState(true);
+  const [subCategory, setSubCategory] = useState();
 
   const [isCartOpen, setIsCartOpen]= useState(false);
 
@@ -39,19 +40,19 @@ function App() {
       .then((data) => {
         const fr =data.data
         const frame = fr.filter((e)=>e.category==="frame"); 
-        const poster = fr.filter((e)=>e.category==="poster")
-          setData(frame);
-        setData1(poster)
-        // setLoading(false);
+        const poster = fr.filter((e)=>e.category==="poster");
+        const categoryArray = Array.from(new Set(fr.map(user => user.subCategory)));
+        // console.log(categoryArray);
+        // console.log("lodu");
+
+        setData(frame);
+        setData1(poster);
+        setSubCategory(categoryArray);
       })
       .catch((error) => {
         setError(error);
-        // setLoading(false);
       });
   }, []);
-  
-  console.log(data);
-
 
   return (
     <div>
@@ -60,8 +61,8 @@ function App() {
       {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen}/>)}
       <Routes>
         <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/posters' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1}/>}/>
-        <Route path='/frames' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1}/>}/>
+        <Route path='/posters' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory}/>}/>
+        <Route path='/frames' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory}/>}/>
         <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/checkout' element={<CheckOut  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
