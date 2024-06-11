@@ -13,6 +13,9 @@ import CheckOut from './Home/CheckOut';
 import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
 import PolicyPage from './Home/PolicyPage';
+import TermsOfService from './Terms&Conditions';
+import RefundPolicy from './RefundPolicy';
+import ShippingPolicy from './ShippingPolicy';
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -69,7 +72,10 @@ function App() {
         <Route path='/checkout' element={<CheckOut  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/Track' element={<Track  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
         <Route path='/Notification' element={<Notification  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
-        <Route path='/privacyandpolicy' element={<PolicyPage  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/policies/privacy-policy' element={<PolicyPage  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/policies/terms-of-service' element={<TermsOfService  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/policies/refund-policy' element={<RefundPolicy  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
+        <Route path='/policies/shipping-policy' element={<ShippingPolicy  setFooter={setFooter} theme={theme} setTheme={setTheme}/>}/>
       </Routes>
       {footer &&(
 

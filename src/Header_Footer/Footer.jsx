@@ -4,18 +4,6 @@ import logo from '../images/2.png'
 import { Link } from 'react-router-dom';
 const Bubble = () => {
 
-  const categories = [
-    'Technology',
-    'Science',
-    'Health',
-    'Travel',
-    'Food',
-    'Education',
-    'Finance',
- 
-  ];
-
-
   const bubbleElements = [];
   for (let i = 0; i < 90; i++) {
     const size = `${2 + Math.random() * 4}rem`;
@@ -96,8 +84,30 @@ const Bubble = () => {
 							</div>
 						</div>
 					</div>
-                  
 				</div>
+          <hr />
+      <div className='mb-4'>
+      <div className="footer__copyright caption">
+        <ul style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"50vw",flexWrap:"wrap",color:"black"}} className="policies list-unstyled">
+          <li>
+         <a href="/" title=""> © 2024, Frame Rang</a>
+          </li>
+          <li>
+              <a href="/policies/refund-policy">Refund policy</a>
+          </li>
+          <li>
+              <a href="/policies/privacy-policy">Privacy policy</a>
+          </li>
+          <li>
+              <a href="/policies/terms-of-service">Terms of service</a>
+          </li>
+          <li>
+              <a href="/policies/shipping-policy">Shipping policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr />  
 			</div>
         </div>
       </div>
@@ -106,94 +116,3 @@ const Bubble = () => {
 };
 
 export default Bubble;
-
-
-
-// import React from "react";
-// import "../MainCss/Footer.css";
-// import { Col, Row } from "react-bootstrap";
-
-// const Footer = () => {
-//   return (
-//     <>
-//       <div>
-//         <Row className="footer">
-//           <Col>
-//             <img
-//               className="img"
-//               src="https://framerang.com/cdn/shop/files/ll_copy.png?v=1712908551&width=135"
-//               alt=""
-//             />
-//           </Col>
-//           <Col>
-//             <div className="form-group row">
-//               <div className="col-sm-10 m-1">
-//                 <input
-//                   type="email"
-//                   className="form-control form-control-sm"
-//                   id="colFormLabelSm"
-//                   placeholder="Name"
-//                 />
-//               </div>
-//             </div>
-//             <div className="form-group row">
-//               <div className="col-sm-10 m-1">
-//                 <input
-//                   type="email"
-//                   className="form-control form-control-sm"
-//                   id="colFormLabelSm"
-//                   placeholder="E-Mail"
-//                 />
-//               </div>
-//             </div>
-//             <div className="form-group row">
-//               <div className="col-sm-10 m-1">
-//                 <textarea
-//                   type="email"
-//                   className="form-control form-control-sm"
-//                   id="colFormLabelSm"
-//                   placeholder="Message"
-//                 />
-//               </div>
-//               <button className="fbtn">SUBMIT</button>
-//               <div>Follow Us &nbsp;
-//               <i className="fa fa-instagram m-1 "></i> &nbsp;
-//               <i className="&nbsp fa fa-facebook-f"></i>
-
-//               </div>
-              
-//             </div>
-//           </Col>
-//           <Col>
-//             <div>
-//               <b>CONTACT US</b>
-//             </div>
-//             <div>
-//               <b>Address:</b>
-//               No:Niwaru road
-//             </div>
-//             <div>
-//               <b>Call:</b>
-//               67676767
-//             </div>
-//             <div>
-//               <b>E-mail:</b>
-//               abc@123
-//             </div>
-//           </Col>
-//           <Col>
-//             <div>
-//               <b>NAVIGATE</b>
-//             </div>
-//             <div>About Us</div>
-//             <div>Privacy Policy</div>
-//             <div>Terms and condition</div>
-//             <div>Shipping and return</div>
-//           </Col>
-//         </Row>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Footer;

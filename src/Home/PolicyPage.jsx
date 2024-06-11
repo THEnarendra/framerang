@@ -8,7 +8,7 @@ const PageContainer = styled.div`
 
 const PolicyPage = () => {
   return (
-    <PageContainer>
+    <PageContainer style={{margin:"10%"}}>
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
