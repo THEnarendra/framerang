@@ -35,7 +35,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
         e.preventDefault();
    
         try {
-          const response = await fetch(`https://framerang-backend.vercel.app/api/v1/checkout`, {
+          const response = await fetch(`https://framerang-backend-git-main-thenarendras-projects.vercel.app/api/v1/checkout`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                 "email":input.email,
                 "contactNumber":input.phone,
                 "address":{
-                    // "street":input.,
+                    "street":input.street,
                     "city":input.city,
                     "state":input.state,
                     "postalCode":input.pinCode,
@@ -53,7 +53,6 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                 },
                 "orderItems":idArray,
                 "paymentInfo":{
-                    "shippingPrice":input.shippingPrice,
                     "totalPrice":getTotal(),
                 }}
             )
@@ -104,13 +103,13 @@ const CheckOut = ({ setFooter, theme, setTheme }) => {
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="number" name="phone" placeholder="Contact Number" />
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="email" name="email" placeholder="Email Address" />
                         <h4 className='mt-3'>Delivery Address</h4>
-                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region"  readOnly />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region"  />
                         <div className="name-fields">
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="firstName" placeholder="First name"  />
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="lastName" placeholder="Last name"  />
                         </div>
-                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="address" placeholder="Address"  />
-                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)"  />
+                        <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="street" placeholder="Street Name"  />
+                        {/* <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)"  /> */}
                         <div className="location-fields">
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="city" placeholder="City"  />
                             <input onChange={Change} className={`ms-1 me-1 ${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="state" placeholder="State"  />
