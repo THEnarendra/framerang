@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ap10, ap11, ap12 } from '../../images/anime-posters/animeposters'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
@@ -7,8 +7,26 @@ import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
 
 
-export const Posters = ({ img,setFooter }) => {
+export const Posters = ({ img, setFooter, theme }) => {
+
   setFooter(true)
+
+  const [fromPrice, setFromPrice] = useState('');
+  const [toPrice, setToPrice] = useState('');
+
+  const handleFromChange = (e) => {
+    setFromPrice(e.target.value);
+  };
+
+  const handleToChange = (e) => {
+    setToPrice(e.target.value);
+  };
+
+  const handleReset = () => {
+    setFromPrice('');
+    setToPrice('');
+  };
+
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -19,14 +37,14 @@ export const Posters = ({ img,setFooter }) => {
     autoplaySpeed: 2000, // Adjust autoplay speed (optional)
     arrows: false, // Hide arrows
   };
-  const Category = ["Marvel Poster", "Custome poster", "Anime Poster",
+  const Category = ["Select Category", "Marvel Poster", "Custome poster", "Anime Poster",
     "Sports Posters",
     "Music Posters",
     "Art Posters",
 
   ]
 
-  return ( 
+  return (
 
 
     <div style={{
@@ -40,18 +58,24 @@ export const Posters = ({ img,setFooter }) => {
         <img src={ap12} alt="" className='logo_wheel12' />
       </Slider>
 
-      <h1 className='display-5 mt-4 mb-4'>Different Category</h1>
-      <div className='Category_Row'>
-        {Category.map((data) => (
 
-          <div className='Category '>
-            {data}
+      <Row style={{ margin: "1% 5% 2% 5%" }}>
+        <div className='ms-2 mt-5 mb-5' style={{ display: "flex", flexWrap: "wrap" }}>
+          <div className='me-4'>
+            <select style={{ color: theme === "darkTheme" ? "white" : "black" }} className='Category_Row'>
+              {Category.map((data) => (
+
+                <option style={{ backgroundColor: theme === "darkTheme" ? "black" : "white" }} className='Category '>
+                  {data}
+                </option>
+              ))}
+
+            </select>
           </div>
-        ))}
+         
+        </div>
 
-      </div>
 
-      <Row style={{ margin: "3% 5% 3% 5%" }}>
         {img && (
 
           img.map((img) => (

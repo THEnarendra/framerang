@@ -154,17 +154,18 @@
 
 .Category {
   cursor: pointer;
-  background-color: rgb(219, 14, 14);
+  /* background-color: rgba(0, 0, 0, 0.242); */
   margin: 1%;
   border-radius: 5px;
-  color: white;
-  padding: 0.5% 4% 0.5% 4%;
+  /* color: white; */
+  padding: 10%;
+
 }
 
 .Category_Row {
-  display: flex;
-  flex-wrap: wrap;
-
+ padding: 5%;
+ background-color: transparent;
+ border-radius: 2px;
 }
 
 .quantity-input {
