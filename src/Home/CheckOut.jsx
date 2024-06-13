@@ -120,9 +120,10 @@ const CheckOut = ({ setFooter, theme }) => {
             const data = await response.json();
 
             if (response.ok) {
-                
                 setLoading(false);
                 toast.success("Product Ordered Successfully");
+                localStorage.clear();
+                window.location.href = '/';
             } else {
                 setLoading(false);
                 toast.error("Something went wrong! Please try again later!");
