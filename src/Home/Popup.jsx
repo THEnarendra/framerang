@@ -14,11 +14,9 @@ const Popup = ({ togglePopup, id, img }) => {
     setLoading(true)
     
     if(data){
-
       toast.success("Product Added to Cart Succesfully");
       setLoading(false)
-      addToCart(data)
-      
+      addToCart(data)     
     }
   }
   
@@ -27,10 +25,8 @@ const Popup = ({ togglePopup, id, img }) => {
       document.body.style.opacity = '0.5';
       document.body.style.pointerEvents = 'none';
     }else{
-
       document.body.style.opacity = '1';
       document.body.style.pointerEvents = 'auto';
-
     }
   },[loading])
   return (
