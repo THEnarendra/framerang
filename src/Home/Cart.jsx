@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
-
   return (
     <div className="rightSide-cart">
       <div className='cart-header'>
