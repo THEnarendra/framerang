@@ -50,14 +50,13 @@ const Popup = ({ togglePopup, id, img }) => {
 {loading && <div className="overlay"><Loader /></div>}
 
 <Toaster />
-      {img1.filter((e) => e.id === id).map((data) => (
+      {img1?.filter((e) => e.id === id).map((data) => (
 
         <Row style={{ position: "relative" }} className='row1' >
           <span onClick={togglePopup} style={{ position: "absolute", right: "-88%", top: "2%", cursor: "pointer" }}>❌</span>
 
-          <Col style={{ display: "flex", alignItems: "center", flexDirection: "column" }} lg={6}>
+          <Col style={{ display: "flex", alignItems: "center", flexDirection: "column",justifyContent:"center" }} lg={6}>
             <img className='img12' src={data.productImage.url} alt="" />
-
            
           </Col>
 
@@ -82,7 +81,7 @@ const Popup = ({ togglePopup, id, img }) => {
               </div>
             <p>Size</p>
             <div>
-                {data.variant.map((variant) => (
+                {data?.variant?.map((variant) => (
                   <button
                     key={variant._id}
                     className={`bt3 me-3 ${selectedVariant === variant ? 'selected' : ''}`}

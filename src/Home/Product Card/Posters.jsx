@@ -1,31 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { ap10, ap11, ap12 } from '../../images/anime-posters/animeposters';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
 
-export const Posters = ({ img, setFooter, theme, subCategory }) => {
+export const Posters = ({ img, setFooter, theme, subCategory,details }) => {
   setFooter(true);
 
-  const [fromPrice, setFromPrice] = useState('');
-  const [toPrice, setToPrice] = useState('');
+
   const [selectedSubCategory, setSelectedSubCategory] = useState('Select SubCategory');
   const [filteredImg, setFilteredImg] = useState(img);
 
-  const handleFromChange = (e) => {
-    setFromPrice(e.target.value);
-  };
-
-  const handleToChange = (e) => {
-    setToPrice(e.target.value);
-  };
-
-  const handleReset = () => {
-    setFromPrice('');
-    setToPrice('');
-  };
 
   const handleSubCategoryChange = (e) => {
     setSelectedSubCategory(e.target.value);
@@ -50,20 +36,26 @@ export const Posters = ({ img, setFooter, theme, subCategory }) => {
     arrows: false,
   };
 
-
+console.log(details);
 
   return (
     <div style={{
       marginTop: "72px",
       padding: "3%", textAlign: "center",
     }}>
+        {details?.map((data)=>(
       <Slider {...settings}>
-        <img src={ap10} alt="" className='logo_wheel12' />
-        <img src={ap11} alt="" className='logo_wheel12' />
-        <img src={ap12} alt="" className='logo_wheel12' />
-      </Slider>
+            {data.images.map((e)=>(
 
-      <Row style={{ margin: "1% 5% 2% 5%" }}>
+            <img src={e.url} alt="" className='logo_wheel12' />
+            ))}
+            
+         
+      </Slider>
+        ))}
+     
+
+      <Row style={{ margin: "1% 6% 5% 6%" }}>
         <div className='ms-2 mt-5 mb-5' style={{ display: "flex", flexWrap: "wrap" }}>
           <div className='me-4 d-flex align-items-center'>
             <span className='me-4'>Filter:</span>
