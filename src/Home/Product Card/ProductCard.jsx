@@ -32,7 +32,7 @@ const ProductCard = ({ img }) => {
 
             <img src={img.productImage.url} alt="" />
             <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br /> Single pcs
-            <p><span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img.newPrice}</span> </p>
+            <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img.variant[0].oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img.variant[0].newPrice}</span> </p>
             <button className='bt1' onClick={() => (setId(img.id), Pop())}>Choose Options</button>
 
           </div>

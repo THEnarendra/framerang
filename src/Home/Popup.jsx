@@ -3,23 +3,31 @@ import { Col, Row } from 'react-bootstrap'
 import { CartContext } from '../CartContext';
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
+import '../MainCss/Popup.css'
 
 const Popup = ({ togglePopup, id, img }) => {
   const { addToCart } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState(null);
 
   const img1 = [img]
 
+  // console.log(img);
   const handleClick = (data) => {
     setLoading(true)
     
     if(data){
       toast.success("Product Added to Cart Succesfully");
       setLoading(false)
-      addToCart(data)     
+      addToCart(data)   
     }
-  }
-  
+  };
+
+
+  const handleVariantClick = (variant) => {
+    setSelectedVariant(variant);
+  };
+
   useEffect(()=>{
     if(loading){
       document.body.style.opacity = '0.5';
@@ -28,7 +36,16 @@ const Popup = ({ togglePopup, id, img }) => {
       document.body.style.opacity = '1';
       document.body.style.pointerEvents = 'auto';
     }
-  },[loading])
+  },[loading]);
+
+  useEffect(() => {
+    // Initialize with the first variant
+    if (img.variant && img.variant.length > 0) {
+      setSelectedVariant(img.variant[0]);
+    }
+  }, [img]);
+
+
   return (
     <div className="modal-popup">
 {loading && <div className="overlay"><Loader /></div>}
@@ -53,17 +70,31 @@ const Popup = ({ togglePopup, id, img }) => {
             <span>10*5 inches </span><br />
             <span>Single pcs</span>
             <div>
-
-              <span style={{ textDecoration: "line-through", color: "gray" }}>Rs. {data.oldPrice}</span>&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs. {data.newPrice}</span><br />
-            </div>
+                {selectedVariant && (
+                  <>
+                    <span style={{ textDecoration: 'line-through', color: 'gray' }}>
+                      Rs. {selectedVariant.oldPrice}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span style={{ fontSize: '22px' }}>Rs. {selectedVariant.newPrice}</span>
+                  </>
+                )}
+                <br />
+              </div>
             <p>Size</p>
             <div>
-
-              <button className='bt3'>A3</button>
-
-              <button className='bt3 ms-2'>A4</button><br /><br />
-
-            </div>
+                {data.variant.map((variant) => (
+                  <button
+                    key={variant._id}
+                    className={`bt3 me-3 ${selectedVariant === variant ? 'selected' : ''}`}
+                    onClick={() => handleVariantClick(variant)}
+                  >
+                    {variant.size}
+                  </button>
+                ))}
+                <br />
+                <br />
+              </div>
             <button onClick={() => handleClick(data)} className='bt4'>ADD TO CART</button>
             <br /><br />
 
