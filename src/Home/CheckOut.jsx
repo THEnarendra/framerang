@@ -259,7 +259,12 @@ const CheckOut = ({ setFooter, theme }) => {
                                     <img src={item.productImage.url} alt="" />
                                     <div className="item-details">
                                         <span>{item.productName}</span>
-                                        <span>Rs. {item.newPrice}</span>
+                                        {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
+                                            <>
+                                            <span>Size: {data.size}</span>
+                                            <span>Rs. {data.newPrice}</span>
+                                            </>
+                                        ))}
                                         <p>Quantity: {item.quantity}</p>
                                     </div>
                                 </div>

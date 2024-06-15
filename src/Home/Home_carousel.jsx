@@ -2,17 +2,11 @@ import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import '../MainCss/Carousel.css';
-import img2 from "../images/anime-character-listening-music.jpg"
-import img3 from "../images/anime-style-character-space.jpg"
-import img5 from "../images/black-white-illustration-man-with-short-hair-black-white-face.jpg"
-import img6 from "../images/cas_grief_and_loss_in_the_style_of_oil_painting_visionary_art_be1c349d-905d-47fb-8318-555f7d3cdf12_wcomki.png"
-import img7 from "../images/dragons_lair_ba9uhh.png"
-import img8 from "../images/separation_z4uh0l.png"
+
 
 // import required modules
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';

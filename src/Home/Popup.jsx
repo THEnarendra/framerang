@@ -11,16 +11,16 @@ const Popup = ({ togglePopup, id, img }) => {
   const [selectedVariant, setSelectedVariant] = useState(null);
 
   const img1 = [img]
-  // console.log(img);
+
   const handleClick = (data) => {
     setLoading(true);
     
     if (data) {
         const productWithSelectedVariant = {
             ...data,
-            variant: selectedVariant, // Only include the selected variant
+            Size: selectedVariant.size, 
         };
-        
+        console.log(selectedVariant.size);
         toast.success("Product Added to Cart Successfully");
         setLoading(false);
         addToCart(productWithSelectedVariant);   
@@ -43,7 +43,6 @@ const Popup = ({ togglePopup, id, img }) => {
   },[loading]);
 
   useEffect(() => {
-    // Initialize with the first variant
     if (img.variant && img.variant.length > 0) {
       setSelectedVariant(img.variant[0]);
     }

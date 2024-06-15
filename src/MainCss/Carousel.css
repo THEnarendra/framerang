@@ -11,6 +11,16 @@
   }
   .swiper-slide1 img{
     /* width: 30vw; */
-    height: 65vh;
+    height: 60vh;
     object-fit: cover;
+  }
+
+  @media screen and (max-width:451px) {
+    .swiper-slide1 img{
+      height: 85vw;
+    }
+    .swiper-slide1{
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
   }

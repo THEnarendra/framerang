@@ -117,8 +117,8 @@ export const Home = ({ theme,setFooter }) => {
       </Row>
  ))}
       <div
-        style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%", marginBottom: "5%" }}>
-        <h1>Our Best Selling Posters & Frames</h1>
+        style={{textAlign:"center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%", marginBottom: "5%" }}>
+        <h1 >Our Best Selling Posters & Frames</h1>
 
         <Product_Slider />
       </div>

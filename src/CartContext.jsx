@@ -14,19 +14,18 @@ const CartProvider = ({ children }) => {
         }
     }, []);
 
-    // Save cart to local storage whenever it changes
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 
     const addToCart = (product) => {
         setCart(prevCart => {
-            const existingProductIndex = prevCart.findIndex(item => item._id === product._id);
+            const existingProductIndex = prevCart.findIndex(item => item._id === product._id && item.Size === product.Size );
             if (existingProductIndex >= 0) {
                 const updatedCart = [...prevCart];
                 updatedCart[existingProductIndex] = {
                     ...updatedCart[existingProductIndex],
-                    quantity: updatedCart[existingProductIndex].quantity + 1
+                    quantity: updatedCart[existingProductIndex].quantity + 1,
                 };
                 return updatedCart;
             } else {
@@ -35,9 +34,10 @@ const CartProvider = ({ children }) => {
         });
     };
 
-    const removeFromCart = (productId) => {
-        setCart(cart.filter(item => item._id !== productId));
-    };
+    const removeFromCart = (productId, size) => {
+      setCart(cart.filter((item) => !(item._id === productId && item.Size === size)));
+  };
+
   const incrementQuantity = (id) => {
     setCart(cart.map(item =>
       item._id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -51,10 +51,16 @@ const CartProvider = ({ children }) => {
   };
 
   const getTotal = () => {
-    return cart.reduce((total, item) => total + item.variant.newPrice * item.quantity, 0);
-  };
-  
+    return cart.reduce((total, item) => {
+        const matchingVariant = item.variant.find(v => v.size === item.Size);
+        if (matchingVariant) {
+            return total + matchingVariant.newPrice * item.quantity;
+        }
+        return total;
+    }, 0);
+};
 
+  
     return (
         <CartContext.Provider value={{ cart, addToCart, removeFromCart,incrementQuantity,decrementQuantity,getTotal }}>
             {children}

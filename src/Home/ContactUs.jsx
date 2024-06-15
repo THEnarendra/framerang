@@ -54,9 +54,10 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
   },[loading])
 
   const handleSubmit = async (e) => {
-    setLoading(true)
     e.preventDefault();
     if (validation()) {
+    setLoading(true)
+
       console.log("Form submitted successfully", data);
 
       const response = await fetch('https://framerang-backend.vercel.app/api/v1/contactUs', {
@@ -113,7 +114,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
         </Col>
 
         <Col sm={12} lg={6} className='col2'>
-          <form className="row g-3" onSubmit={handleSubmit}>
+          <form className="row " onSubmit={handleSubmit}>
             <p>Please allow 1-2 business days to respond to your inquiry.</p>
             <h2>Let's connect</h2>
             <div className="col-md-6">
@@ -174,7 +175,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
             </div>
 
 
-            <div className="col-12 pb-2">
+            <div className="col-12 ">
               <button type="submit" className="btn btn-primary">Submit</button>
             </div>
           </form>

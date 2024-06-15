@@ -21,15 +21,21 @@ export const Cart = ({ setIsCartOpen }) => {
             <div className="item-details">
 
               <p>{item.productName}</p> 
-              <p>Size: {item.variant.size}</p>
+              {item?.variant?.filter((data)=>data.size===item.Size).map((data)=>(
+
+              <p>Size: {data.size}</p>
+              ))}
               <div className="item-controls">
-                <p>Rs. {item.newPrice}</p>
+              {item?.variant?.filter((data)=>data.size===item.Size).map((data)=>(
+
+                <p>Rs. {data.newPrice}</p>
+))}
                 <div className='decrementQuantity mb-3'>
                   <button className='incDec' onClick={() => decrementQuantity(item._id)}>-</button>
                   <span>{item.quantity}</span>
                   <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
                 </div>
-                <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id)}>Remove</button>
+                <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id,item.Size)}>Remove</button>
               </div>
             </div>
           </div>
