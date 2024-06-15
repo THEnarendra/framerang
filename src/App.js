@@ -58,7 +58,6 @@ function App() {
 
   const Poster_Section = details.filter((e) => e.sectionId == 4)
   const Frame_Section = details.filter((e) => e.sectionId == 5)
-  console.log(details);
 
   useEffect(() => {
     fetch('https://framerang-backend.vercel.app/api/v1/allProducts')

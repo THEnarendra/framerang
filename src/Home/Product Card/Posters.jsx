@@ -36,7 +36,6 @@ export const Posters = ({ img, setFooter, theme, subCategory,details }) => {
     arrows: false,
   };
 
-console.log(details);
 
   return (
     <div style={{

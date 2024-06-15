@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
+  console.log(cart)
   return (
     <div className="rightSide-cart">
       <div className='cart-header'>
@@ -18,7 +19,9 @@ export const Cart = ({ setIsCartOpen }) => {
           <div key={item.id} className="cart-item">
             <img src={item.productImage.url} alt="" />
             <div className="item-details">
+
               <p>{item.productName}</p> 
+              <p>Size: {item.variant.size}</p>
               <div className="item-controls">
                 <p>Rs. {item.newPrice}</p>
                 <div className='decrementQuantity mb-3'>

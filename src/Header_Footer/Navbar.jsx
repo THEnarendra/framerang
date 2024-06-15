@@ -54,33 +54,16 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/frames">
             <div onClick={() => (setFrame(!frame), setPoster(false))} >
               Frames
-              {/* <i className="fa-solid fa-angle-down"></i> */}
             </div>
           </Link>
-          {/* {frame && (
-            <div className="frameDrop">
-                <p>Anime</p>
-              </Link>
-              <Link onClick={()=>setFrame(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/marvelposters">
-                <p>Marvel</p>
-            </div>
-          )} */}
+          
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/posters">
             <div >
               Posters
-              {/* <i className="fa-solid fa-angle-down"></i> */}
             </div>
           </Link>
-          {/* {poster && (
-            <div className="frameDrop" >
-                <p>Anime</p>
-              </Link>
-              <Link onClick={()=>setPoster(false)} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/marvelframes">
-                <p>Marvel</p>
-            </div>
-          )} */}
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link onClick={() => (setPoster(false), setFrame(false))} style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/contactus">Contact</Link>

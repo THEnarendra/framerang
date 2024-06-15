@@ -13,12 +13,17 @@ const Popup = ({ togglePopup, id, img }) => {
   const img1 = [img]
   // console.log(img);
   const handleClick = (data) => {
-    setLoading(true)
+    setLoading(true);
     
-    if(data){
-      toast.success("Product Added to Cart Succesfully");
-      setLoading(false)
-      addToCart(data)   
+    if (data) {
+        const productWithSelectedVariant = {
+            ...data,
+            variant: selectedVariant, // Only include the selected variant
+        };
+        
+        toast.success("Product Added to Cart Successfully");
+        setLoading(false);
+        addToCart(productWithSelectedVariant);   
     }
   };
 
