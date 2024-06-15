@@ -88,8 +88,8 @@ function App() {
         {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen} />)}
         <Routes>
           <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
-          <Route path='/posters' element={<Posters details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
-          <Route path='/frames' element={<Posters details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
+          <Route path='/posters' element={<Posters setIsCartOpen={setIsCartOpen} details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
+          <Route path='/frames' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
           <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/checkout' element={<CheckOut setFooter={setFooter} theme={theme} setTheme={setTheme} />} />

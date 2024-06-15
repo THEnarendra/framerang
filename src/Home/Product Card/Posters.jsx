@@ -5,9 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
 
-export const Posters = ({ img, setFooter, theme, subCategory,details }) => {
+export const Posters = ({ img, setFooter, theme, subCategory,details,setIsCartOpen }) => {
   setFooter(true);
-
 
   const [selectedSubCategory, setSelectedSubCategory] = useState('Select SubCategory');
   const [filteredImg, setFilteredImg] = useState(img);
@@ -88,7 +87,7 @@ export const Posters = ({ img, setFooter, theme, subCategory,details }) => {
         (
           filteredImg.map((img) => (
             <Col lg={3} md={4} sm={12} key={img.id}>
-              <ProductCard img={img} />
+              <ProductCard setIsCartOpen={setIsCartOpen} img={img} />
             </Col>
           ))
         )}

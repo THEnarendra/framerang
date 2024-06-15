@@ -5,7 +5,7 @@ import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
 import '../MainCss/Popup.css'
 
-const Popup = ({ togglePopup, id, img }) => {
+const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
   const { addToCart } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
@@ -14,18 +14,22 @@ const Popup = ({ togglePopup, id, img }) => {
 
   const handleClick = (data) => {
     setLoading(true);
-    
+    togglePopup();
     if (data) {
         const productWithSelectedVariant = {
             ...data,
             Size: selectedVariant.size, 
         };
+        
         console.log(selectedVariant.size);
-        toast.success("Product Added to Cart Successfully");
-        setLoading(false);
-        addToCart(productWithSelectedVariant);   
+        
+        setTimeout(() => {
+            toast.success("Product Added to Cart Successfully");
+            setLoading(false);
+            addToCart(productWithSelectedVariant);  
+        }, 100); // 2000 milliseconds = 2 seconds
     }
-  };
+};
 
 
   const handleVariantClick = (variant) => {
@@ -56,8 +60,8 @@ const Popup = ({ togglePopup, id, img }) => {
 <Toaster />
       {img1?.filter((e) => e.id === id).map((data) => (
 
-        <Row style={{ position: "relative" }} className='row1' >
-          <span onClick={togglePopup} style={{ position: "absolute", right: "-88%", top: "2%", cursor: "pointer" }}>❌</span>
+        <Row style={{ position: "relative" }}   className='row1'>
+          <span onClick={togglePopup} className='btPopup'>❌</span>
 
           <Col style={{ display: "flex", alignItems: "center", flexDirection: "column",justifyContent:"center" }} lg={6}>
             <img className='img12' src={data.productImage.url} alt="" />
@@ -97,7 +101,7 @@ const Popup = ({ togglePopup, id, img }) => {
                 <br />
                 <br />
               </div>
-            <button onClick={() => handleClick(data)} className='bt4'>ADD TO CART</button>
+            <button onClick={() => (handleClick(data),setIsCartOpen(true))} className='bt4'>ADD TO CART</button>
             <br /><br />
 
           </Col>

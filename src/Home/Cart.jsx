@@ -2,12 +2,17 @@ import React, { useContext, useState } from 'react';
 import '../MainCss/cart.css'
 import { CartContext } from '../CartContext';
 import { Link } from 'react-router-dom';
+import { toast, Toaster } from "react-hot-toast";
 
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
   console.log(cart)
+
   return (
+    <div className='cart011'>
+
     <div className="rightSide-cart">
+      <Toaster />
       <div className='cart-header'>
         <h2>Your cart</h2>
         <div onClick={() => setIsCartOpen(false)} style={{ fontSize: "20px", fontWeight: 700, cursor: "pointer" }}>❌</div>
@@ -48,10 +53,16 @@ export const Cart = ({ setIsCartOpen }) => {
           <p>Rs. {getTotal()}</p>
         </div>
         <div className='ms-4'>Tax included. Shipping and discounts calculated at checkout.</div>
-        <Link to="/checkout" onClick={() => setIsCartOpen(false)} >
+        <Link to={cart?.length !== 0 && "/checkout"} onClick={() => {
+            if(cart?.length === 0){
+              toast.error("Please Add Product First");
+            }
+            setIsCartOpen(false)
+        }} >
           <button className="checkout-button">Check out</button>
         </Link>
       </div>
+    </div>
     </div>
 
   )

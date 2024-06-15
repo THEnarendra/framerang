@@ -153,12 +153,12 @@ const CheckOut = ({ setFooter, theme }) => {
             <Row>
                 <Col className='over' sm={12} lg={6}>
                     <div className="leftSide">
-                        <h4>Contact Info</h4>
+                        <h5>Contact Info</h5>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="number" name="phone" placeholder="Contact Number" />
                         {errors.phone && <span className="error">{errors.phone}</span>}
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="email" name="email" placeholder="Email Address" />
                         {errors.email && <span className="error">{errors.email}</span>}
-                        <h4 className='mt-3'>Delivery Address</h4>
+                        <h5 className='mt-3'>Delivery Address</h5>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region" />
                         {errors.country && <span className="error">{errors.country}</span>}
                         <div className="name-fields">
@@ -182,7 +182,7 @@ const CheckOut = ({ setFooter, theme }) => {
                         <p>Enter your shipping address to view available shipping methods.</p>
                         <div className="container mt-4">
                             <div className="" style={{ marginLeft: "-5%" }}>
-                                <h4>Payment</h4>
+                                <h5>Payment</h5>
                                 <p>All transactions are secure and encrypted.</p>
                                 <div style={{ border: "1px solid gray" }}>
                                     <div style={{ borderBottom: "1px solid gray" }} className={`form-check p-2 ${paymentMethod === 'prepaid' ? 'background-radio' : ''}`}>
