@@ -123,3 +123,6 @@ input[type="checkbox"] {
     /* padding: 2%; */
     /* border-radius: 5px; */
 }
+.error{
+    color: red;
+}
