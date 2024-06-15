@@ -11,7 +11,6 @@ const Popup = ({ togglePopup, id, img }) => {
   const [selectedVariant, setSelectedVariant] = useState(null);
 
   const img1 = [img]
-
   // console.log(img);
   const handleClick = (data) => {
     setLoading(true)
