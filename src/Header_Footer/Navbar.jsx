@@ -80,6 +80,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             <i style={{ cursor: "pointer" }} className="ps-2 fa-solid fa-moon" onClick={() => (ToggleTheme())}></i>
 
         </Col>
+        
         <Col className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
 
       </Row>

@@ -104,12 +104,12 @@ const settings = {
 
   
   return (
-    <div style={{width:"90vw"}}>
+    <div className='ps-3 pe-3' style={{width:"80vw",border:"1px solid gray",borderRadius:7}}>
        <Slider {...settings}>
 
       {img.map((img)=>(
 
-  <div >
+  <div className='p-2' >
     <ProductCard img={img}/>
   </div>
         ))}

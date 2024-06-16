@@ -159,6 +159,9 @@
    cursor: pointer;
 
 }
+.comboimg{
+  width: 90%;
+}
 
 .Category {
   cursor: pointer;
@@ -554,4 +557,10 @@ header .count {
   html {
     font-size: 16px;
   }
+}
+.comboRow{
+ padding: 4%;
+ z-index: -999;
+  /* background-color: #f8f9fa; */
+  display: none; 
 }

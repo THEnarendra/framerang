@@ -46,8 +46,8 @@ const Bubble = () => {
 							<h2>Useful Links</h2>
 							<div className="use-links">
 								<li><a href="/"><i className="fa-solid fa-angles-right"></i> Home</a></li>
-								<li><a href="about.html"><i className="fa-solid fa-angles-right"></i> About Us</a></li>
-								<li><a href="gallery.html"><i className="fa-solid fa-angles-right"></i> Gallery</a></li>
+								{/* <li><a href="about.html"><i className="fa-solid fa-angles-right"></i> About Us</a></li> */}
+								{/* <li><a href="gallery.html"><i className="fa-solid fa-angles-right"></i> Gallery</a></li> */}
 								<li><a href="/contactUs"><i className="fa-solid fa-angles-right"></i> Contact</a></li>
                 
 							</div>

@@ -21,10 +21,10 @@ function App() {
   const [theme, setTheme] = useState("darkTheme");
   const [data, setData] = useState(null);
   const [data1, setData1] = useState(null);
-  const [data2, setData2] = useState(null);
   const [error, setError] = useState(null);
   const [footer, setFooter] = useState(true);
-  const [subCategory, setSubCategory] = useState();
+  const [subposterCategory, setSubposterCategory] = useState();
+  const [subFrameCategory, setSubFrameCategory] = useState();
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -71,10 +71,12 @@ function App() {
         const fr = data.data
         const frame = fr.filter((e) => e.category === "frame");
         const poster = fr.filter((e) => e.category === "poster");
-        const categoryArray = Array.from(new Set(fr.map(user => user.subCategory)));
+        const PostercategoryArray = Array.from(new Set(fr.filter((e)=>e.category==='poster').map(user => user.subCategory)));
+        const FramecategoryArray = Array.from(new Set(fr.filter((e)=>e.category==='frame').map(user => user.subCategory)));
         setData(frame);
         setData1(poster);
-        setSubCategory(categoryArray);
+        setSubposterCategory(PostercategoryArray);
+        setSubFrameCategory(FramecategoryArray);
       })
       .catch((error) => {
         setError(error);
@@ -88,8 +90,8 @@ function App() {
         {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen} />)}
         <Routes>
           <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
-          <Route path='/posters' element={<Posters setIsCartOpen={setIsCartOpen} details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
-          <Route path='/frames' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subCategory} />} />
+          <Route path='/posters' element={<Posters setIsCartOpen={setIsCartOpen} details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subposterCategory} />} />
+          <Route path='/frames' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subFrameCategory} />} />
           <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/checkout' element={<CheckOut setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
@@ -101,7 +103,6 @@ function App() {
           <Route path='/policies/shipping-policy' element={<ShippingPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
         </Routes>
         {footer && (
-
           <Footer />
         )}
       </BrowserRouter>

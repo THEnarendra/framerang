@@ -10,14 +10,15 @@ import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
+import img from '../images/anime-posters/04.webp'
 
-export const Home = ({ theme,setFooter }) => {
+export const Home = ({ theme, setFooter }) => {
   setFooter(true)
   const lightTheme = "lightTheme";
 
   const [details, fetchDetails] = useState([]);
 
-  
+
 
 
   const getData = () => {
@@ -56,7 +57,7 @@ export const Home = ({ theme,setFooter }) => {
   }, []);
 
   document.getElementsByClassName(lightTheme);
-
+const subCategory = "Combo Posters"
   return (
     <div >
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -67,10 +68,12 @@ export const Home = ({ theme,setFooter }) => {
       </div>
 
 
-        {details.filter((e) => e.sectionId == 1).map((data) => (
-      <Row>
+      {details.filter((e) => e.sectionId == 1).map((data) => (
+        <Row>
 
-
+<Col lg={6}>
+            <Home_carousel img={data.images} />
+          </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
             <h1 className='firsth1'>{data.heading}</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
@@ -79,49 +82,68 @@ export const Home = ({ theme,setFooter }) => {
             </Link>
           </Col>
 
-        <Col lg={6}>
-          <Home_carousel img={data.images} />
-        </Col>
-      </Row>
-        ))}
-{details.filter((e) => e.sectionId == 2).map((data) => (
-      <div style={{
-        position: "relative",
-        padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
-        borderRadius: "30px", margin: "5% 2% 5% 2%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-      }}>
-        <h1 className='firsth1'>{data.heading}</h1><br />
-        <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
-        <Link to='/customize'>
-          <button className='bt2'>{data.buttonText}</button>
-        </Link>
-        {data.images && data.images.map((data)=>(
-
-          <img style={{ width: "8%", position: "absolute", top: "85%", left: "0" }} src={data.url} alt="" className='logo_wheel' />
-        ))}
-
-      </div>
- ))}
- {details.filter((e) => e.sectionId == 3).map((data) => (
-      <Row >
-        <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper img={data.images}  /></Col>
-
-        <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
+         
+        </Row>
+      ))}
+      {details.filter((e) => e.sectionId == 2).map((data) => (
+        <div style={{
+          position: "relative",
+          padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
+           margin: "5% 0% 5% 0%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+        }}>
           <h1 className='firsth1'>{data.heading}</h1><br />
           <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
-          <Link to="/frames">
-
-            <button className='bt1'>{data.buttonText}</button>
+          <Link to='/customize'>
+            <button className='bt2'>{data.buttonText}</button>
           </Link>
-        </Col>
-      </Row>
- ))}
-      <div
-        style={{textAlign:"center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%", marginBottom: "5%" }}>
-        <h1 >Our Best Selling Posters & Frames</h1>
+          {data.images && data.images.map((data) => (
+            <img style={{ width: "8%", position: "absolute", top: "85%", left: "0" }} src={data.url} alt="" className='logo_wheel' />
+          ))}
 
+        </div>
+      ))}
+      {details.filter((e) => e.sectionId == 3).map((data) => (
+        <Row >
+          <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Home_Swiper img={data.images} /></Col>
+
+          <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
+            <h1 className='firsth1'>{data.heading}</h1><br />
+            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
+            <Link to="/frames">
+
+              <button className='bt1'>{data.buttonText}</button>
+            </Link>
+          </Col>
+        </Row>
+      ))}
+       <div
+        style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%"}}>
+        <h1 className='mb-4' >Our Best Selling Posters & Frames</h1>
         <Product_Slider />
       </div>
+
+      <div style={{marginTop:"-7%"}} className='ms-4 me-1'>
+      {details.filter((e) => e.sectionId == 6).map((data) => (
+
+        <Row className="comboRow" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Col lg={6} sm={12}>
+          {data.images?.map((img)=>(
+
+            <img className="comboimg" src={img.url} alt="" />
+          ))}
+          </Col>
+          <Col className="mt-4" lg={6} sm={12}>
+            <h2>{data.heading}</h2>
+            <span className="mt-2">{data.description}</span>
+            <br /> 
+            <Link to={`/posters/${subCategory}`}>
+             <button className='bt1 mt-4'>{data.buttonText}</button>
+            </Link>
+          </Col>
+        </Row>
+      ))}
+      </div>
+     
 
     </div>
   );

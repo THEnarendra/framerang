@@ -52,7 +52,7 @@ export const Cart = ({ setIsCartOpen }) => {
           <h3>Estimated total</h3>
           <p>Rs. {getTotal()}</p>
         </div>
-        <div className='ms-4'>Tax included. Shipping and discounts calculated at checkout.</div>
+        <div className='ms-4 mb-2'>Tax included. Shipping and discounts calculated at checkout.</div>
         <Link to={cart?.length !== 0 && "/checkout"} onClick={() => {
             if(cart?.length === 0){
               toast.error("Please Add Product First");
