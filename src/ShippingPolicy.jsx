@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const ShippingPolicy = () => {
   return (
-    <Container className="mt-5">
+    <Container style={{marginTop:100}} className="">
       <Row className="justify-content-center">
         <Col md={10}>
           <div className=" p-4 rounded">

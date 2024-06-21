@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './Header_Footer/Navbar';
 import About from './About/About';
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { Posters } from './Home/Product Card/Posters';
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
-import { Customize } from './Home/Product Card/Customizeposters'
+import { Customize } from './Home/Product Card/Customizeposters';
 import CheckOut from './Home/CheckOut';
 import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
@@ -16,6 +16,16 @@ import PolicyPage from './Home/PolicyPage';
 import TermsOfService from './Terms&Conditions';
 import RefundPolicy from './RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [theme, setTheme] = useState("darkTheme");
@@ -30,9 +40,6 @@ function App() {
 
   const [details, fetchDetails] = useState([]);
 
-
-
-
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
       .then((res) => {
@@ -44,7 +51,6 @@ function App() {
       .then((res) => {
         const data = res.content;
         fetchDetails(data);
-
       })
       .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
@@ -52,12 +58,12 @@ function App() {
   };
 
   useEffect(() => {
-    getData()
+    getData();
     document.body.className = theme;
   }, [theme]);
 
-  const Poster_Section = details.filter((e) => e.sectionId == 4)
-  const Frame_Section = details.filter((e) => e.sectionId == 5)
+  const Poster_Section = details.filter((e) => e.sectionId == 4);
+  const Frame_Section = details.filter((e) => e.sectionId == 5);
 
   useEffect(() => {
     fetch('https://framerang-backend.vercel.app/api/v1/allProducts')
@@ -68,11 +74,11 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        const fr = data.data
+        const fr = data.data;
         const frame = fr.filter((e) => e.category === "frame");
         const poster = fr.filter((e) => e.category === "poster");
-        const PostercategoryArray = Array.from(new Set(fr.filter((e)=>e.category==='poster').map(user => user.subCategory)));
-        const FramecategoryArray = Array.from(new Set(fr.filter((e)=>e.category==='frame').map(user => user.subCategory)));
+        const PostercategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'poster').map(user => user.subCategory)));
+        const FramecategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'frame').map(user => user.subCategory)));
         setData(frame);
         setData1(poster);
         setSubposterCategory(PostercategoryArray);
@@ -86,7 +92,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div style={{ position: "absolute", width: "100vw", top: 0, height: "1vh" }}><Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme} /></div>
+        <ScrollToTop />
+        <div style={{ position: "absolute", width: "100vw", top: 0, height: "1vh" }}>
+          <Navbar setIsCartOpen={setIsCartOpen} theme={theme} setTheme={setTheme} />
+        </div>
         {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen} />)}
         <Routes>
           <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} />} />

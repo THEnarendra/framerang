@@ -45,10 +45,17 @@ const Bubble = () => {
 						<div className="useful-link">
 							<h2>Useful Links</h2>
 							<div className="use-links">
-								<li><a href="/"><i className="fa-solid fa-angles-right"></i> Home</a></li>
+								<li>
+                  <Link to='/'>
+                  <a href=""><i className="fa-solid fa-angles-right"></i> Home</a>
+                  </Link>
+                  </li>
 								{/* <li><a href="about.html"><i className="fa-solid fa-angles-right"></i> About Us</a></li> */}
 								{/* <li><a href="gallery.html"><i className="fa-solid fa-angles-right"></i> Gallery</a></li> */}
-								<li><a href="/contactUs"><i className="fa-solid fa-angles-right"></i> Contact</a></li>
+								<li><Link to='/contactUs'>
+                  <a href=""><i className="fa-solid fa-angles-right"></i> Contact</a>
+                </Link>
+                  </li>
                 
 							</div>
 						</div>
@@ -86,16 +93,27 @@ const Bubble = () => {
          <a href="/" title=""> © 2024, Frame Rang</a>
           </li>
           <li>
-              <a href="/policies/refund-policy">Refund policy</a>
+            <Link to='/policies/refund-policy'>
+              <a href="">Refund policy</a>
+            </Link>
           </li>
           <li>
-              <a href="/policies/privacy-policy">Privacy policy</a>
+          <Link to='/policies/privacy-policy'>
+              <a href="">Privacy policy</a>
+          </Link>
+
           </li>
           <li>
-              <a href="/policies/terms-of-service">Terms of service</a>
+          <Link to='/policies/terms-of-service'>
+              <a href="">Terms of service</a>
+          </Link>
+
           </li>
           <li>
-              <a href="/policies/shipping-policy">Shipping policy</a>
+          <Link to='/policies/shipping-policy'>
+              <a href="">Shipping policy</a>
+          </Link>
+
           </li>
         </ul>
       </div>

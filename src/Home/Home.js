@@ -77,7 +77,7 @@ const subCategory = "Combo Posters"
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
             <h1 className='firsth1'>{data.heading}</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
-            <Link to="/posters">
+            <Link to="/frames">
               <button className='bt1'>{data.buttonText}</button>
             </Link>
           </Col>
@@ -109,7 +109,7 @@ const subCategory = "Combo Posters"
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
             <h1 className='firsth1'>{data.heading}</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
-            <Link to="/frames">
+            <Link to="/posters">
 
               <button className='bt1'>{data.buttonText}</button>
             </Link>

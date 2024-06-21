@@ -81,15 +81,12 @@ console.log(loading);
           url:`https://framerang-backend.vercel.app/api/v1/customPoster`,
           method:'post',
           headers: {
-            // 'Content-Type': 'application/json',
             "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${localStorage.getItem("token")}` 
           },
           data: formData
         }
         try {
           const response = await axios(config);
-          // console.log(response);
           if(response.success=true){
             setLoading(false)
             toast.success("Customize Product Ordered Successful");
@@ -106,7 +103,7 @@ console.log(loading);
     };
   
     return (
-        <div style={{marginTop:160,marginBottom:150}} className="container">
+        <div style={{marginTop:150,marginBottom:100}} className="container">
    {loading && <div className="overlay"><Loader /></div>}
 
       <Toaster />
