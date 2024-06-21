@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
 
-export const Posters = ({ img, setFooter, theme, subCategory,details,setIsCartOpen }) => {
+export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCartOpen }) => {
   setFooter(true);
 
   const [selectedSubCategory, setSelectedSubCategory] = useState('Select SubCategory');
@@ -41,36 +41,36 @@ export const Posters = ({ img, setFooter, theme, subCategory,details,setIsCartOp
       marginTop: "72px",
       padding: "3%", textAlign: "center",
     }}>
-        {details?.map((data)=>(
-      <Slider {...settings}>
-            {data.images.map((e)=>(
+      {details?.map((data) => (
+        <Slider {...settings}>
+          {data.images.map((e) => (
 
             <img src={e.url} alt="" className='logo_wheel12' />
-            ))}
-            
-         
-      </Slider>
-        ))}
-     
+          ))}
+
+
+        </Slider>
+      ))}
+
 
       <Row style={{ margin: "1% 6% 5% 6%" }}>
         <div className='ms-2 mt-5 mb-5' style={{ display: "flex", flexWrap: "wrap" }}>
           <div className='me-4 d-flex align-items-center'>
             <span className='me-4'>Filter:</span>
-            <select 
+            <select
               value={selectedSubCategory}
               onChange={handleSubCategoryChange}
-              style={{ color: theme === "darkTheme" ? "white" : "black" }} 
+              style={{ color: theme === "darkTheme" ? "white" : "black" }}
               className='Category_Row'
             >
               <option
-              key={subCategory}
-              value="Select SubCategory"
-              style={{ backgroundColor: theme === "darkTheme" ? "black" : "white" }}
+                key={subCategory}
+                value="Select SubCategory"
+                style={{ backgroundColor: theme === "darkTheme" ? "black" : "white" }}
               >Select SubCategory</option>
               {subCategory && subCategory.map((subCategory) => (
 
-                <option 
+                <option
                   key={subCategory}
                   value={subCategory}
                   style={{ backgroundColor: theme === "darkTheme" ? "black" : "white" }}
@@ -84,13 +84,13 @@ export const Posters = ({ img, setFooter, theme, subCategory,details,setIsCartOp
           </div>
         </div>
         {filteredImg &&
-        (
-          filteredImg.map((img) => (
-            <Col lg={3} md={4} sm={12} key={img.id}>
-              <ProductCard setIsCartOpen={setIsCartOpen} img={img} />
-            </Col>
-          ))
-        )}
+          (
+            filteredImg.map((img) => (
+              <Col lg={3} md={4} sm={12} key={img.id}>
+                <ProductCard setIsCartOpen={setIsCartOpen} img={img} />
+              </Col>
+            ))
+          )}
       </Row>
     </div>
   );

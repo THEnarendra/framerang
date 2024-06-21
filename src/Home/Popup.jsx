@@ -9,25 +9,31 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
   const { addToCart } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
-
-  const img1 = [img]
+  const [error,setError]=useState(false)
 
   const handleClick = (data) => {
-    setLoading(true);
-    togglePopup();
-    if (data) {
-        const productWithSelectedVariant = {
-            ...data,
-            Size: selectedVariant.size, 
-        };
-        
-        console.log(selectedVariant.size);
-        
-        setTimeout(() => {
-            toast.success("Product Added to Cart Successfully");
-            setLoading(false);
-            addToCart(productWithSelectedVariant);  
-        }, 100); // 2000 milliseconds = 2 seconds
+    if(selectedVariant === null){
+      setError(true)
+    }
+    else{
+     
+      setLoading(true);
+      togglePopup();
+      setIsCartOpen(true)
+      if (data) {
+          const productWithSelectedVariant = {
+              ...data,
+              Size: selectedVariant?.size, 
+          };
+          
+         
+          
+          setTimeout(() => {
+              toast.success("Product Added to Cart Successfully");
+              setLoading(false);
+              addToCart(productWithSelectedVariant);  
+          }, 100); // 2000 milliseconds = 2 seconds
+      }
     }
 };
 
@@ -54,13 +60,13 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
 
 
   return (
-    <div className="modal-popup">
+    < >
 {loading && <div className="overlay"><Loader /></div>}
 
 <Toaster />
-      {img1?.filter((e) => e.id === id).map((data) => (
+      {img?.filter((e) => e._id === id).map((data) => (
 
-        <Row style={{ position: "relative" }}   className='row1'>
+        <Row  className='row1'>
           <span onClick={togglePopup} className='btPopup'>❌</span>
 
           <Col style={{ display: "flex", alignItems: "center", flexDirection: "column",justifyContent:"center" }} lg={6}>
@@ -73,9 +79,9 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
 
             <span>Framerang</span>
             <h1>{data.productName}</h1>
-            <span>10*5 inches </span><br />
+            <span>10*5 inches </span>
             <span>Single pcs</span>
-            <div>
+            <div className='mt-2'>
                 {selectedVariant && (
                   <>
                     <span style={{ textDecoration: 'line-through', color: 'gray' }}>
@@ -85,7 +91,7 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                     <span style={{ fontSize: '22px' }}>Rs. {selectedVariant.newPrice}</span>
                   </>
                 )}
-                <br />
+             
               </div>
             <p>Size</p>
             <div>
@@ -93,21 +99,25 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                   <button
                     key={variant._id}
                     className={`bt3 me-3 ${selectedVariant === variant ? 'selected' : ''}`}
-                    onClick={() => handleVariantClick(variant)}
+                    onClick={() => (handleVariantClick(variant),setError(false))}
                   >
                     {variant.size}
                   </button>
                 ))}
-                <br />
-                <br />
+                 <br /> <br />
+               {error && (
+                <p style={{color:"red"}}>! Please Select Size First </p>
+               )}
+               
+                
               </div>
-            <button onClick={() => (handleClick(data),setIsCartOpen(true))} className='bt4'>ADD TO CART</button>
+            <button onClick={() => (handleClick(data))} className='bt4'>ADD TO CART</button>
             <br /><br />
 
           </Col>
         </Row>
       ))}
-    </div>
+    </>
   )
 }
 

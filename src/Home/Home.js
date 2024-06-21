@@ -9,7 +9,7 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 
-export const Home = ({ theme, setFooter }) => {
+export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
   const lightTheme = "lightTheme";
 
@@ -95,7 +95,7 @@ export const Home = ({ theme, setFooter }) => {
         <div key={data.id} style={{
           position: "relative",
           padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
-           margin: "5% 0% 5% 0%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+          margin: "5% 0% 5% 0%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
         }}>
           <h1 className='firsth1'>{data.heading}</h1><br />
           <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
@@ -116,7 +116,7 @@ export const Home = ({ theme, setFooter }) => {
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
             <h1 className='firsth1'>{data.heading}</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
-            <Link to="/frames">
+            <Link to="/posters">
 
               <button className='bt1'>{data.buttonText}</button>
             </Link>
@@ -126,7 +126,7 @@ export const Home = ({ theme, setFooter }) => {
 
       <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
         <h1 className='mb-4'>Our Best Selling Posters & Frames</h1>
-        <Product_Slider products={products} category="poster"  />
+        <Product_Slider setIsCartOpen={setIsCartOpen} products={products} category="poster" />
       </div>
 
       <div style={{ marginTop: "-7%" }} className='ms-4 me-1'>

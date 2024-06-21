@@ -75,6 +75,8 @@ function App() {
       })
       .then((data) => {
         const fr = data.data;
+        console.log(fr);
+        const isFeatured =fr.filter((e)=>e.isFeatured===true)
         const frame = fr.filter((e) => e.category === "frame");
         const poster = fr.filter((e) => e.category === "poster");
         const PostercategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'poster').map(user => user.subCategory)));
@@ -98,7 +100,7 @@ function App() {
         </div>
         {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen} />)}
         <Routes>
-          <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
           <Route path='/posters' element={<Posters setIsCartOpen={setIsCartOpen} details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subposterCategory} />} />
           <Route path='/frames' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data} subCategory={subFrameCategory} />} />
           <Route path='/Combos' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subFrameCategory} />} />

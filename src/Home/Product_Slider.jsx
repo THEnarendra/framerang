@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../MainCss/Product_Slider.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from './Product Card/ProductCard';
 import '../MainCss/ProductCard.css';
+import Popup from './Popup';
 
-const Product_Slider = ({ products, category, isFeatured }) => {
-  
-  const filteredProducts = products.filter(product => {
-    if (category && isFeatured !== undefined) {
-      return product.category === category && product.isFeatured === isFeatured;
-    } else if (category) {
-      return product.category === category;
-    } else if (isFeatured !== undefined) {
-      return product.isFeatured === isFeatured;
+const Product_Slider = ({ products, category, isFeatured, setIsCartOpen }) => {
+  const [id, setId] = useState()
+  const [showPopup, setShowPopup] = useState(false);
+  const Pop = () => {
+
+    setShowPopup(!showPopup);
+
+  }
+  useEffect(() => {
+    if (showPopup) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
     }
-    return true;
-  });
+
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showPopup]);
+
+  const filteredProducts = products.filter((product) =>product.isFeatured ===true )
+   
 
   console.log('Filtered Products:', filteredProducts); // Log filtered products
 
@@ -28,7 +38,7 @@ const Product_Slider = ({ products, category, isFeatured }) => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     arrows: false,
     responsive: [
       {
@@ -54,24 +64,38 @@ const Product_Slider = ({ products, category, isFeatured }) => {
       }
     ]
   };
-
+  console.log(id);
   return (
-    <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>
-      <Slider {...settings}>
-        {filteredProducts.length === 0 ? (
-          <div>No products available</div>
-        ) : (
-          filteredProducts.map((product) => {
-            console.log('Product:', product); // Log each product
-            return (
-              <div className='p-2' key={product._id}>
-                <ProductCard img={product} />
+    <>
+      <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>
+        <Slider {...settings}>
+          
+          {
+            filteredProducts && filteredProducts.map((img) => (
+
+              <div className="nft">
+
+                <div className='main'>
+
+                  <img className='image011' src={img.productImage.url} alt="" />
+                  <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br /> Single pcs
+                  <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span> </p>
+                  <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
+
+                </div>
               </div>
-            );
-          })
-        )}
-      </Slider>
-    </div>
+
+            ))
+          }
+        </Slider>
+
+      </div>
+      {showPopup === true &&
+        <div className="modal-popup">
+          <Popup setIsCartOpen={setIsCartOpen} img={filteredProducts} id={id} togglePopup={Pop} />
+        </div>
+      }
+    </>
   );
 };
 

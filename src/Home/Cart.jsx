@@ -11,58 +11,59 @@ export const Cart = ({ setIsCartOpen }) => {
   return (
     <div className='cart011'>
 
-    <div className="rightSide-cart">
-      <Toaster />
-      <div className='cart-header'>
-        <h2>Your cart</h2>
-        <div onClick={() => setIsCartOpen(false)} style={{ fontSize: "20px", fontWeight: 700, cursor: "pointer" }}>❌</div>
-      </div>
-      <hr />
+      <div className="rightSide-cart">
+        <Toaster />
+        <div className='cart-header'>
+          <h2>Your cart</h2>
+          <div onClick={() => setIsCartOpen(false)} style={{ fontSize: "20px", fontWeight: 700, cursor: "pointer" }}>❌</div>
+        </div>
+        <hr />
 
-      <div className="cart-items">
-        {cart.map((item) => (
-          <div key={item.id} className="cart-item">
-            <img src={item.productImage.url} alt="" />
-            <div className="item-details">
+        <div className="cart-items">
+          {cart.map((item) => (
+            <div key={item.id} className="cart-item">
 
-              <p>{item.productName}</p> 
-              {item?.variant?.filter((data)=>data.size===item.Size).map((data)=>(
+              <img src={item.productImage.url} alt="" />
+              <div className="item-details">
 
-              <p>Size: {data.size}</p>
-              ))}
-              <div className="item-controls">
-              {item?.variant?.filter((data)=>data.size===item.Size).map((data)=>(
+                <p>{item.productName}</p>
+                {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
 
-                <p>Rs. {data.newPrice}</p>
-))}
-                <div className='decrementQuantity mb-3'>
-                  <button className='incDec' onClick={() => decrementQuantity(item._id)}>-</button>
-                  <span>{item.quantity}</span>
-                  <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
+                  <p>Size: {data.size}</p>
+                ))}
+                <div className="item-controls">
+                  {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
+
+                    <p>Rs. {data.newPrice}</p>
+                  ))}
+                  <div className='decrementQuantity mb-3'>
+                    <button className='incDec' onClick={() => decrementQuantity(item._id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
+                  </div>
+                  <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id, item.Size)}>Remove</button>
                 </div>
-                <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id,item.Size)}>Remove</button>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <hr />
-      <div className='cart-overview'>
-        <div className="cart-total">
-          <h3>Estimated total</h3>
-          <p>Rs. {getTotal()}</p>
+          ))}
         </div>
-        <div className='ms-4 mb-2'>Tax included. Shipping and discounts calculated at checkout.</div>
-        <Link to={cart?.length !== 0 && "/checkout"} onClick={() => {
-            if(cart?.length === 0){
+        <hr />
+        <div className='cart-overview'>
+          <div className="cart-total">
+            <h3>Estimated total</h3>
+            <p>Rs. {getTotal()}</p>
+          </div>
+          <div className='ms-4 mb-2'>Tax included. Shipping and discounts calculated at checkout.</div>
+          <Link to={cart?.length !== 0 && "/checkout"} onClick={() => {
+            if (cart?.length === 0) {
               toast.error("Please Add Product First");
             }
             setIsCartOpen(false)
-        }} >
-          <button className="checkout-button">Check out</button>
-        </Link>
+          }} >
+            <button className="checkout-button">Check out</button>
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
 
   )

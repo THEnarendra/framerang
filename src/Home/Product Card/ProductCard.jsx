@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Popup from '../Popup';
 
-const ProductCard = ({ img,setIsCartOpen }) => {
+const ProductCard = ({ img, setIsCartOpen }) => {
 
   const [id, setId] = useState()
 
   const [showPopup, setShowPopup] = useState(false);
   const Pop = () => {
-    
+
     setShowPopup(!showPopup);
 
   }
@@ -34,7 +34,7 @@ const ProductCard = ({ img,setIsCartOpen }) => {
             <img className='image011' src={img.productImage.url} alt="" />
             <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br /> Single pcs
             <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span> </p>
-            <button className='bt1' onClick={() => (setId(img.id), Pop())}>Choose Options</button>
+            <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
 
           </div>
         )}
@@ -44,9 +44,8 @@ const ProductCard = ({ img,setIsCartOpen }) => {
 
 
       {showPopup === true &&
-        <div>
-
-          <Popup setIsCartOpen={setIsCartOpen} img={img} id={id} togglePopup={Pop} />
+        <div className="modal-popup">
+          <Popup setIsCartOpen={setIsCartOpen} img={[img]} id={id} togglePopup={Pop} />
         </div>
       }
 
