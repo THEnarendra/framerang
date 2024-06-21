@@ -52,7 +52,7 @@ const CartProvider = ({ children }) => {
 
   const getTotal = () => {
     return cart.reduce((total, item) => {
-        const matchingVariant = item.variant.find(v => v.size === item.Size);
+        const matchingVariant = item?.variant?.find(v => v.size === item.Size);
         if (matchingVariant) {
             return total + matchingVariant.newPrice * item.quantity;
         }
