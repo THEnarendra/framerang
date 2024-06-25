@@ -36,7 +36,8 @@ const CheckOut = ({ setFooter, theme }) => {
 
     const idArray = cart.map(user => ({
         product: user._id,
-        quantity: user.quantity
+        quantity: user.quantity,
+        size: user.Size
     }));
 
     const validateForm = (data) => {
@@ -245,7 +246,6 @@ const CheckOut = ({ setFooter, theme }) => {
                                         </label>
                                     </div>
                                 </div>
-                                <button onClick={handleSubmit} className="btn btn-primary w-100">Pay now</button>
                             </div>
                         </div>
                     </div>
@@ -299,6 +299,9 @@ const CheckOut = ({ setFooter, theme }) => {
                             </table>
                         </div>
                     </div>
+                </Col>
+                <Col  sm={12} lg={6}>
+                <button style={{width:"95%"}} onClick={handleSubmit} className="btn btn-primary mt-3">Pay now</button>
                 </Col>
             </Row>
         </div>

@@ -10,14 +10,12 @@ export const Customize = ({ setFooter }) => {
   setFooter(false)
   const [photos, setPhotos] = useState([]);
   const [size, setSize] = useState('');
-  const [price, setPrice] = useState();
   const [customText, setCustomText] = useState('');
   const [category, setCategory] = useState('');
   const [logoCover, setLogoCover] = useState(null);
   const [value, setValue] = useState([]);
   const [preview, setPreview] = useState([]);
   const [data, setData] = useState();
-  const [customData, setCustomData] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -72,6 +70,7 @@ export const Customize = ({ setFooter }) => {
     const handleClick = (data) => {
      
         const productWithSelectedVariant = {
+          _id:data._id,
           variant:[data.variant],
           productImage:data.images[0],
             category:category,

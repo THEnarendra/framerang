@@ -70,7 +70,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <video style={{ objectFit: "cover", width: "100vw", height: "90vh" }} id="homeVideo" autoPlay loop muted>
+        <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
           <source src={home_video} type="video/webm" />
           Your browser does not support the video tag.
         </video>
@@ -141,7 +141,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
               <h2>{data.heading}</h2>
               <span className="mt-2">{data.description}</span>
               <br />
-              <Link to={`/posters/${subCategory}`}>
+              <Link to={`/Combos`}>
                 <button className='bt1 mt-4'>{data.buttonText}</button>
               </Link>
             </Col>
