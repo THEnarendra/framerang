@@ -4,6 +4,7 @@ import { CartContext } from '../CartContext';
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
 import '../MainCss/Popup.css'
+import { Link } from 'react-router-dom';
 
 const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
   const { addToCart } = useContext(CartContext);
@@ -111,7 +112,12 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                
                 
               </div>
+              <div className='d-flex'>
             <button onClick={() => (handleClick(data))} className='bt4'>ADD TO CART</button>
+            <Link to="/ProductPage">
+            <button  className='bt4 ms-2'>MORE DETAILS</button>
+            </Link>
+              </div>
             <br /><br />
 
           </Col>

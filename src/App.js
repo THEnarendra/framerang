@@ -5,10 +5,10 @@ import About from './About/About';
 import Footer from './Header_Footer/Footer';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
-import { Posters } from './Home/Product Card/Posters';
+import { Posters } from './Home/Product/Posters';
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
-import { Customize } from './Home/Product Card/Customizeposters';
+import { Customize } from './Home/Product/Customizeposters';
 import CheckOut from './Home/CheckOut';
 import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
@@ -16,6 +16,7 @@ import PolicyPage from './Home/PolicyPage';
 import TermsOfService from './Terms&Conditions';
 import RefundPolicy from './RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
+import { ProductPage } from './Home/Product/ProductPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -119,6 +120,7 @@ function App() {
           <Route path='/policies/terms-of-service' element={<TermsOfService setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/refund-policy' element={<RefundPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/shipping-policy' element={<ShippingPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
         </Routes>
         {footer && (
           <Footer />

@@ -20,7 +20,6 @@
   color: white;
   border-radius: 5px;
   margin-top: 2%;
-
 }
 
 .logo_wheel {
@@ -148,11 +147,15 @@
   color: white;
   border: 2px solid rgb(219, 14, 14);
   border-radius: 5px;
-  padding: 1% 2% 1% 2%;
-  width: 21vw;
-  font-weight: 600;
+  padding: 5px;
+  /* width: 21vw; */
+  font-weight: 400;
   width: fit-content;
 
+}
+.bt4:hover{
+  background-color: transparent;
+  color: black;
 }
 .btPopup{
   position: absolute;
