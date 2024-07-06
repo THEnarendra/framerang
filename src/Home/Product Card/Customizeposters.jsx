@@ -131,12 +131,12 @@ export const Customize = ({ setFooter }) => {
   };
 
   return (
-    <div style={{ marginTop: 150 }} className="container">
+    <div style={{ marginTop: 122 }} className="container">
       {loading && <div className="overlay"><Loader /></div>}
       <Toaster />
-      <h1 className="text-center">Customize Your Poster or Frame</h1>
       <div className="row">
-        <div className="col-md-6">
+      <h2 className="text-center">Customize Your Poster or Frame</h2>
+        <div className="col-md-6 mt-3">
           <form >
             <div className="mb-3">
               <label htmlFor="photos" className="form-label">Upload Photos:</label>
@@ -180,13 +180,13 @@ export const Customize = ({ setFooter }) => {
                 onChange={handleTextChange}
               />
             </div>
-            <button onClick={handleSubmit} type="button" className="btn btn-primary">Add to Cart</button>
+            <button onClick={handleSubmit} type="button" className="btn">Add to Cart</button>
           </form>
         </div>
         <div className="col-md-6">
           <h2 className="text-center mt-4">Preview Of Your Selected Images</h2>
           <div className="d-flex flex-wrap justify-content-center mt-3">
-            {preview && preview.map((url, index) => (
+            {preview.length !== 0  ? preview.map((url, index) => (
               <div key={index} className="m-2">
                 <img
                   src={url}
@@ -195,7 +195,9 @@ export const Customize = ({ setFooter }) => {
                   style={{ maxWidth: '150px', maxHeight: '150px' }}
                 />
               </div>
-            ))}
+            )):(
+              <h4 className="mt-5" style={{color:"gray"}}>Please Select Images</h4>
+            )}
           </div>
           {size && <p className="text-center mt-3">Selected Size: {size}</p>}
           {customText && <p className="text-center mt-1">Custom Text: {customText}</p>}

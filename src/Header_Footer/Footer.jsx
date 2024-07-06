@@ -26,8 +26,8 @@ const Bubble = () => {
   }
 
   return (
-    <div className="main" >
-      <div className="footer">
+    <div >
+      <div className="footer" style={{height:"1vh"}}>
         <div className="bubbles">
           {bubbleElements}
         </div>
@@ -50,10 +50,16 @@ const Bubble = () => {
                   <a href=""><i className="fa-solid fa-angles-right"></i> Home</a>
                   </Link>
                   </li>
-								{/* <li><a href="about.html"><i className="fa-solid fa-angles-right"></i> About Us</a></li> */}
-								{/* <li><a href="gallery.html"><i className="fa-solid fa-angles-right"></i> Gallery</a></li> */}
 								<li><Link to='/contactUs'>
-                  <a href=""><i className="fa-solid fa-angles-right"></i> Contact</a>
+                  <a href=""><i className="fa-solid fa-angles-right"></i> Contact Us</a>
+                </Link>
+                  </li>
+								<li><Link to='/posters'>
+                  <a href=""><i className="fa-solid fa-angles-right"></i>Our Posters</a>
+                </Link>
+                  </li>
+								<li><Link to='/frames'>
+                  <a href=""><i className="fa-solid fa-angles-right"></i>Our Frames</a>
                 </Link>
                   </li>
                 
@@ -67,6 +73,8 @@ const Bubble = () => {
 							<div className="social-icons">
 								<li><a href="https://www.facebook.com/people/FrameRang/100083271771990/"><i className="fa-brands fa-facebook-f"></i> Facebook</a></li>
 								<li><a href="https://www.instagram.com/framerang/"><i className="fa-brands fa-instagram"></i> Instagram</a></li>
+								<li><a href=""> <i class="fa-brands fa-x-twitter"></i>X.com</a></li>
+               
 							</div>
 						</div>
           
@@ -77,20 +85,22 @@ const Bubble = () => {
 							<h2>Address</h2>
 							<div className="address-links">
 								<li className="address1"><i className="fa-solid fa-location-dot"></i>
-                Lalchandpura kumawato ki dhani
+                Shop No. 67 Ramdev Nager Lalchandpura Niwaru Road Jhotwada Jaipur 302012
 								   </li>
 								   <li><a href=""><i className="fa-solid fa-phone"></i> +91 7568161580</a></li>
-								   <li><a href=""><i className="fa-solid fa-envelope"></i> narendrakkumawat@gmail.com</a></li>
+								   <li ><a ><i className="fa-solid fa-envelope"></i>narendrak.kumawat123@gmail.com</a></li>
 							</div>
 						</div>
 					</div>
 				</div>
           <hr />
-      <div className='mb-4'>
+    
       <div className="footer__copyright caption">
-        <ul style={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"50vw",flexWrap:"wrap",color:"black"}} className="policies list-unstyled">
+        <ul style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",width:"50vw",flexWrap:"wrap",color:"black"}} className="policies list-unstyled">
           <li>
-         <a href="/" title=""> © 2024, Frame Rang</a>
+        <Link to='/'>
+        © 2024, Frame Rang
+        </Link> 
           </li>
           <li>
             <Link to='/policies/refund-policy'>
@@ -117,7 +127,7 @@ const Bubble = () => {
           </li>
         </ul>
       </div>
-    </div>
+   
     <hr />  
 			</div>
         </div>

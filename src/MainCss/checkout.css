@@ -119,10 +119,14 @@ input[type="checkbox"] {
 }
 
 .background-radio{
-    background: rgba(88, 41, 158, .22);
+    background: rgb(88 41 158 / 22%);
     /* padding: 2%; */
     /* border-radius: 5px; */
 }
 .error{
     color: red;
+}
+.btn {
+    background-color: rgb(219, 14, 14);
+    color: white;
 }

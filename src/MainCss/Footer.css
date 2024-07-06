@@ -30,10 +30,11 @@
         color: white;
         z-index: 2;
         display: grid;
-        grid-template-columns: 1fr auto;
-        grid-gap: 4rem;
+        /* grid-template-columns: 1fr auto; */
+        /* grid-gap: 4rem; */
         /* padding: 2rem; */
         background: var(--footer-background);
+        /* height: 10px; */
 
         a,
         p {

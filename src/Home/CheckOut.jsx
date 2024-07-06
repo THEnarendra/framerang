@@ -301,7 +301,7 @@ const CheckOut = ({ setFooter, theme }) => {
                     </div>
                 </Col>
                 <Col  sm={12} lg={6}>
-                <button style={{width:"95%"}} onClick={handleSubmit} className="btn btn-primary mt-3">Pay now</button>
+                <button style={{width:"95%"}} onClick={handleSubmit} className="btn mt-3">Pay now</button>
                 </Col>
             </Row>
         </div>
