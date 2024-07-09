@@ -6,7 +6,6 @@ import { toast, Toaster } from "react-hot-toast";
 
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
-  console.log(cart)
 
   return (
     <div className='cart011'>

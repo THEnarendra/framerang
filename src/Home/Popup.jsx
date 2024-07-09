@@ -4,13 +4,19 @@ import { CartContext } from '../CartContext';
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
 import '../MainCss/Popup.css'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
   const { addToCart } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
-  const [error,setError]=useState(false)
+  const [error,setError]=useState(false);
+  const navigate = useNavigate();
+  const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
+
+  const handleMoreDetails = (data) => {
+    navigate('/ProductPage', { state: { product: data } });
+  };
 
   const handleClick = (data) => {
     if(selectedVariant === null){
@@ -105,7 +111,13 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                     {variant.size}
                   </button>
                 ))}
-                 <br /> <br />
+                <br />
+                <br />
+                <p>Quantity</p>
+                <button style={{  border: "none", background: "none", margin: "1px"}} onClick={() => decrementQuantity(img._id)}>-</button>
+                  <span>{img.quantity}</span>
+                <button style={{  border: "none", background: "none", margin: "1px"}} onClick={() => incrementQuantity(img._id)}>+</button>
+                 
                {error && (
                 <p style={{color:"red"}}>! Please Select Size First </p>
                )}
@@ -114,9 +126,7 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
               </div>
               <div className='d-flex'>
             <button onClick={() => (handleClick(data))} className='bt4'>ADD TO CART</button>
-            <Link to="/ProductPage">
-            <button  className='bt4 ms-2'>MORE DETAILS</button>
-            </Link>
+             <button onClick={() => handleMoreDetails(data)} className='bt4 ms-2'>MORE DETAILS</button>
               </div>
             <br /><br />
 

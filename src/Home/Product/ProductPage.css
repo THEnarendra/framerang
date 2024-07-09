@@ -111,4 +111,14 @@
       overflow-y: visible;
     }
   }
+
+  .bt3 {
+    color: red;
+    background-color: white;
+  }
+  
+  .bt3.selected {
+    background-color: red; /* Set the background color to red */
+    color: white;         /* Optional: change text color for better contrast */
+  }
   
