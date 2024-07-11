@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Col, Row, Button, Container, Card, ListGroup } from "react-bootstrap";
 import "./ProductPage.css"; 
+import { CartContext } from "../../CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
-export const ProductPage = ({ setFooter }) => {
+export const ProductPage = ({ setFooter,setIsCartOpen }) => {
   const location = useLocation();
   const { product } = location.state || {};
   const [loading, setLoading] = useState(false);
-  const [selectedVariant, setSelectedVariant] = useState(null);
+  const { addToCart } = useContext(CartContext);
+  const [selectedVariant, setSelectedVariant] = useState(product?.variant[0]);
   const [error, setError] = useState();
 
   setFooter(false);
@@ -20,15 +23,32 @@ export const ProductPage = ({ setFooter }) => {
     return <p>No product details available</p>;
   }
 
+  const handleClick = (product) => {
+    if (product) {
+      setIsCartOpen(true)
+      const productWithSelectedVariant = {
+        ...product,
+        Size: selectedVariant?.size, 
+      };
+
+      setTimeout(() => {
+        toast.success("Product Added to Cart Successfully");
+        addToCart(productWithSelectedVariant); 
+
+      }, 100); 
+    }
+  };
+
   return (
     <Container fluid className="product-page">
+      <Toaster />
       <Row>
         <Col md={4} className="image-column">
           <img src={product.productImage.url} alt={product.productName} className="product-image" />
         </Col>
         <Col md={8} className="details-column">
           <div className="details-content">
-            <p className="product-frame">Frame Range</p>
+            <p className="product-frame">Frame Rang</p>
             <h2 className="product-name">{product.productName}</h2>
           
             {selectedVariant && (
@@ -40,6 +60,7 @@ export const ProductPage = ({ setFooter }) => {
                     <span style={{ fontSize: '22px' }}>Rs. {selectedVariant.newPrice}</span>
                   </>
                 )}
+                <p style={{ fontSize: '13px',textDecoration:"underline" }}>Tax included. Shipping calculated at checkout</p>
                  <p>Size</p>
             <div>
                 {product?.variant?.map((variant) => (
@@ -56,35 +77,18 @@ export const ProductPage = ({ setFooter }) => {
                 <p style={{color:"red"}}>! Please Select Size First </p>
                )}
                
-                
               </div>
 
             <div className="product-description">
               <p>{product.description || 'No description available.'}</p>
             </div>
-            <div className="product-rating">
-              <span>⭐⭐⭐⭐☆ (4.5)</span>
-            </div>
-            <div className="other-details">
-              <h3>Features</h3>
-              <ListGroup style={{ border: "1px solid gray" }}>
-                <ListGroup.Item style={{ backgroundColor: "transparent", color: "green" }}>
-                  UV Protection
-                </ListGroup.Item>
-                <ListGroup.Item style={{ backgroundColor: "transparent", color: "green", borderTop: "1px solid gray" }}>
-                  Polarized Lenses
-                </ListGroup.Item>
-                <ListGroup.Item style={{ backgroundColor: "transparent", color: "green", borderTop: "1px solid gray" }}>
-                  Available in multiple colors
-                </ListGroup.Item>
-              </ListGroup>
-            </div>
-            <Button className="add-to-cart-btn">
+          
+            <button style={{backgroundColor:"rgb(219, 14, 14)",border:"none",padding:4,borderRadius:4}} onClick={()=>handleClick(product)} className="text-white" >
               Add to Cart
-            </Button>
+            </button>
             <div className="reviews-section">
-              <h3>Customer Reviews</h3>
-              <div className="review">
+              <h4>Customer Reviews</h4>
+              <div className="mt-4">
                 <p><strong>John Doe:</strong> Great product! Very comfortable and stylish.</p>
                 <p><strong>Jane Smith:</strong> Love the design and the quality is excellent.</p>
               </div>

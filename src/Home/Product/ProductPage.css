@@ -37,7 +37,6 @@
   
   .product-frame {
     font-weight: bold;
-    /* color: #555; */
   }
   
   .product-name {
@@ -53,7 +52,6 @@
   }
   
   .product-description {
-    margin: 20px 0;
     color: #666;
   }
   

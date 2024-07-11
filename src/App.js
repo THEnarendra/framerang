@@ -80,11 +80,11 @@ function App() {
         const fr = data.data;
         console.log(fr);
         const isFeatured =fr.filter((e)=>e.isFeatured===true)
-        const frame = fr.filter((e) => e.category === "frame");
-        const poster = fr.filter((e) => e.category === "poster");
+        const frame = fr.filter((e) => e.category === "Frame");
+        const poster = fr.filter((e) => e.category === "Poster");
         const Combo = fr.filter((e) => e.category === "Combo");
-        const PostercategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'poster').map(user => user.subCategory)));
-        const FramecategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'frame').map(user => user.subCategory)));
+        const PostercategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Poster').map(user => user.subCategory)));
+        const FramecategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Frame').map(user => user.subCategory)));
         const ComboCategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Combo').map(user => user.subCategory)));
         setData(frame);
         setData1(poster);
@@ -120,7 +120,7 @@ function App() {
           <Route path='/policies/terms-of-service' element={<TermsOfService setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/refund-policy' element={<RefundPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/shipping-policy' element={<ShippingPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
-          <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
         </Routes>
         {footer && (
           <Footer />
