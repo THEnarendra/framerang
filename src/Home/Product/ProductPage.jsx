@@ -86,36 +86,7 @@ export const ProductPage = ({ setFooter,setIsCartOpen }) => {
             <button style={{backgroundColor:"rgb(219, 14, 14)",border:"none",padding:4,borderRadius:4}} onClick={()=>handleClick(product)} className="text-white" >
               Add to Cart
             </button>
-            <div className="reviews-section">
-              <h4>Customer Reviews</h4>
-              <div className="mt-4">
-                <p><strong>John Doe:</strong> Great product! Very comfortable and stylish.</p>
-                <p><strong>Jane Smith:</strong> Love the design and the quality is excellent.</p>
-              </div>
-            </div>
-            <div className="related-products-section">
-              {/* <h3>Related Products</h3>
-              <Row>
-                <Col sm={6}>
-                  <Card>
-                    <Card.Img variant="top" src={product.productImage.url} />
-                    <Card.Body>
-                      <Card.Title>Related Product 1</Card.Title>
-                      <Card.Text>Rs. {product.newPrice}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col sm={6}>
-                  <Card>
-                    <Card.Img variant="top" src={product.productImage.url} />
-                    <Card.Body>
-                      <Card.Title>Related Product 2</Card.Title>
-                      <Card.Text>Rs. {product.newPrice}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row> */}
-            </div>
+           
           </div>
         </Col>
       </Row>
