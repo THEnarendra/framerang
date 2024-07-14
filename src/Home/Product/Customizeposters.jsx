@@ -37,7 +37,7 @@ export const Customize = ({ setFooter }) => {
   };
 
 
-  const price1 = category === "poster" && value === "A3" ? 10 : category === "poster" && value === "A4" ? 20 : category === "frame" && value === "A3" ? 40 : category === "frame" && value === "A4" ? 60 : ""
+  const price1 = category === "Poster" && value === "A3" ? 10 : category === "Poster" && value === "A4" ? 20 : category === "Frame" && value === "A3" ? 40 : category === "Frame" && value === "A4" ? 60 : ""
 
 
   const handleTextChange = (event) => {
@@ -153,8 +153,8 @@ export const Customize = ({ setFooter }) => {
               <label htmlFor="size" className="form-label">Select Category:</label>
               <select id="size" className="form-select" name="category" onChange={(e) => (handleTextChange, setCategory(e.target.value))}>
                 <option value="">Select Category</option>
-                <option value="poster">Poster</option>
-                <option value="frame">Frame</option>
+                <option value="Poster">Poster</option>
+                <option value="Frame">Frame</option>
               </select>
             </div>
             <div className="mb-3">

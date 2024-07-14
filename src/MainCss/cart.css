@@ -12,7 +12,9 @@
 
 .rightSide-cart{
   color: black;
-  background: white;
+  background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 370px;
   height: 97vh;
   z-index: 999;

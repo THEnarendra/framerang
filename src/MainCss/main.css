@@ -9,7 +9,7 @@
   border: none;
   color: white;
   border-radius: 5px;
-  margin-top: 5%;
+  margin-top: 1%;
 }
 
 .bt2 {
@@ -30,9 +30,15 @@
   animation: moveAndRotate 5s linear infinite;
 
 }
-
+.customize{
+  background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5% 2% 5% 2%;
+  border-radius:10px;
+  color: black;
+}
 @keyframes moveAndRotate {
-
   /* 0% {
       transform: translateX(0) rotate(0deg); 
     } */
@@ -116,11 +122,12 @@
   color: black;
   border-radius: 20px;
   border: 1px solid #ffffff22;
-  background: rgb(255, 255, 255);
+  background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: .7rem;
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
-  /* height: 70vh; */
   padding: 2% 2% 2% 2%;
   width: 77%;
   text-align: left;
@@ -131,6 +138,7 @@
   object-fit: cover;
   width: 80%;
   padding: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bt3 {

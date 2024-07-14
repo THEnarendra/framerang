@@ -2,13 +2,15 @@
     margin: 8% 5%;
 }
 .col2{
-    background:white;
-    /* height:80vh; */
+    background-image: url("../images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 15px;
     color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
 label{
     font-size: 18px;
-    color: rgb(88, 86, 86)
+    color: rgb(35, 35, 35)
 }
 }

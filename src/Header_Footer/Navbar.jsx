@@ -37,10 +37,12 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           </Link>
         </Col>
 
-        <Col lg={3} md={8} sm={8}>
-          <input className="search" type="search" placeholder="Search Anime" />
+        <Col style={{padding:"reletive"}} lg={3} md={8} sm={8}>
+          {/* <i style={{color:"black",position:"absolute",marginTop:10,marginLeft:7}} class="fa-solid fa-magnifying-glass"></i> */}
+          <input style={{paddingLeft:30}} className="search" type="search" placeholder="Search Anime" />
         </Col>
         <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>
+        
           <Link onClick={() => setIsOpen(true)} style={{ color: theme === "darkTheme" ? "white" : "black" }}
             className="link" to="/">Home
           </Link>

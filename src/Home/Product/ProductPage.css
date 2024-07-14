@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 75vh;
     /* background-color: #f8f9fa; */
     overflow: hidden; /* Ensures the image column does not scroll */
   }

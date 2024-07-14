@@ -8,7 +8,6 @@ import toast, { Toaster } from "react-hot-toast";
 export const ProductPage = ({ setFooter,setIsCartOpen }) => {
   const location = useLocation();
   const { product } = location.state || {};
-  const [loading, setLoading] = useState(false);
   const { addToCart } = useContext(CartContext);
   const [selectedVariant, setSelectedVariant] = useState(product?.variant[0]);
   const [error, setError] = useState();

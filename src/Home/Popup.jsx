@@ -12,7 +12,6 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [error,setError]=useState(false);
   const navigate = useNavigate();
-  const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
 
   const handleMoreDetails = (data) => {
     navigate('/ProductPage', { state: { product: data } });
@@ -113,10 +112,6 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                 ))}
                 <br />
                 <br />
-                <p>Quantity</p>
-                <button style={{  border: "none", background: "none", margin: "1px"}} onClick={() => decrementQuantity(img._id)}>-</button>
-                  <span>{img.quantity}</span>
-                <button style={{  border: "none", background: "none", margin: "1px"}} onClick={() => incrementQuantity(img._id)}>+</button>
                  
                {error && (
                 <p style={{color:"red"}}>! Please Select Size First </p>

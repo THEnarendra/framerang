@@ -3,20 +3,18 @@
 .navbar {
   z-index: 999;
   border-radius: 20px;
- /* From https://css.glass */
- /* background: rgba(62, 62, 62, 0.48); */
- background: rgb(88 41 158 / 22%);
  border-radius: 16px;
- box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+ background-color: #a192920f;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  backdrop-filter: blur(7.6px);
  -webkit-backdrop-filter: blur(7.6px);
  border: 1px solid rgba(203, 194, 194, 0.42);
-/* border: 1px solid rgba(203, 194, 194, 0.30); */
   margin: 2% 3%;
   font-size: 17px;
   font-weight: 500;
-  /* text-align: center ; */
-  /* font-family: cursive; */
+  position: fixed;
+  top:0;
+  width: 90vw;
 }
 
 .image {

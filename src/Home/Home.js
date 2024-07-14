@@ -92,18 +92,18 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       ))}
 
       {details.filter((e) => e.sectionId == 2).map((data) => (
-        <div key={data.id} style={{
+        <div className='customize' key={data.id} style={{
           position: "relative",
-          padding: "3%", textAlign: "center", backgroundColor: "rgb(88 41 158 / 22%)",
-          margin: "5% 0% 5% 0%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+          padding: "3%", textAlign: "center",
+           boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
         }}>
           <h1 className='firsth1'>{data.heading}</h1><br />
-          <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
+          <h6 style={{ color:"rgba(0,0,0,0.8)"}}>{data.description}</h6>
           <Link to='/customize'>
             <button className='bt2'>{data.buttonText}</button>
           </Link>
           {data.images && data.images.map((img, index) => (
-            <img key={index} style={{ width: "8%", position: "absolute", top: "85%", left: "0" }} src={img.url} alt="" className='logo_wheel' />
+            <img key={index} style={{ width: "8%", position: "absolute", top: "85%", left: "0",zIndex:9 }} src={img.url} alt="" className='logo_wheel' />
           ))}
         </div>
       ))}

@@ -3,20 +3,23 @@
     width: 97%;
     margin: 1rem auto;
     border: 1px solid #ffffff22;
-    background: rgb(88 41 158 / 22%);
+    background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
     border-radius: .7rem;
     overflow: hidden;
     transition: .5s all;
+    color: black;
 
     .main{
       display: flex;
       flex-direction: column;
-      padding: 1.2rem 1rem 1.2rem 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-     
+     padding-top: 5%;
+     padding-bottom: 5%;
       .description{
         margin: .5rem 0;
         color: #a89ec9;
@@ -25,6 +28,7 @@
     height: 80%;
     object-fit: cover;
     object-position: center center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 80%;
   }
    
@@ -32,7 +36,8 @@
     ::before{
       position: fixed;
       content: "";
-      box-shadow: 0 0 100px 40px #5d5d5d08;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      
       top: -10%;
       left: -100%;
       transform: rotate(-45deg);
