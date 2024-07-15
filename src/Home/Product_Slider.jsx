@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '../MainCss/ProductCard.css';
 import Popup from './Popup';
 
-const Product_Slider = ({ products, category, isFeatured, setIsCartOpen }) => {
+const Product_Slider = ({ products,setIsCartOpen }) => {
   const [id, setId] = useState()
   const [showPopup, setShowPopup] = useState(false);
   const Pop = () => {
@@ -29,7 +29,7 @@ const Product_Slider = ({ products, category, isFeatured, setIsCartOpen }) => {
   const filteredProducts = products.filter((product) =>product.isFeatured ===true )
    
 
-  console.log('Filtered Products:', filteredProducts); // Log filtered products
+  console.log('Filtered Products:', filteredProducts); 
 
   const settings = {
     dots: false,
@@ -42,7 +42,7 @@ const Product_Slider = ({ products, category, isFeatured, setIsCartOpen }) => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024, // At 1024px or less
+        breakpoint: 1024, 
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1
@@ -73,12 +73,12 @@ const Product_Slider = ({ products, category, isFeatured, setIsCartOpen }) => {
           {
             filteredProducts && filteredProducts.map((img) => (
 
-              <div className="nft">
+              <div className="nft" >
 
-                <div className='main'>
+                <div className='main' >
 
                   <img className='image011' src={img.productImage.url} alt="" />
-                  <h3 className='creator'>{img.productName}</h3>( 10*5 inches ) <br /> Single pcs
+                  <h3 className='creator ps-4 pe-4'>{img.productName}</h3>
                   <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span> </p>
                   <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
 

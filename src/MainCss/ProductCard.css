@@ -1,11 +1,11 @@
 .nft{
     user-select:none;
-    width: 97%;
-    margin: 1rem auto;
+    width: 97% !important;
+    margin: 0.25rem auto;
     border: 1px solid #ffffff22;
     background-image: url("../images/bg1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: .7rem;
     overflow: hidden;
     transition: .5s all;
@@ -20,10 +20,6 @@
       text-align: center;
      padding-top: 5%;
      padding-bottom: 5%;
-      .description{
-        margin: .5rem 0;
-        color: #a89ec9;
-      }
     .image011{
     height: 80%;
     object-fit: cover;
@@ -58,7 +54,7 @@
   }
 
   .creator{
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: 18px;
+    margin-top: 8px;
   }
   

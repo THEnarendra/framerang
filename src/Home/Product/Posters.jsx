@@ -83,10 +83,11 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
 
           </div>
         </div>
+        
         {filteredImg &&
           (
             filteredImg.map((img) => (
-              <Col lg={3} md={4} sm={12} key={img.id}>
+              <Col style={{padding:6}} lg={3} md={4} sm={12} key={img.id}>
                 <ProductCard setIsCartOpen={setIsCartOpen} img={img} />
               </Col>
             ))

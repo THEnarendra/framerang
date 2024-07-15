@@ -12,8 +12,6 @@ const ProductCard = ({ img, setIsCartOpen }) => {
     setShowPopup(!showPopup);
   };
 
-  // console.log(img);
-
   const handleProductClick=()=>{
     navigate('/ProductPage', { state: { product: img } })
   }
@@ -32,15 +30,13 @@ const ProductCard = ({ img, setIsCartOpen }) => {
 
   return (
     <>
-      <div className="nft">
+      <div className="nft" >
         {img && (
           <div className='main'>
             <div onClick={handleProductClick} style={{ cursor: 'pointer' }}>
             <img className='image011' src={img.productImage.url} alt={img.productName} />
-            <h3 className='creator'>{img.productName}</h3>
+            <h4  className='creator ps-4 pe-4'>{img.productName}</h4>
             </div>
-              
-            (10*5 inches) <br /> Single pcs
             <p>
               <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>
               &nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;
