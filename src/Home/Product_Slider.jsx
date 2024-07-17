@@ -37,8 +37,8 @@ const Product_Slider = ({ products,setIsCartOpen }) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 3000,
+    speed: 500,
+    autoplaySpeed: 2000,
     arrows: false,
     responsive: [
       {

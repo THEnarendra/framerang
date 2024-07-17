@@ -99,7 +99,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className='body123'>
       <BrowserRouter>
         <ScrollToTop />
         <div style={{ position: "absolute", width: "100vw", top: 0, height: "1vh" }}>

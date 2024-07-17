@@ -43,7 +43,7 @@ export const ProductPage = ({ setFooter,setIsCartOpen }) => {
       <Toaster />
       <Row>
         <Col md={4} className="image-column">
-          <img src={product.productImage.url} alt={product.productName} className="product-image" />
+          <img src={product.productImage.url} alt={product.productName} className="product-image mt-5 pt-3" />
         </Col>
         <Col md={8} className="details-column">
           <div className="details-content">

@@ -1,9 +1,8 @@
-/* * {
-    padding: 0;
-  }
-body{
+
+.body123{
    background-color: black;
-} */
+   /* overflow-x: hidden !important; */
+} 
 
 .darkTheme{
   background-color: black;

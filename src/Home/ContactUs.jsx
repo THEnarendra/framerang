@@ -139,7 +139,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
               />
               {errors.lastname && <span className="error text-danger">{errors.lastname}</span>}
             </div>
-            <div className="col-6 mt-4">
+            <div className="col-md-6 mt-2">
               <label htmlFor="inputEmail" className="form-label">Email</label>
               <input
                 type="email"
@@ -151,7 +151,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
               />
               {errors.email && <span className="error text-danger">{errors.email}</span>}
             </div>
-            <div className="col-6 mt-4">
+            <div className="col-md-6 mt-2">
               <label htmlFor="inputPhone" className="form-label">Phone Number</label>
               <input
                 type="text"
@@ -162,7 +162,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
               />
               {errors.phone && <span className="error text-danger">{errors.phone}</span>}
             </div>
-            <div className="col-md-12 mt-4">
+            <div className="col-md-12 mt-2">
               <label htmlFor="inputQuery" className="form-label">What is your query?</label>
               <input
                 type="text"
@@ -175,7 +175,7 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
             </div>
 
 
-            <div className="col-12 ">
+            <div className="col-12 mt-4">
               <button type="submit" className="btn ">Submit</button>
             </div>
           </form>

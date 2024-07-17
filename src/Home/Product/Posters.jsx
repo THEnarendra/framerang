@@ -37,7 +37,7 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
 
 
   return (
-    <div style={{
+    <div className='mb-5' style={{
       marginTop: "72px",
       padding: "3%", textAlign: "center",
     }}>
@@ -53,7 +53,7 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
       ))}
 
 
-      <Row style={{ margin: "1% 6% 5% 6%" }}>
+      <Row  style={{ margin: "1% 6% 5% 6%" }}>
         <div className='ms-2 mt-5 mb-5' style={{ display: "flex", flexWrap: "wrap" }}>
           <div className='me-4 d-flex align-items-center'>
             <span className='me-4'>Filter:</span>

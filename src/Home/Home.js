@@ -137,7 +137,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
                 <img key={index} className="comboimg" src={img.url} alt="" />
               ))}
             </Col>
-            <Col className="mt-4" lg={6} sm={12}>
+            <Col className="mt-4 mb-5" lg={6} sm={12}>
               <h2>{data.heading}</h2>
               <span className="mt-2">{data.description}</span>
               <br />

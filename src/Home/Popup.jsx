@@ -85,7 +85,6 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
 
             <span>Framerang</span>
             <h1>{data.productName}</h1>
-            <span>10*5 inches </span>
             <span>Single pcs</span>
             <div className='mt-2'>
                 {selectedVariant && (
@@ -99,7 +98,7 @@ const Popup = ({ togglePopup, id, img,setIsCartOpen }) => {
                 )}
              
               </div>
-            <p>Size</p>
+            <p>Size:</p>
             <div>
                 {data?.variant?.map((variant) => (
                   <button
