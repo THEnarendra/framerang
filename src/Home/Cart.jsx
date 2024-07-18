@@ -39,7 +39,7 @@ export const Cart = ({ setIsCartOpen }) => {
             </div>
           ))}
         </div>
-        <hr />
+        <hr /><br />
         <div className='cart-overview'>
           <div className="cart-total">
             <h3>Estimated total</h3>
@@ -52,7 +52,8 @@ export const Cart = ({ setIsCartOpen }) => {
             }
             setIsCartOpen(false)
           }} >
-            <button className="checkout-button">Check out</button>
+            
+            <button className="checkout-button ms-2">Check out</button>
           </Link>
         </div>
       </div>
