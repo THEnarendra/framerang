@@ -85,7 +85,6 @@ export const Customize = ({ setFooter }) => {
     try {
       const response = await axios(config);
       if (response.data.success === true) {
-        console.log(response.data.newPoster);
         handleClick(response.data.newPoster);
       } else {
         setLoading(false);
@@ -94,7 +93,6 @@ export const Customize = ({ setFooter }) => {
     }
     catch (error) {
       setLoading(false)
-      console.log(error.message);
     }
   };
   return (

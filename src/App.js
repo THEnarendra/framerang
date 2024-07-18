@@ -67,7 +67,6 @@ function App() {
       })
       .then((data) => {
         const fr = data.data;
-        console.log(fr);
         const frame = fr.filter((e) => e.category === "Frame");
         const poster = fr.filter((e) => e.category === "Poster");
         const Combo = fr.filter((e) => e.category === "Combo");

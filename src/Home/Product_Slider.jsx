@@ -21,7 +21,6 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
     };
   }, [showPopup]);
   const filteredProducts = products.filter((product) => product.isFeatured === true)
-  console.log('Filtered Products:', filteredProducts);
   const settings = {
     dots: false,
     infinite: true,
@@ -55,7 +54,6 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       }
     ]
   };
-  console.log(id);
   return (
     <>
       <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>

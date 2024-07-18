@@ -38,7 +38,6 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       })
       .then((res) => {
         const products = res.data;
-        console.log('Fetched Products:', products);
         setProducts(products);
       })
       .catch((error) => {
