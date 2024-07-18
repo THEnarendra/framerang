@@ -1,6 +1,4 @@
 import React from 'react'
-import '../MainCss/About.css'
-
 const About = () => {
   return (
     <div className='About'>
@@ -8,5 +6,4 @@ const About = () => {
     </div>
   )
 }
-
 export default About

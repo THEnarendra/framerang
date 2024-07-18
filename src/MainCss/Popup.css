@@ -1,8 +1,4 @@
-.bt3 {
-    /* existing styles for bt3 */
-  }
-  
   .bt3.selected {
-    background-color: red; /* Set the background color to red */
-    color: white;         /* Optional: change text color for better contrast */
+    background-color: red; 
+    color: white;         
   }

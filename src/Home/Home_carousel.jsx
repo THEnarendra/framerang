@@ -1,29 +1,19 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import '../MainCss/Carousel.css';
-
-
-// import required modules
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-
-export default function Home_carousel({img}) {
-
-  
-  
+export default function Home_carousel({ img }) {
   return (
     <div className='body01'>
-      <Swiper 
+      <Swiper
         effect={'coverflow'}
-         autoplay={{
+        autoplay={{
           delay: 1700,
           disableOnInteraction: false,
         }}
-        
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={'auto'}
@@ -37,17 +27,14 @@ export default function Home_carousel({img}) {
         pagination={true}
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
-        
       >
-        {img.map((data)=>(
-        <SwiperSlide className='swiper-slide1'>
-          <div className='text-white' >
-          <img  src={data.url} />
-            
-          </div>
-        </SwiperSlide>
+        {img.map((data) => (
+          <SwiperSlide className='swiper-slide1'>
+            <div className='text-white' >
+              <img src={data.url} />
+            </div>
+          </SwiperSlide>
         ))}
-      
       </Swiper>
     </div>
   );

@@ -4,8 +4,7 @@ import '../MainCss/ContactUs.css'
 import logo from "../images/2.png"
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
-
-const ContactUs = ({ theme, setTheme,setFooter }) => {
+const ContactUs = ({ setFooter }) => {
   setFooter(false)
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -14,7 +13,6 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
   const [query, setQuery] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-
   const validation = () => {
     let error = {};
     if (!firstname) error.firstname = "! Please enter First name";
@@ -29,37 +27,27 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
       error.email = "! Email address is invalid";
     }
     if (!query) error.query = "! Please enter your query";
-
     setErrors(error);
     return Object.keys(error).length === 0;
   };
   const data = {
     "name": firstname + lastname,
     "email": email,
-    // "Phone Number": phone,
     "message": query
   }
-
-  useEffect(()=>{
-    if(loading){
+  useEffect(() => {
+    if (loading) {
       document.body.style.opacity = '0.5';
       document.body.style.pointerEvents = 'none';
-    }else{
-
+    } else {
       document.body.style.opacity = '1';
       document.body.style.pointerEvents = 'auto';
-
     }
-
-  },[loading])
-
+  }, [loading])
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validation()) {
-    setLoading(true)
-
-      console.log("Form submitted successfully", data);
-
+      setLoading(true)
       const response = await fetch('https://framerang-backend.vercel.app/api/v1/contactUs', {
         method: 'POST',
         headers: {
@@ -67,44 +55,33 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
         },
         body: JSON.stringify(data),
       });
-
       if (!response.ok) {
-    setLoading(false)
-
-      toast.success("Network response was not ok");
-        
+        setLoading(false)
+        toast.success("Network response was not ok");
         throw new Error('Network response was not ok');
       }
-    setEmail("")
-    setFirstname("")
-    setLastname("")
-    setPhone("")
-    setQuery("")
-    setLoading(false)
-    
+      setEmail("")
+      setFirstname("")
+      setLastname("")
+      setPhone("")
+      setQuery("")
+      setLoading(false)
       toast.success("Form Submit Succesfull");
     }
   };
-
   const phonenumer = (e) => {
     const value = e.target.value;
     if (/^\d*$/.test(value) && value.length <= 10) {
       setPhone(value);
     }
   };
-
-
-
   return (
     <>
-   {loading && <div className="overlay"><Loader /></div>}
-
+      {loading && <div className="overlay"><Loader /></div>}
       <Toaster />
-      <Row style={{marginBottom:150}} className='row '>
-
+      <Row style={{ marginBottom: 150 }} className='row '>
         <Col sm={12} lg={6} className='col1 mt-4'>
           <form class="row g-3">
-
             <h1>Contact Us</h1>
             <img style={{ width: "150px" }} src={logo} alt="" />
             <p>Hey we are framerang providing high quality picture fraems for you and your family your will find very high wqualtiyte </p>
@@ -112,7 +89,6 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
             <p>Lalchandpura kumawato ki dhani</p>
           </form>
         </Col>
-
         <Col sm={12} lg={6} className='col2'>
           <form className="row " onSubmit={handleSubmit}>
             <p>Please allow 1-2 business days to respond to your inquiry.</p>
@@ -173,18 +149,13 @@ const ContactUs = ({ theme, setTheme,setFooter }) => {
               />
               {errors.query && <span className="error text-danger">{errors.query}</span>}
             </div>
-
-
             <div className="col-12 mt-4">
               <button type="submit" className="btn ">Submit</button>
             </div>
           </form>
-
         </Col>
       </Row>
-
     </>
   )
 }
-
 export default ContactUs

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './Header_Footer/Navbar';
-import About from './About/About';
 import Footer from './Header_Footer/Footer';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
@@ -17,17 +16,13 @@ import TermsOfService from './Terms&Conditions';
 import RefundPolicy from './RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
 import { ProductPage } from './Home/Product/ProductPage';
-
 function ScrollToTop() {
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
   return null;
 }
-
 function App() {
   const [theme, setTheme] = useState("darkTheme");
   const [data, setData] = useState(null);
@@ -38,11 +33,8 @@ function App() {
   const [subposterCategory, setSubposterCategory] = useState();
   const [subFrameCategory, setSubFrameCategory] = useState();
   const [subComboCategory, setSubComboCategory] = useState();
-
   const [isCartOpen, setIsCartOpen] = useState(false);
-
   const [details, fetchDetails] = useState([]);
-
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
       .then((res) => {
@@ -59,15 +51,12 @@ function App() {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
-
   useEffect(() => {
     getData();
     document.body.className = theme;
   }, [theme]);
-
   const Poster_Section = details.filter((e) => e.sectionId == 4);
   const Frame_Section = details.filter((e) => e.sectionId == 5);
-
   useEffect(() => {
     fetch('https://framerang-backend.vercel.app/api/v1/allProducts')
       .then((response) => {
@@ -79,7 +68,6 @@ function App() {
       .then((data) => {
         const fr = data.data;
         console.log(fr);
-        const isFeatured =fr.filter((e)=>e.isFeatured===true)
         const frame = fr.filter((e) => e.category === "Frame");
         const poster = fr.filter((e) => e.category === "Poster");
         const Combo = fr.filter((e) => e.category === "Combo");
@@ -97,9 +85,8 @@ function App() {
         setError(error);
       });
   }, []);
-
   return (
-    <div className='body123'>
+    <div >
       <BrowserRouter>
         <ScrollToTop />
         <div style={{ position: "absolute", width: "100vw", top: 0, height: "1vh" }}>
@@ -129,5 +116,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

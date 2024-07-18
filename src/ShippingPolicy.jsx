@@ -50,5 +50,4 @@ const ShippingPolicy = () => {
     </Container>
   );
 };
-
 export default ShippingPolicy;

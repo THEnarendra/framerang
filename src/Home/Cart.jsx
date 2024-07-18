@@ -3,13 +3,10 @@ import '../MainCss/cart.css'
 import { CartContext } from '../CartContext';
 import { Link } from 'react-router-dom';
 import { toast, Toaster } from "react-hot-toast";
-
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
-
   return (
     <div className='cart011'>
-
       <div className="rightSide-cart">
         <Toaster />
         <div className='cart-header'>
@@ -17,22 +14,18 @@ export const Cart = ({ setIsCartOpen }) => {
           <div onClick={() => setIsCartOpen(false)} style={{ fontSize: "20px", fontWeight: 700, cursor: "pointer" }}>❌</div>
         </div>
         <hr />
-
         <div className="cart-items">
           {cart.map((item) => (
             <div key={item.id} className="cart-item">
 
-              <img src={item.productImage.url} alt="" />
+              <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} src={item.productImage.url} alt="" />
               <div className="item-details">
-
                 <p>{item.productName}</p>
                 {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
-
                   <p>Size: {data.size}</p>
                 ))}
                 <div className="item-controls">
                   {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
-
                     <p>Rs. {data.newPrice}</p>
                   ))}
                   <div className='decrementQuantity mb-3'>
@@ -64,6 +57,5 @@ export const Cart = ({ setIsCartOpen }) => {
         </div>
       </div>
     </div>
-
   )
 }

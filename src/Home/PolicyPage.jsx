@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
 const PageContainer = styled.div`
   padding: 20px;
 `;
-
 const PolicyPage = () => {
   return (
-    <PageContainer style={{margin:"10%",marginTop:100}}>
+    <PageContainer style={{ margin: "10%", marginTop: 100 }}>
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -37,10 +35,8 @@ const PolicyPage = () => {
           tristique. Quisque in nisl fermentum, condimentum neque ac, gravida
           libero. Aenean ac enim semper, convallis tortor sed, eleifend urna.
         </p>
-        {/* More privacy policy content */}
       </motion.div>
     </PageContainer>
   );
 };
-
 export default PolicyPage;

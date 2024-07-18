@@ -1,60 +1,60 @@
-.nft{
-    user-select:none;
-    width: 97% !important;
-    margin: 0.25rem auto;
-    border: 1px solid #ffffff22;
-    background-image: url("../images/bg1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: .7rem;
-    overflow: hidden;
-    transition: .5s all;
-    color: black;
+.nft {
+  user-select: none;
+  width: 97% !important;
+  margin: 0.25rem auto;
+  border: 1px solid #ffffff22;
+  background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: .7rem;
+  overflow: hidden;
+  transition: .5s all;
+  color: black;
 
-    .main{
-      display: flex;
-      flex-direction: column;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-     padding-top: 5%;
-     padding-bottom: 5%;
-    .image011{
+  .main {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .image011 {
     height: 80%;
     object-fit: cover;
     object-position: center center;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 80%;
   }
-   
-    }
-    ::before{
-      position: fixed;
-      content: "";
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      
-      top: -10%;
-      left: -100%;
-      transform: rotate(-45deg);
-      height: 60rem;
-      transition: .7s all;
-    }
-    &:hover{
-      /* border: 1px solid #ffffff44; */
-      box-shadow: 0 7px 7px 7px #0000003d;
-      transform: scale(1.015);
-      /* filter: brightness(1.3); */
-      ::before{
-        filter: brightness(.5);
-        top: -100%;
-        left: 200%;
-      }
-    }
+
+  ::before {
+    position: fixed;
+    content: "";
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    top: -10%;
+    left: -100%;
+    transform: rotate(-45deg);
+    height: 60rem;
+    transition: .7s all;
   }
 
-  .creator{
-    font-size: 18px;
-    margin-top: 8px;
+  &:hover {
+    box-shadow: 0 7px 7px 7px #0000003d;
+    transform: scale(1.015);
+
+    ::before {
+      filter: brightness(.5);
+      top: -100%;
+      left: 200%;
+    }
   }
-  
+}
+
+.creator {
+  font-size: 18px;
+  margin-top: 8px;
+}

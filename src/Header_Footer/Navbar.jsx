@@ -1,29 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import "../MainCss/Navbar.css"
 import logo from "../images/2.png"
 import { CartContext } from "../CartContext";
-
 const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
   const { cart } = useContext(CartContext);
-
-
   const [isOpen, setIsOpen] = useState(true);
-
   const toggle = () => {
     setIsOpen(!isOpen);
   }
-
   const ToggleTheme = () => {
     if (theme === "darkTheme") {
       setTheme("lightTheme");
     }
     else { setTheme("darkTheme") }
-
   }
-
-
   return (
     <div >
       <Row style={{ marginTop: "1%" }} className="navbar">
@@ -36,13 +28,10 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             />
           </Link>
         </Col>
-
-        <Col style={{padding:"reletive"}} lg={3} md={8} sm={8}>
-          {/* <i style={{color:"black",position:"absolute",marginTop:10,marginLeft:7}} class="fa-solid fa-magnifying-glass"></i> */}
-          <input style={{paddingLeft:30}} className="search" type="search" placeholder="Search Anime" />
+        <Col style={{ padding: "reletive" }} lg={3} md={8} sm={8}>
+          <input style={{ paddingLeft: 30 }} className="search" type="search" placeholder="Search Anime" />
         </Col>
         <Col className={isOpen ? "navMenu ms-5" : "m-2 navItems"} lg={1} md={12}>
-        
           <Link onClick={() => setIsOpen(true)} style={{ color: theme === "darkTheme" ? "white" : "black" }}
             className="link" to="/">Home
           </Link>
@@ -53,7 +42,6 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
               Frames
             </div>
           </Link>
-
         </Col>
         <Col className={isOpen ? "navMenu" : "m-2 navItems"} lg={1} md={12}>
           <Link style={{ color: theme === "darkTheme" ? "white" : "black" }} className="link" to="/posters">
@@ -76,21 +64,14 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             <i style={{ cursor: "pointer" }} className=" fa-solid fa-bell"></i>
           </Link>
           <>
-          <span onClick={() => (setIsCartOpen(true))} style={{color:"white",position:"absolute",marginLeft:33,marginTop:-4,backgroundColor:"red",paddingLeft:6,borderRadius:"100%",paddingRight:6,fontSize:12}}>{cart?.length != 0 ? cart?.length : ''}</span>
-          <i onClick={() => (setIsCartOpen(true))} className="px-4 fa-solid fa-cart-shopping"></i>
+            <span onClick={() => (setIsCartOpen(true))} style={{ color: "white", position: "absolute", marginLeft: 33, marginTop: -4, backgroundColor: "red", paddingLeft: 6, borderRadius: "100%", paddingRight: 6, fontSize: 12 }}>{cart?.length != 0 ? cart?.length : ''}</span>
+            <i onClick={() => (setIsCartOpen(true))} className="px-4 fa-solid fa-cart-shopping"></i>
           </>
-            <i style={{ cursor: "pointer" }} className="ps-2 fa-solid fa-moon" onClick={() => (ToggleTheme())}></i>
-
+          <i style={{ cursor: "pointer" }} className="ps-2 fa-solid fa-moon" onClick={() => (ToggleTheme())}></i>
         </Col>
-        
         <Col className="burger"><i onClick={toggle} className=" fa-solid fa-bars"></i></Col>
-
       </Row>
-
     </div>
-
-
   );
 };
-
 export default Navbar;

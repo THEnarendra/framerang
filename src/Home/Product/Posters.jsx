@@ -4,18 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from './ProductCard';
 import { Col, Row } from 'react-bootstrap';
-
 export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCartOpen }) => {
   setFooter(true);
-
   const [selectedSubCategory, setSelectedSubCategory] = useState('Select SubCategory');
   const [filteredImg, setFilteredImg] = useState(img);
-
-
   const handleSubCategoryChange = (e) => {
     setSelectedSubCategory(e.target.value);
   };
-
   useEffect(() => {
     if (selectedSubCategory === 'Select SubCategory') {
       setFilteredImg(img);
@@ -23,7 +18,6 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
       setFilteredImg(img.filter(item => item.subCategory === selectedSubCategory));
     }
   }, [selectedSubCategory, img]);
-
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -34,8 +28,6 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
     autoplaySpeed: 2000,
     arrows: false,
   };
-
-
   return (
     <div className='mb-5' style={{
       marginTop: "72px",
@@ -44,16 +36,11 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
       {details?.map((data) => (
         <Slider {...settings}>
           {data.images.map((e) => (
-
             <img src={e.url} alt="" className='logo_wheel12' />
           ))}
-
-
         </Slider>
       ))}
-
-
-      <Row  style={{ margin: "1% 6% 5% 6%" }}>
+      <Row style={{ margin: "1% 6% 5% 6%" }}>
         <div className='ms-2 mt-5 mb-5' style={{ display: "flex", flexWrap: "wrap" }}>
           <div className='me-4 d-flex align-items-center'>
             <span className='me-4'>Filter:</span>
@@ -69,7 +56,6 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
                 style={{ backgroundColor: theme === "darkTheme" ? "black" : "white" }}
               >Select SubCategory</option>
               {subCategory && subCategory.map((subCategory) => (
-
                 <option
                   key={subCategory}
                   value={subCategory}
@@ -80,14 +66,12 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
                 </option>
               ))}
             </select>
-
           </div>
         </div>
-        
         {filteredImg &&
           (
             filteredImg.map((img) => (
-              <Col style={{padding:6}} lg={3} md={4} sm={12} key={img.id}>
+              <Col style={{ padding: 6 }} lg={3} md={4} sm={12} key={img.id}>
                 <ProductCard setIsCartOpen={setIsCartOpen} img={img} />
               </Col>
             ))

@@ -4,7 +4,6 @@ import { Col, Row } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
 import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
-
 const CheckOut = ({ setFooter, theme }) => {
     const { cart, getTotal } = useContext(CartContext);
     const [errors, setErrors] = useState({});
@@ -20,9 +19,7 @@ const CheckOut = ({ setFooter, theme }) => {
         country: ''
     });
     const [loading, setLoading] = useState(false);
-
     setFooter(false);
-
     const Change = (e) => {
         e.preventDefault();
         setInputs({
@@ -30,60 +27,46 @@ const CheckOut = ({ setFooter, theme }) => {
             [e.target.name]: e.target.value,
         });
     };
-
     const [paymentMethod, setPaymentMethod] = useState('prepaid');
     const [billingAddress, setBillingAddress] = useState('same');
-
     const idArray = cart.map(user => ({
         product: user._id,
         quantity: user.quantity,
         size: user.Size
     }));
-
     const validateForm = (data) => {
         const errors = {};
-
         if (!data.firstName?.trim()) {
             errors.firstName = 'First name is required';
         }
-
         if (!data.lastName?.trim()) {
             errors.lastName = 'Last name is required';
         }
-
         if (!data.email?.trim()) {
             errors.email = 'Email is required';
         } else if (!/\S+@\S+\.\S+/.test(data.email)) {
             errors.email = 'Email is invalid';
         }
-
         if (!data.phone?.trim()) {
             errors.phone = 'Phone number is required';
         }
-
         if (!data.street?.trim()) {
             errors.street = 'Street is required';
         }
-
         if (!data.city?.trim()) {
             errors.city = 'City is required';
         }
-
         if (!data.state?.trim()) {
             errors.state = 'State is required';
         }
-
         if (!data.pinCode?.trim()) {
             errors.pinCode = 'PIN code is required';
         }
-
         if (!data.country?.trim()) {
             errors.country = 'Country is required';
         }
-
         return errors;
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = validateForm(input);
@@ -91,7 +74,6 @@ const CheckOut = ({ setFooter, theme }) => {
             setErrors(formErrors);
             return;
         }
-
         setLoading(true);
         try {
             setErrors('')
@@ -117,9 +99,6 @@ const CheckOut = ({ setFooter, theme }) => {
                     }
                 )
             });
-
-            const data = await response.json();
-
             if (response.ok) {
                 setLoading(false);
                 toast.success("Product Ordered Successfully");
@@ -129,13 +108,11 @@ const CheckOut = ({ setFooter, theme }) => {
                 setLoading(false);
                 toast.error("Something went wrong! Please try again later!");
             }
-
         } catch (error) {
             setLoading(false);
             toast.error("Something went wrong! Please try again later!");
         }
     };
-
     useEffect(() => {
         if (loading) {
             document.body.style.opacity = '0.5';
@@ -145,11 +122,9 @@ const CheckOut = ({ setFooter, theme }) => {
             document.body.style.pointerEvents = 'auto';
         }
     }, [loading]);
-
     return (
         <div className="checkout-page">
             {loading && <div className="overlay"><Loader /></div>}
-
             <Toaster />
             <Row>
                 <Col className='over' sm={12} lg={6}>
@@ -256,13 +231,13 @@ const CheckOut = ({ setFooter, theme }) => {
                         <div className="cart-items1">
                             {cart.map((item) => (
                                 <div key={item.id} className="cart-item">
-                                    <img src={item.productImage.url} alt="" />
+                                    <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}  src={item.productImage.url} alt="" />
                                     <div className="item-details">
                                         <span>{item.productName}</span>
                                         {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
                                             <>
-                                            <span>Size: {data.size}</span>
-                                            <span>Rs. {data.newPrice}</span>
+                                                <span>Size: {data.size}</span>
+                                                <span>Rs. {data.newPrice}</span>
                                             </>
                                         ))}
                                         <p>Quantity: {item.quantity}</p>
@@ -300,12 +275,11 @@ const CheckOut = ({ setFooter, theme }) => {
                         </div>
                     </div>
                 </Col>
-                <Col  sm={12} lg={6}>
-                <button style={{width:"95%"}} onClick={handleSubmit} className="btn mt-3">Pay now</button>
+                <Col sm={12} lg={6}>
+                    <button style={{ width: "95%" }} onClick={handleSubmit} className="btn mt-3">Pay now</button>
                 </Col>
             </Row>
         </div>
     );
 };
-
 export default CheckOut;
