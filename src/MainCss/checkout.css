@@ -44,12 +44,9 @@ input[type="checkbox"] {
 .location-fields {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.name-fields input,
-.location-fields input {
-    width: 47%;
-}
 
 .cart-items1 {
     border: 0.1px solid rgba(255, 255, 255, 0.459);

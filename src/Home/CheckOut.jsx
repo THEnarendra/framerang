@@ -137,22 +137,32 @@ const CheckOut = ({ setFooter, theme }) => {
                         <h5 className='mt-3'>Delivery Address</h5>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="country" placeholder="Country/Region" />
                         {errors.country && <span className="error">{errors.country}</span>}
-                        <div className="name-fields">
+                        <Row  style={{width:"100%",margin:0,padding:0}} >
+                            <Col style={{padding:1}} sm={12} md={6}>
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="firstName" placeholder="First name" />
-                            {errors.firstName && <span className="error">{errors.firstName}</span>}
+                          <br />  {errors.firstName && <span className="error">{errors.firstName}</span>}
+                            </Col>
+                            <Col style={{padding:1}} sm={12} md={6}>
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="lastName" placeholder="Last name" />
-                            {errors.lastName && <span className="error">{errors.lastName}</span>}
-                        </div>
+                            <br />{errors.lastName && <span className="error">{errors.lastName}</span>}
+                            </Col>
+                        </Row>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="street" placeholder="Street Name" />
                         {errors.street && <span className="error">{errors.street}</span>}
-                        <div className="location-fields">
+                        <Row  style={{width:"100%",margin:0,padding:0}}>
+                        <Col style={{padding:1}} sm={12} md={6}>
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="city" placeholder="City" />
                             {errors.city && <span className="error">{errors.city}</span>}
+                        </Col>
+                        <Col style={{padding:1}} sm={12} md={6}>
                             <input onChange={Change} className={`ms-1 me-1 ${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="state" placeholder="State" />
                             {errors.state && <span className="error">{errors.state}</span>}
+                        </Col>
+                        <Col style={{padding:1}} sm={12} md={6}>
                             <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="text" name="pinCode" placeholder="PIN code" />
                             {errors.pinCode && <span className="error">{errors.pinCode}</span>}
-                        </div>
+                        </Col>
+                            </Row>
                         <input onChange={Change} className={`${theme === "darkTheme" ? "text-white" : "text-black"}`} type="checkbox" name="saveInfo" /> Save this information for next time
                         <h5 className='mt-4'>Shipping method</h5>
                         <p>Enter your shipping address to view available shipping methods.</p>

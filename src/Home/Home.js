@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
@@ -8,10 +8,15 @@ import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
+
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
-  const [details, fetchDetails] = useState([]);
+  const [details, setDetails] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const detailsRef = useRef(null);
+  const productsRef = useRef(null);
+
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
       .then((res) => {
@@ -22,12 +27,14 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       })
       .then((res) => {
         const data = res.content;
-        fetchDetails(data);
+        detailsRef.current = data;
+        setDetails(data);
       })
       .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
+
   const allProducts = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allProducts`)
       .then((res) => {
@@ -38,24 +45,38 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       })
       .then((res) => {
         const products = res.data;
+        productsRef.current = products;
         setProducts(products);
       })
       .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
+
   useEffect(() => {
-    getData();
-    allProducts();
+    if (!detailsRef.current) {
+      getData();
+    } else {
+      setDetails(detailsRef.current);
+    }
+
+    if (!productsRef.current) {
+      allProducts();
+    } else {
+      setProducts(productsRef.current);
+    }
+
     AOS.init();
     AOS.refresh();
+
     const video = document.getElementById('homeVideo');
     if (video) {
       video.play().catch(error => {
         console.error('Autoplay failed:', error);
       });
     }
-  }, []);
+  }, []); 
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>

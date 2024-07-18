@@ -90,7 +90,7 @@ const ContactUs = ({ setFooter }) => {
           </form>
         </Col>
         <Col sm={12} lg={6} className='col2'>
-          <form className="row " onSubmit={handleSubmit}>
+          <form className="row" onSubmit={handleSubmit}>
             <p>Please allow 1-2 business days to respond to your inquiry.</p>
             <h2>Let's connect</h2>
             <div className="col-md-6">
