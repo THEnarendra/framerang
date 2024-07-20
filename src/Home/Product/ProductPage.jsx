@@ -4,7 +4,9 @@ import { Col, Row, Container } from "react-bootstrap";
 import "./ProductPage.css";
 import { CartContext } from "../../CartContext";
 import toast, { Toaster } from "react-hot-toast";
-export const ProductPage = ({ setFooter, setIsCartOpen }) => {
+export const ProductPage = ({ setFooter, setIsCartOpen, img }) => {
+
+
   const location = useLocation();
   const { product } = location.state || {};
   const { addToCart } = useContext(CartContext);
@@ -31,13 +33,14 @@ export const ProductPage = ({ setFooter, setIsCartOpen }) => {
     }
   };
   return (
+    <>
     <Container fluid className="product-page">
       <Toaster />
       <Row>
-        <Col md={4} className="image-column">
-          <img src={product.productImage.url} alt={product.productName} className="product-image mt-5 pt-3" />
-        </Col>
-        <Col md={8} className="details-column">
+        <Col md={6} className="image-column">
+          <img src={product.productImage.url} alt={product.productName} className="product-image" />
+        </Col>  
+        <Col md={6} className="details-column">
           <div className="details-content">
             <p className="product-frame">Frame Rang</p>
             <h2 className="product-name">{product.productName}</h2>
@@ -67,15 +70,23 @@ export const ProductPage = ({ setFooter, setIsCartOpen }) => {
                 <p style={{ color: "red" }}>! Please Select Size First </p>
               )}
             </div>
-            <div className="product-description">
-              <p>{product.description || 'No description available.'}</p>
-            </div>
-            <button style={{ backgroundColor: "rgb(219, 14, 14)", border: "none", padding: 4, borderRadius: 4 }} onClick={() => handleClick(product)} className="text-white" >
+            
+            <button  onClick={() => handleClick(product)} className="text-white cart-button" >
               Add to Cart
             </button>
+            <br /> <br />
+            <div className="product-description">
+              <p >More Details :</p>
+              <p>{product.description || 'No description available.'}</p>
+            </div>
           </div>
         </Col>
       </Row>
     </Container>
+    <br /> <br />
+    <Container>
+      <p>You may also like : </p>
+    </Container>
+    </>
   );
 };
