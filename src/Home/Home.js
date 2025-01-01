@@ -3,7 +3,7 @@ import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
-import home_video from '../images/home_video.webm';
+import home_video from '../images/home_video.mp4';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
