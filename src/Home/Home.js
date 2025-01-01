@@ -3,7 +3,7 @@ import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
-import home_video from '../images/home_video.mp4';
+import home_video from '../images/home_video.gif';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
@@ -80,10 +80,11 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
+        {/* <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
           <source src={home_video} type="video/webm" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <img style={{ objectFit: "cover", width: "100vw", height: "100vh" }} src={home_video} alt="homeVideo"/>
       </div>
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
