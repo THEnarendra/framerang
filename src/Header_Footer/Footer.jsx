@@ -36,7 +36,7 @@ const Bubble = () => {
               <div className="col-md-3">
                 <div className="useful-link">
                   <h2>Useful Links</h2>
-                  <div className="use-links">
+                  <ul className="use-links">
                     <li>
                       <Link to='/'>
                        <span>
@@ -62,29 +62,29 @@ const Bubble = () => {
                         </span>
                     </Link>
                     </li>
-                  </div>
+                  </ul>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="social-links">
                   <h2>Follow Us</h2>
-                  <div className="social-icons">
+                  <ul className="social-icons">
                     <li><a href="https://www.facebook.com/people/FrameRang/100083271771990/"><i className="fa-brands fa-facebook-f"></i> Facebook</a></li>
                     <li><a href="https://www.instagram.com/framerang/"><i className="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href=""> <i class="fa-brands fa-x-twitter"></i>X.com</a></li>
-                  </div>
+                    <li><a href=""> <i className="fa-brands fa-x-twitter"></i>X.com</a></li>
+                  </ul>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="address">
                   <h2>Address</h2>
-                  <div className="address-links">
+                  <ul className="address-links">
                     <li className="address1"><i className="fa-solid fa-location-dot"></i>
                       Shop No. 67 Ramdev Nager Lalchandpura Niwaru Road Jhotwada Jaipur 302012
                     </li>
                     <li className='text-light'><i className="fa-solid fa-phone"></i> +91 7568161580</li>
                     <li className='text-light'><i className="fa-solid fa-envelope"></i><span>narendrak.kumawat123@gmail.com</span></li>
-                  </div>
+                  </ul>
                 </div>
               </div>
             </div>
