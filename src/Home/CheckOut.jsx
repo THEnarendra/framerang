@@ -241,7 +241,7 @@ const CheckOut = ({ setFooter, theme }) => {
                         <div className="cart-items1">
                             {cart.map((item) => (
                                 <div key={item.id} className="cart-item">
-                                    <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}  src={item.productImage.url} alt="" />
+                                    <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}  src={item.productImage.url} alt="image" />
                                     <div className="item-details">
                                         <span>{item.productName}</span>
                                         {item?.variant?.filter((data) => data.size === item.Size).map((data) => (

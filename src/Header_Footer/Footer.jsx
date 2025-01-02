@@ -31,7 +31,7 @@ const Bubble = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-3" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <img src={logo} alt="" className="img-fluid" />
+                <img src={logo} alt="img-fluid" className="img-fluid" />
               </div>
               <div className="col-md-3">
                 <div className="useful-link">
@@ -39,19 +39,27 @@ const Bubble = () => {
                   <div className="use-links">
                     <li>
                       <Link to='/'>
-                        <a href=""><i className="fa-solid fa-angles-right"></i> Home</a>
+                       <span>
+                        <i className="fa-solid fa-angles-right"></i> Home
+                        </span>
                       </Link>
                     </li>
                     <li><Link to='/contactUs'>
-                      <a href=""><i className="fa-solid fa-angles-right"></i> Contact Us</a>
+                      <span>
+                        <i className="fa-solid fa-angles-right"></i> Contact Us
+                        </span>
                     </Link>
                     </li>
                     <li><Link to='/posters'>
-                      <a href=""><i className="fa-solid fa-angles-right"></i>Our Posters</a>
+                      <span>
+                        <i className="fa-solid fa-angles-right"></i>Our Posters
+                        </span>
                     </Link>
                     </li>
                     <li><Link to='/frames'>
-                      <a href=""><i className="fa-solid fa-angles-right"></i>Our Frames</a>
+                      <span>
+                        <i className="fa-solid fa-angles-right"></i>Our Frames
+                        </span>
                     </Link>
                     </li>
                   </div>
@@ -74,8 +82,8 @@ const Bubble = () => {
                     <li className="address1"><i className="fa-solid fa-location-dot"></i>
                       Shop No. 67 Ramdev Nager Lalchandpura Niwaru Road Jhotwada Jaipur 302012
                     </li>
-                    <li><a href=""><i className="fa-solid fa-phone"></i> +91 7568161580</a></li>
-                    <li ><a ><i className="fa-solid fa-envelope"></i>narendrak.kumawat123@gmail.com</a></li>
+                    <li className='text-light'><i className="fa-solid fa-phone"></i> +91 7568161580</li>
+                    <li className='text-light'><i className="fa-solid fa-envelope"></i><span>narendrak.kumawat123@gmail.com</span></li>
                   </div>
                 </div>
               </div>
@@ -90,24 +98,24 @@ const Bubble = () => {
                 </li>
                 <li>
                   <Link to='/policies/refund-policy'>
-                    <a href="">Refund policy</a>
+                    Refund policy
                   </Link>
                 </li>
                 <li>
                   <Link to='/policies/privacy-policy'>
-                    <a href="">Privacy policy</a>
+                   Privacy policy
                   </Link>
 
                 </li>
                 <li>
                   <Link to='/policies/terms-of-service'>
-                    <a href="">Terms of service</a>
+                    Terms of service
                   </Link>
 
                 </li>
                 <li>
                   <Link to='/policies/shipping-policy'>
-                    <a href="">Shipping policy</a>
+                    Shipping policy
                   </Link>
 
                 </li>

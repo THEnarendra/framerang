@@ -60,7 +60,7 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
         <Row className='row1'>
           <span onClick={togglePopup} className='btPopup'>❌</span>
           <Col style={{ display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center" }} lg={6}>
-            <img className='img12' src={data.productImage.url} alt="" />
+            <img className='img12' src={data.productImage.url} alt="image" />
           </Col>
           <Col style={{ display: "flex", justifyContent: "center", flexDirection: "column" }} lg={6}>
             <span>Framerang</span>

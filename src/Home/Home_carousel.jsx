@@ -31,7 +31,7 @@ export default function Home_carousel({ img }) {
         {img.map((data) => (
           <SwiperSlide className='swiper-slide1'>
             <div className='text-white' >
-              <img src={data.url} />
+              <img src={data.url} alt="image"/>
             </div>
           </SwiperSlide>
         ))}

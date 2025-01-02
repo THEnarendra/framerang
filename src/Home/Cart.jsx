@@ -18,7 +18,7 @@ export const Cart = ({ setIsCartOpen }) => {
           {cart.map((item) => (
             <div key={item.id} className="cart-item">
 
-              <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} src={item.productImage.url} alt="" />
+              <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} src={item.productImage.url} alt="image" />
               <div className="item-details">
                 <p>{item.productName}</p>
                 {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
