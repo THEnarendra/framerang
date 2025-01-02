@@ -3,15 +3,19 @@ import axios from 'axios'
 import { toast, Toaster } from "react-hot-toast";
 import Loader from "../Loader";
 import { CartContext } from "../../CartContext";
+import { Alert } from "react-bootstrap";
+
 export const Customize = ({ setFooter }) => {
   const { addToCart } = useContext(CartContext);
   setFooter(false)
   const [category, setCategory] = useState('');
   const [logoCover, setLogoCover] = useState(null);
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState('');
   const [preview, setPreview] = useState([]);
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
+  const [categoryError, setCategoryError] = useState("");
+  const [sizeError, setSizeError] = useState("");
   useEffect(() => {
     if (loading) {
       document.body.style.opacity = '0.5';
@@ -21,14 +25,17 @@ export const Customize = ({ setFooter }) => {
       document.body.style.pointerEvents = 'auto';
     }
   }, [loading])
+
   const generatePreview = (files) => {
     const previewUrls = files.map((file) => URL.createObjectURL(file));
     setPreview(previewUrls);
   };
+
   const price1 = category === "Poster" && value === "A3" ? 10 : category === "Poster" && value === "A4" ? 20 : category === "Frame" && value === "A3" ? 40 : category === "Frame" && value === "A4" ? 60 : ""
   const handleTextChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
+
   const handlePhotoUpload = (e) => {
     e.preventDefault();
     const files = Array.from(e.target.files);
@@ -62,13 +69,24 @@ export const Customize = ({ setFooter }) => {
       addToCart(productWithSelectedVariant);
     }, 100);
   };
+
   const handleSubmit = async (e) => {
+    if (!category) {
+      setCategoryError("Please select a category");
+      return;
+    }
+    if (!value) {
+      setCategoryError('')
+      setSizeError("Please select a size");
+      return;
+    }
+    setSizeError('')
     setLoading(true)
     e.preventDefault();
     formData.append("size", value);
-    formData.append("customText", data.customText);
+    formData.append("customText", data?.customText);
     formData.append("newPrice", price1);
-    formData.append("category", data.category);
+    formData.append("category", data?.category);
     if (logoCover) {
       logoCover.forEach((image) => {
         formData.append(`images`, image);
@@ -121,6 +139,7 @@ export const Customize = ({ setFooter }) => {
                 <option value="Poster">Poster</option>
                 <option value="Frame">Frame</option>
               </select>
+              {categoryError && <Alert style={{padding:"1px",margin:"1%"}} variant="danger">{categoryError}</Alert>}
             </div>
             <div className="mb-3">
               <label htmlFor="size" className="form-label">Select Size:</label>
@@ -129,6 +148,7 @@ export const Customize = ({ setFooter }) => {
                 <option value="A4">A4</option>
                 <option value="A3">A3</option>
               </select>
+              {sizeError && <Alert style={{padding:"1px",margin:"1%"}} variant="danger">{sizeError}</Alert>}
             </div>
             <div className="mb-3">
               <label htmlFor="size" className="form-label" >Price</label>
