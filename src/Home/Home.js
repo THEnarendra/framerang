@@ -15,7 +15,8 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
   const [details, setDetails] = useState([]);
   const [products, setProducts] = useState([]);
-
+  const [images, setImages] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const detailsRef = useRef(null);
   const productsRef = useRef(null);
 
@@ -71,19 +72,34 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
     AOS.init();
     AOS.refresh();
 
-    const video = document.getElementById('homeVideo');
-    if (video) {
-      video.play().catch(error => {
-        console.error('Autoplay failed:', error);
-      });
-    }
   }, []); 
 
-  const images = [
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call initially to set correct images
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const desktopImages = [
     require('../images/HB1.jpg'),
     require('../images/HB2.jpg'),
     require('../images/HB3.jpg'),
   ];
+
+  const mobileImages = [
+    require('../images/HBM1.jpg'),
+    require('../images/HBM2.jpg'),
+    require('../images/HBM3.jpg'),
+  ]
+
+  useEffect(() => {
+    setImages(isMobile ? mobileImages : desktopImages);
+  }, [isMobile]);
 
   const settings = {
     dots: true,
@@ -117,22 +133,6 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
         ))}
       </Slider>
     </div>
-
-      {/* <div style={{ display: "flex", justifyContent: "center" }}>
-        <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
-          <source src={home_video} type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
-      </div> */}
-
-
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        {/* <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
-          <source src={home_video} type="video/webm" />
-          Your browser does not support the video tag.
-        </video> */}
-        <img style={{ objectFit: "cover", width: "100vw", height: "100vh" }} src={home_video} alt="homeVideo"/>
-      </div>
 
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
