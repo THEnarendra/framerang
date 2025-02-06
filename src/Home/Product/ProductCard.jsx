@@ -27,7 +27,7 @@ const ProductCard = ({ img, setIsCartOpen }) => {
         {img && (
           <div className='main'>
             <div onClick={handleProductClick} style={{ cursor: 'pointer' }}>
-              <img className='image011' src={img.productImage.url} alt={img.productName} />
+              <img className='image011' src={img.productImage.url} alt="image" />
               <h4 className='creator ps-4 pe-4'>{img.productName}</h4>
             </div>
             <p>

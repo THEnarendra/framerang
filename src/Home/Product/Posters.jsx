@@ -36,7 +36,7 @@ export const Posters = ({ img, setFooter, theme, subCategory, details, setIsCart
       {details?.map((data) => (
         <Slider {...settings}>
           {data.images.map((e) => (
-            <img src={e.url} alt="" className='logo_wheel12' />
+            <img src={e.url} alt="image" className='logo_wheel12' />
           ))}
         </Slider>
       ))}

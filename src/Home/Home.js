@@ -3,7 +3,9 @@ import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
+
 // import home_video from '../images/home_video.webm';
+import home_video from '../images/home_video.gif';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
@@ -105,6 +107,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   return (
     <div>
 
+
     <div className="hero-slider-container">
       <Slider {...settings}>
         {images.map((image, index) => (
@@ -121,6 +124,15 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           Your browser does not support the video tag.
         </video>
       </div> */}
+
+
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {/* <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
+          <source src={home_video} type="video/webm" />
+          Your browser does not support the video tag.
+        </video> */}
+        <img style={{ objectFit: "cover", width: "100vw", height: "100vh" }} src={home_video} alt="homeVideo"/>
+      </div>
 
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
@@ -148,7 +160,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <button className='bt2'>{data.buttonText}</button>
           </Link>
           {data.images && data.images.map((img, index) => (
-            <img key={index} style={{ width: "8%", position: "absolute", top: "85%", left: "0", zIndex: 9 }} src={img.url} alt="" className='logo_wheel' />
+            <img key={index} style={{ width: "8%", position: "absolute", top: "85%", left: "0", zIndex: 9 }} src={img.url} alt="image" className='logo_wheel' />
           ))}
         </div>
       ))}
@@ -175,7 +187,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           <Row key={data.id} className="comboRow" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <Col lg={6} sm={12}>
               {data.images?.map((img, index) => (
-                <img key={index} className="comboimg" src={img.url} alt="" />
+                <img key={index} className="comboimg" src={img.url} alt="image" />
               ))}
             </Col>
             <Col className="mt-4 mb-5" lg={6} sm={12}>

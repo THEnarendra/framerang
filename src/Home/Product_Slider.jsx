@@ -62,7 +62,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
             filteredProducts && filteredProducts.map((img) => (
               <div className="nft" >
                 <div className='main' >
-                  <img className='image011' src={img.productImage.url} alt="" />
+                  <img className='image011' src={img.productImage.url} alt="image" />
                   <h3 className='creator ps-4 pe-4'>{img.productName}</h3>
                   <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span> </p>
                   <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>

@@ -14,7 +14,7 @@ export const Home_Swiper = ({img}) => {
     className="yourSwiper">
       {img.map((img)=>(
         <SwiperSlide style={{ display:"flex",justifyContent:"center"}}>
-          <img src={img.url} className='swiperImg' alt="" />
+          <img src={img.url} className='swiperImg' alt="image" />
         </SwiperSlide>
         ))}
     </Swiper>

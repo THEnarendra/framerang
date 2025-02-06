@@ -38,7 +38,7 @@ export const ProductPage = ({ setFooter, setIsCartOpen, img }) => {
       <Toaster />
       <Row>
         <Col md={6} className="image-column">
-          <img src={product.productImage.url} alt={product.productName} className="product-image" />
+          <img src={product.productImage.url} alt="image" className="product-image" />
         </Col>  
         <Col md={6} className="details-column">
           <div className="details-content">

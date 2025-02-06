@@ -24,7 +24,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             <img
               className="image"
               src={logo}
-              alt=""
+              alt="image"
             />
           </Link>
         </Col>
