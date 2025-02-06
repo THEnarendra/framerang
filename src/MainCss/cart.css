@@ -97,11 +97,12 @@
 }
 
 .removeBtn {
-  background: none;
+  color: white;
+  background: red;
   border: 1px solid red;
   font-weight: 400;
   border-radius: 20px;
-  font-size: 1vw;
+  font-size: 13px;
 }
 
 .cart-overview {

@@ -3,12 +3,12 @@ import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
-import home_video from '../images/home_video.webm';
+// import home_video from '../images/home_video.webm';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
-
+import Slider from 'react-slick';
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
   const [details, setDetails] = useState([]);
@@ -77,14 +77,51 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
     }
   }, []); 
 
+  const images = [
+    require('../images/HB1.jpg'),
+    require('../images/HB2.jpg'),
+    require('../images/HB3.jpg'),
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
+  };
+
+
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+
+    <div className="hero-slider-container">
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image} alt={`Slide ${index + 1}`} className="hero-slider-image" />
+          </div>
+        ))}
+      </Slider>
+    </div>
+
+      {/* <div style={{ display: "flex", justifyContent: "center" }}>
         <video style={{ objectFit: "cover", width: "100vw", height: "100vh" }} id="homeVideo" autoPlay loop muted>
           <source src={home_video} type="video/webm" />
           Your browser does not support the video tag.
         </video>
-      </div>
+      </div> */}
+
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
           <Col lg={6}>
