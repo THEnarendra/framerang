@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 
-.frameDrop {
+/* .frameDrop {
   position: absolute;
   padding: 1%;
   margin: 0.5%;
@@ -49,7 +49,109 @@ backdrop-filter: blur(7.6px);
 border: 1px solid rgba(203, 194, 194, 0.42);
   width: 8%;
   z-index: 999;
+} */
+
+
+/* DropDown */
+.shop-section {
+  position: relative;
+  display: inline-block;
 }
+
+.dropdown-container {
+  color: black;
+  position: absolute;
+  top: 100%; /* Opens below "Shop" */
+  left: 0;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.shop-section:hover .dropdown-container {
+  display: flex;
+}
+
+/* Category Styling */
+.dropdown {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dropdown:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Subcategory Dropdown (Desktop) */
+.dropdown-content {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* Links Styling */
+.link {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #007bff;
+}
+
+/* 🔽 Mobile & Tablet View */
+@media screen and (max-width: 768px) {
+  .dropdown-container {
+    position: static;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .shop-section:hover .dropdown-container {
+    display: flex;
+  }
+
+  .dropdown-content {
+    position: static;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
+  }
+
+  .dropdown {
+    padding: 10px;
+    width: 100%;
+  }
+}
+
 
 @media screen and (max-width: 991px) {
   .navMenu {

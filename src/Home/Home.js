@@ -4,6 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
 
+
 // import home_video from '../images/home_video.webm';
 import home_video from '../images/home_video.gif';
 import Product_Slider from './Product_Slider';
@@ -11,6 +12,9 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+
+const app_url = process.env.REACT_APP_API_URL;
+
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
   const [details, setDetails] = useState([]);
@@ -20,6 +24,9 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   const detailsRef = useRef(null);
   const productsRef = useRef(null);
 
+  console.log(app_url);
+
+  //Get all Sections Data
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
       .then((res) => {
@@ -123,7 +130,6 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   return (
     <div>
 
-
     <div className="hero-slider-container">
       <Slider {...settings}>
         {images.map((image, index) => (
@@ -140,15 +146,17 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <Home_carousel img={data.images} />
           </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>{data.heading}</h1><br />
-            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
+            <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art</h1><br />
+            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.</h5>
             <Link to="/frames">
-              <button className='bt1'>{data.buttonText}</button>
+              <button className='bt1'>Our Posters</button>
             </Link>
           </Col>
         </Row>
       ))}
-      {details.filter((e) => e.sectionId == 2).map((data) => (
+
+ {/* Customize Poster */}
+      {/* {details.filter((e) => e.sectionId == 2).map((data) => (
         <div className='customize' key={data.id} style={{
           position: "relative",
           padding: "3%", textAlign: "center",
@@ -163,21 +171,24 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <img key={index} style={{ width: "8%", position: "absolute", top: "85%", left: "0", zIndex: 9 }} src={img.url} alt="image" className='logo_wheel' />
           ))}
         </div>
-      ))}
+      ))} */}
+
       {details.filter((e) => e.sectionId == 3).map((data) => (
         <Row key={data.id}>
           <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <Home_Swiper img={data.images} />
           </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>{data.heading}</h1><br />
-            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>{data.description}</h5>
+            <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art</h1><br />
+            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.</h5>
             <Link to="/posters">
               <button className='bt1'>{data.buttonText}</button>
             </Link>
           </Col>
         </Row>
       ))}
+
+
       <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
         <h1 className='mb-4'>Our Best Selling Posters & Frames</h1>
         <Product_Slider setIsCartOpen={setIsCartOpen} products={products} category="poster" />
