@@ -21,13 +21,14 @@ const ProductCard = ({ img, setIsCartOpen }) => {
       document.body.classList.remove('modal-open');
     };
   }, [showPopup]);
+
   return (
     <>
       <div className="nft" >
         {img && (
           <div className='main'>
             <div onClick={handleProductClick} style={{ cursor: 'pointer' }}>
-              <img className='image011' src={img.productImage.url} alt="image" />
+              <img className='image011' src={img.productImages[0].url} alt="image" />
               <h4 className='creator ps-4 pe-4'>{img.productName}</h4>
             </div>
             <p>

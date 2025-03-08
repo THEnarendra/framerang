@@ -13,7 +13,10 @@ const CartProvider = ({ children }) => {
     }, [cart]);
     const addToCart = (product) => {
         setCart(prevCart => {
-            const existingProductIndex = prevCart.findIndex(item => item._id === product._id && item.Size === product.Size);
+            const existingProductIndex = prevCart.findIndex(
+                item => item._id === product._id && item.selectedVariant?.value === product.selectedVariant?.value
+            );
+    
             if (existingProductIndex >= 0) {
                 const updatedCart = [...prevCart];
                 updatedCart[existingProductIndex] = {
@@ -26,6 +29,7 @@ const CartProvider = ({ children }) => {
             }
         });
     };
+    
     const removeFromCart = (productId, size) => {
         setCart(cart.filter((item) => !(item._id === productId && item.Size === size)));
     };
@@ -41,13 +45,12 @@ const CartProvider = ({ children }) => {
     };
     const getTotal = () => {
         return cart.reduce((total, item) => {
-            const matchingVariant = item?.variant?.find(v => v.size === item.Size);
-            if (matchingVariant) {
-                return total + matchingVariant.newPrice * item.quantity;
-            }
-            return total;
+            // Use selectedVariant price if available, otherwise use base price
+            const itemPrice = item.selectedVariant ? item.selectedVariant.price : item.basePrice;
+            return total + itemPrice * item.quantity;
         }, 0);
     };
+    
     return (
         <CartContext.Provider value={{ cart, addToCart, removeFromCart, incrementQuantity, decrementQuantity, getTotal }}>
             {children}

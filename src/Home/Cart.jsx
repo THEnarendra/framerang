@@ -15,29 +15,42 @@ export const Cart = ({ setIsCartOpen }) => {
         </div>
         <hr />
         <div className="cart-items">
-          {cart.map((item) => (
-            <div key={item.id} className="cart-item">
+        {cart.map((item) => (
+  <div key={item.id} className="cart-item">
+    <img
+      style={{
+        boxShadow:
+          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      }}
+      src={item.productImages[0].url}
+      alt="image"
+    />
+    <div className="item-details">
+      <p>{item.productName}</p>
+      {item.selectedVariant && (
+        <p>
+          {item.selectedVariant.name}: {item.selectedVariant.value}
+        </p>
+      )}
+      <div className="item-controls">
+        <p>Rs. {item.selectedVariant ? item.selectedVariant.price : item.basePrice}</p>
+        <div className="decrementQuantity mb-3">
+          <button className="incDec" onClick={() => decrementQuantity(item._id)}>
+            -
+          </button>
+          <span>{item.quantity}</span>
+          <button className="incDec" onClick={() => incrementQuantity(item._id)}>
+            +
+          </button>
+        </div>
+        <button className="removeBtn mb-3" onClick={() => removeFromCart(item._id)}>
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+))}
 
-              <img style={{boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} src={item.productImage.url} alt="image" />
-              <div className="item-details">
-                <p>{item.productName}</p>
-                {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
-                  <p>Size: {data.size}</p>
-                ))}
-                <div className="item-controls">
-                  {item?.variant?.filter((data) => data.size === item.Size).map((data) => (
-                    <p>Rs. {data.newPrice}</p>
-                  ))}
-                  <div className='decrementQuantity mb-3'>
-                    <button className='incDec' onClick={() => decrementQuantity(item._id)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button className='incDec' onClick={() => incrementQuantity(item._id)}>+</button>
-                  </div>
-                  <button className='removeBtn mb-3' onClick={() => removeFromCart(item._id, item.Size)}>Remove</button>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
         <hr /><br />
         <div className='cart-overview'>

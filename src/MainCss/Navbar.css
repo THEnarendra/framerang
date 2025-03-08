@@ -118,6 +118,25 @@ border: 1px solid rgba(203, 194, 194, 0.42);
   color: #007bff;
 }
 
+
+.shop-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Arrow icon container */
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.shop-container:hover .arrow-icon {
+  transform: translateY(4px) rotate(180deg); 
+}
+
 /* 🔽 Mobile & Tablet View */
 @media screen and (max-width: 768px) {
   .dropdown-container {

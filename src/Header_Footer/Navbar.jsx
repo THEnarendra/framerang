@@ -55,7 +55,12 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
               className="link"
               style={{ color: theme === "darkTheme" ? "white" : "black" }}
             >
-              <div>Shop</div>
+              
+              <div className="shop-container">Shop
+              <span className="arrow-icon">
+                <i className="fa-solid fa-caret-down"></i>
+              </span>
+              </div>
               {openCategory === "main" && (
               <div className="dropdown-container">
                 {categories.map((category) => (
@@ -63,9 +68,9 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
                     <Link
                       to={`/${category}`}
                       className="link text-white"
-                      // style={{
-                      //   color: theme === "darkTheme" ? "white" : "black",
-                      // }}
+                      style={{
+                        color: theme === "darkTheme" ? "white" : "black",
+                      }}
                     >
                       {category}
                     </Link>
@@ -76,9 +81,9 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
                             key={subcategory}
                             to={`/${category}/${subcategory}`}
                             className="link text-white"
-                            // style={{
-                            //   color: theme === "darkTheme" ? "white" : "black",
-                            // }}
+                            style={{
+                              color: theme === "darkTheme" ? "white" : "black",
+                            }}
                           >
                             {subcategory}
                           </Link>

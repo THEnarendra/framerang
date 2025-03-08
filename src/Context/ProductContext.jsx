@@ -11,22 +11,17 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
+    console.log("Fetching products...");
   }, []);
 
   const fetchProducts = async () => {
     try {
-      console.log("Fetching products...");
-
       const res = await axios.get(
         `https://framerang-backend.vercel.app/api/v1/allProducts`,
       );
-      console.log("Response0:", res);
       const response=res.data;
-      console.log("Response1:", response);
-      console.log("Response:", response.data);
       if (res.status === 201 && response.data.length > 0) {
         const allProducts = response.data;
-        console.log("Fetched products:", allProducts);
 
         setProducts(allProducts);
         setFilteredProducts(allProducts);
@@ -35,7 +30,6 @@ export const ProductProvider = ({ children }) => {
         console.warn("No products found or empty response");
       }
     } catch (error) {
-      console.log("Error fetching products:", error);
       console.error("Error fetching products:", error);
       if (error.response) {
         console.error("Response Status:", error.response.status);
@@ -69,6 +63,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   const filterByCategory = (category) => {
+    console.log("Filtering by category:", category);
     setFilteredProducts(
       category ? products.filter((p) => p.category === category) : products
     );

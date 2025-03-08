@@ -3,15 +3,12 @@ import Home_carousel from './Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
-
-
-// import home_video from '../images/home_video.webm';
-import home_video from '../images/home_video.gif';
 import Product_Slider from './Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+// import CategoryCarousel from './CategoryCarousel';
 
 const app_url = process.env.REACT_APP_API_URL;
 
@@ -140,6 +137,8 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       </Slider>
     </div>
 
+    {/* <CategoryCarousel/> */}
+
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
           <Col lg={6}>
@@ -188,11 +187,13 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
         </Row>
       ))}
 
-
+{/* Products Slider for Frames */}
       <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
         <h1 className='mb-4'>Our Best Selling Posters & Frames</h1>
         <Product_Slider setIsCartOpen={setIsCartOpen} products={products} category="poster" />
       </div>
+
+
       <div style={{ marginTop: "-7%" }} className='ms-4 me-1'>
         {details.filter((e) => e.sectionId == 6).map((data) => (
           <Row key={data.id} className="comboRow" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>

@@ -1,0 +1,36 @@
+.category-carousel {
+    text-align: center;
+    padding: 20px;
+}
+
+.category-carousel h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.category-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    transition: 0.3s;
+}
+
+.category-item img:hover {
+    border-color: #000;
+}
+
+.category-item p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}

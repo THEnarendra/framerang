@@ -16,6 +16,7 @@ import TermsOfService from './Terms&Conditions';
 import RefundPolicy from './RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
 import { ProductPage } from './Home/Product/ProductPage';
+import { useProducts } from './Context/ProductContext';
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -24,17 +25,13 @@ function ScrollToTop() {
   return null;
 }
 function App() {
+  const { categories, subcategories } = useProducts();
   const [theme, setTheme] = useState("darkTheme");
-  const [data, setData] = useState(null);
-  const [data1, setData1] = useState(null);
-  const [data2, setData2] = useState(null);
-  const [error, setError] = useState(null);
   const [footer, setFooter] = useState(true);
-  const [subposterCategory, setSubposterCategory] = useState();
-  const [subFrameCategory, setSubFrameCategory] = useState();
-  const [subComboCategory, setSubComboCategory] = useState();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [details, fetchDetails] = useState([]);
+
+
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
       .then((res) => {
@@ -56,8 +53,6 @@ function App() {
     getData();
     document.body.className = theme;
   }, [theme]);
-  const Poster_Section = details.filter((e) => e.sectionId == 4);
-  const Frame_Section = details.filter((e) => e.sectionId == 5);
 
 
   // useEffect(() => {
@@ -99,10 +94,9 @@ function App() {
         {isCartOpen && (<Cart setIsCartOpen={setIsCartOpen} />)}
         <Routes>
           <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
-          <Route path='/posters' element={<Posters setIsCartOpen={setIsCartOpen} details={Poster_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data1} subCategory={subposterCategory} />} />
-          <Route path='/frames' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data} subCategory={subFrameCategory} />} />
-          <Route path='/Combos' element={<Posters setIsCartOpen={setIsCartOpen} details={Frame_Section} setFooter={setFooter} theme={theme} setTheme={setTheme} img={data2} subCategory={subComboCategory} />} />
           <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/:category' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen}/>}/>
+          <Route path='/:category/:subCategory' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen}/>}/>
           <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/checkout' element={<CheckOut setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/Track' element={<Track setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
