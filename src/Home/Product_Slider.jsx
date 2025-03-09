@@ -54,6 +54,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       }
     ]
   };
+  // console.log(filteredProducts)
   return (
     <>
       <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>

@@ -8,6 +8,7 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+import { useProducts } from '../Context/ProductContext';
 // import CategoryCarousel from './CategoryCarousel';
 
 const app_url = process.env.REACT_APP_API_URL;
@@ -20,8 +21,16 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const detailsRef = useRef(null);
   const productsRef = useRef(null);
+  const [filteredFrames, setFilteredFrames] = useState([]);
 
-  console.log(app_url);
+  useEffect(() => {
+  if (products.length > 0) {
+    const frames = products
+      .filter(product => product.category.toLowerCase() === "frames")
+      .slice(0, 5);
+    setFilteredFrames(frames);
+  }
+}, [products]); 
 
   //Get all Sections Data
   const getData = () => {
@@ -59,6 +68,10 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
+
+  // const filteredFrames = products
+  // .filter(product => product.category === "Frames")
+  // .slice(0, 5); 
 
   useEffect(() => {
     if (!detailsRef.current) {
@@ -189,8 +202,9 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
 
 {/* Products Slider for Frames */}
       <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
-        <h1 className='mb-4'>Our Best Selling Posters & Frames</h1>
-        <Product_Slider setIsCartOpen={setIsCartOpen} products={products} category="poster" />
+        <h1 className='mb-4'>Our Best Selling Frames</h1>
+        {filteredFrames.length === 0 && <h3>No products found</h3>}
+        <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
       </div>
 
 

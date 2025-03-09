@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { toast, Toaster } from "react-hot-toast";
 export const Cart = ({ setIsCartOpen }) => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
+  // console.log(cart);
   return (
     <div className='cart011'>
       <div className="rightSide-cart">
@@ -35,17 +36,18 @@ export const Cart = ({ setIsCartOpen }) => {
       <div className="item-controls">
         <p>Rs. {item.selectedVariant ? item.selectedVariant.price : item.basePrice}</p>
         <div className="decrementQuantity mb-3">
-          <button className="incDec" onClick={() => decrementQuantity(item._id)}>
-            -
-          </button>
+        <button className="incDec" onClick={() => decrementQuantity(item._id, item.selectedVariant?.value)}>
+         -
+        </button>
           <span>{item.quantity}</span>
-          <button className="incDec" onClick={() => incrementQuantity(item._id)}>
-            +
+          <button className="incDec" onClick={() => incrementQuantity(item._id, item.selectedVariant?.value)}>
+           +
           </button>
         </div>
-        <button className="removeBtn mb-3" onClick={() => removeFromCart(item._id)}>
-          Remove
+        <button className="removeBtn mb-3" onClick={() => removeFromCart(item._id, item.selectedVariant?.value)}>
+           Remove
         </button>
+
       </div>
     </div>
   </div>
@@ -65,7 +67,6 @@ export const Cart = ({ setIsCartOpen }) => {
             }
             setIsCartOpen(false)
           }} >
-            
             <button className="checkout-button ms-2">Check out</button>
           </Link>
         </div>

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { toSlug, fromSlug } from "../utils/Slugify"; // ✅ Import helper functions
 
 const ProductContext = createContext();
 
@@ -11,15 +12,12 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
-    console.log("Fetching products...");
   }, []);
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(
-        `https://framerang-backend.vercel.app/api/v1/allProducts`,
-      );
-      const response=res.data;
+      const res = await axios.get(`https://framerang-backend.vercel.app/api/v1/allProducts`);
+      const response = res.data;
       if (res.status === 201 && response.data.length > 0) {
         const allProducts = response.data;
 
@@ -31,10 +29,6 @@ export const ProductProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Error fetching products:", error);
-      if (error.response) {
-        console.error("Response Status:", error.response.status);
-        console.error("Response Data:", error.response.data);
-      }
     }
   };
 
@@ -62,19 +56,16 @@ export const ProductProvider = ({ children }) => {
     );
   };
 
-  const filterByCategory = (category) => {
-    console.log("Filtering by category:", category);
-    setFilteredProducts(
-      category ? products.filter((p) => p.category === category) : products
-    );
+  const filterByCategory = (categorySlug) => {
+    const category = fromSlug(categorySlug); // ✅ Convert slug back to readable name
+    setFilteredProducts(products.filter((p) => p.category === category));
   };
 
-  const filterBySubcategory = (category, subCategory) => {
-    if (!category) return filterByCategory(null);
+  const filterBySubcategory = (categorySlug, subCategorySlug) => {
+    const category = fromSlug(categorySlug);
+    const subCategory = fromSlug(subCategorySlug);
     setFilteredProducts(
-      subCategory
-        ? products.filter((p) => p.category === category && p.subCategory === subCategory)
-        : products.filter((p) => p.category === category)
+      products.filter((p) => p.category === category && p.subCategory === subCategory)
     );
   };
 
@@ -87,6 +78,7 @@ export const ProductProvider = ({ children }) => {
         filteredProducts,
         filterByCategory,
         filterBySubcategory,
+        toSlug, // ✅ Exposing `toSlug` for UI usage
       }}
     >
       {children}

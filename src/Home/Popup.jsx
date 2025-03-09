@@ -7,21 +7,22 @@ import "../MainCss/Popup.css";
 import { useNavigate } from "react-router-dom";
 
 const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
+  // Disable interactions while loading
   useEffect(() => {
-    if (loading) {
-      document.body.style.opacity = "0.5";
-      document.body.style.pointerEvents = "none";
-    } else {
-      document.body.style.opacity = "1";
-      document.body.style.pointerEvents = "auto";
-    }
+    document.body.style.opacity = loading ? "0.5" : "1";
+    document.body.style.pointerEvents = loading ? "none" : "auto";
   }, [loading]);
+
+  // Stop loading when the cart updates
+  useEffect(() => {
+    if (loading) setLoading(false);
+  }, [cart]);
 
   return (
     <>
@@ -31,6 +32,7 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
         </div>
       )}
       <Toaster />
+
       {img
         ?.filter((e) => e._id === id)
         .map((data) => (
@@ -38,37 +40,16 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
             <span onClick={togglePopup} className="btPopup">
               ❌
             </span>
-            <Col
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-              lg={6}
-            >
-              <img
-                className="img12"
-                src={data.productImages[0]?.url}
-                alt="product"
-              />
+            <Col className="d-flex align-items-center flex-column justify-content-center" lg={6}>
+              <img className="img12" src={data.productImages[0]?.url} alt="product" />
             </Col>
-            <Col
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-              lg={6}
-            >
+            <Col className="d-flex flex-column justify-content-center" lg={6}>
               <span>Framerang</span>
               <h1>{data.productName}</h1>
-              {/* <span>Single pcs</span> */}
 
               {/* ✅ Show Price Based on Variants */}
               {data.hasVariants ? (
                 <>
-                  {/* <p>Size:</p> */}
                   <div>
                     {data.variants.map((variant) => (
                       <div key={variant._id} className="variant-group">
@@ -79,16 +60,9 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
                           {variant.options.map((option) => (
                             <button
                               key={option._id}
-                              className={`bt3 me-3 ${
-                                selectedVariant?.value === option.value
-                                  ? "selected"
-                                  : ""
-                              }`}
+                              className={`bt3 me-3 ${selectedVariant?.value === option.value ? "selected" : ""}`}
                               onClick={() => {
-                                setSelectedVariant({
-                                  ...option,
-                                  variantName: variant.variantName,
-                                });
+                                setSelectedVariant({ ...option, variantName: variant.variantName });
                                 setError(false);
                               }}
                             >
@@ -101,30 +75,22 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
                   </div>
                   {selectedVariant && (
                     <div className="mt-2">
-                      <span
-                        style={{
-                          textDecoration: "line-through",
-                          color: "gray",
-                        }}
-                      >
+                      <span style={{ textDecoration: "line-through", color: "gray" }}>
                         Rs. {selectedVariant.price.oldPrice}
                       </span>
                       &nbsp;&nbsp;&nbsp;
-                      <span style={{ fontSize: "22px" }}>
-                        Rs. {selectedVariant.price.newPrice}
-                      </span>
+                      <span style={{ fontSize: "22px" }}>Rs. {selectedVariant.price.newPrice}</span>
                     </div>
                   )}
-                  {error && (
-                    <p style={{ color: "red" }}>! Please Select Size First </p>
-                  )}
+                  {error && <p style={{ color: "red" }}>! Please Select Size First </p>}
                 </>
               ) : (
                 <div className="mt-2">
                   <span style={{ fontSize: "22px" }}>Rs. {data.basePrice}</span>
                 </div>
               )}
-<br />
+
+              <br />
               <div className="d-flex">
                 <button
                   onClick={() => {
@@ -132,32 +98,28 @@ const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
                       setError(true);
                     } else {
                       setLoading(true);
+                      addToCart({
+                        ...data,
+                        selectedVariant: selectedVariant
+                          ? {
+                              name: selectedVariant.variantName,
+                              value: selectedVariant.value,
+                              price: selectedVariant.price.newPrice,
+                            }
+                          : null,
+                      });
+
+                      toast.success("Product Added to Cart Successfully");
                       togglePopup();
-                      setIsCartOpen(true);
-                      setTimeout(() => {
-                        toast.success("Product Added to Cart Successfully");
-                        setLoading(false);
-                        addToCart({
-                          ...data,
-                          selectedVariant: selectedVariant
-                            ? {
-                                name: selectedVariant.variantName,
-                                value: selectedVariant.value,
-                                price: selectedVariant.price.newPrice,
-                              }
-                            : null,
-                        });
-                      }, 100);
                     }
                   }}
                   className="bt4"
+                  disabled={loading} // Disable while adding
                 >
-                  ADD TO CART
+                  {loading ? "Adding..." : "ADD TO CART"}
                 </button>
                 <button
-                  onClick={() =>
-                    navigate("/ProductPage", { state: { product: data } })
-                  }
+                  onClick={() => navigate("/ProductPage", { state: { product: data } })}
                   className="bt4 ms-2"
                 >
                   MORE DETAILS

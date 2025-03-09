@@ -32,10 +32,22 @@ const ProductCard = ({ img, setIsCartOpen }) => {
               <h4 className='creator ps-4 pe-4'>{img.productName}</h4>
             </div>
             <p>
-              <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>
-              &nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;
-              <span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span>
+              {img?.hasVariants ? (
+            <>
+              <span>Starting from:</span>&nbsp;&nbsp;
+              <span style={{ fontSize: "22px" }}>
+                Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
+              </span>
+            </>
+          ) : (
+              <>
+                <span>Price:</span>&nbsp;&nbsp;
+                <span style={{ fontSize: "22px" }}>Rs.{img.basePrice}</span>
+              </>
+            )}
             </p>
+
+
             <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
           </div>
         )}

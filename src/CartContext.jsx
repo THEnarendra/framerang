@@ -30,19 +30,31 @@ const CartProvider = ({ children }) => {
         });
     };
     
-    const removeFromCart = (productId, size) => {
-        setCart(cart.filter((item) => !(item._id === productId && item.Size === size)));
-    };
-    const incrementQuantity = (id) => {
-        setCart(cart.map(item =>
-            item._id === id ? { ...item, quantity: item.quantity + 1 } : item
-        ));
-    };
-    const decrementQuantity = (id) => {
-        setCart(cart.map(item =>
-            item._id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
-        ));
-    };
+    const removeFromCart = (productId, variantValue) => {
+        setCart(prevCart => 
+            prevCart.filter(item => 
+                !(item._id === productId && (item.selectedVariant?.value === variantValue || variantValue === undefined))
+            )
+        );
+    };      
+    const incrementQuantity = (productId, variantValue) => {
+        setCart(prevCart => 
+            prevCart.map(item =>
+                item._id === productId && (item.selectedVariant?.value === variantValue || variantValue === undefined)
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            )
+        );
+    };       
+    const decrementQuantity = (productId, variantValue) => {
+        setCart(prevCart =>
+            prevCart.map(item =>
+                item._id === productId && (item.selectedVariant?.value === variantValue || variantValue === undefined) && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        );
+    };    
     const getTotal = () => {
         return cart.reduce((total, item) => {
             // Use selectedVariant price if available, otherwise use base price

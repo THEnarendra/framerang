@@ -8,7 +8,7 @@ import { useProducts } from "../Context/ProductContext";
 
 const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
   const { cart } = useContext(CartContext);
-  const { categories, subcategories } = useProducts();
+  const { categories, subcategories, toSlug } = useProducts();
   const [isOpen, setIsOpen] = useState(true);
   const [openCategory, setOpenCategory] = useState(null);
 
@@ -19,20 +19,20 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
   return (
     <div>
       <Row className="navbar" style={{ marginTop: "1%" }}>
-        <Col lg={1} md={3} sm={2}>
+        <Col lg={3} md={3} sm={2}>
           <Link to="/" onClick={() => setIsOpen(true)}>
             <img className="image" src={logo} alt="logo" />
           </Link>
         </Col>
 
-        <Col lg={4} md={8} sm={8}>
+        {/* <Col lg={4} md={8} sm={8}>
           <input
             className="search"
             type="search"
             placeholder="Search Products"
             style={{ paddingLeft: 30 }}
           />
-        </Col>
+        </Col> */}
 
         <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <Link
@@ -58,7 +58,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
               
               <div className="shop-container">Shop
               <span className="arrow-icon">
-                <i className="fa-solid fa-caret-down"></i>
+                <i style={{color:"red"}} className="fa-solid fa-caret-down"></i>
               </span>
               </div>
               {openCategory === "main" && (
@@ -66,7 +66,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
                 {categories.map((category) => (
                   <div key={category.id} className="dropdown">
                     <Link
-                      to={`/${category}`}
+                      to={`/${toSlug(category)}`}
                       className="link text-white"
                       style={{
                         color: theme === "darkTheme" ? "white" : "black",
@@ -74,12 +74,12 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
                     >
                       {category}
                     </Link>
-                    <div className="dropdown-content">
+                    {/* <div className="dropdown-content">
                       {subcategories[category] &&
                         subcategories[category].map((subcategory) => (
                           <Link
                             key={subcategory}
-                            to={`/${category}/${subcategory}`}
+                            to={`/${toSlug(category)}/${toSlug(subcategory)}`}
                             className="link text-white"
                             style={{
                               color: theme === "darkTheme" ? "white" : "black",
@@ -88,7 +88,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
                             {subcategory}
                           </Link>
                         ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
@@ -124,7 +124,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             justifyContent: "end",
           }}
           className={isOpen ? "navMenu" : "navItems"}
-          lg={1}
+          lg={2}
         >
           <Link to="/notification" className="link">
             <i className="fa-solid fa-bell"></i>
