@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../MainCss/ProductCard.css';
+import '../MainCss/main.css';
 import Popup from './Popup';
 const Product_Slider = ({ products, setIsCartOpen }) => {
   const [id, setId] = useState()
@@ -10,6 +11,11 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
   const Pop = () => {
     setShowPopup(!showPopup);
   }
+
+  // const handleProductClick = (img) => {
+  //   navigate('/ProductPage', { state: { product: img } })
+  // }
+
   useEffect(() => {
     if (showPopup) {
       document.body.classList.add('modal-open');
@@ -60,12 +66,26 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>
         <Slider {...settings}>
           {
-            filteredProducts && filteredProducts.map((img) => (
+            products && products.map((img) => (
               <div className="nft" >
                 <div className='main' >
-                  <img className='image011' src={img.productImage.url} alt="image" />
-                  <h3 className='creator ps-4 pe-4'>{img.productName}</h3>
-                  <p> <span style={{ textDecoration: "line-through", color: "gray" }}>Rs.{img?.variant?.[0]?.oldPrice}</span>&nbsp;&nbsp;<span>From:</span>&nbsp;&nbsp;<span style={{ fontSize: "22px" }}>Rs.{img?.variant?.[0]?.newPrice}</span> </p>
+                  <img style={{ cursor: 'pointer' }} className='image011' src={img.productImages[0].url} alt="image" />
+                  <h3 style={{ cursor: 'pointer' }} className='creator ps-4 pe-4'>{img.productName}</h3>
+                  <p>
+              {img?.hasVariants ? (
+            <>
+              <span>Starting from:</span>&nbsp;&nbsp;
+              <span style={{ fontSize: "22px" }}>
+                Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
+              </span>
+            </>
+          ) : (
+              <>
+                <span>Price:</span>&nbsp;&nbsp;
+                <span style={{ fontSize: "22px" }}>Rs.{img.basePrice}</span>
+              </>
+            )}
+            </p>
                   <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
 
                 </div>
@@ -77,7 +97,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       </div>
       {showPopup === true &&
         <div className="modal-popup">
-          <Popup setIsCartOpen={setIsCartOpen} img={filteredProducts} id={id} togglePopup={Pop} />
+          <Popup setIsCartOpen={setIsCartOpen} img={products} id={id} togglePopup={Pop} />
         </div>
       }
     </>

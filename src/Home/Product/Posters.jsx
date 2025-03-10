@@ -6,10 +6,11 @@ import { useProducts } from "../../Context/ProductContext";
 import Loader from "../Loader";
 import { fromSlug } from "../../utils/Slugify"; 
 import '../../MainCss/Posters.css'
+import NotFoundPage from "../NotFoundPage";
 
 export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const { category, subCategory } = useParams();
-  const { products, subcategories, filterByCategory, filterBySubcategory} = useProducts();
+  const { categories, products, subcategories, filterByCategory, filterBySubcategory} = useProducts();
 
   const decodedCategory = fromSlug(category);
   const decodedSubCategory = subCategory ? fromSlug(subCategory) : "Select SubCategory";
@@ -46,6 +47,11 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
     setSelectedSubCategory(e.target.value);
   };
   const subCategoryList = subcategories[decodedCategory] ? [...subcategories[decodedCategory]] : [];
+
+
+  if (!categories.includes(decodedCategory)) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className="mb-5" style={{ marginTop: "72px", padding: "3%", textAlign: "center" }}>

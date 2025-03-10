@@ -32,6 +32,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   }
 }, [products]); 
 
+
   //Get all Sections Data
   const getData = () => {
     fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
@@ -140,6 +141,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   return (
     <div>
 
+{/* Hero Slider */}
     <div className="hero-slider-container">
       <Slider {...settings}>
         {images.map((image, index) => (
@@ -150,17 +152,18 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       </Slider>
     </div>
 
-    {/* <CategoryCarousel/> */}
+{/* <CategoryCarousel/> */}
 
+{/* Posters Section */}
       {details.filter((e) => e.sectionId == 1).map((data) => (
         <Row key={data.id}>
           <Col lg={6}>
             <Home_carousel img={data.images} />
           </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art</h1><br />
-            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.</h5>
-            <Link to="/frames">
+            <h1 className='firsth1'>Transform Your Space With Stunning Posters</h1><br />
+            <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Enhance your Space of Room / Study Room Walls with our stunning posters! Explore a wide variety of designs to elevate your walls and spark inspiration.</h5>
+            <Link to="/posters">
               <button className='bt1'>Our Posters</button>
             </Link>
           </Col>
@@ -185,6 +188,14 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
         </div>
       ))} */}
 
+{/* Products Slider for Frames */}
+      <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
+        <h1 className='mb-4'>Our Best Selling Frames</h1>
+        {filteredFrames.length === 0 && <h3>No products found</h3>}
+        <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
+      </div>
+
+{/* Frames Section */}
       {details.filter((e) => e.sectionId == 3).map((data) => (
         <Row key={data.id}>
           <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -193,19 +204,14 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
             <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.</h5>
-            <Link to="/posters">
-              <button className='bt1'>{data.buttonText}</button>
+            <Link to="/frames">
+              <button className='bt1'>Frames</button>
             </Link>
           </Col>
         </Row>
       ))}
 
-{/* Products Slider for Frames */}
-      <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
-        <h1 className='mb-4'>Our Best Selling Frames</h1>
-        {filteredFrames.length === 0 && <h3>No products found</h3>}
-        <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
-      </div>
+
 
 
       <div style={{ marginTop: "-7%" }} className='ms-4 me-1'>

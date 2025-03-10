@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Popup from '../Popup';
+
+
 const ProductCard = ({ img, setIsCartOpen }) => {
   const [id, setId] = useState();
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
   const Pop = () => {
     setShowPopup(!showPopup);
   };
+
   const handleProductClick = () => {
     navigate('/ProductPage', { state: { product: img } })
   }
+
   useEffect(() => {
     if (showPopup) {
       document.body.classList.add('modal-open');
@@ -46,8 +51,6 @@ const ProductCard = ({ img, setIsCartOpen }) => {
               </>
             )}
             </p>
-
-
             <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
           </div>
         )}
