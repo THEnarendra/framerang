@@ -10,7 +10,7 @@ import NotFoundPage from "../NotFoundPage";
 
 export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const { category, subCategory } = useParams();
-  const { categories, products, subcategories, filterByCategory, filterBySubcategory} = useProducts();
+  const { categories, products, subcategories, filterByCategory, filterBySubcategory } = useProducts();
 
   const decodedCategory = fromSlug(category);
   const decodedSubCategory = subCategory ? fromSlug(subCategory) : "Select SubCategory";
@@ -35,20 +35,33 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
     setTimeout(() => setLoading(false), 500);
   }, [category, subCategory]);
 
+  // **Reset selectedSubCategory when category changes**
   useEffect(() => {
+    setSelectedSubCategory(decodedSubCategory);
+  }, [category, subCategory]);
+
+  // **Update filtered images when products or category changes**
+  useEffect(() => {
+    if (!decodedCategory) return;
+
     if (selectedSubCategory === "Select SubCategory") {
       setFilteredImg(products.filter((p) => p.category === decodedCategory));
     } else {
-      setFilteredImg(products.filter((p) => p.category === decodedCategory && p.subCategory === selectedSubCategory));
+      setFilteredImg(
+        products.filter(
+          (p) => p.category === decodedCategory && p.subCategory === selectedSubCategory
+        )
+      );
     }
   }, [selectedSubCategory, products, category]);
 
   const handleSubCategoryChange = (e) => {
     setSelectedSubCategory(e.target.value);
   };
+
   const subCategoryList = subcategories[decodedCategory] ? [...subcategories[decodedCategory]] : [];
 
-
+  // **If category doesn't exist, show NotFoundPage**
   if (!categories.includes(decodedCategory)) {
     return <NotFoundPage />;
   }
@@ -63,18 +76,21 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
               value={selectedSubCategory} 
               onChange={handleSubCategoryChange} 
               className="Category_Row" 
-              style={{ color: theme === "darkTheme" ? "white" : "black" }}>
-                  <option value="Select SubCategory">All {category}</option>
-                    {subCategoryList.map((sub) => (
-                  <option key={sub} value={sub} className="Category">
-                    {sub}
-                  </option>
-                ))}
+              style={{ color: theme === "darkTheme" ? "white" : "black" }}
+            >
+              <option value="Select SubCategory">All {category}</option>
+              {subCategoryList.map((sub) => (
+                <option key={sub} value={sub} className="Category">
+                  {sub}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
-        {loading ? <Loader /> : filteredImg.length > 0 ? (
+        {loading ? (
+          <Loader />
+        ) : filteredImg.length > 0 ? (
           filteredImg.map((product) => (
             <Col style={{ padding: 6 }} lg={3} md={4} sm={12} key={product.id}>
               <ProductCard setIsCartOpen={setIsCartOpen} img={product} />
