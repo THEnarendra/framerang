@@ -33,7 +33,7 @@ function App() {
 
 
   const getData = () => {
-    fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
+    fetch(`${process.env.REACT_APP_API_URL}/allSectionContent`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

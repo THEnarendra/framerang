@@ -93,7 +93,7 @@ export const Customize = ({ setFooter }) => {
       });
     }
     const config = {
-      url: 'https://framerang-backend.vercel.app/api/v1/customPoster',
+      url: '${process.env.REACT_APP_API_URL}/customPoster',
       method: 'post',
       headers: {
         "Content-Type": "multipart/form-data",

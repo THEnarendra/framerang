@@ -101,7 +101,7 @@ const CheckOut = ({ setFooter, theme }) => {
     setLoading(true);
     try {
       setErrors('');
-      const response = await fetch(`https://framerang-backend.vercel.app/api/v1/checkout`, {
+      const response = await fetch(`http://localhost:5000/api/v1/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

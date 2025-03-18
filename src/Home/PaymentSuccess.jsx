@@ -11,7 +11,7 @@ const PaymentSuccess = () => {
   useEffect(() => {
     if (orderId) {
       // Fetch order details from the backend
-      fetch(`https://framerang-backend-git-main-thenarendras-projects.vercel.app/api/v1/orders/${orderId}`)
+      fetch(`${process.env.REACT_APP_API_URL}/orders/${orderId}`)
         .then((response) => response.json())
         .then((data) => {
           setOrder(data.order);

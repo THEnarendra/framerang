@@ -35,7 +35,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
 
   //Get all Sections Data
   const getData = () => {
-    fetch(`https://framerang-backend.vercel.app/api/v1/allSectionContent`)
+    fetch(`${app_url}/allSectionContent`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -53,7 +53,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   };
 
   const allProducts = () => {
-    fetch(`https://framerang-backend.vercel.app/api/v1/allProducts`)
+    fetch(`${app_url}/allProducts`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

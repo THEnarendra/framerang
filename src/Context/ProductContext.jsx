@@ -16,7 +16,7 @@ export const ProductProvider = ({ children }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`https://framerang-backend.vercel.app/api/v1/allProducts`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/allProducts`);
       const response = res.data;
       if (res.status === 201 && response.data.length > 0) {
         const allProducts = response.data;

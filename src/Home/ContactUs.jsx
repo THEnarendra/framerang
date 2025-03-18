@@ -48,7 +48,7 @@ const ContactUs = ({ setFooter }) => {
     e.preventDefault();
     if (validation()) {
       setLoading(true)
-      const response = await fetch('https://framerang-backend.vercel.app/api/v1/contactUs', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/contactUs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
