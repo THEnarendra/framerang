@@ -13,6 +13,9 @@ import { useProducts } from '../Context/ProductContext';
 
 const app_url = process.env.REACT_APP_API_URL;
 
+// console.log("appurl");
+// console.log(app_url);
+
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
   const [details, setDetails] = useState([]);
