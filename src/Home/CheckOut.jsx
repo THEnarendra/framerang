@@ -6,6 +6,8 @@ import { toast, Toaster } from "react-hot-toast";
 import Loader from './Loader';
 import { load } from "@cashfreepayments/cashfree-js";
 
+const app_url=process.env.REACT_APP_API_URL;
+
 const CheckOut = ({ setFooter, theme }) => {
   const { cart, getTotal } = useContext(CartContext);
   const [errors, setErrors] = useState({});
@@ -101,7 +103,7 @@ const CheckOut = ({ setFooter, theme }) => {
     setLoading(true);
     try {
       setErrors('');
-      const response = await fetch(`http://localhost:5000/api/v1/checkout`, {
+      const response = await fetch(`${app_url}/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

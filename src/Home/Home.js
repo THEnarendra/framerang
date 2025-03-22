@@ -9,12 +9,9 @@ import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { useProducts } from '../Context/ProductContext';
-// import CategoryCarousel from './CategoryCarousel';
 
 const app_url = process.env.REACT_APP_API_URL;
 
-// console.log("appurl");
-// console.log(app_url);
 
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   setFooter(true);
