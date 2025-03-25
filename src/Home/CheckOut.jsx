@@ -103,7 +103,7 @@ const CheckOut = ({ setFooter, theme }) => {
     setLoading(true);
     try {
       setErrors('');
-      const response = await fetch(`http://localhost:5000/api/v1/checkout`, {
+      const response = await fetch(`${app_url}/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
