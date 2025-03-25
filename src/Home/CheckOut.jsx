@@ -45,7 +45,7 @@ const CheckOut = ({ setFooter, theme }) => {
     selectedVariants: user.selectedVariant ? [{
       variantName: user.selectedVariant.name,
       value: user.selectedVariant.value,
-      quantity: user.selectedVariant.quantity || 1,
+      quantity: user.quantity,
     }] : [],
     quantity: user.quantity,
   }));
@@ -103,7 +103,7 @@ const CheckOut = ({ setFooter, theme }) => {
     setLoading(true);
     try {
       setErrors('');
-      const response = await fetch(`${app_url}/checkout`, {
+      const response = await fetch(`http://localhost:5000/api/v1/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
