@@ -45,7 +45,8 @@ const CheckOut = ({ setFooter, theme }) => {
     selectedVariants: user.selectedVariant ? [{
       variantName: user.selectedVariant.name,
       value: user.selectedVariant.value,
-      quantity: user.quantity,
+      price: user.selectedVariant.price,
+      quantity: user.quantity || 1,
     }] : [],
     quantity: user.quantity,
   }));
@@ -157,6 +158,7 @@ const CheckOut = ({ setFooter, theme }) => {
       setLoading(false);
     }
   };
+
 
   useEffect(() => {
     if (loading) {
