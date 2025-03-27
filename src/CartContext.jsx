@@ -57,7 +57,6 @@ const CartProvider = ({ children }) => {
     };    
     const getTotal = () => {
         return cart.reduce((total, item) => {
-            // Use selectedVariant price if available, otherwise use base price
             const itemPrice = item.selectedVariant ? item.selectedVariant.price : item.basePrice;
             return total + itemPrice * item.quantity;
         }, 0);
