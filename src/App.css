@@ -11,50 +11,71 @@
   overflow-x: hidden;
 }
 
-/* Remove all arrow backgrounds and styling */
-.slick-prev, 
+/* Arrow container adjustments */
+.slick-prev,
 .slick-next {
-  width: auto;
-  height: auto;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+    width: 25px;
+    height: 25px;
+    z-index: 1;
+    border-radius: 50%;
 }
 
-/* Position arrows */
 .slick-prev {
-  left: 0 !important;
+    left: 5px !important;
 }
 
 .slick-next {
-  right: 0 !important;
+    right: 5px !important;
 }
 
-/* Pure text arrows */
 .slick-prev:before,
 .slick-next:before {
-  content: ''; /* Clear default content */
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  color: #888;
-  font-weight: bold;
+    font-size: 20px;
+    color: rgb(255, 132, 132) !important;
+    opacity: 1 !important;
 }
 
-.slick-prev:before {
-  content: '<';
+/* Ensure both arrows are visible */
+.slick-disabled {
+    opacity: 0.5 !important;
+    display: block !important;
 }
 
-.slick-next:before {
-  content: '>';
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .category-carousel-container {
+        padding: 0 25px; /* Add padding to prevent arrows from going outside */
+    }
+    
+    .slick-prev,
+    .slick-next {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 16px;
+    }
+    
+    .slick-prev {
+        left: 0 !important;
+    }
+    
+    .slick-next {
+        right: 0 !important;
+    }
 }
 
-/* Hover state */
-.slick-prev:hover:before,
-.slick-next:hover:before {
-  color: #555;
-}
-
-/* Disabled state */
-.slick-disabled:before {
-  opacity: 0.3;
+@media (max-width: 480px) {
+    .slick-prev,
+    .slick-next {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 14px;
+    }
 }

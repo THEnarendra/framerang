@@ -14,14 +14,35 @@ const CategoryCarousel = () => {
     const settings = {
         infinite: true,
         slidesToShow: Math.min(6, categories.length),
-        slidesToScroll: 2,
+        slidesToScroll: 3,
         autoplay: true,
         speed: 1000,
         autoplaySpeed: 3000,
+        arrows: true,
+        dots: false,
         responsive: [
-            { breakpoint: 1024, settings: { slidesToShow: Math.min(5, categories.length) } },
-            { breakpoint: 768, settings: { slidesToShow: Math.min(4, categories.length) } },
-            { breakpoint: 480, settings: { slidesToShow: Math.min(3, categories.length) } },
+            { 
+                breakpoint: 1024, 
+                settings: { 
+                    slidesToShow: Math.min(5, categories.length),
+                    arrows: true
+                } 
+            },
+            { 
+                breakpoint: 768, 
+                settings: { 
+                    slidesToShow: Math.min(4, categories.length),
+                    arrows: true
+                } 
+            },
+            { 
+                breakpoint: 480, 
+                settings: { 
+                    slidesToShow: Math.min(3, categories.length),
+                    arrows: true,
+                    slidesToScroll: 2
+                } 
+            },
         ],
     };
 
