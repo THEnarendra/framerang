@@ -54,23 +54,28 @@ const CategoryCarousel = () => {
                 <Slider {...settings}>
                     {categories.map((category) => (
                         <div key={category} className="category-slide">
-                            <Link 
-                                to={`/${toSlug(category)}`} 
-                                className="category-item"
-                            >
-                                <div className="category-image-container">
-                                    <img 
-                                        src={getCategoryImage(category)} 
-                                        alt={category}
-                                        className="category-image"
-                                        onError={(e) => {
-                                            e.target.onerror = null; 
-                                            e.target.src = 'https://res.cloudinary.com/your-account/image/upload/v1/default-category.jpg';
-                                        }}
-                                    />
+                            <div className="category-item">
+                                <div className="category-image-wrapper">
+                                    <Link to={`/${toSlug(category)}`} className="category-image-link">
+                                        <div className="category-image-container">
+                                            <img 
+                                                src={getCategoryImage(category)} 
+                                                alt={category}
+                                                className="category-image"
+                                                onError={(e) => {
+                                                    e.target.onerror = null; 
+                                                    e.target.src = 'https://res.cloudinary.com/your-account/image/upload/v1/default-category.jpg';
+                                                }}
+                                            />
+                                        </div>
+                                    </Link>
                                 </div>
-                                <p className="category-name">{category}</p>
-                            </Link>
+                                <div className="category-text-wrapper">
+                                    <Link to={`/${toSlug(category)}`} className="category-name-link">
+                                        <p className="category-name">{category}</p>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </Slider>
