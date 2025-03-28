@@ -192,7 +192,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       ))} */}
 
 {/* Products Slider for Frames */}
-      <div className='posters-swiper' style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
+      <div className='posters-swiper'>
         <h1 className='mb-4'>Our Best Selling Frames</h1>
         {filteredFrames.length === 0 && <h3>No products found</h3>}
         <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
