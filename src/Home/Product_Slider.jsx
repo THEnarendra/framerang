@@ -12,9 +12,6 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
     setShowPopup(!showPopup);
   }
 
-  // const handleProductClick = (img) => {
-  //   navigate('/ProductPage', { state: { product: img } })
-  // }
 
   useEffect(() => {
     if (showPopup) {

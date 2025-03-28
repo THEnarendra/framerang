@@ -15,11 +15,23 @@
 
 @media screen and (max-width:451px) {
   .swiper-slide1 img {
-    height: 85vw;
+    height: 70vw;
   }
 
   .swiper-slide1 {
     margin-top: 10%;
     margin-bottom: 10%;
+  }
+
+  .details-carousel{
+    text-align: center;
+  }
+  .details-carousel h1{
+    font-size: 1.8rem;
+  }
+
+  .details-carousel h5{
+    font-size: 1rem;
+    margin-top: -20px;
   }
 }

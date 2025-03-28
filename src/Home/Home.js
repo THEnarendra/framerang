@@ -171,7 +171,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             </Link>
           </Col>
         </Row>
-      ))}
+      ))} 
 
  {/* Customize Poster */}
       {/* {details.filter((e) => e.sectionId == 2).map((data) => (
@@ -192,7 +192,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       ))} */}
 
 {/* Products Slider for Frames */}
-      <div style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
+      <div className='posters-swiper' style={{ textAlign: "center", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
         <h1 className='mb-4'>Our Best Selling Frames</h1>
         {filteredFrames.length === 0 && <h3>No products found</h3>}
         <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
@@ -219,11 +219,11 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
 {/* Frames Section */}
       {details.filter((e) => e.sectionId == 3).map((data) => (
         <Row key={data.id}>
-          <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Col className='frames-section-swiper'>
             <Home_Swiper img={data.images} />
           </Col>
-          <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>Brighten Your Walls With Unforgettable Art</h1><br />
+          <Col className='frames-section-content' lg={6}>
+            <h1>Brighten Your Walls With Unforgettable Art</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.</h5>
             <Link to="/frames">
               <button className='bt1'>Frames</button>

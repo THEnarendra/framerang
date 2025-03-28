@@ -1,6 +1,3 @@
-.firsth1 {
-  font-size: 40px;
-}
 
 .details-carousel{
   background-color: #0e0e0e;
@@ -569,19 +566,33 @@ header .count {
   margin: 0;
 }
 
+.frames-section-swiper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frames-section-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 4%;
+}
+
+
 /* Responsive adjustments */
-@media (max-width: 992px) {
-  .value-props .col {
-    flex: 0 0 50%; /* 2 items per row on tablet */
-    margin-bottom: 10px;
+@media (max-width: 426px) {
+  .frames-section-content{
+    text-align: center;
+  }
+  .frames-section-content h1{
+    font-size: 1.8rem;
+  }
+  .frames-section-content h5{
+    font-size: .8rem;
+    margin-top: -20px;
   }
 }
 
-@media (max-width: 576px) {
-  .value-props .col {
-    flex: 0 0 100%; /* 1 item per row on mobile */
-  }
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -592,38 +603,6 @@ header .count {
 }
 
 @media (max-width: 576px) {
-  .value-props .col {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  
-  .value-prop {
-    max-width: 300px;
-    margin: 10px auto;
-  }
-}
-
-
-@media all and (max-width: 599px) {
-  .thumbnail img {
-    display: none;
-  }
-  
-  .quantity > input {
-    width: 40px;
-    height: 40px;
-    left: calc(50% - 20px);
-  }
-  
-  .remove svg {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media all and (min-width: 600px) {
- 
-
   .thumbnail, .detail {
     float: left;
   }
@@ -647,13 +626,43 @@ header .count {
   .checkout, .summary {
     text-align: right;
   }
+
+  .thumbnail img {
+    display: none;
+  }
+  
+  .quantity > input {
+    width: 40px;
+    height: 40px;
+    left: calc(50% - 20px);
+  }
+  
+  .remove svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .value-props .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .value-prop {
+    max-width: 300px;
+    margin: 10px auto;
+  }
 }
 
 @media all and (min-width: 992px) {
   html {
     font-size: 16px;
   }
+  .value-props .col {
+    flex: 0 0 50%; /* 2 items per row on tablet */
+    margin-bottom: 10px;
+  }
 }
+
 .comboRow{
  padding: 4%;
  z-index: -999;

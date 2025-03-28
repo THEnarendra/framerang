@@ -12,6 +12,7 @@
   color: black;
 
   .main {
+    
     display: flex;
     flex-direction: column;
     display: flex;
@@ -58,3 +59,9 @@
   font-size: 18px;
   margin-top: 8px;
 }
+
+/* @media screen and (max-width: 450px) {
+  .nft{
+    height: 50px;
+  }
+} */
