@@ -1,36 +1,116 @@
-.category-carousel {
+/* Main Container */
+.category-carousel-container {
+    padding: .5rem 0;
+    margin: 1rem auto;
+    max-width: 1200px;
+    margin-bottom: 0px;
+}
+.below-line {
+    width: 70px;  
+    background-color: red;
+    margin: 10px auto; 
+    border-radius: 5px; 
+    border: none; 
+}
+.category-carousel-title {
     text-align: center;
-    padding: 20px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
 }
 
-.category-carousel h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+/* Slider Wrapper */
+.category-slider-wrapper {
+    padding: 0 10px;
+}
+
+/* Individual Slides */
+.category-slide {
+    padding: 0 2px !important; /* Reduced spacing between items */
+    outline: none;
 }
 
 .category-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 1rem;
     text-decoration: none;
-    color: black;
+    display: block;
+    text-align: center;
 }
 
-.category-item img {
-    width: 80px;
-    height: 80px;
+/* Image Container */
+.category-image-container {
+    width: 150px; 
+    height: 150px; 
     border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 8px; /* Reduced bottom margin */
+    border: 2px solid #eee;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.category-item:hover .category-image-container {
+    transform: scale(1.05);
+    border-color: red;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 2px solid #ddd;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
 }
 
-.category-item img:hover {
-    border-color: #000;
-}
-
-.category-item p {
-    margin-top: 8px;
-    font-size: 0.9rem;
+/* Category Name */
+.category-name {
+    font-size: 1.3rem;
+    color: #8f8f8f;
+    margin: 0;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* No Categories Message */
+.no-categories-message {
+    text-align: center;
+    color: #666;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .category-carousel-container {
+        padding: 0.5rem 0;
+    }
+    
+    .category-carousel-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .category-image-container {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .category-name {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-image-container {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .category-slide {
+        padding: 0 3px !important;
+    }
+    
+    .category-carousel-title {
+        font-size: 1.2rem;
+    }
 }

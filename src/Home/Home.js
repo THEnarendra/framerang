@@ -9,6 +9,8 @@ import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { useProducts } from '../Context/ProductContext';
+import CategoryCarousel from './CategoryCarousel';
+import TestimonialSlider from './TestimonialSlider/TestimonialSlider';
 
 const app_url = process.env.REACT_APP_API_URL;
 
@@ -141,7 +143,8 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
     <div>
 
 {/* Hero Slider */}
-    <div className="hero-slider-container">
+    <div className="hero-slider-wrapper">
+      <div className="hero-slider-wrapper-container">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
@@ -149,13 +152,14 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           </div>
         ))}
       </Slider>
+      </div>
     </div>
 
-{/* <CategoryCarousel/> */}
+<CategoryCarousel/>
 
 {/* Posters Section */}
       {details.filter((e) => e.sectionId == 1).map((data) => (
-        <Row key={data.id}>
+        <Row key={data.id} className='details-carousel mx-0 my-5'>
           <Col lg={6}>
             <Home_carousel img={data.images} />
           </Col>
@@ -194,6 +198,24 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
         <Product_Slider setIsCartOpen={setIsCartOpen} products={filteredFrames} />
       </div>
 
+{/* Value Propositions Section */}
+    <div className="value-props" data-aos="fade-up">
+      <Row className="justify-content-center">
+        {[
+          {icon: 'fa-truck-fast', title: 'Free Shipping', text: 'On all orders over $50'},
+          {icon: 'fa-shield-halved', title: '2-Year Warranty', text: 'Quality guaranteed'},
+          {icon: 'fa-credit-card', title: 'Secure Payment', text: '100% secure checkout'},
+          {icon: 'fa-headset', title: '24/7 Support', text: 'Dedicated support'}
+        ].map((item, i) => (
+          <Col md={3} sm={6} key={i} className="value-prop">
+            <i className={`fa-solid ${item.icon}`}></i>
+            <h5>{item.title}</h5>
+            <p>{item.text}</p>
+          </Col>
+        ))}
+      </Row>
+    </div>
+
 {/* Frames Section */}
       {details.filter((e) => e.sectionId == 3).map((data) => (
         <Row key={data.id}>
@@ -211,9 +233,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       ))}
 
 
-
-
-      <div style={{ marginTop: "-7%" }} className='ms-4 me-1'>
+      {/* <div style={{ marginTop: "-7%" }} className='ms-4 me-1'>
         {details.filter((e) => e.sectionId == 6).map((data) => (
           <Row key={data.id} className="comboRow" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <Col lg={6} sm={12}>
@@ -231,7 +251,11 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             </Col>
           </Row>
         ))}
-      </div>
+      </div> */}
+
+{/* Testimonials */}
+<TestimonialSlider theme={theme} />
+
     </div>
   );
 };

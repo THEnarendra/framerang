@@ -1,3 +1,4 @@
+
 .darkTheme{
   background-color: black;
   color: white;
@@ -8,4 +9,52 @@
   background-color: white;
   color: black;
   overflow-x: hidden;
+}
+
+/* Remove all arrow backgrounds and styling */
+.slick-prev, 
+.slick-next {
+  width: auto;
+  height: auto;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Position arrows */
+.slick-prev {
+  left: 0 !important;
+}
+
+.slick-next {
+  right: 0 !important;
+}
+
+/* Pure text arrows */
+.slick-prev:before,
+.slick-next:before {
+  content: ''; /* Clear default content */
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #888;
+  font-weight: bold;
+}
+
+.slick-prev:before {
+  content: '<';
+}
+
+.slick-next:before {
+  content: '>';
+}
+
+/* Hover state */
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: #555;
+}
+
+/* Disabled state */
+.slick-disabled:before {
+  opacity: 0.3;
 }
