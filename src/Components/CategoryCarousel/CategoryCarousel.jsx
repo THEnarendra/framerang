@@ -3,10 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import "../MainCss/CategoryCarousel.css";
-import { useProducts } from "../Context/ProductContext";
-import { getCategoryImage } from "./CategoryImages"; 
-import { toSlug } from "../utils/Slugify"; 
+import "./CategoryCarousel.css";
+import { useProducts } from "../../Context/ProductContext";
+import { getCategoryImage } from "../../Home/CategoryImages"; 
+import { toSlug } from "../../utils/Slugify"; 
 
 const CategoryCarousel = () => {
     const { categories = [] } = useProducts();

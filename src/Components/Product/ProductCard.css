@@ -1,9 +1,9 @@
 .nft {
   user-select: none;
-  width: 97% !important;
+  width: 95% !important;
   margin: 0.25rem auto;
   border: 1px solid #ffffff22;
-  background-image: url("../images/bg1.jpg");
+  background-image: url("../../images//bg1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: .7rem;
@@ -12,7 +12,6 @@
   color: black;
 
   .main {
-    
     display: flex;
     flex-direction: column;
     display: flex;
@@ -31,11 +30,14 @@
     width: 80%;
   }
 
+  .product-card-price{
+    font-size: 1.5rem;
+  }
+
   ::before {
     position: fixed;
     content: "";
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
     top: -10%;
     left: -100%;
     transform: rotate(-45deg);
@@ -58,10 +60,25 @@
 .creator {
   font-size: 18px;
   margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4em;
+  min-height: 4.2em; /* 3 lines */
 }
 
-/* @media screen and (max-width: 450px) {
-  .nft{
-    height: 50px;
+@media screen and (max-width: 450px) {
+  /* .nft{
+    background-color: red;
+  } */
+  .creator{
+    font-size: 1rem;
+    -webkit-line-clamp: 2;
+    min-height: 2.8em; /* 2 lines */
   }
-} */
+  .product-card-price{
+    font-size: .5rem;
+  }
+}

@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import '../MainCss/ContactUs.css'
 import logo from "../images/2.png"
 import { toast, Toaster } from "react-hot-toast";
-import Loader from './Loader';
+import Loader from '../Components/Loader/Loader';
 const ContactUs = ({ setFooter }) => {
   setFooter(false)
   const [firstname, setFirstname] = useState("");

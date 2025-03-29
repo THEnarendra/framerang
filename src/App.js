@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
-import Navbar from './Header_Footer/Navbar';
-import Footer from './Header_Footer/Footer';
+import Navbar from './Components/Header_Footer/Navbar';
+import Footer from './Components/Header_Footer/Footer';
 import { Home } from './Home/Home';
 import { useEffect, useState } from 'react';
-import { Posters } from './Home/Product/Posters';
+import { Posters } from './Components/Product/Posters';
 import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
-import { Customize } from './Home/Product/Customizeposters';
+import { Customize } from './Components/Product/Customizeposters';
 import CheckOut from './Home/CheckOut';
 import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
@@ -15,7 +15,7 @@ import PolicyPage from './Home/PolicyPage';
 import TermsOfService from './Terms&Conditions';
 import RefundPolicy from './RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
-import { ProductPage } from './Home/Product/ProductPage';
+import { ProductPage } from './Components/Product/ProductPage';
 import { useProducts } from './Context/ProductContext';
 function ScrollToTop() {
   const { pathname } = useLocation();

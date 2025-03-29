@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios'
 import { toast, Toaster } from "react-hot-toast";
-import Loader from "../Loader";
+import Loader from "../Loader/Loader";
 import { CartContext } from "../../CartContext";
 import { Alert } from "react-bootstrap";
 

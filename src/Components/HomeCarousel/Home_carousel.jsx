@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import '../MainCss/Carousel.css';
+import './Carousel.css';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 export default function Home_carousel({ img }) {
   return (

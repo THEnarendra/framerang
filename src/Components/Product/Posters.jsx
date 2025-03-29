@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import ProductCard from "./ProductCard";
 import { useProducts } from "../../Context/ProductContext";
-import Loader from "../Loader";
+import Loader from "../Loader/Loader";
 import { fromSlug } from "../../utils/Slugify"; 
 import '../../MainCss/Posters.css'
 import NotFoundPage from "../NotFoundPage";
@@ -92,7 +92,7 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
           <Loader />
         ) : filteredImg.length > 0 ? (
           filteredImg.map((product) => (
-            <Col style={{ padding: 6 }} lg={3} md={4} sm={12} key={product.id}>
+            <Col style={{ padding: 6 }} lg={3} md={4} sm={12} xs={6} key={product.id}>
               <ProductCard setIsCartOpen={setIsCartOpen} img={product} />
             </Col>
           ))

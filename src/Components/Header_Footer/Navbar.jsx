@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Dropdown } from "react-bootstrap";
-import "../MainCss/Navbar.css";
-import logo from "../images/2.png";
-import { CartContext } from "../CartContext";
-import { useProducts } from "../Context/ProductContext";
+import "./Navbar.css";
+import logo from "../../images/2.png";
+import { CartContext } from "../../CartContext";
+import { useProducts } from "../../Context/ProductContext";
 
 const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
   const { cart } = useContext(CartContext);

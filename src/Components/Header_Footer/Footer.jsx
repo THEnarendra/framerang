@@ -1,6 +1,6 @@
 import React from 'react';
-import "../MainCss/Footer.css";
-import logo from '../images/2.png'
+import "./Footer.css";
+import logo from '../../images/2.png'
 import { Link } from 'react-router-dom';
 const Bubble = () => {
   const bubbleElements = [];

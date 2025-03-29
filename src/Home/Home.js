@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Home_carousel from './Home_carousel';
+import Home_carousel from '../Components/HomeCarousel/Home_carousel';
 import { Col, Row } from 'react-bootstrap';
 import "../MainCss/main.css";
 import { Home_Swiper } from './Home_Swiper';
-import Product_Slider from './Product_Slider';
+import Product_Slider from '../Components/ProductSlider/Product_Slider';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { useProducts } from '../Context/ProductContext';
-import CategoryCarousel from './CategoryCarousel';
-import TestimonialSlider from './TestimonialSlider/TestimonialSlider';
+import CategoryCarousel from '../Components/CategoryCarousel/CategoryCarousel';
+import TestimonialSlider from '../Components/TestimonialSlider/TestimonialSlider';
 
 const app_url = process.env.REACT_APP_API_URL;
 

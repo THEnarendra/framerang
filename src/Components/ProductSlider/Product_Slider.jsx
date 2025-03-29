@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../MainCss/ProductCard.css';
-import '../MainCss/main.css';
-import Popup from './Popup';
+import '../Product/ProductCard.css';
+import './ProductSlider.css';
+import Popup from '../Popup/Popup';
 const Product_Slider = ({ products, setIsCartOpen }) => {
   const [id, setId] = useState()
   const [showPopup, setShowPopup] = useState(false);
   const Pop = () => {
     setShowPopup(!showPopup);
   }
-
 
   useEffect(() => {
     if (showPopup) {
@@ -51,7 +50,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       }
@@ -60,7 +59,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
   // console.log(filteredProducts)
   return (
     <>
-      <div className='ps-3 pe-3' style={{ width: "80vw", border: "1px solid gray", borderRadius: 7 }}>
+      <div className='ps-3 pe-3 product-slider-container'>
         <Slider {...settings}>
           {
             products && products.map((img) => (
@@ -72,14 +71,14 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
               {img?.hasVariants ? (
             <>
               <span>Starting from:</span>&nbsp;&nbsp;
-              <span style={{ fontSize: "22px" }}>
+              <span className='product-card-price'>
                 Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
               </span>
             </>
           ) : (
               <>
                 <span>Price:</span>&nbsp;&nbsp;
-                <span style={{ fontSize: "22px" }}>Rs.{img.basePrice}</span>
+                <span className='product-card-price'>Rs.{img.basePrice}</span>
               </>
             )}
             </p>

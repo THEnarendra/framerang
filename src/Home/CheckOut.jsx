@@ -3,7 +3,7 @@ import '../MainCss/checkout.css';
 import { Col, Row } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
 import { toast, Toaster } from "react-hot-toast";
-import Loader from './Loader';
+import Loader from '../Components/Loader/Loader';
 import { load } from "@cashfreepayments/cashfree-js";
 
 const app_url=process.env.REACT_APP_API_URL;

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { CartContext } from "../CartContext";
+import { CartContext } from "../../CartContext";
 import { toast, Toaster } from "react-hot-toast";
-import Loader from "./Loader";
-import "../MainCss/Popup.css";
+import Loader from "../Loader/Loader";
+import "./Popup.css";
 import { useNavigate } from "react-router-dom";
 
 const Popup = ({ togglePopup, id, img, setIsCartOpen }) => {
