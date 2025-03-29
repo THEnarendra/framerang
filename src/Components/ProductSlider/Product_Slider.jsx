@@ -71,6 +71,7 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
               {img?.hasVariants ? (
             <>
               <span>Starting from:</span>&nbsp;&nbsp;
+              <br />
               <span className='product-card-price'>
                 Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
               </span>

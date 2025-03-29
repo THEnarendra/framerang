@@ -5,25 +5,24 @@ import 'slick-carousel/slick/slick-theme.css';
 import './TestimonialSlider.css'
 
 const TestimonialSlider = ({ theme }) => {
-  // Dummy testimonials data
   const testimonials = [
     {
       text: "These posters transformed my living room! The quality exceeded my expectations and delivery was super fast.",
-      name: "Sarah Johnson",
-      location: "New York, USA",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+      name: "Sandeep",
+      location: "Mumbai, India",
+      avatar: "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png"
     },
     {
       text: "The frames are absolutely stunning. I've received so many compliments from guests about my gallery wall.",
-      name: "Michael Chen",
-      location: "Toronto, Canada",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+      name: "Manisha",
+      location: "UP",
+      avatar: "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png"
     },
     {
       text: "Excellent customer service and beautiful products. Will definitely be ordering more for my office space!",
-      name: "Emma Williams",
-      location: "London, UK",
-      avatar: "https://randomuser.me/api/portraits/women/63.jpg"
+      name: "Vikas Roy",
+      location: "Raipur",
+      avatar: "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png"
     }
   ];
 

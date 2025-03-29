@@ -60,6 +60,7 @@ const ProductCard = ({ img, setIsCartOpen }) => {
                 {img?.hasVariants ? (
                   <>
                     <span>Starting from: </span>
+                    <br />
                     <span className='product-card-price'>
                       Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
                     </span>

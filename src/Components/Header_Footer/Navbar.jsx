@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Dropdown } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "./Navbar.css";
 import logo from "../../images/2.png";
 import { CartContext } from "../../CartContext";
@@ -25,15 +25,6 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           </Link>
         </Col>
 
-        {/* <Col lg={4} md={8} sm={8}>
-          <input
-            className="search"
-            type="search"
-            placeholder="Search Products"
-            style={{ paddingLeft: 30 }}
-          />
-        </Col> */}
-
         <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <Link
             to="/"
@@ -55,44 +46,29 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
               className="link"
               style={{ color: theme === "darkTheme" ? "white" : "black" }}
             >
-              
-              <div className="shop-container">Shop
-              <span className="arrow-icon">
-                <i style={{color:"red"}} className="fa-solid fa-caret-down"></i>
-              </span>
+              <div className="shop-container">
+                Shop
+                <span className="arrow-icon">
+                  <i style={{color:"red"}} className="fa-solid fa-caret-down"></i>
+                </span>
               </div>
               {openCategory === "main" && (
-              <div className="dropdown-container">
-                {categories.map((category) => (
-                  <div key={category.id} className="dropdown">
-                    <Link
-                      to={`/${toSlug(category)}`}
-                      className="link text-white"
-                      style={{
-                        color: theme === "darkTheme" ? "white" : "black",
-                      }}
-                    >
-                      {category}
-                    </Link>
-                    {/* <div className="dropdown-content">
-                      {subcategories[category] &&
-                        subcategories[category].map((subcategory) => (
-                          <Link
-                            key={subcategory}
-                            to={`/${toSlug(category)}/${toSlug(subcategory)}`}
-                            className="link text-white"
-                            style={{
-                              color: theme === "darkTheme" ? "white" : "black",
-                            }}
-                          >
-                            {subcategory}
-                          </Link>
-                        ))}
-                    </div> */}
-                  </div>
-                ))}
-              </div>
-             )}
+                <div className="dropdown-container">
+                  {categories.map((category) => (
+                    <div key={category.id} className="dropdown">
+                      <Link
+                        to={`/${toSlug(category)}`}
+                        className="link text-white"
+                        style={{
+                          color: theme === "darkTheme" ? "white" : "black",
+                        }}
+                      >
+                        {category}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
             </Link>
           </div>
         </Col>
@@ -122,6 +98,8 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "end",
+            alignItems: "center",
+            gap: "20px"
           }}
           className={isOpen ? "navMenu" : "navItems"}
           lg={2}
@@ -129,18 +107,19 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           <Link to="/notification" className="link">
             <i className="fa-solid fa-bell"></i>
           </Link>
-          <span onClick={() => setIsCartOpen(true)} className="cart-badge">
-            {cart?.length ? cart.length : ""}
-          </span>
-          <i
-            onClick={() => setIsCartOpen(true)}
-            className="fa-solid fa-cart-shopping mt-1 px-3"
-          ></i>
-          <i
+          
+          <div className="cart-icon-wrapper" onClick={() => setIsCartOpen(true)}>
+            <i className="fa-solid fa-cart-shopping"></i>
+            {cart?.length > 0 && (
+              <span className="cart-counter">{cart.length}</span>
+            )}
+          </div>
+          
+          {/* <i
             onClick={ToggleTheme}
-            className="fa-solid fa-moon mt-1"
+            className="fa-solid fa-moon"
             style={{ cursor: "pointer" }}
-          ></i>
+          ></i> */}
         </Col>
 
         <Col className="burger">
