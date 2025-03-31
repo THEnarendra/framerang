@@ -1,53 +1,109 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import './ShippingPolicy.css'; // We'll create this CSS file
 
 const ShippingPolicy = () => {
   return (
-    <Container style={{marginTop:100}} className="">
+    <Container className="shipping-container">
       <Row className="justify-content-center">
-        <Col md={10}>
-          <div className=" p-4 rounded">
-            <h2 className="text-center mb-4">Shipping Policy</h2>
-            <section>
-              <h3 className="mt-4">1. Introduction</h3>
-              <p>
-                Welcome to our Shipping Policy page. Here you will find all the information you need about our shipping processes and policies.
-              </p>
-            </section>
-            <section>
-              <h3 className="mt-4">2. Shipping Rates</h3>
-              <p>
-                Shipping rates vary depending on the destination and the weight of your package. You will see the final shipping cost at checkout.
-              </p>
-            </section>
-            <section>
-              <h3 className="mt-4">3. Delivery Time</h3>
-              <p>
-                We aim to process and ship your order within 2-3 business days. Delivery times may vary depending on your location and the shipping method chosen at checkout.
-              </p>
-            </section>
-            <section>
-              <h3 className="mt-4">4. Tracking Your Order</h3>
-              <p>
-                Once your order has been shipped, you will receive an email with the tracking number. You can use this number to track your order on the carrier’s website.
-              </p>
-            </section>
-            <section>
-              <h3 className="mt-4">5. International Shipping</h3>
-              <p>
-                We offer international shipping to most countries. Please note that international shipments may be subject to customs duties and taxes, which are the responsibility of the recipient.
-              </p>
-            </section>
-            <section>
-              <h3 className="mt-4">6. Contact Us</h3>
-              <p>
-                If you have any questions about our shipping policy, please contact us at support@example.com.
-              </p>
-            </section>
+        <Col md={10} className="shipping-content">
+          <div className="shipping-header">
+            <h2>Shipping & Delivery Policy</h2>
+            <p className="effective-date">Effective from March 2023</p>
           </div>
+
+          <div className="shipping-highlight-box">
+            <h4>Key Information:</h4>
+            <ul>
+              <li>All orders shipped within <strong>2 business days</strong></li>
+              <li>Delivery within <strong>5-6 business days</strong> across India</li>
+              <li>100% safe delivery through our trusted partners</li>
+              <li>Real-time tracking provided for all orders</li>
+            </ul>
+          </div>
+
+          <section className="policy-section">
+            <h3>1. Order Processing</h3>
+            <p>
+              We process all orders within <strong>48 hours</strong> of payment confirmation. Orders placed on weekends or holidays will be processed on the next business day.
+            </p>
+          </section>
+
+          <section className="policy-section">
+            <h3>2. Shipping Partners</h3>
+            <p>
+              We work exclusively with trusted logistics partners including:
+            </p>
+            <ul>
+              <li>Delhivery</li>
+              <li>DTDC</li>
+              <li>FedEx</li>
+              <li>XpressBees</li>
+            </ul>
+            <p>
+              All packages are handled with care and include protective packaging for your photo frames and posters.
+            </p>
+          </section>
+
+          <section className="policy-section">
+            <h3>3. Delivery Timeline</h3>
+            <div className="timeline-box">
+              <div className="timeline-item">
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <h5>Day 1-2:</h5>
+                  <p>Order processing and dispatch from our warehouse</p>
+                </div>
+              </div>
+              <div className="timeline-item">
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <h5>Day 3-5:</h5>
+                  <p>In transit to your nearest hub</p>
+                </div>
+              </div>
+              <div className="timeline-item">
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <h5>Day 5-6:</h5>
+                  <p>Final delivery to your address</p>
+                </div>
+              </div>
+            </div>
+            <p className="note-text">
+              *Delivery may take 1-2 extra days for remote locations
+            </p>
+          </section>
+
+          <section className="policy-section">
+            <h3>4. Tracking Your Order</h3>
+            <p>
+              You'll receive a tracking number via SMS and email once your order is dispatched. Use our <a href="/track-order" className="tracking-link">Order Tracker</a> or the courier company's website to monitor your package in real-time.
+            </p>
+          </section>
+
+          <section className="policy-section">
+            <h3>5. International Shipping</h3>
+            <p>
+              Currently we only ship within India. We're working to expand our services internationally soon.
+            </p>
+          </section>
+
+          <section className="policy-section">
+            <h3>6. Contact & Support</h3>
+            <p>
+              For any shipping inquiries:
+            </p>
+            <ul className="contact-list">
+              <li><strong>Email:</strong> framerang@gmail.com</li>
+              <li><strong>WhatsApp:</strong> +91 7014146550</li>
+              <li><strong>Hours:</strong> Mon-Sat, 10AM-7PM IST</li>
+            </ul>
+          </section>
         </Col>
       </Row>
     </Container>
   );
 };
+
 export default ShippingPolicy;

@@ -13,7 +13,7 @@ import { Track } from './Home/Track';
 import { Notification } from './Home/Notification';
 import PolicyPage from './Home/PolicyPage';
 import TermsOfService from './Terms&Conditions';
-import RefundPolicy from './RefundPolicy';
+import RefundPolicy from './Home/RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
 import { ProductPage } from './Components/Product/ProductPage';
 import { useProducts } from './Context/ProductContext';
