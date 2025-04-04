@@ -490,7 +490,9 @@ const CheckOut = ({ setFooter, theme }) => {
                   </tr>
                   <tr>
                     <th scope="row">Total
-                      <p>Including ₹{Math.round(totalAmount * 0.18)} in taxes</p>
+                      <p>Including taxes
+                        {/* ₹{Math.round(totalAmount * 0.18)} in  */}
+                        </p>
                     </th>
                     <td>
                       <strong>₹{totalAmount}</strong>

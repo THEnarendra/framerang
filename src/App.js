@@ -17,6 +17,7 @@ import RefundPolicy from './Home/RefundPolicy';
 import ShippingPolicy from './ShippingPolicy';
 import { ProductPage } from './Components/Product/ProductPage';
 import { useProducts } from './Context/ProductContext';
+import CollectionsPage from './Home/CollectionsPage';
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -95,6 +96,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
           <Route path='/contactus' element={<ContactUs setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/collections' element={<CollectionsPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
           <Route path='/:category' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen}/>}/>
           <Route path='/:category/:subCategory' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen}/>}/>
           <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme} />} />

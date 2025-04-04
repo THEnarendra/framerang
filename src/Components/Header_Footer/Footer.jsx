@@ -80,10 +80,10 @@ const Bubble = () => {
                   <h2>Address</h2>
                   <ul className="address-links">
                     <li className="address1"><i className="fa-solid fa-location-dot"></i>
-                      Shop No. 67 Ramdev Nager Lalchandpura Niwaru Road Jhotwada Jaipur 302012
+                    Plot No. 4, Bhairav Nagar-2, Hathod Link Road, Kumawato Ki Dhani, Jaipur, Rajasthan- 302012
                     </li>
-                    <li className='text-light'><i className="fa-solid fa-phone"></i> +91 7568161580</li>
-                    <li className='text-light'><i className="fa-solid fa-envelope"></i><span>narendrak.kumawat123@gmail.com</span></li>
+                    <li className='text-light'><i className="fa-solid fa-phone"></i> +91 7014146550</li>
+                    <li className='text-light'><i className="fa-solid fa-envelope"></i><span>framerang@gmail.com</span></li>
                   </ul>
                 </div>
               </div>
