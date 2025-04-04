@@ -474,7 +474,7 @@ const CheckOut = ({ setFooter, theme }) => {
               ))}
             </div>
             <div className="container">
-              <table className={`table ${theme === "darkTheme" ? "table-dark" : ""}`}>
+              <table className={`table ${theme === "darkTheme" ? "text-white" : ""}`}>
                 <tbody>
                   <tr>
                     <th scope="row">Subtotal</th>
