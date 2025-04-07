@@ -1,17 +1,36 @@
 .row {
     margin: 8% 5%;
-}
-
-.col2 {
+  }
+  
+  .col2 {
     background-image: url("../images/bg1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 15px;
     color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    label {
-        font-size: 18px;
-        color: rgb(35, 35, 35)
-    }
-}
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .col2 label {
+    font-size: 18px;
+    color: rgb(35, 35, 35);
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .contact-link {
+    text-decoration: none;
+    color: #fe8b8b;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .contact-link:hover {
+    color: #007bff;
+  }
+  
