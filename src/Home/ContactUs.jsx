@@ -60,7 +60,7 @@ const ContactUs = ({ setFooter }) => {
     if (validation()) {
       setLoading(true);
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/create-query`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/createQuery`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

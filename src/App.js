@@ -54,36 +54,6 @@ function App() {
     getData();
     document.body.className = theme;
   }, [theme]);
-
-
-  // useEffect(() => {
-  //   fetch('https://framerang-backend.vercel.app/api/v1/allProducts')
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       const fr = data.data;
-  //       const frame = fr.filter((e) => e.category === "Frame");
-  //       const poster = fr.filter((e) => e.category === "Poster");
-  //       const Combo = fr.filter((e) => e.category === "Combo");
-  //       const PostercategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Poster').map(user => user.subCategory)));
-  //       const FramecategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Frame').map(user => user.subCategory)));
-  //       const ComboCategoryArray = Array.from(new Set(fr.filter((e) => e.category === 'Combo').map(user => user.subCategory)));
-  //       setData(frame);
-  //       setData1(poster);
-  //       setData2(Combo)
-  //       setSubposterCategory(PostercategoryArray);
-  //       setSubFrameCategory(FramecategoryArray);
-  //       setSubComboCategory(ComboCategoryArray);
-  //     })
-  //     .catch((error) => {
-  //       setError(error);
-  //     });
-  // }, []);
- 
  
   return (
     <div >
