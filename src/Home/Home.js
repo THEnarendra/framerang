@@ -196,7 +196,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       <div className="value-props" data-aos="fade-up">
         <Row className="justify-content-center">
           {[
-            {icon: 'fa-truck-fast', title: 'Free Shipping', text: 'On all orders over $50'},
+            {icon: 'fa-truck-fast', title: 'Free Shipping', text: 'On all orders over Rs. 599'},
             {icon: 'fa-shield-halved', title: '2-Year Warranty', text: 'Quality guaranteed'},
             {icon: 'fa-credit-card', title: 'Secure Payment', text: '100% secure checkout'},
             {icon: 'fa-headset', title: '24/7 Support', text: 'Dedicated support'}
