@@ -1,8 +1,8 @@
 /* Black and Red Theme Product Page */
 .product-page-wrapper {
-  /* background-color: #0a0a0a; */
   min-height: 100vh;
   color: #f0f0f0;
+  padding-bottom: 3rem;
 }
 
 .main-image-container {
@@ -255,6 +255,52 @@
   font-size: 0.95rem;
 }
 
+/* Related Products Section */
+.related-products-section {
+  margin-top: 4rem;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ff2a2a;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: #ff2a2a;
+}
+
+.related-products-slider {
+  padding: 0 1rem;
+}
+
+.slider-item {
+  padding: 0 0.5rem;
+}
+
+/* Slick slider overrides */
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
   .product-details {
@@ -264,6 +310,16 @@
   
   .main-product-image {
     max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .related-products-section {
+    margin-top: 3rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
   }
 }
 
@@ -288,6 +344,14 @@
   .add-to-cart-btn {
     padding: 0.8rem;
     font-size: 0.9rem;
+  }
+  
+  .related-products-section {
+    margin-top: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
   }
 }
 

@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader";
 import { fromSlug } from "../../utils/Slugify"; 
 import '../../MainCss/Posters.css'
 import NotFoundPage from "../NotFoundPage";
+import Popup from "../Popup/Popup";
 
 export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const { category, subCategory } = useParams();
@@ -20,6 +21,7 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(16); 
+  const [popupProduct, setPopupProduct] = useState(null);
 
   useEffect(() => {
     setFooter(true);
@@ -75,6 +77,14 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenPopup = (product) => {
+    setPopupProduct(product);
+  };
+
+  const handleClosePopup = () => {
+    setPopupProduct(null);
   };
 
   const subCategoryList = subcategories[decodedCategory] ? [...subcategories[decodedCategory]] : [];
@@ -177,7 +187,10 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
           <>
             {currentProducts.map((product) => (
               <Col style={{ padding: 6 }} lg={3} md={4} sm={12} xs={6} key={product.id}>
-                <ProductCard setIsCartOpen={setIsCartOpen} img={product} />
+                <ProductCard 
+                setIsCartOpen={setIsCartOpen} 
+                img={product} 
+                onOpenPopup={handleOpenPopup} />
               </Col>
             ))}
             
@@ -191,6 +204,16 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
           <p>No products found for this category/subcategory.</p>
         )}
       </Row>
+      {popupProduct && (
+              <div className="modal-popup">
+                <Popup 
+                  setIsCartOpen={setIsCartOpen} 
+                  img={[popupProduct]} 
+                  id={popupProduct._id} 
+                  togglePopup={handleClosePopup} 
+                />
+              </div>
+            )}
     </div>
   );
 };
