@@ -1,6 +1,6 @@
 // utils/categoryImages.js
 const categoryImageMap = {
-    'Frames': 'https://res.cloudinary.com/dvqbujync/image/upload/v1741348623/ujcmrg72q63zkkvhcskv.jpg',
+    'Frames': 'https://res.cloudinary.com/dvqbujync/image/upload/v1744536114/ry7n17gojse9dylenprw.jpg',
     'Photo Frames': 'https://res.cloudinary.com/dvqbujync/image/upload/v1741599755/zgf7urfhhpoqzcujceql.jpg',
     'Posters': 'https://res.cloudinary.com/dvqbujync/image/upload/v1741607471/uje0xobo7xeunqxya2wm.jpg',
     'Custom Frames': 'https://res.cloudinary.com/dvqbujync/image/upload/v1744875054/qpidrhmdtlsa4j5v9d7s.jpg'
