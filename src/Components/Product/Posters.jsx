@@ -18,6 +18,8 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const [selectedSubCategory, setSelectedSubCategory] = useState(decodedSubCategory);
   const [filteredImg, setFilteredImg] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(16); 
 
   useEffect(() => {
     setFooter(true);
@@ -35,12 +37,17 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
     setTimeout(() => setLoading(false), 500);
   }, [category, subCategory]);
 
-  // **Reset selectedSubCategory when category changes**
+  // Reset selectedSubCategory when category changes
   useEffect(() => {
     setSelectedSubCategory(decodedSubCategory);
   }, [category, subCategory]);
 
-  // **Update filtered images when products or category changes**
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedSubCategory, category, subCategory]);
+
+  // Update filtered images when products or category changes
   useEffect(() => {
     if (!decodedCategory) return;
 
@@ -55,16 +62,92 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
     }
   }, [selectedSubCategory, products, category]);
 
+  // Pagination calculations
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredImg.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredImg.length / productsPerPage);
+
   const handleSubCategoryChange = (e) => {
     setSelectedSubCategory(e.target.value);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const subCategoryList = subcategories[decodedCategory] ? [...subcategories[decodedCategory]] : [];
 
-  // **If category doesn't exist, show NotFoundPage**
+  // If category doesn't exist, show NotFoundPage
   if (!categories.includes(decodedCategory)) {
     return <NotFoundPage />;
   }
+
+  // Pagination Controls Component
+  const PaginationControls = () => {
+    const pageNumbers = [];
+    const maxVisiblePages = 5;
+    
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i);
+    }
+
+    return (
+      <div className="pagination-controls">
+        <button 
+          onClick={() => handlePageChange(1)} 
+          disabled={currentPage === 1}
+          className="pagination-button"
+        >
+          &laquo;
+        </button>
+        <button 
+          onClick={() => handlePageChange(currentPage - 1)} 
+          disabled={currentPage === 1}
+          className="pagination-button"
+        >
+          &lsaquo;
+        </button>
+        
+        {startPage > 1 && <span className="pagination-ellipsis">...</span>}
+        
+        {pageNumbers.map(number => (
+          <button
+            key={number}
+            onClick={() => handlePageChange(number)}
+            className={`pagination-button ${currentPage === number ? 'active' : ''}`}
+          >
+            {number}
+          </button>
+        ))}
+        
+        {endPage < totalPages && <span className="pagination-ellipsis">...</span>}
+        
+        <button 
+          onClick={() => handlePageChange(currentPage + 1)} 
+          disabled={currentPage === totalPages}
+          className="pagination-button"
+        >
+          &rsaquo;
+        </button>
+        <button 
+          onClick={() => handlePageChange(totalPages)} 
+          disabled={currentPage === totalPages}
+          className="pagination-button"
+        >
+          &raquo;
+        </button>
+      </div>
+    );
+  };
 
   return (
     <div className="mb-5" style={{ marginTop: "72px", padding: "3%", textAlign: "center" }}>
@@ -90,12 +173,20 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
 
         {loading ? (
           <Loader />
-        ) : filteredImg.length > 0 ? (
-          filteredImg.map((product) => (
-            <Col style={{ padding: 6 }} lg={3} md={4} sm={12} xs={6} key={product.id}>
-              <ProductCard setIsCartOpen={setIsCartOpen} img={product} />
-            </Col>
-          ))
+        ) : currentProducts.length > 0 ? (
+          <>
+            {currentProducts.map((product) => (
+              <Col style={{ padding: 6 }} lg={3} md={4} sm={12} xs={6} key={product.id}>
+                <ProductCard setIsCartOpen={setIsCartOpen} img={product} />
+              </Col>
+            ))}
+            
+            {totalPages > 1 && (
+              <div className="mt-5 d-flex justify-content-center">
+                <PaginationControls />
+              </div>
+            )}
+          </>
         ) : (
           <p>No products found for this category/subcategory.</p>
         )}
