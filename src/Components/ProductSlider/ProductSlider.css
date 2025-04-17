@@ -6,12 +6,12 @@
 
 /* Ensure slider items have consistent sizing */
 .slick-slide > div {
-  padding: 0 10px; /* Adjust spacing between cards */
+  padding: 0 10px; 
   height: 100%;
 }
 
 .slick-list {
-  margin: 0 -10px; /* Compensates for the slide padding */
+  margin: 0 -10px; 
 }
 
 @media screen and (max-width: 450px) {

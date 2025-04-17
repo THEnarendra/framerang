@@ -1,6 +1,6 @@
 .nft {
   user-select: none;
-  width: 100%; /* Changed from 95% !important */
+  width: 100%; 
   border: 1px solid #ffffff22;
   background-image: url("../../images//bg1.jpg");
   background-repeat: no-repeat;
@@ -9,18 +9,18 @@
   overflow: hidden;
   transition: .5s all;
   color: black;
-  display: flex; /* Added */
-  flex-direction: column; /* Added */
-  height: 100%; /* Added */
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
 
   .main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Ensures horizontal centering */
-    justify-content: space-between; /* Better content distribution */
+    align-items: center; 
+    justify-content: space-between; 
     padding: 5%;
     height: 100%;
-    box-sizing: border-box; /* Ensures padding is included in height */
+    box-sizing: border-box; 
   }
 
   .image-container {
@@ -32,10 +32,10 @@
 
   .image011 {
     height: auto;
-    max-height: 200px; /* Adjust as needed */
+    max-height: 200px; 
     width: auto;
     max-width: 100%;
-    object-fit: contain; /* Changed from cover to contain */
+    object-fit: contain; 
     object-position: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }

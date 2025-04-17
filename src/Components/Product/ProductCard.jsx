@@ -40,7 +40,7 @@ const ProductCard = ({ img, setIsCartOpen, onOpenPopup }) => {
               {img.productName}
             </h4>
             
-            <p className="price-text">
+            <p className="price-text mb-0" >
               {img?.hasVariants ? (
                 <>
                   <span>Starting from: </span>
