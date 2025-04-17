@@ -1,12 +1,29 @@
 /* Product Slider Container */
 .product-slider-container {
-    width: 80vw;
-    border: 1px solid gray;
-    border-radius: 7px;
+  width: 80vw;
+  border-radius: 7px;
+}
+
+/* Ensure slider items have consistent sizing */
+.slick-slide > div {
+  padding: 0 10px; /* Adjust spacing between cards */
+  height: 100%;
+}
+
+.slick-list {
+  margin: 0 -10px; /* Compensates for the slide padding */
+}
+
+@media screen and (max-width: 450px) {
+  .product-slider-container {
+    width: 90vw;
   }
   
-  @media screen and (max-width: 450px) {
-    .product-slider-container{
-        width: 90vw;
-    }
+  .slick-slide > div {
+    padding: 0 5px;
   }
+  
+  .slick-list {
+    margin: 0 -5px;
+  }
+}

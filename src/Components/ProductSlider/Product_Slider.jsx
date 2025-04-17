@@ -1,28 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../Product/ProductCard.css';
+import ProductCard from '../Product/ProductCard';
 import './ProductSlider.css';
 import Popup from '../Popup/Popup';
-const Product_Slider = ({ products, setIsCartOpen }) => {
-  const [id, setId] = useState()
-  const [showPopup, setShowPopup] = useState(false);
-  const Pop = () => {
-    setShowPopup(!showPopup);
-  }
 
-  useEffect(() => {
-    if (showPopup) {
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.classList.remove('modal-open');
-    }
-    return () => {
-      document.body.classList.remove('modal-open');
-    };
-  }, [showPopup]);
-  const filteredProducts = products.filter((product) => product.isFeatured === true)
+const Product_Slider = ({ products, setIsCartOpen }) => {
+  const [popupProduct, setPopupProduct] = useState(null);
+  
   const settings = {
     dots: false,
     infinite: true,
@@ -56,48 +42,43 @@ const Product_Slider = ({ products, setIsCartOpen }) => {
       }
     ]
   };
-  // console.log(filteredProducts)
+
+  const handleOpenPopup = (product) => {
+    setPopupProduct(product);
+  };
+
+  const handleClosePopup = () => {
+    setPopupProduct(null);
+  };
+
   return (
     <>
       <div className='ps-3 pe-3 product-slider-container'>
         <Slider {...settings}>
-          {
-            products && products.map((img) => (
-              <div className="nft" >
-                <div className='main' >
-                  <img style={{ cursor: 'pointer' }} className='image011' src={img.productImages[0].url} alt="image" />
-                  <h3 style={{ cursor: 'pointer' }} className='creator ps-4 pe-4'>{img.productName}</h3>
-                  <p>
-              {img?.hasVariants ? (
-            <>
-              <span>Starting from:</span>&nbsp;&nbsp;
-              <br />
-              <span className='product-card-price'>
-                Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
-              </span>
-            </>
-          ) : (
-              <>
-                <span>Price:</span>&nbsp;&nbsp;
-                <span className='product-card-price'>Rs.{img.basePrice}</span>
-              </>
-            )}
-            </p>
-                  <button className='bt1' onClick={() => (setId(img._id), Pop())}>Choose Options</button>
-
-                </div>
-              </div>
-
-            ))
-          }
+          {products && products.map((product) => (
+            <div key={product._id}>
+              <ProductCard 
+                img={product} 
+                setIsCartOpen={setIsCartOpen}
+                onOpenPopup={handleOpenPopup}
+              />
+            </div>
+          ))}
         </Slider>
       </div>
-      {showPopup === true &&
+
+      {popupProduct && (
         <div className="modal-popup">
-          <Popup setIsCartOpen={setIsCartOpen} img={products} id={id} togglePopup={Pop} />
+          <Popup 
+            setIsCartOpen={setIsCartOpen} 
+            img={[popupProduct]} 
+            id={popupProduct._id} 
+            togglePopup={handleClosePopup} 
+          />
         </div>
-      }
+      )}
     </>
   );
 };
+
 export default Product_Slider;

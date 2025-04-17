@@ -1,7 +1,6 @@
 .nft {
   user-select: none;
-  width: 95% !important;
-  margin: 0.25rem auto;
+  width: 100%; /* Changed from 95% !important */
   border: 1px solid #ffffff22;
   background-image: url("../../images//bg1.jpg");
   background-repeat: no-repeat;
@@ -10,24 +9,35 @@
   overflow: hidden;
   transition: .5s all;
   color: black;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+  height: 100%; /* Added */
 
   .main {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Ensures horizontal centering */
+    justify-content: space-between; /* Better content distribution */
+    padding: 5%;
+    height: 100%;
+    box-sizing: border-box; /* Ensures padding is included in height */
+  }
+
+  .image-container {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-bottom: 15px;
   }
 
   .image011 {
-    height: 80%;
-    object-fit: cover;
-    object-position: center center;
+    height: auto;
+    max-height: 200px; /* Adjust as needed */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain; /* Changed from cover to contain */
+    object-position: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 80%;
   }
 
   .product-card-price{
