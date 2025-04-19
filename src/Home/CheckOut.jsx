@@ -210,15 +210,45 @@ const CheckOut = ({ setFooter, theme }) => {
             window.location.href = '/';
           }, 2000);
         }
-         else {
-          const cashfree = await load({
-            mode: "production", 
-          });
-          const checkoutOptions = {
-            paymentSessionId: data.paymentSessionId, 
-            redirectTarget: "_self", 
-          };
-          cashfree.checkout(checkoutOptions);
+        //  else {
+        //   const cashfree = await load({
+        //     mode: "production", 
+        //   });
+        //   const checkoutOptions = {
+        //     paymentSessionId: data.paymentSessionId, 
+        //     redirectTarget: "_self", 
+        //   };
+        //   cashfree.checkout(checkoutOptions);
+        // }
+        else {
+          try {
+            // Initialize Cashfree
+            const cashfree = await load({
+              mode: "production", // Use "sandbox" for testing
+            });
+        
+            // Verify we have the payment session ID
+            if (!data.paymentData?.payment_session_id) {
+              throw new Error("Payment session ID missing from response");
+            }
+        
+            // Redirect to Cashfree payment page
+            cashfree.checkout({
+              paymentSessionId: data.paymentData.payment_session_id,
+              redirectTarget: "_self" // Opens in same tab
+            });
+        
+          } catch (error) {
+            console.error("Payment initialization error:", error);
+            
+            // Fallback to manual redirect if available
+            console.log("Payment data:", data.paymentData);
+            if (data.paymentData?.payment_url) {
+              window.location.href = data.paymentData.payment_url;
+            } else {
+              toast.error("Failed to initialize payment. Please try again.");
+            }
+          }
         }
       } else {
         toast.error(data.error || "Something went wrong! Please try again later!");
