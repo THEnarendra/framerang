@@ -210,24 +210,12 @@ const CheckOut = ({ setFooter, theme }) => {
             window.location.href = '/';
           }, 2000);
         }
-        //  else {
-        //   const cashfree = await load({
-        //     mode: "production", 
-        //   });
-        //   const checkoutOptions = {
-        //     paymentSessionId: data.paymentSessionId, 
-        //     redirectTarget: "_self", 
-        //   };
-        //   cashfree.checkout(checkoutOptions);
-        // }
         else {
           try {
-            // Initialize Cashfree
             const cashfree = await load({
-              mode: "production", // Use "sandbox" for testing
+              mode: "production", 
             });
-        
-            // Verify we have the payment session ID
+       console.log(data.paymentData);
             if (!data.paymentData?.payment_session_id) {
               throw new Error("Payment session ID missing from response");
             }
@@ -240,9 +228,6 @@ const CheckOut = ({ setFooter, theme }) => {
         
           } catch (error) {
             console.error("Payment initialization error:", error);
-            
-            // Fallback to manual redirect if available
-            console.log("Payment data:", data.paymentData);
             if (data.paymentData?.payment_url) {
               window.location.href = data.paymentData.payment_url;
             } else {
