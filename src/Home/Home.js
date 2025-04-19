@@ -219,7 +219,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           <>
       <Product_Slider setIsCartOpen={setIsCartOpen} products={photoFrames} />
       <div className="text-center mt-4">
-        <Link to="/frames" className="view-all-btn">
+        <Link to="/photo-frames" className="view-all-btn">
           View All Photo Frames →
         </Link>
       </div>
