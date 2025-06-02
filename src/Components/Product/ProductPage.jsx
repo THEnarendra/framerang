@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "../Product/ProductCard";
 import "./ProductPage.css";
+import { Helmet } from 'react-helmet-async';
 
 export const ProductPage = ({ setFooter, setIsCartOpen }) => {
   const location = useLocation();
@@ -153,6 +154,28 @@ export const ProductPage = ({ setFooter, setIsCartOpen }) => {
   };
 
   return (
+    <>
+     <Helmet>
+    <title>{product.productName} | Frame Rang</title>
+    <meta 
+      name="description" 
+      content={`${product.productName} - ${product.description?.substring(0, 160)}`} 
+    />
+    <meta 
+      name="keywords" 
+      content={`${product.productName}, custom frames, ${product.category}, poster frames, Frame Rang`} 
+    />
+    <link rel="canonical" href={`https://www.framerang.com/products/${product.slug}`} />
+    
+    {/* Open Graph (for social sharing) */}
+    <meta property="og:title" content={`${product.productName} | Frame Rang`} />
+    <meta property="og:description" content={product.description?.substring(0, 160)} />
+    <meta property="og:image" content={product.productImages[0]?.url} />
+    <meta property="og:url" content={`https://www.framerang.com/products/${product.slug}`} />
+    <meta property="og:type" content="product" />
+  </Helmet>
+
+
     <div className="product-page-wrapper">
       <Toaster position="bottom-right" />
       <Container fluid>
@@ -287,5 +310,6 @@ export const ProductPage = ({ setFooter, setIsCartOpen }) => {
         )}
       </Container>
     </div>
+    </>
   );
 };

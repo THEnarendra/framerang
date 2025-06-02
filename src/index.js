@@ -5,8 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from './CartContext';
 import { ProductProvider } from './Context/ProductContext';
+import { HelmetProvider } from 'react-helmet-async';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <HelmetProvider>
   <ProductProvider>
     <CartProvider>
     <React.StrictMode>
@@ -14,5 +17,6 @@ root.render(
     </React.StrictMode>
     </CartProvider>
   </ProductProvider>
+  </HelmetProvider>
 );
 reportWebVitals();

@@ -64,7 +64,7 @@ const CategoryCarousel = () => {
                                                 className="category-image"
                                                 onError={(e) => {
                                                     e.target.onerror = null; 
-                                                    e.target.src = 'https://res.cloudinary.com/your-account/image/upload/v1/default-category.jpg';
+                                                    e.target.src = 'https://www.elegantthemes.com/blog/wp-content/uploads/2017/08/featuredimage.jpg';
                                                 }}
                                             />
                                         </div>

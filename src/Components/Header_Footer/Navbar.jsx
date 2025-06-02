@@ -16,6 +16,10 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
   const ToggleTheme = () =>
     setTheme(theme === "darkTheme" ? "lightTheme" : "darkTheme");
 
+  const frameCategories = categories.filter((category) =>
+    category.toLowerCase().includes("frames")
+  );
+
   return (
     <div>
       <Row className="navbar" style={{ marginTop: "1%" }}>
@@ -35,6 +39,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           </Link>
         </Col>
 
+    {/* Frames */}
         <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <div
             className="shop-section"
@@ -43,18 +48,16 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
           >
             <Link
               to="/collections"
+              state={{ category: "frames" }}
               className="link"
               style={{ color: theme === "darkTheme" ? "white" : "black" }}
             >
               <div className="shop-container">
-                Shop
-                <span className="arrow-icon">
-                  <i style={{color:"red"}} className="fa-solid fa-caret-down"></i>
-                </span>
+                Frames
               </div>
               {openCategory === "main" && (
                 <div className="dropdown-container">
-                  {categories.map((category) => (
+                  {frameCategories.map((category) => (
                     <div key={category.id} className="dropdown">
                       <Link
                         to={`/${toSlug(category)}`}
@@ -72,6 +75,46 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
             </Link>
           </div>
         </Col>
+
+    {/* Posters */}
+        <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
+          <div
+            className="shop-section"
+            onMouseEnter={() => setOpenCategory("main")}
+            onMouseLeave={() => setOpenCategory(null)}
+          >
+            <Link
+              to="/collections"
+              state={{ category: "posters" }}
+              className="link"
+              style={{ color: theme === "darkTheme" ? "white" : "black" }}
+            >
+              <div className="shop-container">
+                Posters
+              </div>
+              {openCategory === "main" && (
+                <div className="dropdown-container">
+                  {frameCategories.map((category) => (
+                    <div key={category.id} className="dropdown">
+                      <Link
+                        to={`/${toSlug(category)}`}
+                        className="link text-white"
+                        style={{
+                          color: theme === "darkTheme" ? "white" : "black",
+                        }}
+                      >
+                        {category}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </Link>
+          </div>
+        </Col>
+      
+ 
+      
 
         <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <Link

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useProducts } from "../Context/ProductContext";
 import { getCategoryImage } from "../Home/CategoryImages";
 import { toSlug } from "../utils/Slugify";
@@ -7,12 +7,20 @@ import { Row, Col, Container } from "react-bootstrap";
 import "./CollectionsPage.css";
 
 const CollectionsPage = () => {
+  const location = useLocation();
+  const category = location.state?.category;
+
+
   const { categories = [] } = useProducts();
+  const filterCategories = categories.filter((category) =>
+    category.toLowerCase().includes(`${category}`)
+  );
+  
 
   return (
     <Container className="collections-page">
       <div className="collections-header">
-        <h1 className="collections-title">Our Collections</h1>
+        <h1 className="collections-title">Our {category}</h1>
         <hr className="our-collection-underline"/>
         {/* <p className="collections-subtitle">
           Discover our wide range of premium products

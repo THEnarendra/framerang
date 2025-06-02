@@ -10,7 +10,6 @@ const app_url = process.env.REACT_APP_API_URL;
 
 const CheckOut = ({ setFooter, theme }) => {
   const { cart, getTotal } = useContext(CartContext);
-  console.log(cart);
   const [errors, setErrors] = useState({});
   const [input, setInputs] = useState({
     firstName: '',
@@ -46,7 +45,6 @@ const CheckOut = ({ setFooter, theme }) => {
     });
   };
 
-  console.log(cart);
   const idArray = cart.map(user => ({
     productId: user._id,
     hasVariants: user.hasVariants,
@@ -58,7 +56,6 @@ const CheckOut = ({ setFooter, theme }) => {
     }] : [],
     quantity: user.quantity,
   }));
-  console.log(idArray);
 
   const validatePincode = async (pincode) => {
     if (!pincode || pincode.length !== 6) {
@@ -199,6 +196,7 @@ const CheckOut = ({ setFooter, theme }) => {
       });
 
       const data = await response.json();
+      // console.log(data);
       if (response.ok) {
         if (paymentMethod === "COD") {
           toast.success("Product Ordered Successfully", {
@@ -215,7 +213,6 @@ const CheckOut = ({ setFooter, theme }) => {
             const cashfree = await load({
               mode: "production", 
             });
-       console.log(data.paymentData);
             if (!data.paymentData?.payment_session_id) {
               throw new Error("Payment session ID missing from response");
             }

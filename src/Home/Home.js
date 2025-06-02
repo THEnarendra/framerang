@@ -11,6 +11,8 @@ import Slider from 'react-slick';
 import { useProducts } from '../Context/ProductContext';
 import CategoryCarousel from '../Components/CategoryCarousel/CategoryCarousel';
 import TestimonialSlider from '../Components/TestimonialSlider/TestimonialSlider';
+import { Helmet } from 'react-helmet-async';
+
 
 const app_url = process.env.REACT_APP_API_URL;
 
@@ -26,13 +28,14 @@ const filterProductsByCategory = (products, category, limit = 5) => {
 };
 
 export const Home = ({ theme, setFooter, setIsCartOpen }) => {
-  setFooter(true);
   const [details, setDetails] = useState([]);
   const [products, setProducts] = useState([]);
   const [images, setImages] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const detailsRef = useRef(null);
   const productsRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   // Get all filtered products using useMemo for optimization
   const { frames, photoFrames, posters } = useMemo(() => ({
@@ -96,6 +99,10 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   }, []); 
 
   useEffect(() => {
+  setFooter(true);
+}, [setFooter]);
+
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -141,7 +148,39 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
   };
 
   return (
-    <div>
+    <>
+    <Helmet>
+  {/* Primary Meta Tags */}
+  <title>Frame Rang | Custom Frames, Posters, Anime & More</title>
+  <meta
+    name="description"
+    content="Explore Frame Rang's unique collection of photo frames, anime posters, Marvel & DC wall art, and fully customizable designs to transform your space."
+  />
+  <meta name="keywords" content="customised photo frames, posters, poster frames, Frame Rang, Photo Frames, Custom Frames, Anime Posters, Marvel Art, DC Posters, Wall Decor, India" />
+  <link rel="canonical" href="https://www.framerang.in/" />
+
+  {/* Open Graph (OG) - Used by Instagram, Facebook, etc. */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.framerang.com/" />
+  <meta property="og:title" content="Frame Rang | Custom Frames, Posters, Anime & More" />
+  <meta property="og:description" content="Explore Frame Rang's unique collection of photo frames, anime posters, Marvel & DC wall art, and fully customizable designs." />
+  <meta property="og:image" content="https://res.cloudinary.com/dvqbujync/image/upload/v1748854419/Untitled_design_riih2z.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Frame Rang" />
+
+  {/* Instagram-Specific */}
+  <meta property="instagram:creator" content="@framerang" /> {/* Your IG handle */}
+  <meta property="instagram:image" content="https://www.framerang.in/images/instagram-image.jpg" />
+
+  {/* YouTube (if linking to a video) */}
+  <meta property="og:video" content="https://youtube.com/watch?v=your-video-id" />
+  <meta property="og:video:type" content="video/mp4" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
+</Helmet>
+
+      <div>
       {/* Hero Slider */}
       <div className="hero-slider-wrapper">
         <div className="hero-slider-wrapper-container">
@@ -164,33 +203,17 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <Home_carousel img={data.images} />
           </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>Transform Your Space With Stunning Posters</h1><br />
+            <h1 className='firsth1'>Transform Your Space With Stunning Frames</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>
-              Enhance your Space of Room / Study Room Walls with our stunning posters! Explore a wide variety of designs to elevate your walls and spark inspiration.
+              Enhance your Space of Room / Study Room Walls with our stunning frames! Explore a wide variety of designs to elevate your walls and spark inspiration.
             </h5>
-            <Link to="/posters">
-              <button className='bt1'>Our Posters</button>
+            <Link to="/frames">
+              <button className='bt1'>Our Frames</button>
             </Link>
           </Col>
         </Row>
       ))} 
 
-      {/* Products Slider for Frames */}
-      <div className='posters-swiper'>
-        <h1 className='mb-4'>Our Best Selling Frames</h1>
-        {frames.length === 0 ? (
-          <h3>No frames found</h3>
-        ) : (
-          <>
-      <Product_Slider setIsCartOpen={setIsCartOpen} products={frames} />
-      <div className="text-center mt-4">
-        <Link to="/frames" className="view-all-btn">
-          View All Frames →
-        </Link>
-      </div>
-    </>
-        )}
-      </div>
 
       {/* Value Propositions Section */}
       <div className="value-props" data-aos="fade-up">
@@ -208,6 +231,23 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             </Col>
           ))}
         </Row>
+      </div>
+      
+      {/* Products Slider for Frames */}
+      <div className='posters-swiper'>
+        <h1 className='mb-4'>Our Best Selling Frames</h1>
+        {frames.length === 0 ? (
+          <h3>No frames found</h3>
+        ) : (
+          <>
+      <Product_Slider setIsCartOpen={setIsCartOpen} products={frames} />
+      <div className="text-center mt-4">
+        <Link to="/frames" className="view-all-btn">
+          View All Frames →
+        </Link>
+      </div>
+    </>
+        )}
       </div>
 
       {/* Products Slider for Photo Frames */}
@@ -248,5 +288,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
       {/* Testimonials */}
       <TestimonialSlider theme={theme} />
     </div>
+    </>
+    
   );
 };

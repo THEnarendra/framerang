@@ -18,6 +18,7 @@ import ShippingPolicy from './ShippingPolicy';
 import { ProductPage } from './Components/Product/ProductPage';
 import { useProducts } from './Context/ProductContext';
 import CollectionsPage from './Home/CollectionsPage';
+import InfiniteScroll from './Components/InfiniteScrool/InfiniteScroll';
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -78,6 +79,8 @@ function App() {
           <Route path='/policies/refund-policy' element={<RefundPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/shipping-policy' element={<ShippingPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
+          {/* <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} /> */}
+          {/* <Route path='/infinite' element={<InfiniteScroll/>} /> */}
         </Routes>
         {footer && (
           <Footer />
