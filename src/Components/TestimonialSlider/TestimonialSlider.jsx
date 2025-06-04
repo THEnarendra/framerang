@@ -39,7 +39,7 @@ const TestimonialSlider = ({ theme }) => {
 
   return (
     <div className={`testimonials ${theme}`}>
-      <h2 className="testimonial-title">What Our Customers Say</h2>
+      <h2>Why 10,000+ Customers Love Our Frames & Posters</h2>
       <div className="testimonial-slider-container">
         <Slider {...settings}>
           {testimonials.map((testimonial, i) => (

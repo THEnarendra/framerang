@@ -151,13 +151,13 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
     <>
     <Helmet>
   {/* Primary Meta Tags */}
-  <title>Frame Rang | Custom Frames, Posters, Anime & More</title>
-  <meta
-    name="description"
-    content="Explore Frame Rang's unique collection of photo frames, anime posters, Marvel & DC wall art, and fully customizable designs to transform your space."
+    <title>Frame Rang || Custom Photo Frames & Wall Posters Online India | Frame Rang</title>
+  <meta 
+    name="description" 
+    content="India's top custom frames & posters store. Create personalized photo frames, anime wall art / posters and much more. Free shipping ₹599+. Shop now!" 
   />
-  <meta name="keywords" content="customised photo frames, posters, poster frames, Frame Rang, Photo Frames, Custom Frames, Anime Posters, Marvel Art, DC Posters, Wall Decor, India" />
-  <link rel="canonical" href="https://www.framerang.in/" />
+  <meta name="keywords" content="custom photo frames, anime posters India, personalized wall art, Marvel posters, birthday frames" />  
+  <link rel="canonical" href="https://www.framerang.com/" />
 
   {/* Open Graph (OG) - Used by Instagram, Facebook, etc. */}
   <meta property="og:type" content="website" />
@@ -171,13 +171,24 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
 
   {/* Instagram-Specific */}
   <meta property="instagram:creator" content="@framerang" /> {/* Your IG handle */}
-  <meta property="instagram:image" content="https://www.framerang.in/images/instagram-image.jpg" />
+  <meta property="instagram:image" content="https://static.vecteezy.com/system/resources/previews/042/148/632/non_2x/instagram-logo-instagram-social-media-icon-free-png.png" />
 
   {/* YouTube (if linking to a video) */}
-  <meta property="og:video" content="https://youtube.com/watch?v=your-video-id" />
+  {/* <meta property="og:video" content="https://youtube.com/watch?v=your-video-id" />
   <meta property="og:video:type" content="video/mp4" />
   <meta property="og:video:width" content="1280" />
-  <meta property="og:video:height" content="720" />
+  <meta property="og:video:height" content="720" /> */}
+
+  {/* <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Frame Rang",
+  "description": "India's leading custom frames and posters store",
+  "url": "https://www.framerang.com",
+  "openingHours": "Mo-Su 10:00-20:00"
+}
+</script> */}
 </Helmet>
 
       <div>
@@ -187,7 +198,13 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
           <Slider {...settings}>
             {images.map((image, index) => (
               <div key={index}>
-                <img src={image} alt={`Slide ${index + 1}`} className="hero-slider-image" />
+                <img src={image} 
+                alt={`Slide ${index + 1}`} 
+                // alt={`${index === 0 ? 'Custom Photo Frames' : 'Wall Posters'} - Frame Rang`}
+                loading="lazy"
+                 width="1200"
+                height="630"
+                className="hero-slider-image" />
               </div>
             ))}
           </Slider>
@@ -203,12 +220,14 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <Home_carousel img={data.images} />
           </Col>
           <Col lg={6} style={{ display: "flex", justifyContent: "center", flexDirection: "column", padding: "4%" }}>
-            <h1 className='firsth1'>Transform Your Space With Stunning Frames</h1><br />
+            <h1 className='firsth1'>Custom Photo Frames & Anime Posters Online - Personalize Your Space</h1><br />
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>
-              Enhance your Space of Room / Study Room Walls with our stunning frames! Explore a wide variety of designs to elevate your walls and spark inspiration.
+            India's #1 store for <strong>personalized wall art</strong>. Shop <strong>custom frames</strong>, 
+            <strong>Marvel/DC posters</strong>, and <strong>anime wall decor</strong> with 2-year warranty. 
+            <strong>Free shipping</strong> on orders ₹599+.
             </h5>
             <Link to="/frames">
-              <button className='bt1'>Our Frames</button>
+              <button className='bt1'>Shop Custom Frames</button>
             </Link>
           </Col>
         </Row>
@@ -274,7 +293,7 @@ export const Home = ({ theme, setFooter, setIsCartOpen }) => {
             <Home_Swiper img={data.images} />
           </Col>
           <Col className='frames-section-content' lg={6}>
-            <h1>Brighten Your Walls With Unforgettable Art</h1><br />
+            <h1 className='mb-4'>Best Custom Photo Frames for Walls </h1>
             <h5 style={{ color: theme === "darkTheme" ? "rgba(255,255,255,0.6)" : "gray" }}>
               Add flair to your space with our captivating posters! Discover a diverse range of designs that will elevate your walls and inspire creativity.
             </h5>

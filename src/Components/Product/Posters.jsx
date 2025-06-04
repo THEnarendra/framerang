@@ -8,6 +8,8 @@ import { fromSlug } from "../../utils/Slugify";
 import '../../MainCss/Posters.css'
 import NotFoundPage from "../NotFoundPage";
 import Popup from "../Popup/Popup";
+import { Helmet } from "react-helmet";
+import { toSlug } from "../../utils/Slugify"; // Assuming you have a toSlug function for slugs
 
 export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
   const { category, subCategory } = useParams();
@@ -111,6 +113,14 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
     }
 
     return (
+      <><Helmet>
+        {currentPage > 1 && (
+        <link rel="prev" href={`${window.location.pathname}?page=${currentPage - 1}`} />
+        )}
+        {currentPage < totalPages && (
+        <link rel="next" href={`${window.location.pathname}?page=${currentPage + 1}`} />
+      )}
+    </Helmet>
       <div className="pagination-controls">
         <button 
           onClick={() => handlePageChange(1)} 
@@ -156,10 +166,57 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
           &raquo;
         </button>
       </div>
+      </>
     );
   };
 
+
+  const categoryName = fromSlug(category);
+  const subCategoryName = subCategory ? fromSlug(subCategory) : null;
+  const pageTitle = subCategoryName 
+  ? `${subCategoryName} ${categoryName} | Frame Rang` 
+  : `${categoryName} Collection | Frame Rang`;
+  const metaDescription = subCategoryName
+  ? `Explore our ${subCategoryName} ${categoryName} collection. High-quality frames, posters, and wall art.`
+  : `Browse our ${categoryName} collection. Custom frames, posters, and wall decor.`;
+
   return (
+    <>
+      <Helmet>
+      <title>{pageTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta 
+        name="keywords" 
+        content={`${categoryName}${subCategoryName ? `, ${subCategoryName}` : ''}, frames, posters, wall art, Frame Rang`}
+      />
+      <link rel="canonical" href={window.location.href} />
+
+      {/* Open Graph */}
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={window.location.href} />
+      <meta property="og:type" content="website" />
+      {filteredImg[0]?.productImages?.[0]?.url && (
+        <meta property="og:image" content={filteredImg[0].productImages[0].url} />
+      )}
+
+      {/* Schema.org for Category/Collection Page */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": pageTitle,
+          "description": metaDescription,
+          "url": window.location.href,
+          "hasPart": filteredImg.slice(0, 5).map(product => ({
+            "@type": "Product",
+            "name": product.productName,
+            "url": `${window.location.origin}/${toSlug(product.category)}/${toSlug(product.subCategory)}/${toSlug(product.productName)}`,
+            "image": product.productImages?.[0]?.url
+          }))
+        })}
+      </script>
+    </Helmet>
     <div className="mb-5" style={{ marginTop: "72px", padding: "3%", textAlign: "center" }}>
       <Row style={{ margin: "1% 6% 5% 6%" }}>
         <div className="ms-2 mt-5 mb-5" style={{ display: "flex", flexWrap: "wrap" }}>
@@ -217,5 +274,6 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
               </div>
             )}
     </div>
+    </>
   );
 };
