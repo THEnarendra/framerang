@@ -4,9 +4,28 @@ import './ProductCard.css';
 
 const ProductCard = ({ img, setIsCartOpen, onOpenPopup }) => {
   const navigate = useNavigate();
+  
+  const category= img?.category || '';
+  const subCategory = img?.subCategory || '';
+  // Generate URL-friendly slug
+  const createSlug = (text) => {
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, '-')     // Spaces to hyphens
+      .replace(/[^\w-]+/g, '')  // Remove non-word chars
+      .replace(/--+/g, '-')     // Replace multiple hyphens
+      .trim();                  // Trim whitespace
+  };
 
   const handleProductClick = () => {
-    navigate('/ProductPage', { state: { product: img } });
+    if (!img?.productName || !category || !subCategory) return;
+    
+    navigate(
+      `/${createSlug(category)}/${createSlug(subCategory)}/${createSlug(img.productName)}`,
+      { state: { product: img } }
+    );
   };
 
   const handleOptionsClick = (e) => {
@@ -19,7 +38,7 @@ const ProductCard = ({ img, setIsCartOpen, onOpenPopup }) => {
       {img && (
         <div className='main' style={{ cursor: 'pointer' }}>
           <div className="image-container">
-            {/* <img 
+            <img 
               className='image011' 
               src={img.productImages[0]?.url || 'https://via.placeholder.com/150'} 
               alt={img.productName} 
@@ -27,12 +46,7 @@ const ProductCard = ({ img, setIsCartOpen, onOpenPopup }) => {
                 e.target.onerror = null;
                 e.target.src = 'https://via.placeholder.com/150';
               }}
-            /> */}
-            <img 
-          className='image011' 
-          src={img.productImages[0]?.url || 'https://via.placeholder.com/150'} 
-          alt={img.productName} 
-        />
+            />
           </div>
           
           <div className="text-content">
@@ -40,13 +54,16 @@ const ProductCard = ({ img, setIsCartOpen, onOpenPopup }) => {
               {img.productName}
             </h4>
             
-            <p className="price-text mb-0" >
+            <p className="price-text mb-0">
               {img?.hasVariants ? (
                 <>
                   <span>Starting from: </span>
                   <br />
                   <span className='product-card-price'>
-                    Rs.{Math.min(...img.variants.flatMap(v => v.options.map(opt => opt.price.newPrice)))}
+                    Rs.{Math.min(
+                      ...img.variants.flatMap(v => 
+                        v.options.map(opt => opt.price.newPrice)
+                    ))}
                   </span>
                 </>
               ) : (

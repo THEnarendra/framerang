@@ -78,7 +78,7 @@ function App() {
           <Route path='/policies/terms-of-service' element={<TermsOfService setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/refund-policy' element={<RefundPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/shipping-policy' element={<ShippingPolicy setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
-          <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
+          <Route path='/:category/:subCategory/:productName' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} />
           {/* <Route path='/ProductPage' element={<ProductPage setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen} />} /> */}
           {/* <Route path='/infinite' element={<InfiniteScroll/>} /> */}
         </Routes>

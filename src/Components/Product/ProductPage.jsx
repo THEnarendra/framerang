@@ -153,26 +153,66 @@ export const ProductPage = ({ setFooter, setIsCartOpen }) => {
     setPopupProduct(null);
   };
 
+    const createSlug = (text) => {
+    if (!text) return '';
+    return text
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, '-')     // Spaces to hyphens
+      .replace(/[^\w-]+/g, '')  // Remove non-word chars
+      .replace(/--+/g, '-')     // Replace multiple hyphens
+      .trim();                  // Trim whitespace
+  };
+
+  const currentUrl = window.location.href; // Gets the actual visited URL
+  const categorySlug = createSlug(product?.category || '');
+  const subCategorySlug = createSlug(product?.subCategory || '');
+  const productSlug = createSlug(product?.productName || '');
+
   return (
     <>
      <Helmet>
     <title>{product.productName} | Frame Rang</title>
     <meta 
-      name="description" 
+      name="description"
       content={`${product.productName} - ${product.description?.substring(0, 160)}`} 
     />
     <meta 
       name="keywords" 
       content={`${product.productName}, custom frames, ${product.category}, poster frames, Frame Rang`} 
     />
-    <link rel="canonical" href={`https://www.framerang.com/products/${product.slug}`} />
+    <link rel="canonical" href={currentUrl} />
     
     {/* Open Graph (for social sharing) */}
     <meta property="og:title" content={`${product.productName} | Frame Rang`} />
     <meta property="og:description" content={product.description?.substring(0, 160)} />
     <meta property="og:image" content={product.productImages[0]?.url} />
-    <meta property="og:url" content={`https://www.framerang.com/products/${product.slug}`} />
+    <meta property="og:url" content={currentUrl} />
     <meta property="og:type" content="product" />
+
+      <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product.productName,
+        "description": product.description,
+        "image": product.productImages.map(img => img.url),
+        "brand": {
+          "@type": "Brand",
+          "name": "Frame Rang"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": currentUrl,
+          "priceCurrency": "INR",
+          "price": displayPrice,
+          "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+        }
+      })}
+    </script>
+    
   </Helmet>
 
 

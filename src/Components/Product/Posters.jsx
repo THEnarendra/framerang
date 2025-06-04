@@ -188,6 +188,8 @@ export const Posters = ({ setFooter, theme, setIsCartOpen }) => {
             {currentProducts.map((product) => (
               <Col style={{ padding: 6 }} lg={3} md={4} sm={12} xs={6} key={product.id}>
                 <ProductCard 
+                category={category}
+                subCategory={selectedSubCategory}
                 setIsCartOpen={setIsCartOpen} 
                 img={product} 
                 onOpenPopup={handleOpenPopup} />
