@@ -128,13 +128,23 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
 
         <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <Link
-            to="/track"
+            to="/trackOrder"
             className="link"
             style={{ color: theme === "darkTheme" ? "white" : "black" }}
           >
-            Track
+            Track Order
           </Link>
         </Col>
+
+        {/* <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
+          <Link
+            to="/orders"
+            className="link"
+            style={{ color: theme === "darkTheme" ? "white" : "black" }}
+          >
+            My Orders
+          </Link>
+        </Col> */}
 
         <Col
           style={{

@@ -9,7 +9,9 @@ import ContactUs from './Home/ContactUs';
 import { Cart } from './Home/Cart';
 import { Customize } from './Components/Product/Customizeposters';
 import CheckOut from './Home/CheckOut';
-import { Track } from './Home/Track';
+// import { Track } from './Home/Track';
+import TrackOrderPlaceholder from './Components/TrackOrderPlaceholder/TrackOrderPlaceholder';
+import OrderList from './Components/MyOrders/OrderList';
 import { Notification } from './Home/Notification';
 import PolicyPage from './Home/PolicyPage';
 import TermsOfService from './Terms&Conditions';
@@ -72,7 +74,9 @@ function App() {
           <Route path='/:category/:subCategory' element={<Posters setFooter={setFooter} theme={theme} setTheme={setTheme} setIsCartOpen={setIsCartOpen}/>}/>
           <Route path='/customize' element={<Customize setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/checkout' element={<CheckOut setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
-          <Route path='/Track' element={<Track setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          <Route path='/trackOrder' element={<TrackOrderPlaceholder setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
+          {/* <Route path='/Track' element={<Track setFooter={setFooter} theme={theme} setTheme={setTheme} />} /> */}
+          <Route path='/orders' element={<OrderList setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/Notification' element={<Notification setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/privacy-policy' element={<PolicyPage setFooter={setFooter} theme={theme} setTheme={setTheme} />} />
           <Route path='/policies/terms-of-service' element={<TermsOfService setFooter={setFooter} theme={theme} setTheme={setTheme} />} />

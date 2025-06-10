@@ -1,0 +1,203 @@
+/* Base Styles */
+.track-order-container {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Illustration */
+.maintenance-illustration {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  background: #f8f9fa;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gear {
+  position: absolute;
+  background: #4a6cf7;
+  border-radius: 50%;
+  animation: rotate 8s linear infinite;
+}
+
+.gear-1 {
+  width: 80px;
+  height: 80px;
+  top: 20px;
+  left: 20px;
+}
+
+.gear-2 {
+  width: 60px;
+  height: 60px;
+  top: 100px;
+  left: 120px;
+  animation-direction: reverse;
+}
+
+.gear-3 {
+  width: 40px;
+  height: 40px;
+  top: 140px;
+  left: 40px;
+}
+
+.tools {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ff6b6b;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+/* Typography */
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #7f8c8d;
+}
+
+/* Contact Card */
+.contact-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-card h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Buttons */
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.instagram-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(253, 29, 29, 0.2);
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Secondary Contacts */
+.secondary-contacts {
+  margin-top: 1.5rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.5rem;
+  color: #4a6cf7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: #3a56d4;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-top: 2rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin: 1rem auto;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a6cf7, #6a11cb);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .track-order-container {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .instagram-btn {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .maintenance-illustration {
+    width: 150px;
+    height: 150px;
+  }
+}
