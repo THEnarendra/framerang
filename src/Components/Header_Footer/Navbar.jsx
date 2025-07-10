@@ -77,7 +77,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
         </Col>
 
     {/* Posters */}
-        <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
+        {/* <Col className={isOpen ? "navMenu" : "navItems"} lg={1} md={12}>
           <div
             className="shop-section"
             onMouseEnter={() => setOpenCategory("main")}
@@ -111,7 +111,7 @@ const Navbar = ({ theme, setTheme, setIsCartOpen }) => {
               )}
             </Link>
           </div>
-        </Col>
+        </Col> */}
       
  
       
